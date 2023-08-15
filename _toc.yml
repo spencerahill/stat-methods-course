@@ -2,9 +2,14 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 
 format: jb-book
-root: intro
-chapters:
-- file: syllabus
-- file: markdown
-- file: notebooks
-- file: markdown-notebooks
+root: home
+parts: 
+  - caption: Course Information
+    chapters: 
+      - file: info/syllabus
+      - file: info/schedule
+  - caption: Lectures
+    numbered: 1
+    chapters:
+      - file: lectures/intro
+
