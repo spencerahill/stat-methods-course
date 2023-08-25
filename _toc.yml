@@ -8,8 +8,13 @@ parts:
     chapters: 
       - file: info/syllabus
       - file: info/schedule
+      - file: info/resources
   - caption: Lectures
     numbered: 1
     chapters:
       - file: lectures/intro
+  - caption: Assignments
+    numbered: 1
+    chapters:
+      - file: assignments/descriptive-statistics
 

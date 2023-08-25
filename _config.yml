@@ -10,9 +10,12 @@ logo: logo.png
 execute:
   execute_notebooks: force
 
+# MyST extensions.
 parse:
   myst_enable_extensions:
     - amsmath
+    - dollarmath
+  myst_dmath_double_inline: true
 
 # Define the name of the latex output file for PDF builds
 latex:

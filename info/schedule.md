@@ -4,133 +4,142 @@ Here you can find the subject matter and assigned reading for every class day as
 
 Please check back here frequently as the schedule is subject to change.
 
-The class meets on Fridays, 9:30am-12pm.
-
+```{list-table}
 :header-rows: 1
 :name: schedule
+:widths: 15 15 35 35
 
 * - Date (2023)
   - Class No.
   - Topic
   - Notes
-* - 8/25
+* - M 8/28
   - 1
-  - Course overview; Descriptive Statistics; Data Visualization
+  - [Course overview; Descriptive Statistics; Data Visualization](../lectures/intro)
   -
-* - 8/25
-  - 1
-  - [Earth's radiation budget](../lectures/radiation-budget)
-  -
-* - 8/30
+* - W 8/30
   - 2
-  - [Earth's radiation budget](../lectures/radiation-budget), continued.
+  - [Descriptive Statistics and Data Visualization part II](../lectures/intro)
   -
-* - 9/1
+* - M 9/4
+  - NO CLASS
+  - Happy Labor Day!
+  -
+* - W 9/6
   - 3
-  - The observed circulation
+  - TBD
   -
-* - 9/6
+* - M 9/11
   - 4
-  - The observed circulation, continued. [Decomposition of the circulation](../lectures/decomposing-circulation), introduction.
+  - TBD
   -
-* - 9/8
+* - W 9/13
   - 5
-  - [Decomposition of the circulation](../lectures/decomposing-circulation), continued
-  - [Assignment 1](../assignments/assignment-toa-budget) out, due in one week on 9/15
-* - 9/13
+  - TBD
+  -
+* - M 9/18
   - 6
-  - In-class clarifications on [Assignment 1](../assignments/assignment-toa-budget). [Decomposition of the circulation](../lectures/decomposing-circulation), completed.
+  - TBD
   -
-* - 9/15
+* - W 9/20
   - 7
-  - [Angular momentum budget](../lectures/angular-momentum-budget)
-  - [Assignment 1](../assignments/assignment-toa-budget) due! **Actual due date extended to Friday 9/16**
-
-* - 9/20
+  - TBD
+  -
+* - M 9/25
+  - NO CLASS
+  - Happy random CCNY holiday! 
+  -
+* - W 9/27
   - 8
-  - [Angular momentum budget: conservations and torques](../lectures/angular-momentum-budget)
+  - TBD
   -
-* - 9/22
+* - M 10/2
   - 9
-  - [Angular momentum budget: fluxes](../lectures/angular-momentum-budget)
+  - TBD
   -
-* - 9/27
+* - W 10/4
   - 10
-  - [Angular momentum budget: computing fluxes from CFSR data](../lectures/angular-momentum-budget)
+  - TBD
   -
-* - 9/29
+* - M 10/9
+  - NO CLASS
+  - Happy Columbus Day & Indigenous Peoples' Day!
+  -
+* - **T 10/10** *(note abnormal day of week)*
   - 11
-  - Energy budgets
+  - TBD
   -
-* - 10/4
+
+* - W 10/11
   - 12
-  - 
+  - TBD
   -
-* - 10/6
+* - M 10/16
   - 13
-  - Lorenz energy cycle
+  - TBD
   -
-* - 10/11
-  - Hadley circulation
-  -
-  - **NO CLASS** (Fall break)
-* - 10/13
+* - W 10/18
   - 14
-  - **MIDTERM EXAM**
+  - TBD
   -
-* - 10/18
+* - M 10/23
   - 15
-  - Planetary waves
+  - TBD
   -
-* - 10/20
+* - W 10/25
   - 16
+  - TBD
   -
-  -
-* - 10/25
+* - M 10/30
   - 17
-  - Wave-mean-flow interaction
+  - TBD
   -
-* - 10/27
+* - W 11/1
   - 18
+  - TBD
   -
-  -
-* - 11/1
+* - M 11/6
   - 19
-  - Storm tracks
+  - TBD
   -
-* - 11/3
+* - W 11/8
   - 20
+  - TBD
   -
-  -
-* - 11/8
+* - M 11/13
   - 21
-  - The ocean's role in atmospheric general circulation
+  - TBD
   -
-* - 11/10
+* - W 11/15
   - 22
+  - TBD
   -
-  -
-* - 11/15
+* - M 11/20
   - 23
-  - Arctic amplification and mid-latitude jets
+  - TBD
   -
-* - 11/17
+* - W 11/22
+  - NO CLASS
+  - Happy Thanksgiving!
+  -
+* - M 11/27
   - 24
+  - TBD
   -
-  -
-* - 11/22
+* - W 11/29
   - 25
-  - Tropical-extratropical linkages
+  - TBD
   -
-* - 11/24
-  -
-  -
-  - **NO CLASS** (Thanksgiving break)
-* - 11/29
+* - M 12/4
   - 26
-  - Class presentations
+  - TBD
   -
-* - 12/1
+* - W 12/6
   - 27
-  - Class presentations
+  - TBD
   -
+* - M 12/11
+  - 28
+  - TBD
+  -  
+```
