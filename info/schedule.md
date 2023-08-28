@@ -10,7 +10,7 @@ Please check back here frequently as the schedule is subject to change.
 :widths: 15 15 35 35
 
 * - Date (2023)
-  - Class No.
+  - Class number
   - Topic
   - Notes
 * - M 8/28
@@ -65,11 +65,10 @@ Please check back here frequently as the schedule is subject to change.
   - NO CLASS
   - Happy Columbus Day & Indigenous Peoples' Day!
   -
-* - **T 10/10** *(note abnormal day of week)*
+* - **T 10/10 2-3:15pm** *(note abnormal day of week)*
   - 11
   - TBD
   -
-
 * - W 10/11
   - 12
   - TBD
@@ -87,35 +86,35 @@ Please check back here frequently as the schedule is subject to change.
   - TBD
   -
 * - W 10/25
+  - MT1
+  - MIDTERM 1
+  -
+* - M 10/30
   - 16
   - TBD
   -
-* - M 10/30
+* - W 11/1
   - 17
   - TBD
   -
-* - W 11/1
+* - M 11/6
   - 18
   - TBD
   -
-* - M 11/6
+* - W 11/8
   - 19
   - TBD
   -
-* - W 11/8
+* - M 11/13
   - 20
   - TBD
   -
-* - M 11/13
+* - W 11/15
   - 21
   - TBD
   -
-* - W 11/15
-  - 22
-  - TBD
-  -
 * - M 11/20
-  - 23
+  - 22
   - TBD
   -
 * - W 11/22
@@ -123,23 +122,23 @@ Please check back here frequently as the schedule is subject to change.
   - Happy Thanksgiving!
   -
 * - M 11/27
-  - 24
+  - 23
   - TBD
   -
 * - W 11/29
-  - 25
+  - 24
   - TBD
   -
 * - M 12/4
-  - 26
-  - TBD
+  - 25
+  - Final project presentations (1st of 2)
   -
 * - W 12/6
-  - 27
-  - TBD
+  - 26
+  - Final project presentations (2nd of 2)
   -
 * - M 12/11
-  - 28
-  - TBD
+  - MT2
+  - MIDTERM 2
   -  
 ```

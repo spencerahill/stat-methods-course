@@ -10,11 +10,11 @@ parts:
       - file: info/schedule
       - file: info/resources
   - caption: Lectures
-    numbered: 1
+    numbered: 4
     chapters:
       - file: lectures/intro
   - caption: Assignments
-    numbered: 1
+    numbered: 4
     chapters:
       - file: assignments/descriptive-statistics
 

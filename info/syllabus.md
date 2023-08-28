@@ -1,32 +1,83 @@
 # Syllabus
 
-## EAS42000: Statistical Methods in Earth and Atmospheric Sciences
+## EAS 42000 / A4200: Statistical Methods in Earth and Atmospheric Sciences; Quantitative Data Analysis in Earth and Atmospheric Sciences
 
 ## Course Information
 
 - **Class Times**: Mondays and Wednesdays, 2:00-3:15pm
 - **Location**: Marshak 829
-- **Course Website**: https://spencerahill.github.io/stat-methods-course
+- **Course Website**: [https://spencerahill.github.io/stat-methods-course](https://spencerahill.github.io/stat-methods-course)
 - **Instructor**: Spencer Hill
-- **Email**: shill1@ccny.cuny.edu
-- **Office Hours**: Mondays and Wednesdays, 3:30-4:30pm, Marshak 733, and by appointment
+- **Email**: [shill1@ccny.cuny.edu](mailto:shill1@ccny.cuny.edu)
+- **Office Hours**: Mondays and Wednesdays 3:30-4:30pm, and by appointment, Marshak 733
 
 ## Course Description
 
-This course aims to provide you with a comprehensive understanding of statistical methods and their applications in Earth and Atmospheric Sciences.  We will explore topics such as descriptive statistics, probability, and time series analysis.  Emphasizing both theoretical foundations and practical skills, the course integrates lectures with interactive labs.
+This course aims to provide you with a comprehensive understanding of statistical methods and other tools for quantitative data analysis in the Earth and Atmospheric Sciences.  We will explore topics including descriptive statistics, probability, and time series analysis, among others.  Emphasizing both theoretical foundations and practical skills, the course integrates lectures with interactive labs.
 
 ## CCNY resources available to you
 
-### Food pantry
+### AccessAbility Center / Student Disability Services
 
-### Counseling
+The [AccessAbility Center/Student Disability Services](https://www.ccny.cuny.edu/accessability) ensures equal access and full participation to all of City College's programs, services, and activities by coordinating and implementing appropriate accommodations. If you are a student with a disability who requires accommodations and services, please visit the office in NAC 1/218, or contact AAC/SDS via email ([disabilityservices@ccny.cuny.edu](mailto:disabilityservices@ccny.cuny.edu), or phone (212-650-5913 or TTY/TTD 212-650-8441).
+
+### CCNY Writing Center
+
+The [CCNY Writing Center](https://www.ccny.cuny.edu/writing) offers a supportive learning environment where students can have one-on-one tutoring sessions with writing consultants.  It is a great resource for you to obtain extra help as you write and revise your papers.  They DO NOT proofread your papers, but offer assistance on improving certain aspects of them.  They also offer ESL tutoring.  To set up an appointment visit their [online booking system](https://www.ccny.cuny.edu/writing/appointments-walk-sessions), or call 212-784-6065.  I strongly advise you contact them as soon as possible, even if you don’t have anything specific you need assistance with yet.
+
+### SEEK Peer Academic Learning Center
+
+NAC 4/224
+
+Phone: 212-650-5786 | Email: [seekpals@ccny.cuny.edu](mailto:seekpals@ccny.cuny.edu)
+
+Offers counseling and peer tutoring for students in need of academic and financial support who have registered for the SEEK Program.
+
+### Benny's Food Pantry
+
+As a student, you are welcome to visit [Benny’s Pantry](https://www.ccny.cuny.edu/bennysfoodpantry) whenever you or someone you care for is in need. Benny’s serves as a resource to anyone who finds themselves in need throughout the year. 
+
+In addition to providing food assistance, Benny’s Pantry is a gateway to connect students and their families, faculty, and staff to critical support services such as: 
+
+- SNAP benefits;
+- Emergency grants through referrals to the Colin Powell School (for CPS Majors), OIAC, or Student Affairs, depending on the type of need; 
+- Emergency housing referrals; 
+- Job preparation and training through referrals to our CPDI team;
+- Health workshops and nutrition training, co-sponsored as part of our World Food Day Initiatives and food pantry demo days throughout the year.
+
+### Service Desk
+
+The [CCNY Service Desk](https://www.ccny.cuny.edu/it/help) is IT’s point of contact for students who need help with services such as Blackboard, CUNYfirst, and Citymail. 
+
+### Laptop Loaner Program
+
+The City College Office of Information Technology provides a [laptop loaner program](https://portal.ccny.cuny.edu/depts/oit/cuny_loaner/login.php) for current CCNY students. The program is funded by the CCNY Student Technology Fee. The laptops are internally equipped with WiFi for use where wireless access exists. Wireless networking is available throughout much of the campus. All laptops are loaded with MS Office, Adobe Acrobat, as well as other CCNY-approved software. This program is designed for experienced computer users who are able to use the installed applications. Please note: you must be logged into WiFi for some software to be fully operational.
+
+### Other Student Resources
+
+There are many more services available to you listed on [this website](https://ourtlc.commons.gc.cuny.edu/syllabus-statements/#other_student_resources).  They include:
+
+- [Tutoring Services](https://www.ccny.cuny.edu/academics/tutoring)
+- [International Student and Scholar Services](https://www.ccny.cuny.edu/isss)
+- [LGBTQ+ Student Center](https://www.ccny.cuny.edu/lgbtq-student-center)
+- [Counseling Center](https://www.ccny.cuny.edu/counseling)
+- [Gender Resources](https://www.ccny.cuny.edu/health-wellness/gender-resources)
+- [Office of Diversity and Compliance](https://www.ccny.cuny.edu/affirmativeaction)
+- [The Psychological Center](https://www.thepsychologicalcenter.org/)
+- [Emergency Grants](https://www.ccny.cuny.edu/health-wellness/emergency-grants-program)
+- [Housing Insecurity and Homelessness Resources](https://www.healthycuny.org/resources-housing-homelessness)
+- [Reduced Cost Transportation](https://www1.nyc.gov/assets/fairfares/downloads/pdf/application/Fair-Fares-Application-English.pdf)
+- [CARE (Communication, Action, Response, Evaluation) Team](https://www.ccny.cuny.edu/studentaffairs/care-team)
+- [City College Immigration Center](https://www.ccny.cuny.edu/we-are-one-ccny/city-college-immigration-center)
+- [Career and Professional Development Institute](https://www.ccny.cuny.edu/cpdi)
+- [CCNY Child Development Center](https://www.ccny.cuny.edu/cdc)
+- [Student Health Services](https://www.ccny.cuny.edu/shs)
 
 ## Grading
 
 ```{list-table}
 :header-rows: 1
 :name: grading
-:widths: 15 15 35 35
 
 * - Category
   - Percentage
@@ -63,12 +114,27 @@ https://ccny.textbookx.com/institutional/index.php?action=browse#books/3839699/
 
 ## Academic Integrity
 
-### General
-Academic integrity is a fundamental value of CCNY, and adherence to its principles is vital for a meaningful learning experience. Students are expected to complete all assignments, exams, and projects with honesty and integrity. Plagiarism, cheating, or other forms of academic misconduct will not be tolerated. Violations will result in disciplinary actions, which may include a failing grade for the assignment, failure of the course, or further institutional penalties. It is the responsibility of each student to be familiar with and uphold the Academic Integrity Policies of CCNY ([here](https://www.ccny.cuny.edu/academicaffairs/academic-integrityacademic-standards)) and of the City University of New York ([here](https://www.cuny.edu/about/administration/offices/legal-affairs/policies-resources/academic-integrity-policy/)). Collaboration and discussion with peers are encouraged within the bounds defined by the instructor, but all submitted work must be the student's original effort.
+### Student Code of Conduct
+
+All student members of the College community are expected to conduct themselves in a manner that demonstrates mutual respect for the rights and personal/academic well-being of others, preserves the integrity of the social and academic environment, and supports the mission of the College.  The College has an inherent right to address behavior that impedes, obstructs, or threatens the maintenance of order and attainment of the aforementioned goals by violating the standards of conduct set forth in the University student conduct policies noted below as well as other policies that may established by the respective Schools, Global Sites, and administrative offices of the University.  
+
+The goals of the [CCNY Community Standards](https://www.ccny.cuny.edu/studentaffairs/community-standards) are:
+
+1. To promote a campus environment that supports the overall educational mission of the University
+2. To protect the University community from disruption and harm
+3. To encourage appropriate standards of individual and group behavior
+4. To foster ethical values and civic virtues
+5. To foster personal learning and growth while at the same time holding individuals and groups accountable to the standards of expectations established by the Code of Conduct
+
+[Article XV](https://policy.cuny.edu/bylaws/article-xv/)
+
+### Plagiarism and Academic Integrity
+
+Plagiarism is copying and using other people’s words without proper acknowledgment or citation as it is indicated in the CUNY Policy on Academic Integrity.  All writing submitted for this course is understood to be your original work written.  Plagiarism is unacceptable and has serious consequences that can include a failing grade.  In cases where I detect academic dishonesty (the fraudulent submission of another’s work, in whole or part, as your own), you may be subject to a failing grade for the project or the course, and in the worst case, to academic probation or expulsion. You are expected to read, understand, and adhere to [CCNY’s Policy on Academic Integrity](http://www.cuny.edu/about/administration/offices/legal-affairs/policies-resources/academic-integrity-policy/).
 
 ### ChatGPT and other AI tools
 
-`With great power comes great responsibility.` --Spider Man(?)
+`With great power comes great responsibility.` --Spider Man
 
 (Just in case you're not familiar, [ChatGPT](https://chat.openai.com) is an artificial intelligence (AI) tool (specifically, a "large language model" or LLM) that is extremely powerful.  In response to questions written in plain english, it can for example write whole essays, generate snippets of computer code, or explain technical concepts.  There are other similar LLM tools available as well, but for brevity I'll use ChatGPT as shorthand for any such tool.)
 

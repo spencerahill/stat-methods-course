@@ -15,6 +15,7 @@ parse:
   myst_enable_extensions:
     - amsmath
     - dollarmath
+  myst_url_schemes: [mailto, http, https]
   myst_dmath_double_inline: true
 
 # Define the name of the latex output file for PDF builds
