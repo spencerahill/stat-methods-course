@@ -2,6 +2,8 @@
 
 There are *tons* of resources available online that will help you in learning statistical methods.  Here are a few that have come to my attention that may be particularly useful.
 
+Note that this will be amended / added to as the semester goes on.  And if you have something you find valuable that isn't on here, please share it! 
+
 ## Textbooks and lecture notes
 
 * DelSole and Tippett

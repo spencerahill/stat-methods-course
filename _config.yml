@@ -10,6 +10,9 @@ logo: logo.png
 execute:
   execute_notebooks: force
 
+# Only build files listed in the TOC (i.e. exclude unfinished/"draft" files)
+only_build_toc_files: true
+
 # MyST extensions.
 parse:
   myst_enable_extensions:
