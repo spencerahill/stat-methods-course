@@ -15,11 +15,11 @@ Please check back here frequently as the schedule is subject to change.
   - Notes
 * - M 8/28
   - 1
-  - [Course overview; Descriptive Statistics; Data Visualization](../lectures/intro)
+  - Course overview; [syllabus](./syllabus); [Numeracy](../lectures/intro)
   -
 * - W 8/30
   - 2
-  - [Descriptive Statistics and Data Visualization part II](../lectures/intro)
+  - [Descriptive Statistics part I](../lectures/intro)
   -
 * - M 9/4
   - NO CLASS
@@ -27,39 +27,39 @@ Please check back here frequently as the schedule is subject to change.
   -
 * - W 9/6
   - 3
-  - TBD
+  - [Descriptive Statistics part II](../lectures/intro)
   -
 * - M 9/11
   - 4
-  - TBD
-  -
+  - Python bootcamp
+  - Homework #1 (HW1) assigned 
 * - W 9/13
   - 5
   - TBD
   -
 * - M 9/18
   - 6
-  - TBD
-  -
+  - Probability part I
+  - **HW1 due** (by 11:59pm ET)
 * - W 9/20
   - 7
-  - TBD
-  -
+  - Probability part II
+  - HW2 assigned
 * - M 9/25
   - NO CLASS
   - Happy random CCNY holiday! 
   -
 * - W 9/27
   - 8
-  - TBD
-  -
+  - Hypothesis testing I
+  - **HW2 due**
 * - M 10/2
   - 9
-  - TBD
-  -
+  - Hypothesis testing II
+  - HW3 assigned
 * - W 10/4
   - 10
-  - TBD
+  - Hypothesis testing; "lab" day
   -
 * - M 10/9
   - NO CLASS
@@ -67,23 +67,23 @@ Please check back here frequently as the schedule is subject to change.
   -
 * - **T 10/10 2-3:15pm** *(note abnormal day of week)*
   - 11
-  - TBD
+  - Data visualization I 
   -
 * - W 10/11
   - 12
-  - TBD
-  -
+  - Data visualization II
+  - **HW3 due**; HW4 assigned
 * - M 10/16
   - 13
-  - TBD
+  - Linear regression I
   -
 * - W 10/18
   - 14
-  - TBD
-  -
+  - Linear regression II
+  - **HW4 due**; HW5 assigned
 * - M 10/23
   - 15
-  - TBD
+  - Review session for Midterm 1
   -
 * - W 10/25
   - MT1
@@ -91,28 +91,28 @@ Please check back here frequently as the schedule is subject to change.
   -
 * - M 10/30
   - 16
-  - TBD
+  - Extreme value analysis I
   -
 * - W 11/1
   - 17
-  - TBD
-  -
+  - Extreme value analysis II
+  - **HW5 due**; HW6 assigned
 * - M 11/6
   - 18
-  - TBD
+  - Time series analysis I
   -
 * - W 11/8
   - 19
-  - TBD
-  -
+  - Time series analysis II
+  - **HW6 due**; HW7 assigned
 * - M 11/13
   - 20
-  - TBD
+  - Principal component analysis I
   -
 * - W 11/15
   - 21
-  - TBD
-  -
+  - Principal component analysis II
+  - **HW7 due**; HW8 assigned
 * - M 11/20
   - 22
   - TBD
@@ -123,11 +123,11 @@ Please check back here frequently as the schedule is subject to change.
   -
 * - M 11/27
   - 23
-  - TBD
-  -
+  - Cluster analysis
+  - **HW8 due**
 * - W 11/29
   - 24
-  - TBD
+  - Review session for Midterm 2
   -
 * - M 12/4
   - 25
