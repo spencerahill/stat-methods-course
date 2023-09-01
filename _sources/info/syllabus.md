@@ -1,28 +1,25 @@
 # Syllabus
 
-## EAS 42000: Statistical Methods in Earth and Atmospheric Sciences
-
-## EAS A4200: Quantitative Data Analysis in Earth and Atmospheric Sciences
-
-Note that, although the undergraduate (42000) and Master's (A4200) sections of this course have different names ("Statistical Methods" and "Quantitative Data Analysis" respectively), the two are taught together and other than the title are completely identical.
+## EAS 42000/A4200: Statistical Methods in Earth and Atmospheric Sciences
+Note that, although the undergraduate (42000) and Master's (A4200) sections of this course have different names ("Statistical Methods" and "Quantitative Data Analysis" respectively), the two are taught together and other than the title are completely identical.  For brevity I'll refer to both just as "Statistical Methods in Earth and Atmospheric Sciences."
 
 [The class is also cross-listed in the CUNY Graduate Center [Department of Earth and Environmental Sciences](https://www.gc.cuny.edu/earth-and-environmental-sciences) (as EES 79903-45781) for their Ph.D. students, but as of writing this there are no students enrolled this semester that way.]
-## Course Information
 
+## Course Information
 - **Class Times**: Mondays and Wednesdays, 2:00-3:15pm; full schedule [here](./schedule).
 - **Location**: Marshak 829.  This is a very large computer lab; please sit in the first two rows on the left-hand-side (when facing the front of the room).  It also tends to be very cold, and I can't control the temperature...consider bringing a sweatshirt!
 - **Course Website**: [https://spencerahill.github.io/stat-methods-course](https://spencerahill.github.io/stat-methods-course)
 - **Instructor**: [Spencer Hill](https://www.ccny.cuny.edu/profiles/spencer-hill), Assistant Professor, CCNY Dept. of Earth and Atmospheric Sciences
 - **Email**: [shill1@ccny.cuny.edu](mailto:shill1@ccny.cuny.edu)
-- **Office Hours**: Mondays and Wednesdays, from just after class to 4:30pm, and by appointment, Marshak 733.
+- **Office Hours**: Mondays and Tuesdays, 3:30 to 4:30pm, and by appointment, Marshak 733.
 
 ## Course Description
-
 This course aims to provide you with a comprehensive understanding of statistical methods and other tools for quantitative data analysis in the Earth and Atmospheric Sciences.  We will explore topics including descriptive statistics, probability, and time series analysis, among others.  We will provide the necessary theoretical foundations for each technique introduced, but the bigger emphasis is on actually implementing and using them: by semester's end, you should be equipped with a functioning "toolbox" of statistical/quantitative tools that you both understand conceptually and can actually apply to problems you face in your research or other coursework. 
 
 ## Grading
+Your grade (A+ through F) will be based on the following four categories: homework, participation, two midterm exams, and a final project.  The percentage breakdown of the total into each category is listed in the table below, followed by more in-depth explanations of each category.
 
-Your grade (A through F) will be based on the following four categories: homework, participation, two midterm exams, and a final project.  The percentage breakdown of the total into each category is listed in the table below, followed by more in-depth explanations of each category.
+There is no pre-set distribution of grades or "curve" across the class: you are not competing against your classmates, and my ideal scenario would be where every student excels and gets an A or A+.  The final grades will be curved, however, in the sense that an A grade won't necessarily fall into the standard 90-100% numerical score range, etc.  Why?  Since this is the first time the course is being taught, it's possible that scores will be higher or lower than the standard ranges (90-100% for A, 80-90% for B, etc.) overall, and at the end of the semester I will adjust all grades in the class accordingly.  But every grade will be shifted in the same direction by this process: again, you will *not* be penalized/rewarded based on how other students perform, and so it's only to your benefit to communicate with your classmates and try to help each other out. 
 
 ```{list-table}
 :header-rows: 1
@@ -41,7 +38,14 @@ Your grade (A through F) will be based on the following four categories: homewor
 ```
 
 ### Homework (20%)
-There will be homework assignments most weeks.  These will be submitted as [Jupyter Notebooks](https://jupyter.org/).  More instructions will follow.  (Don't worry if you've never used Jupyter before; one of the earliest class sessions will be devoted to getting everybody spun up on it.) 
+There will be homework assignments most weeks.  These will be submitted as [Jupyter Notebooks](https://jupyter.org/).  More instructions will follow.  (Don't worry if you've never used Jupyter before; one of the earliest class sessions will be devoted to getting everybody spun up on it.)
+
+The due date for each homework assignment will be announced when the assignment is given out to you.  An assignment is considered on time as long as you submit it before the end of that calendar day (i.e. by 11:59 pm).  For each day it is late, 10% is subtracted from the grade you'd receive otherwise.  So, for example, two days late = 20% deducted.
+
+You automatically get one no-questions-asked extension over the course of the semester that can be for up to five days from the standard due date.  You can pick any assignment to apply this to; just email me prior to the due date to cash it in.  You can request extensions after the due date, but you will still be docked the points according to how late the request was made.  For example, suppose the assignment was due Monday, and you were behind on it, and then on Wednesday something comes up that will prevent you from finishing it until Friday.  If you make your request that day, then you can earn a maximum score of 80%. 
+
+For extensions after this "freebie", please email me or talk to me before/after class or during office hours *as soon as possible*, including an explanation for why you need it.  These will be considered on a case-by-case basis.  I ask that you act in good faith, and only request one when there are genuinely circumstances beyond your control (illness, emergency), rather than you just got kind of busy that week.  In return, I promise to listen to all of your requests in good faith!  Don't forget that all the assignments *combined* are only worth 20% of your grade...one bad score won't wreck you.
+
 
 ### Participation (10%)
 I will track in-class participation over the course of the semester.  This includes attending lectures, raising your hand to ask questions or to answer questions posed to the class, and meaningfully engaging with your classmates during breakout segments of class.
@@ -49,6 +53,8 @@ I will track in-class participation over the course of the semester.  This inclu
 It can be daunting to ask questions or volunteer an answer...but learning to overcome this fear and be willing to ask for help or risk being "wrong" is crucial!  Both for your own intellectual development and for the class atmosphere.  This is meant to be a very active and interactive course, not a one-way lecture.  That requires your active participation.
 
 In terms of the grade, this determination of participation is inherently subjective to some extent.  So, for example, you won't help yourself out by simply raising your hand constantly and asking questions just for the sake of asking them...the adage "quality over quantity" applies here.  That said, if you rarely come to class, are checked out doing things on your phone or laptop the whole time, and never ask a question or offer an answer, that's not good.
+
+Note that I see this primarily as an opportunity to bump grades slightly up (from say a B+ to an A-), not down.  At the end of the day, if you get excellent scores on your assignments, midterms, and final project, but don't participate all that much, I wouldn't bump your grade down on that basis alone.  More realistic is if you did say B-grade
 
 ### Midterms (40% total; 25% midterm 1, 15% midterm 2)
 There will be two midterms, the first covering material from roughly the first 60% of the semester, and the second covering roughly the remaining 40% (and only that 40%; the second exam is not cumulative).  These will be open-note but in-person, pencil-and-paper *only* exams (no calculators, computers, phones, etc.).
@@ -105,7 +111,7 @@ We live now firmly in the "ChatGPT" era.  There's no getting around it.
 
 Specifically for this course on Statistical **Methods**---where we're building up a toolkit of techniques you can use in your research and other courses---ChatGPT represents in some ways a master tool, a way to very rapidly learn about new tools, or clarify confusion about one or the other, or generate code that helps you implement a new one.  Moreover, ChatGPT and related models will only get better as we move into the future, making them more and more powerful.  It's not hard to imagine a future, even within the next few years, where even highly technical work like research in the Earth Sciences becomes more than anything simply telling an LLM what you want it to do.
 
-Setting that aside and returning to the present, for learning and teaching this presents a double-edged sword.  On the one hand, I encourage you to use ChatGPT in whatever capacity that is helpful to your **learning**.  In fact there will be some class time during the semester devoted specifically to teaching you how to use it effectively.  On the other hand, in this and other courses, having a tool that can churn out a decent essay, spit out the computer code, or solve the calculation you've been assigned, can be a serious crutch.  You simply will not learn the material if you just ask ChatGPT to do it for you.
+Setting that aside and returning to the present, for learning and teaching this presents a double-edged sword.  On the one hand, I encourage you to use ChatGPT in whatever capacity that is helpful to your **learning**.  In fact there will be some class time during the semester devoted specifically to teaching you how to use it effectively.  On the other hand, in this and other courses, having a tool that can churn out a decent essay, spit out the computer code, or solve the calculation you've been assigned, can be a serious crutch.  You simply will not learn the material if you just ask ChatGPT to do it for you.  (One potentially useful indicator that it's becoming a crutch is: (a) you use ChatGPT on your homework assignments AND (b) you score much worse on the in-class, pencil-and-paper midterms than you do on the homework assignments.)
 
 For those reasons, I will permit and even encourage you to use ChatGPT in any assignments I give you.   And I'm not going to ask you to disclose if you used it, or if you worked with another student (which you're always free to do), etc.  (This does not apply to in-class exams, quizzes, etc. for which I will explicitly state that you are not to use it.)
 
