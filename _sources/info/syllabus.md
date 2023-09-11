@@ -37,6 +37,7 @@ There is no pre-set distribution of grades or "curve" across the class: you are 
   - 30% (15% submitted report; 15% in-class presentation)
 ```
 
+(syllabus:hw)=
 ### Homework (20%)
 There will be homework assignments most weeks.  These will be submitted as [Jupyter Notebooks](https://jupyter.org/).  More instructions will follow.  (Don't worry if you've never used Jupyter before; one of the earliest class sessions will be devoted to getting everybody spun up on it.)
 
