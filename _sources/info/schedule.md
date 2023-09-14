@@ -31,19 +31,19 @@ Please check back here frequently as the schedule is subject to change.
   -
 * - M 9/11
   - 4
-  - Python bootcamp
+  - Python bootcamp part I
   - **Please bring your laptop with you to class!**  Homework #1 (HW1) assigned 
 * - W 9/13
   - 5
-  - TBD
+  - Python bootcamp part II
   -
 * - M 9/18
   - 6
-  - Probability part I
+  - Probability I
   - 
 * - W 9/20
   - 7
-  - Probability part II
+  - Probability II
   - **HW1** [**due**](syllabus:hw); HW2 assigned
 * - M 9/25
   - NO CLASS

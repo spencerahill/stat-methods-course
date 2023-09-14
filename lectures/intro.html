@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>1. Introduction to this course; “numeracy” &#8212; Statistical</title>
+    <title>1. Introduction to Statistical Methods in Earth and Atmospheric Sciences &#8212; Statistical</title>
   
   
   
@@ -61,6 +61,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/intro';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -164,7 +166,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Introduction to this course; “numeracy”</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Introduction to <em>Statistical Methods in Earth and Atmospheric Sciences</em></a></li>
 <li class="toctree-l1"><a class="reference internal" href="descriptive-statistics.html">2. Descriptive Statistics</a></li>
 
 
@@ -177,7 +179,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../assignments/hw-descriptive-statistics.html">1. Homework Assignment #1: Writing key quantities from descriptive statistics in Python yourself</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/hw-descriptive-statistics.html">1. Writing key quantities from descriptive statistics in Python yourself</a></li>
 </ul>
 
     </div>
@@ -361,7 +363,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Introduction to this course; “numeracy”</h1>
+    <h1>Introduction to Statistical Methods in Earth and Atmospheric Sciences</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -371,14 +373,20 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-statistical-methods-and-why-do-we-need-them">1.1. What are “statistical methods,” and why do we need them?</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical">1.1.1. “Statistical”</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#methods">1.1.2. “Methods”</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#in-earth-and-atmospheric-sciences">1.1.3. “in Earth and Atmospheric Sciences”</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-this-and-who-is-it-for">1.1. What is this and who is it for?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-statistical-methods-and-why-do-we-need-them-in-earth-and-atmospheric-sciences">1.2. What are “statistical methods,” and why do we need them in Earth and atmospheric sciences?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical">1.2.1. “Statistical”</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#methods">1.2.2. “Methods”</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#in-earth-and-atmospheric-sciences">1.2.3. “in Earth and Atmospheric Sciences”</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-care-about-statistics-at-all">1.2. Why care about statistics at all?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numeracy">1.3. Numeracy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-care-about-statistics-at-all">1.3. Why care about statistics at all?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numeracy">1.4. Numeracy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-numeracy-is">1.4.1. What numeracy is</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numeracy-made-up-example-a-severe-storm-and-climate-change">1.4.2. Numeracy (made-up) example: a severe storm and climate change</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lies-damned-lies-and-statistics">1.4.3. Lies, damned lies, and statistics</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -390,19 +398,24 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <p><strong>Note that this lecture is currently incomplete; if you come back to the page and this message is gone, you can consider it complete.</strong></p>
-<section class="tex2jax_ignore mathjax_ignore" id="introduction-to-this-course-numeracy">
-<h1><span class="section-number">1. </span>Introduction to this course; “numeracy”<a class="headerlink" href="#introduction-to-this-course-numeracy" title="Permalink to this heading">#</a></h1>
-<section id="what-are-statistical-methods-and-why-do-we-need-them">
-<h2><span class="section-number">1.1. </span>What are “statistical methods,” and why do we need them?<a class="headerlink" href="#what-are-statistical-methods-and-why-do-we-need-them" title="Permalink to this heading">#</a></h2>
-<p>To address this, let’s breakdown the course title into three pieces:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-statistical-methods-in-earth-and-atmospheric-sciences">
+<h1><span class="section-number">1. </span>Introduction to <em>Statistical Methods in Earth and Atmospheric Sciences</em><a class="headerlink" href="#introduction-to-statistical-methods-in-earth-and-atmospheric-sciences" title="Permalink to this heading">#</a></h1>
+<section id="what-is-this-and-who-is-it-for">
+<h2><span class="section-number">1.1. </span>What is this and who is it for?<a class="headerlink" href="#what-is-this-and-who-is-it-for" title="Permalink to this heading">#</a></h2>
+<p>Welcome to these lecture notes on Statistical Methods in Earth and Atmospheric Sciences.  These cover the material for a semester-length course taught at <a class="reference external" href="https://www.ccny.cuny.edu/">The City College of New York</a> (CCNY) in the <a class="reference external" href="https://www.ccny.cuny.edu/eas">Department of Earth and Atmospheric Sciences</a> (EAS).  They were originally written by myself, <a class="reference external" href="https://shill.ccny.cuny.edu/">Spencer Hill</a>, in Fall 2023, while teaching this course for the first time.</p>
+<p>The course is open to CCNY undergraduate students in EAS and other departments (as EAS 42000), EAS Masters students (as EAS A4200), and to PhD students in the <a class="reference external" href="https://www.cuny.edu/">City <em>University</em> of New York</a> <a class="reference external" href="https://www.gc.cuny.edu/">Graduate Center</a> <a class="reference external" href="https://www.gc.cuny.edu/earth-and-environmental-sciences">Department of Earth and Environmental Sciences</a> (as EES 79903-45781).  For both Masters and PhD students, the official course title replaces “Stastical Methods” with “Quantitative Data Analysis.”</p>
+<p>That said, anybody—including you reading this now—are welcome to use any/all of these materials in your own teaching or learning.  As you do, you are free to modify your version of them however you see fit.  And I encourage you to suggest any changes or improvements—or even submit a pull request that would implement them—to the Github repository where they live, which you can access via <a class="reference external" href="https://github.com/spencerahill/stat-methods-course">this link</a> or via the <a class="reference external" href="https://octodex.github.com/original/">“Octocat”</a> silhouette logo at the top of this page.</p>
+</section>
+<section id="what-are-statistical-methods-and-why-do-we-need-them-in-earth-and-atmospheric-sciences">
+<h2><span class="section-number">1.2. </span>What are “statistical methods,” and why do we need them in Earth and atmospheric sciences?<a class="headerlink" href="#what-are-statistical-methods-and-why-do-we-need-them-in-earth-and-atmospheric-sciences" title="Permalink to this heading">#</a></h2>
+<p>To address this, let’s split the course title into three pieces:</p>
 <ol class="arabic simple">
-<li><p>“Statistical”</p></li>
-<li><p>“Methods”</p></li>
-<li><p>“in Earth and Atmospheric Sciences”</p></li>
+<li><p><strong>Statistical</strong></p></li>
+<li><p><strong>Methods</strong></p></li>
+<li><p><strong>in Earth and Atmospheric Sciences</strong></p></li>
 </ol>
 <section id="statistical">
-<h3><span class="section-number">1.1.1. </span>“Statistical”<a class="headerlink" href="#statistical" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">1.2.1. </span>“Statistical”<a class="headerlink" href="#statistical" title="Permalink to this heading">#</a></h3>
 <p>Imagine a very simple dataset: “Whether or not it rained more than one foot in Central Park on August 15, 2023”.  It consists of a single value: <code class="docutils literal notranslate"><span class="pre">No</span></code> (you can take my word for it).</p>
 <p>We don’t need anything complicated to characterize it.  As the saying goes, in this rather odd instance, the data “speaks for itself.”</p>
 <p>Now let’s look at a more realistic dataset: the actual daily precipitation as measured by the <a class="reference external" href="https://w1.weather.gov/data/obhistory/KNYC.html">Central Park weather station</a>.  This record spans from the year 1869 to today.  Does this data “speak for itself”?</p>
@@ -4482,8 +4495,15 @@ document.write(`
 </div>
 </div>
 </div>
-<p>That’s definitely way too much for the data to “speak for itself”.  In fact, that’s true for anything more than one or two data points.  Moreover, while more than 50,000 data points may sound like a lot, in the Earth Sciences it’s not uncommon to work with datasets with millions or even billions of points.</p>
-<p>Pretty much always, we need to translate our raw data into digestible chunks: individual numbers and plots that capture key things about the dataset we want to know.  And that’s exactly what statistics provides.</p>
+<p>One thing that does immediately pop out is that a lot of the values are exactly zero.  That makes sense—in New York City at least, most days don’t have any rain.</p>
+<p>But beyond that single inference, clearly there’s just way too much for the data to “speak for itself”.  In fact, that’s true for anything more than a few data points.  Moreover, while more than 50,000 data points may sound like a lot, in the Earth Sciences it’s not uncommon to work with datasets with billions of values.</p>
+<div class="admonition-an-example-of-a-much-bigger-dataset admonition">
+<p class="admonition-title">An example of a <strong>much</strong> bigger dataset</p>
+<p>For example, consider one of the modern <a class="reference external" href="https://en.wikipedia.org/wiki/Atmospheric_reanalysis"><em>reanalysis</em></a> datasets widely used by atmospheric scientists, meteorologists, and climate scientists (specifically, <a class="reference external" href="https://www.ecmwf.int/en/forecasts/dataset/ecmwf-reanalysis-v5">ERA5</a> produced by the European Centre for Medium-Range Weather Forecasts), which provides estimates of past weather conditions all over the globe.  This dataset outputs data on a regular latitude-longitude grid with spacing of 0.25<span class="math notranslate nohighlight">\(^\circ\)</span> in latitude and 0.25<span class="math notranslate nohighlight">\(^\circ\)</span> in longitude between points.  So that’s <code class="docutils literal notranslate"><span class="pre">360</span> <span class="pre">/</span> <span class="pre">0.25</span> <span class="pre">=</span> <span class="pre">1440</span></code> longitude points, <code class="docutils literal notranslate"><span class="pre">180</span> <span class="pre">/</span> <span class="pre">0.25</span> <span class="pre">=</span> <span class="pre">720</span></code> latitude points, and thus a lat-lon grid of <code class="docutils literal notranslate"><span class="pre">1440</span> <span class="pre">x</span> <span class="pre">720</span> <span class="pre">=</span> <span class="pre">1,036,800</span></code>, i.e. just over a million points.</p>
+<p>But that’s for one single variable at one single time!  ERA5 provides values <em>every hour</em> of <em>dozens</em> of variables spanning from 1950 to essentially the present.  So, picking just one of these fields, that’s <code class="docutils literal notranslate"><span class="pre">(24</span> <span class="pre">hours</span> <span class="pre">/</span> <span class="pre">day)</span> <span class="pre">x</span> <span class="pre">(365.25</span> <span class="pre">days</span> <span class="pre">/</span> <span class="pre">year)</span> <span class="pre">x</span> <span class="pre">(73</span> <span class="pre">years)</span> <span class="pre">=</span> <span class="pre">639,918</span></code> values in time at each lat-lon gridpoint, for a total of <code class="docutils literal notranslate"><span class="pre">1,036,800</span> <span class="pre">x</span> <span class="pre">639,918</span> <span class="pre">=</span> <span class="pre">663,466,982,400</span></code> data points!  So that’s over 660 billion values per variable!</p>
+<p>(And many atmospheric variables like temperature, wind speed, and humidity, are defined not just at Earth’s surface or a single level, but on as many as 37 levels extending from near the surface to high up into the stratosphere.  So for those you’re well over a <em>trillion</em> values per variable.)</p>
+</div>
+<p><strong>Upshot</strong>: Pretty much always, we need to translate our raw data into digestible chunks: individual numbers and plots that capture key things about the dataset we want to know.  And that’s exactly what statistics provides.</p>
 <p>Maybe that’s being unfair.  Of course “speak for itself” doesn’t mean dumping the numerical values out, it means plotting them!  So let’s try that:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -4529,22 +4549,6 @@ document.write(`
 <img alt="../_images/0441118f3de75c51ec1ab39aefabb6540766aaeba6869ed7cdea2d078e4d2d70.png" src="../_images/0441118f3de75c51ec1ab39aefabb6540766aaeba6869ed7cdea2d078e4d2d70.png" />
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">precip_central_park</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="s2">&quot;2021&quot;</span><span class="p">,</span> <span class="s2">&quot;2021&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;daily precip [inches]&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;daily precip [inches]&#39;)
-</pre></div>
-</div>
-<img alt="../_images/08d3f55d233da7f9dcd576e53d0db9682829e71101d986439cafa52ed5fcad42.png" src="../_images/08d3f55d233da7f9dcd576e53d0db9682829e71101d986439cafa52ed5fcad42.png" />
-</div>
-</div>
 <p>Much better.  There’s now quite a lot we can infer, right away:</p>
 <ul class="simple">
 <li><p>The highest value ever recorded was over 8 inches, somewere just after 1880</p></li>
@@ -4558,7 +4562,7 @@ document.write(`
 <li><p>Despite the overall “jumpiness,” and lack of strong seasonality, are there discernible cycles (e.g. every four weeks, three years or 2 decades) where values tend to be higher or lower than the long-term average?</p></li>
 </ul>
 <p>AND we haven’t actually let the data speak for itself: we chose to plot it in a particular way, as a timeseries.  But there are other ways, and these change what things you can and can’t infer!</p>
-<p>Let’s compare this to the dailly average air temperature data from the same Central Park dataset:</p>
+<p>Let’s compare this to the daily average air temperature data from the same Central Park dataset:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temp_central_park</span> <span class="o">=</span> <span class="n">ds_central_park</span><span class="p">[</span><span class="s2">&quot;temp_avg&quot;</span><span class="p">]</span>
@@ -4571,36 +4575,24 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">temp_central_park</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;daily temperature [Fahrenheit]&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;date&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;daily temperature [$^\circ$F]&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;daily temperature [Fahrenheit]&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;daily temperature [$^\\circ$F]&#39;)
 </pre></div>
 </div>
-<img alt="../_images/ce8128cc9e521b67d9951970cc3f947671a5a580758b299d2c792cbdc7859d33.png" src="../_images/ce8128cc9e521b67d9951970cc3f947671a5a580758b299d2c792cbdc7859d33.png" />
+<img alt="../_images/f69de64905450129accb3094439af51439b37a3fce9d259050c19ce4f9f07b24.png" src="../_images/f69de64905450129accb3094439af51439b37a3fce9d259050c19ce4f9f07b24.png" />
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temp_central_park</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="s2">&quot;2021&quot;</span><span class="p">,</span> <span class="s2">&quot;2021&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;daily temperature [Fahrenheit]&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(33.88125, 0.5, &#39;daily temperature [Fahrenheit]&#39;)
-</pre></div>
-</div>
-<img alt="../_images/df0d7d0e64fe3d080ef6518538260adb55ec72fbfd5c2804eadc6f9e57c8abc1.png" src="../_images/df0d7d0e64fe3d080ef6518538260adb55ec72fbfd5c2804eadc6f9e57c8abc1.png" />
-</div>
-</div>
+<p>Much different!  Among many other things that we can infer (which we’ll save until the next lecture on <a class="reference internal" href="descriptive-statistics.html"><span class="doc std std-doc">descriptive statistics</span></a>), we can see that daily rainfall and daily temperatures at Central Park behave very differently in many ways.</p>
+<p>That said, for temperature too, clearly there is <em>way</em> too much going on to be able to take it in at a glance and truly understand it: here again, we need <em>statistics</em>.</p>
 </section>
 <section id="methods">
-<h3><span class="section-number">1.1.2. </span>“Methods”<a class="headerlink" href="#methods" title="Permalink to this heading">#</a></h3>
-<p>Think of “methods” as just another word for “tools.”  As such, what we’re after in this course is building a toolkit of statistical techniques that will be valuable to you in your research and other coursework.  This has some important implications:</p>
+<h3><span class="section-number">1.2.2. </span>“Methods”<a class="headerlink" href="#methods" title="Permalink to this heading">#</a></h3>
+<p>Think of <em>methods</em> as just another word for <em>tools</em>.  As such, what we’re after in this course is building a <em>toolkit</em> of statistical techniques that will be valuable to you in your research and other coursework.  This has some important implications:</p>
 <ul class="simple">
 <li><p>We’ll focus <em>less</em> on the underlying theoretical basis for the techniques we’ll discuss.  Just enough to be confident in their meaning, their conceptual basis, and their interpretation.</p></li>
 <li><p>We’ll focus <em>more</em> on implementing them IRL (in real life).  That means coding them up and using them to analyze real datasets from the Earth sciences.</p></li>
@@ -4615,13 +4607,13 @@ document.write(`
 </ul>
 </section>
 <section id="in-earth-and-atmospheric-sciences">
-<h3><span class="section-number">1.1.3. </span>“in Earth and Atmospheric Sciences”<a class="headerlink" href="#in-earth-and-atmospheric-sciences" title="Permalink to this heading">#</a></h3>
-<p>Of course, being in the EAS department, we will focus almost exclusively on datasets and problems that arise in the Earth and Atmospheric Sciences (as opposed to say, medicine).  And my own research emphasis with EAS is on rainfall and how it varies on many timescales (day to day, season to season, year to year, etc.), which will bias the example datasets used in that direction.  Finally, at <em>The</em> City College of New York after all, we’ll use data from our own backyard as much as possible.</p>
+<h3><span class="section-number">1.2.3. </span>“in Earth and Atmospheric Sciences”<a class="headerlink" href="#in-earth-and-atmospheric-sciences" title="Permalink to this heading">#</a></h3>
+<p>Of course, being in the EAS department, we will focus almost exclusively on datasets and problems that arise in the Earth and Atmospheric Sciences (as opposed to, say, medicine or sociology).  And my own research emphasis with EAS is on rainfall and how it varies on many timescales (day to day, season to season, year to year, etc.), which will bias the example datasets used in that direction.  Finally, at <em>The</em> City College of New York after all, we’ll use data from our own backyard as much as possible—chiefly, this Central Park weather station dataset introduced above.</p>
 <p>But the overall approach—how to characterize datasets as succinctly and accurately as possible, individually and as they relate to one another—is universally applicable.  Likewise for the vast majority of the individual tools themselves; with modest effort nearly all of them can be adapted to a wide array of datasets, e.g. time series of economic data, astronomical data from telescopes, biometric data from your smart watch.</p>
 </section>
 </section>
 <section id="why-care-about-statistics-at-all">
-<h2><span class="section-number">1.2. </span>Why care about statistics at all?<a class="headerlink" href="#why-care-about-statistics-at-all" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.3. </span>Why care about statistics at all?<a class="headerlink" href="#why-care-about-statistics-at-all" title="Permalink to this heading">#</a></h2>
 <p>Why bother with things like conditional probabilities, autocorrelations, covariance matrices, etc., which especially if you haven’t heard of them before might sound like kind of a pain?  Well, virtually every major problem in the Earth sciences—and in fact, virtually every major problem facing the world—ultimately has a statistical basis.</p>
 <p>In the Earth sciences, that includes all of the following questions:</p>
 <ul class="simple">
@@ -4634,9 +4626,60 @@ document.write(`
 </ul>
 </li>
 </ul>
+<p>For each of these, there is no single objectively right answer.  Earth’s weather and complicated are incredibly complicated systems, with behaviors varying widely across space and time.  Our observational records of those behaviors—a remarkable achievement of humanity, science, technology, and geopolitics to be sure—are necessarily incomplete and imperfect.   The computer models we use to simulate Earth’s climate (also remarkable achievements) are today and will always be imperfect.</p>
+<p><strong>But</strong> through careful analysis using the right statistical techniques, we <em>can</em> provide <em>reasonable</em> answers to these questions and many more like them.  And these can improve decisions and outcomes in the real world, for individuals (for example, you knowing to bring an umbrella thanks to an accurate forecast of rain) to institutions (for example, where to place and how to design subway entrances given statistical models of flood risk).</p>
 </section>
 <section id="numeracy">
-<h2><span class="section-number">1.3. </span>Numeracy<a class="headerlink" href="#numeracy" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.4. </span>Numeracy<a class="headerlink" href="#numeracy" title="Permalink to this heading">#</a></h2>
+<section id="what-numeracy-is">
+<h3><span class="section-number">1.4.1. </span>What numeracy is<a class="headerlink" href="#what-numeracy-is" title="Permalink to this heading">#</a></h3>
+<p>As said above, we’re aiming to build a <em>toolbox</em> of quantitative techniques.  But perhaps even more important than equipping you with a collection of tools to draw from, we want to develop a <em>state of mind</em> for quantitative data analysis.  I’ll use the term <strong>numeracy</strong> as a shorthand for this.</p>
+<p><strong>Numeracy</strong> (as we’ll use it) is the ability to accurately assess <em>quantitative</em> claims.  The word is a direct analogy to <em>literacy</em>: literacy (the ability to read) enables a person to properly evaluate claims written in words; numeracy enables a person to properly evaluate claims consisting of numbers.</p>
+<p>One part of numeracy is assessing not just the <em>sign</em> (decreasing/increasing; more/less) but the <em>magnitudes</em> of different quantities that come up.  Consider the following three percentage changes in some quantity: -5%, +0.1%, +1000%.  Sure, the first one is a decrease while the second two are an increase, but in terms of magnitude the first two are much more similar—(namely, a small change) than the third (a 10-fold increase).</p>
+<p>Another part of numeracy is understanding the relevant <strong>uncertainties</strong>.  There are virtually no interesting questions in the Earth sciences for which one can generate answers with very little uncertainty.</p>
+</section>
+<section id="numeracy-made-up-example-a-severe-storm-and-climate-change">
+<h3><span class="section-number">1.4.2. </span>Numeracy (made-up) example: a severe storm and climate change<a class="headerlink" href="#numeracy-made-up-example-a-severe-storm-and-climate-change" title="Permalink to this heading">#</a></h3>
+<p>Imagine that tomorrow night an intense rain storm hits New York, breaking the record daily value in our Central Park dataset.  One interesting question among many that we’d like to know is what role climate change had in this event.</p>
+<p>Non-numerate claims include both of the following:</p>
+<ol class="arabic simple">
+<li><p>“This storm was caused by climate change.”</p></li>
+<li><p>“This storm was not caused by climate change.”</p></li>
+</ol>
+<p>Why aren’t they numerate?  Well, in short, there are no numbers!  What does “caused” mean precisely here?  Does claim #1 mean that, if climate change wasn’t happening, the storm wouldn’t have occurred at all?  Or something else?  Conversely, does claim #2 mean that this storm would have been identical with or without climate change?  Absent additional information, it is impossible to answer these or other questions about either claim, rendering them close to worthless.</p>
+<p>Here’s a <em>partially</em> numerate claim; let’s imagine a scientist and her research group studied the storm and came to the following conclusion: “The storm was 20% stronger because of climate change.”</p>
+<p>That’s definitely an improvement!  We now have a <em>quantification</em> of just how much the storm was affected by climate change, namely that it was strengthened by 20%.</p>
+<p>However, even this still is much too vague to be properly evaluated.  What exactly does “strength” mean?  Does it refer to the storm’s winds, or rainfall, or some combination of the two, or something else entirely?  We have no way of knowing.</p>
+<p>The scientist now clarifies this: “The peak hourly rainfall accumulation located at any point within the storm was made 20% higher because of climate change.”</p>
+<p>Better still!  We now have a very precise understanding of what physical quantity is being referred to.  But this is still missing a crucial factor: <strong>uncertainty quantification</strong>.  Even without knowing precisely how these scientists came to this value of 20%, it is certain that there are sources of error and/or uncertainty as part of their methods.  And without some reasonable estimate of the uncertainties, any scientific claim is deeply incomplete.  For, imagine the following scenarios:</p>
+<ol class="arabic simple">
+<li><p>The peak hourly rainfall accumulation (…) was 20% higher, with a 95% confidence interval of 19.2% to 21.4%.</p></li>
+<li><p>The peak hourly rainfall accumulation (…) was 20% higher, with a 95% confidence interval of -90% to +150%.</p></li>
+</ol>
+<p>In Scenario #1, there is little uncertainty (at least as indicated by the “95% confidence interval”, whatever that precisely means).  So the “central” value of 20% is, by itself, pretty useful.  Whereas in Scenario #2, the uncertainty range is <em>huge</em>!  It spans both huge decreases and even larger increases, making the central value of 20% almost useless.</p>
+<div class="admonition-real-world-analogy-meeting-up-with-a-friend admonition">
+<p class="admonition-title">Real-world analogy: meeting up with a friend</p>
+<p>Consider a real-world analogy: suppose you’re texting with a friend to make plans for the weekend.  Your friend says “I’ll meet you at the movie theater at 7pm, but it could be as early as 4pm or as late as 10pm.”  How useful is that to you in your planning, compared to if they had said instead, “I’ll meet you at the movie theater at 7pm, but it could be as early as 6:50pm or as late as 7:05pm”?</p>
+<p>In the same way, in science (not just Earth and Atmospheric Sciences), the larger the uncertainty in a quantity, the harder it is to, roughly speaking, <em>usefully do things with it</em>.  So knowing that uncertainty is almost as important as knowing the central value itself!</p>
+</div>
+<p>So we’ve arrived at a <em>nearly</em> numerate claim.  It precisely identifies the physical quantity being consiered and reports both a central value for that quantity and an estimate of the uncertainty in that value.  But there’s still one key thing missing.  Do you know what it is?</p>
+<p>We don’t know anything about <em>how</em> this value or its uncertainty were actually calculated!  In other words, we don’t know the scientist’s <em>methods</em>.  Was this based on a purely statistical model (for example, comparing a stationary vs. non-stationary Generalized Extreme Value model to observational data at the Central Park weather station)?  Or was it the result of simulations run with computer climate models in which the storm was simulated in one case with the observed conditions (i.e. the climate change case) vs. in another case with CO2 and other factors set to their “preindustrial” values (i.e. the hypothetical case where there was no human-driven climate change).</p>
+<p>Neither approach is obviously worse or better.  And it’s possible that the two approaches could ultimately result in very similar answers!  In that case, we’d trust the combined result even more (not worrying precisely “trust” means in this context).  But it’s also possible (this happens all the time) that two different methodologies (or even just different climate models but otherwise identical methodologies) yield extremely different results!</p>
+</section>
+<section id="lies-damned-lies-and-statistics">
+<h3><span class="section-number">1.4.3. </span>Lies, damned lies, and statistics<a class="headerlink" href="#lies-damned-lies-and-statistics" title="Permalink to this heading">#</a></h3>
+<blockquote class="epigraph">
+<div><p>There are three kinds of lies: lies, damned lies, and statistics.</p>
+<p class="attribution">—Mark Twain
+</p>
+</div></blockquote>
+<p>This <a class="reference external" href="https://en.wikipedia.org/wiki/Lies,_damned_lies,_and_statistics">well-known</a> <a class="reference external" href="https://www.york.ac.uk/depts/maths/histstat/lies.htm">quote</a> is most often used to refer to <em>deliberate misinformation</em>: using statistical techniques to purposefully present data in a misleading or incomplete way, in order to promote a preferred agenda or narrative.</p>
+<p>This is misconduct, plain and simple.  You should <strong>never</strong> do this.  Or, even worse, <em>fraud</em>: not just using statistical trickery to give the wrong impression of a dataset, but actually going in an directly altering, deleting, or removing values of the dataset.  (This happens!  Currently in September 2023, the field of behavioral economics is being roiled by a huge scandal in which several of its most famous scientists have been very credibly accused of repeated fraud.  E.g. <a class="reference external" href="https://www.npr.org/transcripts/1190568472">here</a>, <a class="reference external" href="https://www.nytimes.com/2023/06/24/business/economy/francesca-gino-harvard-dishonesty.html">here</a>, and <a class="reference external" href="https://www.ft.com/content/846cc7a5-12ee-4a44-830e-11ad00f224f9">here</a>.)</p>
+<p>All that (I hope!) is obvious enough.</p>
+<p>But we conclude this chapter with this quote to bring up a subtler form of “lying”, which is lying <em>to yourself</em>.  Above, we emphasized that data can (virtually) never “speak for itself”: it must be interpreted, synthesized, plotted, condensed, etc.  And human beings invariably generate <em>narratives</em> to explain things.  So we inevitably create narratives while we’re analyzing a dataset and rely on that narrative when we present our findigns from that dataset.  There’s nothing inherently wrong with this—it’s simply how we as humans are.</p>
+<p>The problem comes when the narrative we construct from the dataset is overly influenced by things <em>other than the data itself</em>, and even without us deliberately or consciously trying to “spin” things.  All too often, we come to a dataset with a pre-existing theory/narrative/expectation about what we’ll find in the dataset, and then because of the foibles of human psychology, we only see evidence that confirms it!  This <a class="reference external" href="https://en.wikipedia.org/wiki/Confirmation_bias">confirmation bias</a> is one of many <a class="reference external" href="https://en.wikipedia.org/wiki/Cognitive_bias">cognitive biases</a> that scientists—being human beings—fall prey to over and over again.</p>
+<p>As such, part of the <em>numerate mindset</em> that this course seeks to help you cultivate is being aware of these tendencies—to recognize them, accept them for what they are, and as much as possible circumvent them.  It is indeed impossible for data to “speak for itself.”  But we can strive in our quantitative analyses to tell the story that the data <em>would</em> tell if it <em>could</em> talk.</p>
+</section>
 </section>
 </section>
 
@@ -4707,14 +4750,20 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-statistical-methods-and-why-do-we-need-them">1.1. What are “statistical methods,” and why do we need them?</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical">1.1.1. “Statistical”</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#methods">1.1.2. “Methods”</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#in-earth-and-atmospheric-sciences">1.1.3. “in Earth and Atmospheric Sciences”</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-this-and-who-is-it-for">1.1. What is this and who is it for?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-statistical-methods-and-why-do-we-need-them-in-earth-and-atmospheric-sciences">1.2. What are “statistical methods,” and why do we need them in Earth and atmospheric sciences?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical">1.2.1. “Statistical”</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#methods">1.2.2. “Methods”</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#in-earth-and-atmospheric-sciences">1.2.3. “in Earth and Atmospheric Sciences”</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-care-about-statistics-at-all">1.2. Why care about statistics at all?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numeracy">1.3. Numeracy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-care-about-statistics-at-all">1.3. Why care about statistics at all?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numeracy">1.4. Numeracy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-numeracy-is">1.4.1. What numeracy is</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numeracy-made-up-example-a-severe-storm-and-climate-change">1.4.2. Numeracy (made-up) example: a severe storm and climate change</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lies-damned-lies-and-statistics">1.4.3. Lies, damned lies, and statistics</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

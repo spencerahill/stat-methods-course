@@ -66,8 +66,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/descriptive-statistics';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="1. Homework Assignment #1: Writing key quantities from descriptive statistics in Python yourself" href="../assignments/hw-descriptive-statistics.html" />
-    <link rel="prev" title="1. Introduction to this course; “numeracy”" href="intro.html" />
+    <link rel="next" title="1. Writing key quantities from descriptive statistics in Python yourself" href="../assignments/hw-descriptive-statistics.html" />
+    <link rel="prev" title="1. Introduction to Statistical Methods in Earth and Atmospheric Sciences" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -166,7 +166,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="intro.html">1. Introduction to this course; “numeracy”</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">1. Introduction to <em>Statistical Methods in Earth and Atmospheric Sciences</em></a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">2. Descriptive Statistics</a></li>
 
 
@@ -179,7 +179,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../assignments/hw-descriptive-statistics.html">1. Homework Assignment #1: Writing key quantities from descriptive statistics in Python yourself</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/hw-descriptive-statistics.html">1. Writing key quantities from descriptive statistics in Python yourself</a></li>
 </ul>
 
     </div>
@@ -926,7 +926,7 @@ dl.xr-attrs {
 </style><pre class='xr-text-repr-fallback'>&lt;xarray.DataArray &#x27;precip&#x27; (quantile: 4)&gt;
 array([0.  , 0.  , 0.05, 1.71])
 Coordinates:
-  * quantile  (quantile) float64 0.25 0.5 0.75 0.99</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'precip'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>quantile</span>: 4</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-f424557d-a460-410b-aaf0-676a07dd8dd0' class='xr-array-in' type='checkbox' checked><label for='section-f424557d-a460-410b-aaf0-676a07dd8dd0' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>0.0 0.0 0.05 1.71</span></div><div class='xr-array-data'><pre>array([0.  , 0.  , 0.05, 1.71])</pre></div></div></li><li class='xr-section-item'><input id='section-327d0e55-fbb5-466d-83d5-ec4a3e132609' class='xr-section-summary-in' type='checkbox'  checked><label for='section-327d0e55-fbb5-466d-83d5-ec4a3e132609' class='xr-section-summary' >Coordinates: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>quantile</span></div><div class='xr-var-dims'>(quantile)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>0.25 0.5 0.75 0.99</div><input id='attrs-4083a397-6d34-4760-b228-40e8a25e54ee' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-4083a397-6d34-4760-b228-40e8a25e54ee' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-bb04aa20-24ae-46df-a685-13b60b9dd165' class='xr-var-data-in' type='checkbox'><label for='data-bb04aa20-24ae-46df-a685-13b60b9dd165' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([0.25, 0.5 , 0.75, 0.99])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-bb15424f-baa4-4f47-869e-e254b578a4eb' class='xr-section-summary-in' type='checkbox'  ><label for='section-bb15424f-baa4-4f47-869e-e254b578a4eb' class='xr-section-summary' >Indexes: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>quantile</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-82309919-127e-4fb7-b80f-9db4d9072355' class='xr-index-data-in' type='checkbox'/><label for='index-82309919-127e-4fb7-b80f-9db4d9072355' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([0.25, 0.5, 0.75, 0.99], dtype=&#x27;float64&#x27;, name=&#x27;quantile&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-3eecfb11-5bb3-489d-9cf6-e87967275f8a' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-3eecfb11-5bb3-489d-9cf6-e87967275f8a' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
+  * quantile  (quantile) float64 0.25 0.5 0.75 0.99</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'precip'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>quantile</span>: 4</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-9da6aeec-62e6-4876-8d1e-b957d5204bb9' class='xr-array-in' type='checkbox' checked><label for='section-9da6aeec-62e6-4876-8d1e-b957d5204bb9' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>0.0 0.0 0.05 1.71</span></div><div class='xr-array-data'><pre>array([0.  , 0.  , 0.05, 1.71])</pre></div></div></li><li class='xr-section-item'><input id='section-197be9b5-3a60-4a23-a3ec-5f64857a886c' class='xr-section-summary-in' type='checkbox'  checked><label for='section-197be9b5-3a60-4a23-a3ec-5f64857a886c' class='xr-section-summary' >Coordinates: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>quantile</span></div><div class='xr-var-dims'>(quantile)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>0.25 0.5 0.75 0.99</div><input id='attrs-24dc2b94-e86e-4aba-90f2-58d0e9fc1b86' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-24dc2b94-e86e-4aba-90f2-58d0e9fc1b86' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-cc6b24fc-1196-4e13-86a4-1cf0af63fbf6' class='xr-var-data-in' type='checkbox'><label for='data-cc6b24fc-1196-4e13-86a4-1cf0af63fbf6' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([0.25, 0.5 , 0.75, 0.99])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-28d351f0-0f11-4ee4-8441-eeddb28e5447' class='xr-section-summary-in' type='checkbox'  ><label for='section-28d351f0-0f11-4ee4-8441-eeddb28e5447' class='xr-section-summary' >Indexes: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>quantile</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-4372dfe5-85de-4a37-86ea-f47047c232ed' class='xr-index-data-in' type='checkbox'/><label for='index-4372dfe5-85de-4a37-86ea-f47047c232ed' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([0.25, 0.5, 0.75, 0.99], dtype=&#x27;float64&#x27;, name=&#x27;quantile&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-469ceead-f499-4fa3-8b30-ac94f173b367' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-469ceead-f499-4fa3-8b30-ac94f173b367' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
 </div>
 <p>So in this case, the bottom 75% of points span only a 0.05 inch range, while the 75th to 99th percentile spans 1.66 inches!</p>
 </section>
@@ -1358,7 +1358,7 @@ Coordinates:
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">1. </span>Introduction to this course; “numeracy”</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Introduction to <em>Statistical Methods in Earth and Atmospheric Sciences</em></p>
       </div>
     </a>
     <a class="right-next"
@@ -1366,7 +1366,7 @@ Coordinates:
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">1. </span>Homework Assignment #1: Writing key quantities from descriptive statistics in Python yourself</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Writing key quantities from descriptive statistics in Python yourself</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
