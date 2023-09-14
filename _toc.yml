@@ -13,8 +13,9 @@ parts:
     numbered: 4
     chapters:
       - file: lectures/intro
+      - file: lectures/descriptive-statistics
   - caption: Assignments
     numbered: 4
     chapters:
-      - file: assignments/descriptive-statistics
+      - file: assignments/hw-descriptive-statistics
 

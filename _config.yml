@@ -18,6 +18,9 @@ parse:
   myst_enable_extensions:
     - amsmath
     - dollarmath
+    - colon_fence
+    - linkify
+    - substitution
   myst_url_schemes: [mailto, http, https]
   myst_dmath_double_inline: true
 
