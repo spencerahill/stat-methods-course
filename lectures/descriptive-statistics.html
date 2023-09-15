@@ -168,14 +168,6 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="intro.html">1. Introduction to <em>Statistical Methods in Earth and Atmospheric Sciences</em></a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">2. Descriptive Statistics</a></li>
-
-
-
-
-
-
-
-
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
@@ -373,45 +365,41 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">2. Descriptive Statistics</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intro">2.1. Intro</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recap-of-last-time">2.1.1. Recap of last time</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#today-descriptive-statistics">2.1.2. Today: Descriptive Statistics</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#measures-of-central-tendency">2.2. Measures of Central Tendency</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mean">2.2.1. Mean</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#median">2.2.2. Median</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mode">2.2.3. Mode</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#measures-of-central-tendency">3. Measures of Central Tendency</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mean">3.1. Mean</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#median">3.2. Median</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mode">3.3. Mode</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#measures-of-dispersion">2.3. Measures of Dispersion</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#range">2.3.1. Range</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variance">2.3.2. Variance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-deviation">2.3.3. Standard deviation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coefficient-of-variation">2.3.4. Coefficient of variation</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#measures-of-dispersion">4. Measures of Dispersion</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#range">4.1. Range</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variance">4.2. Variance</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-deviation">4.3. Standard deviation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coefficient-of-variation">4.4. Coefficient of variation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#measures-of-shape">2.4. Measures of Shape</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#skewness">2.4.1. Skewness</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kurtosis">2.4.2. Kurtosis</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#measures-of-shape">5. Measures of Shape</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#skewness">5.1. Skewness</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kurtosis">5.2. Kurtosis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#measures-of-association">2.5. Measures of Association</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-visualization">2.6. Data Visualization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importance-of-visualization">2.6.1. Importance of Visualization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-plots-and-graphs">2.6.2. Types of Plots and Graphs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization-tools-in-python">2.6.3. Visualization Tools in Python</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practices-in-visualization">2.6.4. Best Practices in Visualization</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#measures-of-association">6. Measures of Association</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#data-visualization">7. Data Visualization</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importance-of-visualization">7.1. Importance of Visualization</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-plots-and-graphs">7.2. Types of Plots and Graphs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization-tools-in-python">7.3. Visualization Tools in Python</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practices-in-visualization">7.4. Best Practices in Visualization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptive-statistics-and-visualization-as-quality-control">2.7. Descriptive statistics and visualization as quality control</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">2.8. Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supplementary-materials">2.9. Supplementary Materials</a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptive-statistics-and-visualization-as-quality-control">8. Descriptive statistics and visualization as quality control</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">9. Conclusion</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#supplementary-materials">10. Supplementary Materials</a></li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -422,7 +410,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="descriptive-statistics">
+  <section class="tex2jax_ignore mathjax_ignore" id="descriptive-statistics">
 <h1><span class="section-number">2. </span>Descriptive Statistics<a class="headerlink" href="#descriptive-statistics" title="Permalink to this heading">#</a></h1>
 <p><strong>Note that this lecture is currently incomplete; if you come back to the page and this message is gone, you can consider it complete.</strong></p>
 <section id="intro">
@@ -475,11 +463,10 @@ document.write(`
 </div>
 </section>
 </section>
-</section>
 <section id="measures-of-central-tendency">
-<h1><span class="section-number">3. </span>Measures of Central Tendency<a class="headerlink" href="#measures-of-central-tendency" title="Permalink to this heading">#</a></h1>
+<h2><span class="section-number">2.2. </span>Measures of Central Tendency<a class="headerlink" href="#measures-of-central-tendency" title="Permalink to this heading">#</a></h2>
 <section id="mean">
-<h2><span class="section-number">3.1. </span>Mean<a class="headerlink" href="#mean" title="Permalink to this heading">#</a></h2>
+<h3><span class="section-number">2.2.1. </span>Mean<a class="headerlink" href="#mean" title="Permalink to this heading">#</a></h3>
 <p>Probably the single most intuitive measure is the average, or <em>mean</em>.  Sum up all the values, and divide by the number of values.  Symbolically:</p>
 <div class="math notranslate nohighlight">
 \[\overline{X}_i=\frac{1}{N}\sum_{i=1}^N X_i,\]</div>
@@ -520,7 +507,7 @@ document.write(`
 </div>
 </section>
 <section id="median">
-<h2><span class="section-number">3.2. </span>Median<a class="headerlink" href="#median" title="Permalink to this heading">#</a></h2>
+<h3><span class="section-number">2.2.2. </span>Median<a class="headerlink" href="#median" title="Permalink to this heading">#</a></h3>
 <p>The median is the value such that exactly half of the data points lie below it, and half lie above it.</p>
 <p>Compared to the mean, it is insensitive to “outliers”—that is, points that are way different than most of the other points.</p>
 <p>The median of the Central park rainfall dataset is:</p>
@@ -926,12 +913,12 @@ dl.xr-attrs {
 </style><pre class='xr-text-repr-fallback'>&lt;xarray.DataArray &#x27;precip&#x27; (quantile: 4)&gt;
 array([0.  , 0.  , 0.05, 1.71])
 Coordinates:
-  * quantile  (quantile) float64 0.25 0.5 0.75 0.99</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'precip'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>quantile</span>: 4</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-9da6aeec-62e6-4876-8d1e-b957d5204bb9' class='xr-array-in' type='checkbox' checked><label for='section-9da6aeec-62e6-4876-8d1e-b957d5204bb9' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>0.0 0.0 0.05 1.71</span></div><div class='xr-array-data'><pre>array([0.  , 0.  , 0.05, 1.71])</pre></div></div></li><li class='xr-section-item'><input id='section-197be9b5-3a60-4a23-a3ec-5f64857a886c' class='xr-section-summary-in' type='checkbox'  checked><label for='section-197be9b5-3a60-4a23-a3ec-5f64857a886c' class='xr-section-summary' >Coordinates: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>quantile</span></div><div class='xr-var-dims'>(quantile)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>0.25 0.5 0.75 0.99</div><input id='attrs-24dc2b94-e86e-4aba-90f2-58d0e9fc1b86' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-24dc2b94-e86e-4aba-90f2-58d0e9fc1b86' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-cc6b24fc-1196-4e13-86a4-1cf0af63fbf6' class='xr-var-data-in' type='checkbox'><label for='data-cc6b24fc-1196-4e13-86a4-1cf0af63fbf6' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([0.25, 0.5 , 0.75, 0.99])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-28d351f0-0f11-4ee4-8441-eeddb28e5447' class='xr-section-summary-in' type='checkbox'  ><label for='section-28d351f0-0f11-4ee4-8441-eeddb28e5447' class='xr-section-summary' >Indexes: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>quantile</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-4372dfe5-85de-4a37-86ea-f47047c232ed' class='xr-index-data-in' type='checkbox'/><label for='index-4372dfe5-85de-4a37-86ea-f47047c232ed' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([0.25, 0.5, 0.75, 0.99], dtype=&#x27;float64&#x27;, name=&#x27;quantile&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-469ceead-f499-4fa3-8b30-ac94f173b367' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-469ceead-f499-4fa3-8b30-ac94f173b367' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
+  * quantile  (quantile) float64 0.25 0.5 0.75 0.99</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'precip'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>quantile</span>: 4</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-ea65fa42-6e8f-466e-8c7f-bcf49f5ae747' class='xr-array-in' type='checkbox' checked><label for='section-ea65fa42-6e8f-466e-8c7f-bcf49f5ae747' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>0.0 0.0 0.05 1.71</span></div><div class='xr-array-data'><pre>array([0.  , 0.  , 0.05, 1.71])</pre></div></div></li><li class='xr-section-item'><input id='section-2721a68d-61cc-461c-8905-d45fa12ab6e1' class='xr-section-summary-in' type='checkbox'  checked><label for='section-2721a68d-61cc-461c-8905-d45fa12ab6e1' class='xr-section-summary' >Coordinates: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>quantile</span></div><div class='xr-var-dims'>(quantile)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>0.25 0.5 0.75 0.99</div><input id='attrs-da4e7d3a-b258-4ece-a910-5a8b17e32cd5' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-da4e7d3a-b258-4ece-a910-5a8b17e32cd5' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ef4ffbae-daa9-4d83-9e5d-232ac4036b86' class='xr-var-data-in' type='checkbox'><label for='data-ef4ffbae-daa9-4d83-9e5d-232ac4036b86' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([0.25, 0.5 , 0.75, 0.99])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-4f306972-211f-49cc-bbd6-65b12668058a' class='xr-section-summary-in' type='checkbox'  ><label for='section-4f306972-211f-49cc-bbd6-65b12668058a' class='xr-section-summary' >Indexes: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>quantile</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-9a5a87f9-4354-48c2-8225-5b24668149fc' class='xr-index-data-in' type='checkbox'/><label for='index-9a5a87f9-4354-48c2-8225-5b24668149fc' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([0.25, 0.5, 0.75, 0.99], dtype=&#x27;float64&#x27;, name=&#x27;quantile&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-9ab73e59-72b5-4d39-8ca7-b88c4075450b' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-9ab73e59-72b5-4d39-8ca7-b88c4075450b' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
 </div>
 <p>So in this case, the bottom 75% of points span only a 0.05 inch range, while the 75th to 99th percentile spans 1.66 inches!</p>
 </section>
 <section id="mode">
-<h2><span class="section-number">3.3. </span>Mode<a class="headerlink" href="#mode" title="Permalink to this heading">#</a></h2>
+<h3><span class="section-number">2.2.3. </span>Mode<a class="headerlink" href="#mode" title="Permalink to this heading">#</a></h3>
 <p>The mode is simply the value that occurs most frequently.</p>
 <p>Same as for the median, there’s not a nice compact way of expressing that in an equation.  You just count up how many times different values occur and see which one does the most.</p>
 <p>So based on our discussion so far of the Central Park rainfall dataset, it should come as no suprise that the mode is zero:</p>
@@ -968,7 +955,7 @@ Coordinates:
 </section>
 </section>
 <section id="measures-of-dispersion">
-<h1><span class="section-number">4. </span>Measures of Dispersion<a class="headerlink" href="#measures-of-dispersion" title="Permalink to this heading">#</a></h1>
+<h2><span class="section-number">2.3. </span>Measures of Dispersion<a class="headerlink" href="#measures-of-dispersion" title="Permalink to this heading">#</a></h2>
 <p>While the above measures of central tendency tell you about “typical” values in a dataset, they tell you nothing about how the values <em>vary</em>, which can often be as important (or even more so) than what the “typical” value is.  For example:</p>
 <ul class="simple">
 <li><p>Are the values mostly clumped together very tightly around the average?  Or do they span a very wide range?</p></li>
@@ -977,7 +964,7 @@ Coordinates:
 </ul>
 <p>These and related questions can be usefully answered using <em>measures of variation</em>, which includes two sub-categories: <em>measures of dispersion</em> and <em>measures of shape</em>.  We’ll start with <em>measures of dispersion</em>, of which there are three: <strong>range</strong>, <strong>variance</strong>, and <strong>standard deviation</strong>.</p>
 <section id="range">
-<h2><span class="section-number">4.1. </span>Range<a class="headerlink" href="#range" title="Permalink to this heading">#</a></h2>
+<h3><span class="section-number">2.3.1. </span>Range<a class="headerlink" href="#range" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -1117,7 +1104,7 @@ Coordinates:
 </div>
 </section>
 <section id="variance">
-<h2><span class="section-number">4.2. </span>Variance<a class="headerlink" href="#variance" title="Permalink to this heading">#</a></h2>
+<h3><span class="section-number">2.3.2. </span>Variance<a class="headerlink" href="#variance" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">precip_central_park</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
@@ -1144,7 +1131,7 @@ Coordinates:
 </div>
 </section>
 <section id="standard-deviation">
-<h2><span class="section-number">4.3. </span>Standard deviation<a class="headerlink" href="#standard-deviation" title="Permalink to this heading">#</a></h2>
+<h3><span class="section-number">2.3.3. </span>Standard deviation<a class="headerlink" href="#standard-deviation" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">precip_central_park</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
@@ -1171,7 +1158,7 @@ Coordinates:
 </div>
 </section>
 <section id="coefficient-of-variation">
-<h2><span class="section-number">4.4. </span>Coefficient of variation<a class="headerlink" href="#coefficient-of-variation" title="Permalink to this heading">#</a></h2>
+<h3><span class="section-number">2.3.4. </span>Coefficient of variation<a class="headerlink" href="#coefficient-of-variation" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The scipy package provides the C. of V. as </span>
@@ -1201,9 +1188,9 @@ Coordinates:
 </section>
 </section>
 <section id="measures-of-shape">
-<h1><span class="section-number">5. </span>Measures of Shape<a class="headerlink" href="#measures-of-shape" title="Permalink to this heading">#</a></h1>
+<h2><span class="section-number">2.4. </span>Measures of Shape<a class="headerlink" href="#measures-of-shape" title="Permalink to this heading">#</a></h2>
 <section id="skewness">
-<h2><span class="section-number">5.1. </span>Skewness<a class="headerlink" href="#skewness" title="Permalink to this heading">#</a></h2>
+<h3><span class="section-number">2.4.1. </span>Skewness<a class="headerlink" href="#skewness" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">skew</span><span class="p">(</span><span class="n">precip_central_park</span><span class="p">)</span>
@@ -1230,7 +1217,7 @@ Coordinates:
 </div>
 </section>
 <section id="kurtosis">
-<h2><span class="section-number">5.2. </span>Kurtosis<a class="headerlink" href="#kurtosis" title="Permalink to this heading">#</a></h2>
+<h3><span class="section-number">2.4.2. </span>Kurtosis<a class="headerlink" href="#kurtosis" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">kurtosis</span><span class="p">(</span><span class="n">precip_central_park</span><span class="p">)</span>
@@ -1257,25 +1244,25 @@ Coordinates:
 </div>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="measures-of-association">
-<h1><span class="section-number">6. </span>Measures of Association<a class="headerlink" href="#measures-of-association" title="Permalink to this heading">#</a></h1>
+<section id="measures-of-association">
+<h2><span class="section-number">2.5. </span>Measures of Association<a class="headerlink" href="#measures-of-association" title="Permalink to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>Covariance</p></li>
 <li><p>Correlation</p></li>
 <li><p>Example: Correlation between Temperature and Humidity</p></li>
 </ol>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="data-visualization">
-<h1><span class="section-number">7. </span>Data Visualization<a class="headerlink" href="#data-visualization" title="Permalink to this heading">#</a></h1>
+<section id="data-visualization">
+<h2><span class="section-number">2.6. </span>Data Visualization<a class="headerlink" href="#data-visualization" title="Permalink to this heading">#</a></h2>
 <section id="importance-of-visualization">
-<h2><span class="section-number">7.1. </span>Importance of Visualization<a class="headerlink" href="#importance-of-visualization" title="Permalink to this heading">#</a></h2>
+<h3><span class="section-number">2.6.1. </span>Importance of Visualization<a class="headerlink" href="#importance-of-visualization" title="Permalink to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>Understanding Data</p></li>
 <li><p>Communicating Findings</p></li>
 </ol>
 </section>
 <section id="types-of-plots-and-graphs">
-<h2><span class="section-number">7.2. </span>Types of Plots and Graphs<a class="headerlink" href="#types-of-plots-and-graphs" title="Permalink to this heading">#</a></h2>
+<h3><span class="section-number">2.6.2. </span>Types of Plots and Graphs<a class="headerlink" href="#types-of-plots-and-graphs" title="Permalink to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>Histograms</p></li>
 <li><p>Scatter Plots</p></li>
@@ -1285,14 +1272,14 @@ Coordinates:
 </ol>
 </section>
 <section id="visualization-tools-in-python">
-<h2><span class="section-number">7.3. </span>Visualization Tools in Python<a class="headerlink" href="#visualization-tools-in-python" title="Permalink to this heading">#</a></h2>
+<h3><span class="section-number">2.6.3. </span>Visualization Tools in Python<a class="headerlink" href="#visualization-tools-in-python" title="Permalink to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>Matplotlib</p></li>
 <li><p>Seaborn</p></li>
 </ol>
 </section>
 <section id="best-practices-in-visualization">
-<h2><span class="section-number">7.4. </span>Best Practices in Visualization<a class="headerlink" href="#best-practices-in-visualization" title="Permalink to this heading">#</a></h2>
+<h3><span class="section-number">2.6.4. </span>Best Practices in Visualization<a class="headerlink" href="#best-practices-in-visualization" title="Permalink to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>Choosing the Right Chart Type</p></li>
 <li><p>Labeling and Annotations</p></li>
@@ -1300,25 +1287,21 @@ Coordinates:
 </ol>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="descriptive-statistics-and-visualization-as-quality-control">
-<h1><span class="section-number">8. </span>Descriptive statistics and visualization as quality control<a class="headerlink" href="#descriptive-statistics-and-visualization-as-quality-control" title="Permalink to this heading">#</a></h1>
+<section id="descriptive-statistics-and-visualization-as-quality-control">
+<h2><span class="section-number">2.7. </span>Descriptive statistics and visualization as quality control<a class="headerlink" href="#descriptive-statistics-and-visualization-as-quality-control" title="Permalink to this heading">#</a></h2>
 <p>The Central Park weather station has not always stayed in the exact same place or used the exact same instruments.</p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="conclusion">
-<h1><span class="section-number">9. </span>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this heading">#</a></h1>
+<section id="conclusion">
+<h2><span class="section-number">2.8. </span>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>Summary of Key Concepts</p></li>
 <li><p>Relevance to Upcoming Topics</p></li>
 <li><p>Q&amp;A and Feedback</p></li>
 </ol>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="supplementary-materials">
-<h1><span class="section-number">10. </span>Supplementary Materials<a class="headerlink" href="#supplementary-materials" title="Permalink to this heading">#</a></h1>
-<ol class="arabic simple">
-<li><p>Additional Readings</p></li>
-<li><p>Tutorial Videos or Links</p></li>
-<li><p>Homework or Assignments</p></li>
-</ol>
+<section id="supplementary-materials">
+<h2><span class="section-number">2.9. </span>Supplementary Materials<a class="headerlink" href="#supplementary-materials" title="Permalink to this heading">#</a></h2>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1388,45 +1371,41 @@ Coordinates:
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">2. Descriptive Statistics</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intro">2.1. Intro</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recap-of-last-time">2.1.1. Recap of last time</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#today-descriptive-statistics">2.1.2. Today: Descriptive Statistics</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#measures-of-central-tendency">2.2. Measures of Central Tendency</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mean">2.2.1. Mean</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#median">2.2.2. Median</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mode">2.2.3. Mode</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#measures-of-central-tendency">3. Measures of Central Tendency</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mean">3.1. Mean</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#median">3.2. Median</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mode">3.3. Mode</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#measures-of-dispersion">2.3. Measures of Dispersion</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#range">2.3.1. Range</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variance">2.3.2. Variance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-deviation">2.3.3. Standard deviation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coefficient-of-variation">2.3.4. Coefficient of variation</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#measures-of-dispersion">4. Measures of Dispersion</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#range">4.1. Range</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variance">4.2. Variance</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-deviation">4.3. Standard deviation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coefficient-of-variation">4.4. Coefficient of variation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#measures-of-shape">2.4. Measures of Shape</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#skewness">2.4.1. Skewness</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kurtosis">2.4.2. Kurtosis</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#measures-of-shape">5. Measures of Shape</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#skewness">5.1. Skewness</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kurtosis">5.2. Kurtosis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#measures-of-association">2.5. Measures of Association</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-visualization">2.6. Data Visualization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importance-of-visualization">2.6.1. Importance of Visualization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-plots-and-graphs">2.6.2. Types of Plots and Graphs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization-tools-in-python">2.6.3. Visualization Tools in Python</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practices-in-visualization">2.6.4. Best Practices in Visualization</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#measures-of-association">6. Measures of Association</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#data-visualization">7. Data Visualization</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importance-of-visualization">7.1. Importance of Visualization</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-plots-and-graphs">7.2. Types of Plots and Graphs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization-tools-in-python">7.3. Visualization Tools in Python</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practices-in-visualization">7.4. Best Practices in Visualization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptive-statistics-and-visualization-as-quality-control">2.7. Descriptive statistics and visualization as quality control</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">2.8. Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supplementary-materials">2.9. Supplementary Materials</a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptive-statistics-and-visualization-as-quality-control">8. Descriptive statistics and visualization as quality control</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">9. Conclusion</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#supplementary-materials">10. Supplementary Materials</a></li>
-</ul>
-
   </nav></div>
 
 </div></div>

@@ -47,7 +47,7 @@ Please check back here frequently as the schedule is subject to change.
   - **HW1** [**due**](syllabus:hw); HW2 assigned
 * - M 9/25
   - NO CLASS
-  - Happy random CCNY holiday! 
+  - Happy Yom Kippur! 
   -
 * - W 9/27
   - 8
