@@ -372,15 +372,16 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#measures-of-central-tendency">2.2. Measures of Central Tendency</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mean">2.2.1. Mean</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#median">2.2.2. Median</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#median-and-other-quantiles">2.2.2. Median (and other quantiles)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mode">2.2.3. Mode</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#measures-of-dispersion">2.3. Measures of Dispersion</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#range">2.3.1. Range</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variance">2.3.2. Variance</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-deviation">2.3.3. Standard deviation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coefficient-of-variation">2.3.4. Coefficient of variation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interquartile-range">2.3.2. Interquartile range</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variance">2.3.3. Variance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-deviation">2.3.4. Standard deviation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coefficient-of-variation">2.3.5. Coefficient of variation</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#measures-of-shape">2.4. Measures of Shape</a><ul class="nav section-nav flex-column">
@@ -506,8 +507,8 @@ document.write(`
 </div>
 </div>
 </section>
-<section id="median">
-<h3><span class="section-number">2.2.2. </span>Median<a class="headerlink" href="#median" title="Permalink to this heading">#</a></h3>
+<section id="median-and-other-quantiles">
+<h3><span class="section-number">2.2.2. </span>Median (and other quantiles)<a class="headerlink" href="#median-and-other-quantiles" title="Permalink to this heading">#</a></h3>
 <p>The median is the value such that exactly half of the data points lie below it, and half lie above it.</p>
 <p>Compared to the mean, it is insensitive to “outliers”—that is, points that are way different than most of the other points.</p>
 <p>The median of the Central park rainfall dataset is:</p>
@@ -913,7 +914,7 @@ dl.xr-attrs {
 </style><pre class='xr-text-repr-fallback'>&lt;xarray.DataArray &#x27;precip&#x27; (quantile: 4)&gt;
 array([0.  , 0.  , 0.05, 1.71])
 Coordinates:
-  * quantile  (quantile) float64 0.25 0.5 0.75 0.99</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'precip'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>quantile</span>: 4</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-ea65fa42-6e8f-466e-8c7f-bcf49f5ae747' class='xr-array-in' type='checkbox' checked><label for='section-ea65fa42-6e8f-466e-8c7f-bcf49f5ae747' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>0.0 0.0 0.05 1.71</span></div><div class='xr-array-data'><pre>array([0.  , 0.  , 0.05, 1.71])</pre></div></div></li><li class='xr-section-item'><input id='section-2721a68d-61cc-461c-8905-d45fa12ab6e1' class='xr-section-summary-in' type='checkbox'  checked><label for='section-2721a68d-61cc-461c-8905-d45fa12ab6e1' class='xr-section-summary' >Coordinates: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>quantile</span></div><div class='xr-var-dims'>(quantile)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>0.25 0.5 0.75 0.99</div><input id='attrs-da4e7d3a-b258-4ece-a910-5a8b17e32cd5' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-da4e7d3a-b258-4ece-a910-5a8b17e32cd5' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ef4ffbae-daa9-4d83-9e5d-232ac4036b86' class='xr-var-data-in' type='checkbox'><label for='data-ef4ffbae-daa9-4d83-9e5d-232ac4036b86' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([0.25, 0.5 , 0.75, 0.99])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-4f306972-211f-49cc-bbd6-65b12668058a' class='xr-section-summary-in' type='checkbox'  ><label for='section-4f306972-211f-49cc-bbd6-65b12668058a' class='xr-section-summary' >Indexes: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>quantile</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-9a5a87f9-4354-48c2-8225-5b24668149fc' class='xr-index-data-in' type='checkbox'/><label for='index-9a5a87f9-4354-48c2-8225-5b24668149fc' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([0.25, 0.5, 0.75, 0.99], dtype=&#x27;float64&#x27;, name=&#x27;quantile&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-9ab73e59-72b5-4d39-8ca7-b88c4075450b' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-9ab73e59-72b5-4d39-8ca7-b88c4075450b' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
+  * quantile  (quantile) float64 0.25 0.5 0.75 0.99</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'precip'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>quantile</span>: 4</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-e9cd654a-9459-43bf-94bc-ab5a67c3fabb' class='xr-array-in' type='checkbox' checked><label for='section-e9cd654a-9459-43bf-94bc-ab5a67c3fabb' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>0.0 0.0 0.05 1.71</span></div><div class='xr-array-data'><pre>array([0.  , 0.  , 0.05, 1.71])</pre></div></div></li><li class='xr-section-item'><input id='section-25d812a4-d175-40c2-af94-15d51130739e' class='xr-section-summary-in' type='checkbox'  checked><label for='section-25d812a4-d175-40c2-af94-15d51130739e' class='xr-section-summary' >Coordinates: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>quantile</span></div><div class='xr-var-dims'>(quantile)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>0.25 0.5 0.75 0.99</div><input id='attrs-a88b4b84-f5bb-45b2-89e2-08537000035d' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-a88b4b84-f5bb-45b2-89e2-08537000035d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b73edc9b-b8a4-437e-aeff-1b7c4e32acdb' class='xr-var-data-in' type='checkbox'><label for='data-b73edc9b-b8a4-437e-aeff-1b7c4e32acdb' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([0.25, 0.5 , 0.75, 0.99])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-48365240-40e9-4e31-9343-5afe3115080e' class='xr-section-summary-in' type='checkbox'  ><label for='section-48365240-40e9-4e31-9343-5afe3115080e' class='xr-section-summary' >Indexes: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>quantile</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-6af6197f-ff5e-452d-b562-78bb8271a247' class='xr-index-data-in' type='checkbox'/><label for='index-6af6197f-ff5e-452d-b562-78bb8271a247' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([0.25, 0.5, 0.75, 0.99], dtype=&#x27;float64&#x27;, name=&#x27;quantile&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-d65c9137-2468-4381-bd99-20cbeea19509' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-d65c9137-2468-4381-bd99-20cbeea19509' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
 </div>
 <p>So in this case, the bottom 75% of points span only a 0.05 inch range, while the 75th to 99th percentile spans 1.66 inches!</p>
 </section>
@@ -965,6 +966,8 @@ Coordinates:
 <p>These and related questions can be usefully answered using <em>measures of variation</em>, which includes two sub-categories: <em>measures of dispersion</em> and <em>measures of shape</em>.  We’ll start with <em>measures of dispersion</em>, of which there are three: <strong>range</strong>, <strong>variance</strong>, and <strong>standard deviation</strong>.</p>
 <section id="range">
 <h3><span class="section-number">2.3.1. </span>Range<a class="headerlink" href="#range" title="Permalink to this heading">#</a></h3>
+<p>The <strong>range</strong> is simply the difference between the maximum and minimum values.  In other words, it tells you the total span of the dataset: just how different can two values be?</p>
+<p>For precipitation, we know already that the minimum possible value is zero, so the range is identical to the maximum:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -988,18 +991,6 @@ Coordinates:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">precip_central_park</span><span class="o">.</span><span class="n">values</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">precip_central_park</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8.28
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># &quot;ptp&quot; stands for &quot;peak to peak&quot;</span>
 <span class="n">np</span><span class="o">.</span><span class="n">ptp</span><span class="p">(</span><span class="n">precip_central_park</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
 </pre></div>
@@ -1011,6 +1002,7 @@ Coordinates:
 </div>
 </div>
 </div>
+<p>In contrast, for temperature there is no lower bound (as long as you’re much warmer than absolute zero, or -273.15<span class="math notranslate nohighlight">\(^\circ\)</span>C, which fortunately is the case for Earth’s atmosphere).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">temp_central_park</span><span class="o">.</span><span class="n">values</span><span class="p">))</span>
@@ -1027,18 +1019,6 @@ Coordinates:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">temp_central_park</span><span class="o">.</span><span class="n">values</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">temp_central_park</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>99.5
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">ptp</span><span class="p">(</span><span class="n">temp_central_park</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1049,7 +1029,11 @@ Coordinates:
 </div>
 </div>
 </div>
-<p>The <strong>interquartile range</strong> is probably more widely used.  It is the difference between the 75th percentile value and the 25th percentile value.</p>
+</section>
+<section id="interquartile-range">
+<h3><span class="section-number">2.3.2. </span>Interquartile range<a class="headerlink" href="#interquartile-range" title="Permalink to this heading">#</a></h3>
+<p>The <strong>interquartile range</strong> is probably more widely used than the full range.  It is the difference between the 75th percentile value and the 25th percentile value.  In other words, it is the range spanned by the “middle half” of the dataset (“half” because betwen the 75th and 25th percentiles lies 75-25=50% of the data).</p>
+<p>For the Central Park precip, we know that the 25th percentile value must be zero (because the median, or 50th percentile, is 0, and so all lower percentiles must also be 0).  But we don’t know yet what the 75th percentile value is.  Let’s see:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">precip_central_park</span><span class="p">,</span> <span class="mi">75</span><span class="p">))</span>
@@ -1064,6 +1048,7 @@ Coordinates:
 </div>
 </div>
 </div>
+<p>So the IQR for precip is 0.05 inches:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">iqr</span><span class="p">(</span><span class="n">precip_central_park</span><span class="p">)</span>
@@ -1076,6 +1061,7 @@ Coordinates:
 </div>
 </div>
 </div>
+<p>For temperature, the 25th and 75th percentiles are:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">temp_central_park</span><span class="p">,</span> <span class="mi">75</span><span class="p">))</span>
@@ -1090,6 +1076,7 @@ Coordinates:
 </div>
 </div>
 </div>
+<p>Yielding an IQR of 29.5 degrees F:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">iqr</span><span class="p">(</span><span class="n">temp_central_park</span><span class="p">)</span>
@@ -1104,7 +1091,7 @@ Coordinates:
 </div>
 </section>
 <section id="variance">
-<h3><span class="section-number">2.3.2. </span>Variance<a class="headerlink" href="#variance" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.3.3. </span>Variance<a class="headerlink" href="#variance" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">precip_central_park</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
@@ -1131,7 +1118,7 @@ Coordinates:
 </div>
 </section>
 <section id="standard-deviation">
-<h3><span class="section-number">2.3.3. </span>Standard deviation<a class="headerlink" href="#standard-deviation" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.3.4. </span>Standard deviation<a class="headerlink" href="#standard-deviation" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">precip_central_park</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
@@ -1158,7 +1145,7 @@ Coordinates:
 </div>
 </section>
 <section id="coefficient-of-variation">
-<h3><span class="section-number">2.3.4. </span>Coefficient of variation<a class="headerlink" href="#coefficient-of-variation" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.3.5. </span>Coefficient of variation<a class="headerlink" href="#coefficient-of-variation" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The scipy package provides the C. of V. as </span>
@@ -1191,6 +1178,7 @@ Coordinates:
 <h2><span class="section-number">2.4. </span>Measures of Shape<a class="headerlink" href="#measures-of-shape" title="Permalink to this heading">#</a></h2>
 <section id="skewness">
 <h3><span class="section-number">2.4.1. </span>Skewness<a class="headerlink" href="#skewness" title="Permalink to this heading">#</a></h3>
+<p>The <strong>skewness</strong> tells you how much the dataset’s values clump together below or above the mean.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">skew</span><span class="p">(</span><span class="n">precip_central_park</span><span class="p">)</span>
@@ -1378,15 +1366,16 @@ Coordinates:
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#measures-of-central-tendency">2.2. Measures of Central Tendency</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mean">2.2.1. Mean</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#median">2.2.2. Median</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#median-and-other-quantiles">2.2.2. Median (and other quantiles)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mode">2.2.3. Mode</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#measures-of-dispersion">2.3. Measures of Dispersion</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#range">2.3.1. Range</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variance">2.3.2. Variance</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-deviation">2.3.3. Standard deviation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coefficient-of-variation">2.3.4. Coefficient of variation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interquartile-range">2.3.2. Interquartile range</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variance">2.3.3. Variance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-deviation">2.3.4. Standard deviation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coefficient-of-variation">2.3.5. Coefficient of variation</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#measures-of-shape">2.4. Measures of Shape</a><ul class="nav section-nav flex-column">
