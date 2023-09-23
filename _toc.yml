@@ -18,4 +18,5 @@ parts:
     numbered: 4
     chapters:
       - file: assignments/hw-descriptive-statistics
+      - file: assignments/hw-data-viz
 
