@@ -1,0 +1,1105 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>2. Generating core data visualizations on the Central Park weather dataset in Python &#8212; Statistical</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'assignments/hw-data-viz';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="1. Writing key quantities from descriptive statistics in Python yourself" href="hw-descriptive-statistics.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../home.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../home.html">
+                    EAS42000: Statistical Methods in Earth and Atmospheric Science
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Information</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../info/syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../info/schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../info/resources.html">Resources</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lectures/intro.html">1. Introduction to <em>Statistical Methods in Earth and Atmospheric Sciences</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/descriptive-statistics.html">2. Descriptive Statistics</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="hw-descriptive-statistics.html">1. Writing key quantities from descriptive statistics in Python yourself</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">2. Generating core data visualizations on the Central Park weather dataset in Python</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/spencerahill/stat-methods-course" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/spencerahill/stat-methods-course/issues/new?title=Issue%20on%20page%20%2Fassignments/hw-data-viz.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/assignments/hw-data-viz.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Generating core data visualizations on the Central Park weather dataset in Python</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">2.1. Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-toy-example">2.2. A toy example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#your-specific-tasks">2.3. Your specific tasks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#histogram-box-and-whisker-and-timeseries-for-the-central-park-weather-station-variables">2.3.1. Histogram, box-and-whisker, and timeseries for the Central Park weather station variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-selected-scatterplots">2.3.2. Make selected scatterplots</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-submit">2.4. How to submit</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#submission-url">2.4.1. Submission URL</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-a-relative-path-to-the-netcdf-file-in-your-code">2.4.2. Use a <em>relative</em> path to the netCDF file in your code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#your-notebook-must-run-successfully-start-to-finish-on-my-laptop">2.4.3. Your Notebook <em>must</em> run successfully start-to-finish on <em>my</em> laptop</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extra-credit">2.5. Extra credit</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#repeat-these-analyses-on-data-you-re-using-for-your-final-project">2.5.1. Repeat these analyses on data you’re using for your final project</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="generating-core-data-visualizations-on-the-central-park-weather-dataset-in-python">
+<h1><span class="section-number">2. </span>Generating core data visualizations on the Central Park weather dataset in Python<a class="headerlink" href="#generating-core-data-visualizations-on-the-central-park-weather-dataset-in-python" title="Permalink to this heading">#</a></h1>
+<section id="introduction">
+<h2><span class="section-number">2.1. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
+<p>We learned four key plot types in the lecture on Data Visualization: <strong>timeseries</strong>, <strong>box-and-whisker</strong>, <strong>histogram</strong>, and <strong>scatterplot</strong>.  This included both what they represent/how to interpret them <em>and</em> how to plot them in a Jupyter notebook using matplotlib and numpy.  We also learned how to read in netCDF files from disk—such as the Central Park weather station dataset—using the <code class="docutils literal notranslate"><span class="pre">netCDF4</span></code> package.</p>
+<p>In this assignment, you’ll generate these plots for all of the variables in that dataset.</p>
+</section>
+<section id="a-toy-example">
+<h2><span class="section-number">2.2. </span>A toy example<a class="headerlink" href="#a-toy-example" title="Permalink to this heading">#</a></h2>
+<p>To provide concrete examples of what you’ll create, first I’ll create a fake dataset that’s the same length as the Central Park data.</p>
+<p>(This involves things that we haven’t yet covered in class, so it’s no problem if you don’t follow the lines of code below.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+
+<span class="c1"># Load the Central Park dataset from disk.</span>
+<span class="n">filepath_in</span> <span class="o">=</span> <span class="s2">&quot;../data/central-park-station-data.nc&quot;</span>
+<span class="n">ds_central_park</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">filepath_in</span><span class="p">)</span>
+
+<span class="c1"># Draw randomly from a Gaussian distribution.</span>
+<span class="n">mean</span> <span class="o">=</span> <span class="mf">0.</span>
+<span class="n">std_dev</span> <span class="o">=</span> <span class="mf">1.</span>
+<span class="n">vals_toy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">std_dev</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">ds_central_park</span><span class="p">[</span><span class="s2">&quot;temp_avg&quot;</span><span class="p">]))</span>
+
+<span class="c1"># Make this toy data into an xarray.DataArray with the coordinates from the Central Park data</span>
+<span class="n">arr_toy</span> <span class="o">=</span> <span class="n">vals_toy</span> <span class="o">*</span> <span class="n">xr</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">ds_central_park</span><span class="p">[</span><span class="s2">&quot;temp_avg&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s2">&quot;toy&quot;</span><span class="p">)</span>
+<span class="n">arr_toy</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
+<defs>
+<symbol id="icon-database" viewBox="0 0 32 32">
+<path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path>
+<path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+<path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+</symbol>
+<symbol id="icon-file-text2" viewBox="0 0 32 32">
+<path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path>
+<path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+</symbol>
+</defs>
+</svg>
+<style>/* CSS stylesheet for displaying xarray objects in jupyterlab.
+ *
+ */
+
+:root {
+  --xr-font-color0: var(--jp-content-font-color0, rgba(0, 0, 0, 1));
+  --xr-font-color2: var(--jp-content-font-color2, rgba(0, 0, 0, 0.54));
+  --xr-font-color3: var(--jp-content-font-color3, rgba(0, 0, 0, 0.38));
+  --xr-border-color: var(--jp-border-color2, #e0e0e0);
+  --xr-disabled-color: var(--jp-layout-color3, #bdbdbd);
+  --xr-background-color: var(--jp-layout-color0, white);
+  --xr-background-color-row-even: var(--jp-layout-color1, white);
+  --xr-background-color-row-odd: var(--jp-layout-color2, #eeeeee);
+}
+
+html[theme=dark],
+body[data-theme=dark],
+body.vscode-dark {
+  --xr-font-color0: rgba(255, 255, 255, 1);
+  --xr-font-color2: rgba(255, 255, 255, 0.54);
+  --xr-font-color3: rgba(255, 255, 255, 0.38);
+  --xr-border-color: #1F1F1F;
+  --xr-disabled-color: #515151;
+  --xr-background-color: #111111;
+  --xr-background-color-row-even: #111111;
+  --xr-background-color-row-odd: #313131;
+}
+
+.xr-wrap {
+  display: block !important;
+  min-width: 300px;
+  max-width: 700px;
+}
+
+.xr-text-repr-fallback {
+  /* fallback to plain text repr when CSS is not injected (untrusted notebook) */
+  display: none;
+}
+
+.xr-header {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin-bottom: 4px;
+  border-bottom: solid 1px var(--xr-border-color);
+}
+
+.xr-header > div,
+.xr-header > ul {
+  display: inline;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.xr-obj-type,
+.xr-array-name {
+  margin-left: 2px;
+  margin-right: 10px;
+}
+
+.xr-obj-type {
+  color: var(--xr-font-color2);
+}
+
+.xr-sections {
+  padding-left: 0 !important;
+  display: grid;
+  grid-template-columns: 150px auto auto 1fr 20px 20px;
+}
+
+.xr-section-item {
+  display: contents;
+}
+
+.xr-section-item input {
+  display: none;
+}
+
+.xr-section-item input + label {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-item input:enabled + label {
+  cursor: pointer;
+  color: var(--xr-font-color2);
+}
+
+.xr-section-item input:enabled + label:hover {
+  color: var(--xr-font-color0);
+}
+
+.xr-section-summary {
+  grid-column: 1;
+  color: var(--xr-font-color2);
+  font-weight: 500;
+}
+
+.xr-section-summary > span {
+  display: inline-block;
+  padding-left: 0.5em;
+}
+
+.xr-section-summary-in:disabled + label {
+  color: var(--xr-font-color2);
+}
+
+.xr-section-summary-in + label:before {
+  display: inline-block;
+  content: '►';
+  font-size: 11px;
+  width: 15px;
+  text-align: center;
+}
+
+.xr-section-summary-in:disabled + label:before {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-summary-in:checked + label:before {
+  content: '▼';
+}
+
+.xr-section-summary-in:checked + label > span {
+  display: none;
+}
+
+.xr-section-summary,
+.xr-section-inline-details {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.xr-section-inline-details {
+  grid-column: 2 / -1;
+}
+
+.xr-section-details {
+  display: none;
+  grid-column: 1 / -1;
+  margin-bottom: 5px;
+}
+
+.xr-section-summary-in:checked ~ .xr-section-details {
+  display: contents;
+}
+
+.xr-array-wrap {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 20px auto;
+}
+
+.xr-array-wrap > label {
+  grid-column: 1;
+  vertical-align: top;
+}
+
+.xr-preview {
+  color: var(--xr-font-color3);
+}
+
+.xr-array-preview,
+.xr-array-data {
+  padding: 0 5px !important;
+  grid-column: 2;
+}
+
+.xr-array-data,
+.xr-array-in:checked ~ .xr-array-preview {
+  display: none;
+}
+
+.xr-array-in:checked ~ .xr-array-data,
+.xr-array-preview {
+  display: inline-block;
+}
+
+.xr-dim-list {
+  display: inline-block !important;
+  list-style: none;
+  padding: 0 !important;
+  margin: 0;
+}
+
+.xr-dim-list li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+.xr-dim-list:before {
+  content: '(';
+}
+
+.xr-dim-list:after {
+  content: ')';
+}
+
+.xr-dim-list li:not(:last-child):after {
+  content: ',';
+  padding-right: 5px;
+}
+
+.xr-has-index {
+  font-weight: bold;
+}
+
+.xr-var-list,
+.xr-var-item {
+  display: contents;
+}
+
+.xr-var-item > div,
+.xr-var-item label,
+.xr-var-item > .xr-var-name span {
+  background-color: var(--xr-background-color-row-even);
+  margin-bottom: 0;
+}
+
+.xr-var-item > .xr-var-name:hover span {
+  padding-right: 5px;
+}
+
+.xr-var-list > li:nth-child(odd) > div,
+.xr-var-list > li:nth-child(odd) > label,
+.xr-var-list > li:nth-child(odd) > .xr-var-name span {
+  background-color: var(--xr-background-color-row-odd);
+}
+
+.xr-var-name {
+  grid-column: 1;
+}
+
+.xr-var-dims {
+  grid-column: 2;
+}
+
+.xr-var-dtype {
+  grid-column: 3;
+  text-align: right;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-preview {
+  grid-column: 4;
+}
+
+.xr-index-preview {
+  grid-column: 2 / 5;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-name,
+.xr-var-dims,
+.xr-var-dtype,
+.xr-preview,
+.xr-attrs dt {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 10px;
+}
+
+.xr-var-name:hover,
+.xr-var-dims:hover,
+.xr-var-dtype:hover,
+.xr-attrs dt:hover {
+  overflow: visible;
+  width: auto;
+  z-index: 1;
+}
+
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  display: none;
+  background-color: var(--xr-background-color) !important;
+  padding-bottom: 5px !important;
+}
+
+.xr-var-attrs-in:checked ~ .xr-var-attrs,
+.xr-var-data-in:checked ~ .xr-var-data,
+.xr-index-data-in:checked ~ .xr-index-data {
+  display: block;
+}
+
+.xr-var-data > table {
+  float: right;
+}
+
+.xr-var-name span,
+.xr-var-data,
+.xr-index-name div,
+.xr-index-data,
+.xr-attrs {
+  padding-left: 25px !important;
+}
+
+.xr-attrs,
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  grid-column: 1 / -1;
+}
+
+dl.xr-attrs {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 125px auto;
+}
+
+.xr-attrs dt,
+.xr-attrs dd {
+  padding: 0;
+  margin: 0;
+  float: left;
+  padding-right: 10px;
+  width: auto;
+}
+
+.xr-attrs dt {
+  font-weight: normal;
+  grid-column: 1;
+}
+
+.xr-attrs dt:hover span {
+  display: inline-block;
+  background: var(--xr-background-color);
+  padding-right: 10px;
+}
+
+.xr-attrs dd {
+  grid-column: 2;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.xr-icon-database,
+.xr-icon-file-text2,
+.xr-no-icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1.5em !important;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+</style><pre class='xr-text-repr-fallback'>&lt;xarray.DataArray &#x27;toy&#x27; (time: 56428)&gt;
+array([ 0.99790968, -0.74119211, -2.77268067, ...,  1.60552372,
+       -0.17218151, -0.58039493])
+Coordinates:
+  * time     (time) datetime64[ns] 1869-01-01 1869-01-02 ... 2023-06-30</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'toy'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 56428</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-a9f68f93-262a-4ce6-ae3a-f4accae70443' class='xr-array-in' type='checkbox' checked><label for='section-a9f68f93-262a-4ce6-ae3a-f4accae70443' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>0.9979 -0.7412 -2.773 1.313 -1.495 ... 0.3064 1.606 -0.1722 -0.5804</span></div><div class='xr-array-data'><pre>array([ 0.99790968, -0.74119211, -2.77268067, ...,  1.60552372,
+       -0.17218151, -0.58039493])</pre></div></div></li><li class='xr-section-item'><input id='section-c0a22d3e-9fe0-40f3-91aa-5c19dd302c1a' class='xr-section-summary-in' type='checkbox'  checked><label for='section-c0a22d3e-9fe0-40f3-91aa-5c19dd302c1a' class='xr-section-summary' >Coordinates: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1869-01-01 ... 2023-06-30</div><input id='attrs-7f13005b-1b85-4ca2-89e9-a078c05dcdc7' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-7f13005b-1b85-4ca2-89e9-a078c05dcdc7' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-37a46746-1d38-4a16-8036-c68856d8ea99' class='xr-var-data-in' type='checkbox'><label for='data-37a46746-1d38-4a16-8036-c68856d8ea99' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([&#x27;1869-01-01T00:00:00.000000000&#x27;, &#x27;1869-01-02T00:00:00.000000000&#x27;,
+       &#x27;1869-01-03T00:00:00.000000000&#x27;, ..., &#x27;2023-06-28T00:00:00.000000000&#x27;,
+       &#x27;2023-06-29T00:00:00.000000000&#x27;, &#x27;2023-06-30T00:00:00.000000000&#x27;],
+      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-69cee6bb-f6b7-4e11-9dc1-f78283b3548e' class='xr-section-summary-in' type='checkbox'  ><label for='section-69cee6bb-f6b7-4e11-9dc1-f78283b3548e' class='xr-section-summary' >Indexes: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-a97d0e79-0af3-4d40-b237-24fe5f2c7e2a' class='xr-index-data-in' type='checkbox'/><label for='index-a97d0e79-0af3-4d40-b237-24fe5f2c7e2a' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;1869-01-01&#x27;, &#x27;1869-01-02&#x27;, &#x27;1869-01-03&#x27;, &#x27;1869-01-04&#x27;,
+               &#x27;1869-01-05&#x27;, &#x27;1869-01-06&#x27;, &#x27;1869-01-07&#x27;, &#x27;1869-01-08&#x27;,
+               &#x27;1869-01-09&#x27;, &#x27;1869-01-10&#x27;,
+               ...
+               &#x27;2023-06-21&#x27;, &#x27;2023-06-22&#x27;, &#x27;2023-06-23&#x27;, &#x27;2023-06-24&#x27;,
+               &#x27;2023-06-25&#x27;, &#x27;2023-06-26&#x27;, &#x27;2023-06-27&#x27;, &#x27;2023-06-28&#x27;,
+               &#x27;2023-06-29&#x27;, &#x27;2023-06-30&#x27;],
+              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, length=56428, freq=None))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-3f881817-01fe-4fdd-b416-f0a43a0c3991' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-3f881817-01fe-4fdd-b416-f0a43a0c3991' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
+</div>
+<p>Now, create the plots:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &quot;retina&quot;
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>  <span class="c1"># create a matplotlib.Figure instance</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">()</span>  <span class="c1"># add a matplotlib.Axes instance to fig</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">arr_toy</span><span class="p">)</span>  <span class="c1"># you could also call plt.hist</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;toy data [unitless]&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;count [unitless]&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;count [unitless]&#39;)
+</pre></div>
+</div>
+<img alt="../_images/b2055c22313297074a91296cab6c0e9734c097a149fd58a3e478d8cccf75050d.png" src="../_images/b2055c22313297074a91296cab6c0e9734c097a149fd58a3e478d8cccf75050d.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>  <span class="c1"># This one-liner is more convenient than the two lines version above.</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">arr_toy</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;toy data [unitless]&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;toy data [unitless]&#39;)
+</pre></div>
+</div>
+<img alt="../_images/d433670e4bf5ff5324f3d3304f84739f089d3789350eae9c2976245fabba417f.png" src="../_images/d433670e4bf5ff5324f3d3304f84739f089d3789350eae9c2976245fabba417f.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>  <span class="c1"># This one-liner is more convenient than the two lines version above.</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">arr_toy</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">],</span> <span class="n">arr_toy</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;toy data [unitless]&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;toy data [unitless]&#39;)
+</pre></div>
+</div>
+<img alt="../_images/5369061b2674d0d2a4600b70e6b3c833db4e1604ed8b755d938c74cfae6107f9.png" src="../_images/5369061b2674d0d2a4600b70e6b3c833db4e1604ed8b755d938c74cfae6107f9.png" />
+</div>
+</div>
+<p>There you go.  (We’ll return to scatterplots further below.)</p>
+<p>You can also put all three together into a single figure:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axarr</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>  <span class="c1"># create a figure containting 1x3 array of axes</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">axarr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">arr_toy</span><span class="p">)</span>  <span class="c1"># you could also call plt.hist</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;toy data [unitless]&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;count [unitless]&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">axarr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">arr_toy</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;toy data [unitless]&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">axarr</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">arr_toy</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">],</span> <span class="n">arr_toy</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;toy data [unitless]&quot;</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Histogram, box-and-whisker, and timeseries plots of the toy array&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0.98, &#39;Histogram, box-and-whisker, and timeseries plots of the toy array&#39;)
+</pre></div>
+</div>
+<img alt="../_images/4cae8bcb38f666420feb9ddf6b2e2ce7005b41fba1732f95de4a678cbbf1e230.png" src="../_images/4cae8bcb38f666420feb9ddf6b2e2ce7005b41fba1732f95de4a678cbbf1e230.png" />
+</div>
+</div>
+</section>
+<section id="your-specific-tasks">
+<h2><span class="section-number">2.3. </span>Your specific tasks<a class="headerlink" href="#your-specific-tasks" title="Permalink to this heading">#</a></h2>
+<section id="histogram-box-and-whisker-and-timeseries-for-the-central-park-weather-station-variables">
+<h3><span class="section-number">2.3.1. </span>Histogram, box-and-whisker, and timeseries for the Central Park weather station variables<a class="headerlink" href="#histogram-box-and-whisker-and-timeseries-for-the-central-park-weather-station-variables" title="Permalink to this heading">#</a></h3>
+<p>For <strong>each</strong> of the following variables in the Central Park daily weather dataset…</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">temp_avg</span></code> (daily average temperature)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">temp_min</span></code> (daily minimum temperature)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">temp_max</span></code> (daily maximum temperature)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">temp_anom</span></code> (daily average temperature <em>departure</em> from “normal”, i.e. a 30-year average)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">heat_deg_days</span></code> (<a class="reference external" href="https://en.wikipedia.org/wiki/Heating_degree_day">heating degree days</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cool_deg_days</span></code> (<a class="reference external" href="https://en.wikipedia.org/wiki/Degree_day#United_States">cooling degree days</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">precip</span></code> (precipitation in inches; when it’s snow this is <a class="reference external" href="https://en.wikipedia.org/wiki/Snow_science#Measurement"><em>snow water equivalent</em></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">snow_fall</span></code> (snowfall in inches that day)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">snow_depth</span></code> (depth in inches of snow currently on the ground)</p></li>
+</ul>
+<p>…complete <strong>all</strong> of the following tasks:</p>
+<ul class="simple">
+<li><p>[ ] Create a 3x1 figure just like the one above generated on my toy array.</p></li>
+<li><p>[ ] Be sure to properly label the x and y axes in each case: identify the physical quantity and the units.</p></li>
+<li><p>[ ] As a text (“markdown”) cell above the figure, include a 1 or 2 sentence description of what the quantity is.</p></li>
+<li><p>[ ] As a Markdown cell below the figure, for each of the 3 plots, include a 1 or 2 sentence description: the overall behavior and anything else that seems noteworthy.</p></li>
+</ul>
+</section>
+<section id="make-selected-scatterplots">
+<h3><span class="section-number">2.3.2. </span>Make selected scatterplots<a class="headerlink" href="#make-selected-scatterplots" title="Permalink to this heading">#</a></h3>
+<p>For <strong>each</strong> of the following pairs of fields:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">temp_min</span></code> vs. <code class="docutils literal notranslate"><span class="pre">temp_max</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">temp_avg</span></code> vs. <code class="docutils literal notranslate"><span class="pre">cool_deg_days</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">snow_fall</span></code> vs. <code class="docutils literal notranslate"><span class="pre">precip</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">temp_avg</span></code> vs. <code class="docutils literal notranslate"><span class="pre">temp_avg</span></code> 2 weeks later</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">temp_anom</span></code> vs. <code class="docutils literal notranslate"><span class="pre">temp_anom</span></code> 2 weeks later</p></li>
+</ul>
+<p>…do the following:</p>
+<ul class="simple">
+<li><p>[ ] generate a scatterplot</p></li>
+<li><p>[ ] Include a markdown cell immediately after with 1-2 sentences describing the overall behavior and anything else noteworthy you see.</p></li>
+</ul>
+</section>
+</section>
+<section id="how-to-submit">
+<h2><span class="section-number">2.4. </span>How to submit<a class="headerlink" href="#how-to-submit" title="Permalink to this heading">#</a></h2>
+<section id="submission-url">
+<h3><span class="section-number">2.4.1. </span>Submission URL<a class="headerlink" href="#submission-url" title="Permalink to this heading">#</a></h3>
+<p>Use the Google Form at <a class="reference external" href="https://forms.gle/VLaVEfGyHifJJygE6">this link</a> (you must be logged into your CUNY citymail account in Google to be granted access).</p>
+<p>Submit the notebook as a <em>single</em> <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> file with a filename matching <strong>exactly</strong> the pattern <code class="docutils literal notranslate"><span class="pre">eas42000_hw1_lastname-firstname.ipynb</span></code>, replacing <code class="docutils literal notranslate"><span class="pre">lastname</span></code> with your last name and <code class="docutils literal notranslate"><span class="pre">firstname</span></code> with your first name.</p>
+</section>
+<section id="use-a-relative-path-to-the-netcdf-file-in-your-code">
+<h3><span class="section-number">2.4.2. </span>Use a <em>relative</em> path to the netCDF file in your code<a class="headerlink" href="#use-a-relative-path-to-the-netcdf-file-in-your-code" title="Permalink to this heading">#</a></h3>
+<p><strong>Important</strong>: you <strong>must</strong> copy the Central Park dataset netCDF file into the same directory/folder that holds your homework <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> file, <em>and</em> your code <strong>must</strong> refer to that file using a <em>relative</em> rather than <em>absolute</em> filepath.  I.e.:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">path_to_cp</span> <span class="o">=</span> <span class="s2">&quot;./central-park-station-data.nc&quot;</span>  <span class="c1"># this is good; it will work on my computer</span>
+</pre></div>
+</div>
+<p>NOT the <em>absolute</em> path to where the file lives on <em>your</em> computer:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">path_to_cp</span> <span class="o">=</span> <span class="s2">&quot;/Users/jane-student/eas4200/central-park-station-data.nc&quot;</span>  <span class="c1"># this will NOT work on my computer</span>
+</pre></div>
+</div>
+<p>If you don’t follow this instruction, it will cause your Notebook to not run successfully when I go to run it on my computer.</p>
+</section>
+<section id="your-notebook-must-run-successfully-start-to-finish-on-my-laptop">
+<h3><span class="section-number">2.4.3. </span>Your Notebook <em>must</em> run successfully start-to-finish on <em>my</em> laptop<a class="headerlink" href="#your-notebook-must-run-successfully-start-to-finish-on-my-laptop" title="Permalink to this heading">#</a></h3>
+<p>I will run every person’s notebook on my own computer as part of the grading.  If that is unsuccessful—meaning that when I select “Run all cells”, the code execution crashes at any point with an error message—you automatically lose 5% on the assignment, <em>and</em> I will email you asking you to re-submit a version that does run.  (And each subsequent submission that doesn’t run successfully loses an additional 5%.)</p>
+<p>This could be because of the relative/absolute filepath issue described immediately above and/or any other bug in your code.</p>
+<p>Why?  It takes a <em>lot</em> of time to debug someone else’s Notebook that doesn’t work.  And meanwhile, it’s very easy for you to follow this instruction (see bold paragraph immediately below).  So it’s just not fair to me if I have to spend a lot of time debugging your code.</p>
+<p><strong>To prevent this, as a last step before submitting your Notebook, I URGE you to restart your Jupyter Kernel, select “Run all cells”, and make sure that it runs successfully.</strong>  <em>Then</em> save it one last time and upload it.</p>
+</section>
+</section>
+<section id="extra-credit">
+<h2><span class="section-number">2.5. </span>Extra credit<a class="headerlink" href="#extra-credit" title="Permalink to this heading">#</a></h2>
+<p>Each extra credit option below (in this case, there’s only one) earns you up to an extra 5% on this assignment.</p>
+<section id="repeat-these-analyses-on-data-you-re-using-for-your-final-project">
+<h3><span class="section-number">2.5.1. </span>Repeat these analyses on data you’re using for your final project<a class="headerlink" href="#repeat-these-analyses-on-data-you-re-using-for-your-final-project" title="Permalink to this heading">#</a></h3>
+<p>For at least one quantity in the dataset you’re using for your final project, generate the histogram, box-and-whisker, and (if applicable) timeseries plots, following the same instructions as above.</p>
+<p>This is a double bonus: it gets you extra credit on this assignment <em>and</em> helps you make progress on your final project!</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./assignments"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="hw-descriptive-statistics.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Writing key quantities from descriptive statistics in Python yourself</p>
+      </div>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">2.1. Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-toy-example">2.2. A toy example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#your-specific-tasks">2.3. Your specific tasks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#histogram-box-and-whisker-and-timeseries-for-the-central-park-weather-station-variables">2.3.1. Histogram, box-and-whisker, and timeseries for the Central Park weather station variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-selected-scatterplots">2.3.2. Make selected scatterplots</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-submit">2.4. How to submit</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#submission-url">2.4.1. Submission URL</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-a-relative-path-to-the-netcdf-file-in-your-code">2.4.2. Use a <em>relative</em> path to the netCDF file in your code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#your-notebook-must-run-successfully-start-to-finish-on-my-laptop">2.4.3. Your Notebook <em>must</em> run successfully start-to-finish on <em>my</em> laptop</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extra-credit">2.5. Extra credit</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#repeat-these-analyses-on-data-you-re-using-for-your-final-project">2.5.1. Repeat these analyses on data you’re using for your final project</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Spencer A. Hill
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

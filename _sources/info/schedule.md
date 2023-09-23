@@ -52,7 +52,7 @@ Please check back here frequently as the schedule is subject to change.
 * - W 9/27
   - 8
   - Probability I
-  - **HW2** [**due**](syllabus:hw)
+  - 
 * - M 10/2
   - 9
   - Probability II
