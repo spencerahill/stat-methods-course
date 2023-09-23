@@ -39,39 +39,39 @@ Please check back here frequently as the schedule is subject to change.
   -
 * - M 9/18
   - 6
-  - Probability I
+  - Data Visualization I
   - 
 * - W 9/20
   - 7
-  - Probability II
-  - **HW1** [**due**](syllabus:hw); HW2 assigned
+  - Data Visualization II; Python: jupyter, matplotlib, numpy, netCDF4
+  - **HW1** [**due**](syllabus:hw)
 * - M 9/25
   - NO CLASS
-  - Happy random CCNY holiday! 
+  - Happy Yom Kippur! 
   -
 * - W 9/27
   - 8
-  - Hypothesis testing I
-  - **HW2** [**due**](syllabus:hw)
+  - Probability I
+  - 
 * - M 10/2
   - 9
-  - Hypothesis testing II
+  - Probability II
   - HW3 assigned
 * - W 10/4
   - 10
-  - Hypothesis testing; "lab" day
-  -
+  - Probability III; Python: pandas, xarray
+  - 2-min final project in-class descriptions
 * - M 10/9
   - NO CLASS
   - Happy Columbus Day & Indigenous Peoples' Day!
   -
 * - **T 10/10 2-3:15pm** *(note abnormal day of week)*
   - 11
-  - Data visualization I 
+  - Hypothesis testing I
   -
 * - W 10/11
   - 12
-  - Data visualization II
+  - Hypothesis testing II
   - **HW3**  [**due**](syllabus:hw); HW4 assigned
 * - M 10/16
   - 13
