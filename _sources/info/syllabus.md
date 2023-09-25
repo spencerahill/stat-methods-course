@@ -41,7 +41,7 @@ There is no pre-set distribution of grades or "curve" across the class: you are 
 ### Homework (20%)
 There will be homework assignments most weeks.  These will be submitted as [Jupyter Notebooks](https://jupyter.org/).  More instructions will follow.  (Don't worry if you've never used Jupyter before; one of the earliest class sessions will be devoted to getting everybody spun up on it.)
 
-The due date for each homework assignment will be announced when the assignment is given out to you.  An assignment is considered on time as long as you submit it before the end of that calendar day (i.e. by 11:59 pm).  For each day it is late, 10% is subtracted from the grade you'd receive otherwise.  So, for example, two days late = 20% deducted.
+The due date and time for each homework assignment will be announced when the assignment is given out to you.  An assignment is considered on time as long as you submit it before the specified time on the specified day.  For each 24 hour period it is late, 10% is subtracted from the grade you'd receive otherwise.  So, for example, two days late = 20% deducted.
 
 You automatically get one no-questions-asked extension over the course of the semester that can be for up to five days from the standard due date.  You can pick any assignment to apply this to; just email me prior to the due date to cash it in.  You can request extensions after the due date, but you will still be docked the points according to how late the request was made.  For example, suppose the assignment was due Monday, and you were behind on it, and then on Wednesday something comes up that will prevent you from finishing it until Friday.  If you make your request that day, then you can earn a maximum score of 80%. 
 
