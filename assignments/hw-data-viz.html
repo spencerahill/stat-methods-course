@@ -364,7 +364,10 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">2.1. Introduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-toy-example">2.2. A toy example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-toy-example">2.2. A toy example</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-you-re-using-the-netcdf4-package">2.2.1. If you’re using the <code class="docutils literal notranslate"><span class="pre">netCDF4</span></code> package</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#your-specific-tasks">2.3. Your specific tasks</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#histogram-box-and-whisker-and-timeseries-for-the-central-park-weather-station-variables">2.3.1. Histogram, box-and-whisker, and timeseries for the Central Park weather station variables</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-selected-scatterplots">2.3.2. Make selected scatterplots</a></li>
@@ -408,6 +411,7 @@ document.write(`
 <span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
 
 <span class="c1"># Load the Central Park dataset from disk.</span>
+<span class="c1"># Note: on my computer, the filepath below is the correct one.  But it probably won&#39;t be on yours!  Replace it as needed.</span>
 <span class="n">filepath_in</span> <span class="o">=</span> <span class="s2">&quot;../data/central-park-station-data.nc&quot;</span>
 <span class="n">ds_central_park</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">filepath_in</span><span class="p">)</span>
 
@@ -787,21 +791,21 @@ dl.xr-attrs {
   fill: currentColor;
 }
 </style><pre class='xr-text-repr-fallback'>&lt;xarray.DataArray &#x27;toy&#x27; (time: 56428)&gt;
-array([ 0.93673805, -0.10386573,  1.18615917, ...,  0.9493426 ,
-        0.96586655, -0.47858948])
+array([ 0.04085647, -0.09127554,  0.68508853, ...,  0.03656732,
+        1.51001844, -1.47185201])
 Coordinates:
-  * time     (time) datetime64[ns] 1869-01-01 1869-01-02 ... 2023-06-30</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'toy'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 56428</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-ca5eba51-88ba-4645-9214-949dcbd4b815' class='xr-array-in' type='checkbox' checked><label for='section-ca5eba51-88ba-4645-9214-949dcbd4b815' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>0.9367 -0.1039 1.186 -0.1302 -0.1275 ... -1.202 0.9493 0.9659 -0.4786</span></div><div class='xr-array-data'><pre>array([ 0.93673805, -0.10386573,  1.18615917, ...,  0.9493426 ,
-        0.96586655, -0.47858948])</pre></div></div></li><li class='xr-section-item'><input id='section-372d5c4d-4e68-4edb-981e-098665bb7b7c' class='xr-section-summary-in' type='checkbox'  checked><label for='section-372d5c4d-4e68-4edb-981e-098665bb7b7c' class='xr-section-summary' >Coordinates: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1869-01-01 ... 2023-06-30</div><input id='attrs-91c1377d-1a6b-41a1-a0f2-f1a51748d964' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-91c1377d-1a6b-41a1-a0f2-f1a51748d964' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-6e633a06-a56e-4e77-b775-2868a2e646b2' class='xr-var-data-in' type='checkbox'><label for='data-6e633a06-a56e-4e77-b775-2868a2e646b2' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([&#x27;1869-01-01T00:00:00.000000000&#x27;, &#x27;1869-01-02T00:00:00.000000000&#x27;,
+  * time     (time) datetime64[ns] 1869-01-01 1869-01-02 ... 2023-06-30</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'toy'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 56428</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-25e855d6-a089-4287-b4d3-6d2c1bc7be4e' class='xr-array-in' type='checkbox' checked><label for='section-25e855d6-a089-4287-b4d3-6d2c1bc7be4e' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>0.04086 -0.09128 0.6851 -0.3 -1.186 ... -1.2 0.03657 1.51 -1.472</span></div><div class='xr-array-data'><pre>array([ 0.04085647, -0.09127554,  0.68508853, ...,  0.03656732,
+        1.51001844, -1.47185201])</pre></div></div></li><li class='xr-section-item'><input id='section-c5ec0eb9-8693-4580-88f3-e0ae81d87fdb' class='xr-section-summary-in' type='checkbox'  checked><label for='section-c5ec0eb9-8693-4580-88f3-e0ae81d87fdb' class='xr-section-summary' >Coordinates: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1869-01-01 ... 2023-06-30</div><input id='attrs-da06edd8-4f38-4b25-a959-d61c16a0d0cb' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-da06edd8-4f38-4b25-a959-d61c16a0d0cb' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-023a2dc0-cb27-4231-9dca-0cdfcce7eef1' class='xr-var-data-in' type='checkbox'><label for='data-023a2dc0-cb27-4231-9dca-0cdfcce7eef1' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([&#x27;1869-01-01T00:00:00.000000000&#x27;, &#x27;1869-01-02T00:00:00.000000000&#x27;,
        &#x27;1869-01-03T00:00:00.000000000&#x27;, ..., &#x27;2023-06-28T00:00:00.000000000&#x27;,
        &#x27;2023-06-29T00:00:00.000000000&#x27;, &#x27;2023-06-30T00:00:00.000000000&#x27;],
-      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-39304587-ceb4-4dce-b256-0165fa3b1a7f' class='xr-section-summary-in' type='checkbox'  ><label for='section-39304587-ceb4-4dce-b256-0165fa3b1a7f' class='xr-section-summary' >Indexes: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-9f191cf1-9962-4354-a9b3-119f9d984ef3' class='xr-index-data-in' type='checkbox'/><label for='index-9f191cf1-9962-4354-a9b3-119f9d984ef3' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;1869-01-01&#x27;, &#x27;1869-01-02&#x27;, &#x27;1869-01-03&#x27;, &#x27;1869-01-04&#x27;,
+      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-9964e7e3-4dd7-4730-b93b-cc89a36f4606' class='xr-section-summary-in' type='checkbox'  ><label for='section-9964e7e3-4dd7-4730-b93b-cc89a36f4606' class='xr-section-summary' >Indexes: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-513f5f4e-fa3f-4b90-ae48-e8d80e170674' class='xr-index-data-in' type='checkbox'/><label for='index-513f5f4e-fa3f-4b90-ae48-e8d80e170674' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;1869-01-01&#x27;, &#x27;1869-01-02&#x27;, &#x27;1869-01-03&#x27;, &#x27;1869-01-04&#x27;,
                &#x27;1869-01-05&#x27;, &#x27;1869-01-06&#x27;, &#x27;1869-01-07&#x27;, &#x27;1869-01-08&#x27;,
                &#x27;1869-01-09&#x27;, &#x27;1869-01-10&#x27;,
                ...
                &#x27;2023-06-21&#x27;, &#x27;2023-06-22&#x27;, &#x27;2023-06-23&#x27;, &#x27;2023-06-24&#x27;,
                &#x27;2023-06-25&#x27;, &#x27;2023-06-26&#x27;, &#x27;2023-06-27&#x27;, &#x27;2023-06-28&#x27;,
                &#x27;2023-06-29&#x27;, &#x27;2023-06-30&#x27;],
-              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, length=56428, freq=None))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-54dac077-6a65-4e00-a79f-40f5a970f549' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-54dac077-6a65-4e00-a79f-40f5a970f549' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
+              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, length=56428, freq=None))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-cd6da142-4629-480f-8f3c-f8e90bca1b9d' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-cd6da142-4629-480f-8f3c-f8e90bca1b9d' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
 </div>
 <p>Now, create the plots:</p>
 <div class="cell docutils container">
@@ -828,7 +832,7 @@ Coordinates:
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;count [unitless]&#39;)
 </pre></div>
 </div>
-<img alt="../_images/2ce3cc5c909732f94d9921a5ceaa05e2d1327e83c32cbea90635862ca64916cd.png" src="../_images/2ce3cc5c909732f94d9921a5ceaa05e2d1327e83c32cbea90635862ca64916cd.png" />
+<img alt="../_images/15e895297262ea9343e6e2b29ffbe6bb7fae1184405d93ba19d4e910df602e0d.png" src="../_images/15e895297262ea9343e6e2b29ffbe6bb7fae1184405d93ba19d4e910df602e0d.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -843,7 +847,7 @@ Coordinates:
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;toy data [unitless]&#39;)
 </pre></div>
 </div>
-<img alt="../_images/64e61de101c105b60b4ae1ce7f3146a96f1f5902d3056447fc233f69b430c184.png" src="../_images/64e61de101c105b60b4ae1ce7f3146a96f1f5902d3056447fc233f69b430c184.png" />
+<img alt="../_images/c5db81f904aba9b227503c089f7465e2cdbc31d21a7b7fe2216d9c54fcca2668.png" src="../_images/c5db81f904aba9b227503c089f7465e2cdbc31d21a7b7fe2216d9c54fcca2668.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -859,7 +863,7 @@ Coordinates:
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;toy data [unitless]&#39;)
 </pre></div>
 </div>
-<img alt="../_images/e1386e2d0bebb445e972c8eea59f82ada3db59cc9c950cbe4ab5538c010c4ff0.png" src="../_images/e1386e2d0bebb445e972c8eea59f82ada3db59cc9c950cbe4ab5538c010c4ff0.png" />
+<img alt="../_images/65868b760cc9e73db1f516e1b0da001836ebf9916bc6822911d1efd2b0b90a39.png" src="../_images/65868b760cc9e73db1f516e1b0da001836ebf9916bc6822911d1efd2b0b90a39.png" />
 </div>
 </div>
 <p>There you go.  (We’ll return to scatterplots further below.)</p>
@@ -891,9 +895,64 @@ Coordinates:
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0.98, &#39;Histogram, box-and-whisker, and timeseries plots of the toy array&#39;)
 </pre></div>
 </div>
-<img alt="../_images/7d4ad30bca3de06780705ec5b0f4bc3e24a28d900588be0998eedab95e6afbba.png" src="../_images/7d4ad30bca3de06780705ec5b0f4bc3e24a28d900588be0998eedab95e6afbba.png" />
+<img alt="../_images/52219bb30f732c46c3388239e7e7945aa34506276b47c3acdb30b0ef38a8f35c.png" src="../_images/52219bb30f732c46c3388239e7e7945aa34506276b47c3acdb30b0ef38a8f35c.png" />
 </div>
 </div>
+<section id="if-you-re-using-the-netcdf4-package">
+<h3><span class="section-number">2.2.1. </span>If you’re using the <code class="docutils literal notranslate"><span class="pre">netCDF4</span></code> package<a class="headerlink" href="#if-you-re-using-the-netcdf4-package" title="Permalink to this heading">#</a></h3>
+<p>Above, I’m using the <code class="docutils literal notranslate"><span class="pre">xarray</span></code> package to load in the dataset.  We haven’t discussed <code class="docutils literal notranslate"><span class="pre">xarray</span></code> yet in class, but if you’re comfortable using it then you’re welcome to.</p>
+<p>We <em>did</em> cover the <code class="docutils literal notranslate"><span class="pre">netCDF4</span></code> package however, so no matter what you should be able to load the netCDF file from disk into your notebook.</p>
+<p>However the one complication if you use <code class="docutils literal notranslate"><span class="pre">netCDF4</span></code> is dealing with the times.  For reasons we’ll get into later, how dates and times get “encoded” when they’re written to disk and then “decoded” when they’re read from disk is actually much more complicated than you might think.  While xarray automatically handles this very nicely,  <code class="docutils literal notranslate"><span class="pre">netCDF4</span></code> does not.</p>
+<p>So when you go to do the timeseries plots, you’ll see that the <code class="docutils literal notranslate"><span class="pre">time</span></code> array is really just the indices of time: 0, 1, 2, …, 56425, and last 56427 (notice the labeled values along the x-axis):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the file from disk if you haven&#39;t already.</span>
+<span class="kn">import</span> <span class="nn">netCDF4</span>
+<span class="n">ds_nc4</span>  <span class="o">=</span> <span class="n">netCDF4</span><span class="o">.</span><span class="n">Dataset</span><span class="p">(</span><span class="s2">&quot;../data/central-park-station-data.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ds_nc4</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">][:],</span> <span class="n">ds_nc4</span><span class="p">[</span><span class="s2">&quot;temp_avg&quot;</span><span class="p">][:],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1591bc4d0&gt;]
+</pre></div>
+</div>
+<img alt="../_images/762d53cf121504f922337ac080a855077c0686bcf5b7dc662579fed6667e8b30.png" src="../_images/762d53cf121504f922337ac080a855077c0686bcf5b7dc662579fed6667e8b30.png" />
+</div>
+</div>
+<p>We don’t want that; we want the actual dates.  So if you’re using <code class="docutils literal notranslate"><span class="pre">netCDF4</span></code>, in order to get the array of dates, you can use the following lines of code (note that the <code class="docutils literal notranslate"><span class="pre">cftime</span></code> package is automatically installed when <code class="docutils literal notranslate"><span class="pre">netCDF4</span></code> is, so you should have it; but worst case do <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">cftime</span></code>):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Decode the times into an array of dates using the `num2date` function of the `cftime` package.</span>
+<span class="kn">import</span> <span class="nn">cftime</span>
+<span class="n">times_encoded</span> <span class="o">=</span> <span class="n">ds_nc4</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">]</span>
+<span class="n">dates</span> <span class="o">=</span> <span class="n">cftime</span><span class="o">.</span><span class="n">num2date</span><span class="p">(</span>
+    <span class="n">times_encoded</span><span class="p">[:],</span> 
+    <span class="n">times_encoded</span><span class="o">.</span><span class="n">units</span><span class="p">,</span> 
+    <span class="n">times_encoded</span><span class="o">.</span><span class="n">calendar</span><span class="p">,</span> 
+    <span class="n">only_use_cftime_datetimes</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> 
+    <span class="n">only_use_python_datetimes</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Then for your timeseries plots you can do e.g.:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dates</span><span class="p">,</span> <span class="n">ds_nc4</span><span class="p">[</span><span class="s2">&quot;temp_avg&quot;</span><span class="p">][:],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x15920c790&gt;]
+</pre></div>
+</div>
+<img alt="../_images/2f3965e6a92bfccfeebbdce029ea021da51c102d1c30a36e3678a5da98a19c22.png" src="../_images/2f3965e6a92bfccfeebbdce029ea021da51c102d1c30a36e3678a5da98a19c22.png" />
+</div>
+</div>
+</section>
 </section>
 <section id="your-specific-tasks">
 <h2><span class="section-number">2.3. </span>Your specific tasks<a class="headerlink" href="#your-specific-tasks" title="Permalink to this heading">#</a></h2>
@@ -913,7 +972,7 @@ Coordinates:
 </ul>
 <p>…complete <strong>all</strong> of the following tasks:</p>
 <ul class="simple">
-<li><p>[ ] Create a 3x1 figure just like the one above generated on my toy array.</p></li>
+<li><p>[ ] Create a 1x3 figure (meaning 1 row by 3 columns) just like the one above generated on my toy array.</p></li>
 <li><p>[ ] Be sure to properly label the x and y axes in each case: identify the physical quantity and the units.</p></li>
 <li><p>[ ] As a text (“markdown”) cell above the figure, include a 1 or 2 sentence description of what the quantity is.</p></li>
 <li><p>[ ] As a Markdown cell below the figure, for each of the 3 plots, include a 1 or 2 sentence description: the overall behavior and anything else that seems noteworthy.</p></li>
@@ -1033,7 +1092,10 @@ Coordinates:
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">2.1. Introduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-toy-example">2.2. A toy example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-toy-example">2.2. A toy example</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-you-re-using-the-netcdf4-package">2.2.1. If you’re using the <code class="docutils literal notranslate"><span class="pre">netCDF4</span></code> package</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#your-specific-tasks">2.3. Your specific tasks</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#histogram-box-and-whisker-and-timeseries-for-the-central-park-weather-station-variables">2.3.1. Histogram, box-and-whisker, and timeseries for the Central Park weather station variables</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-selected-scatterplots">2.3.2. Make selected scatterplots</a></li>
