@@ -374,13 +374,14 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-submit">2.4. How to submit</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#submission-url">2.4.1. Submission URL</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#submission-urls">2.4.1. Submission URLs</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-a-relative-path-to-the-netcdf-file-in-your-code">2.4.2. Use a <em>relative</em> path to the netCDF file in your code</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#your-notebook-must-run-successfully-start-to-finish-on-my-laptop">2.4.3. Your Notebook <em>must</em> run successfully start-to-finish on <em>my</em> laptop</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extra-credit">2.5. Extra credit</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#repeat-these-analyses-on-data-you-re-using-for-your-final-project">2.5.1. Repeat these analyses on data you’re using for your final project</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#submitting-the-extra-credit-as-the-html-output-of-a-separate-notebook-file">2.5.2. Submitting the extra credit: <strong>as the .html output of a separate notebook file</strong></a></li>
 </ul>
 </li>
 </ul>
@@ -790,22 +791,22 @@ dl.xr-attrs {
   stroke: currentColor;
   fill: currentColor;
 }
-</style><pre class='xr-text-repr-fallback'>&lt;xarray.DataArray &#x27;toy&#x27; (time: 56428)&gt;
-array([ 0.04085647, -0.09127554,  0.68508853, ...,  0.03656732,
-        1.51001844, -1.47185201])
+</style><pre class='xr-text-repr-fallback'>&lt;xarray.DataArray &#x27;toy&#x27; (time: 56520)&gt;
+array([-1.89089054, -0.17981681, -0.67180523, ...,  0.74250198,
+       -1.09405932,  0.27681281])
 Coordinates:
-  * time     (time) datetime64[ns] 1869-01-01 1869-01-02 ... 2023-06-30</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'toy'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 56428</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-25e855d6-a089-4287-b4d3-6d2c1bc7be4e' class='xr-array-in' type='checkbox' checked><label for='section-25e855d6-a089-4287-b4d3-6d2c1bc7be4e' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>0.04086 -0.09128 0.6851 -0.3 -1.186 ... -1.2 0.03657 1.51 -1.472</span></div><div class='xr-array-data'><pre>array([ 0.04085647, -0.09127554,  0.68508853, ...,  0.03656732,
-        1.51001844, -1.47185201])</pre></div></div></li><li class='xr-section-item'><input id='section-c5ec0eb9-8693-4580-88f3-e0ae81d87fdb' class='xr-section-summary-in' type='checkbox'  checked><label for='section-c5ec0eb9-8693-4580-88f3-e0ae81d87fdb' class='xr-section-summary' >Coordinates: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1869-01-01 ... 2023-06-30</div><input id='attrs-da06edd8-4f38-4b25-a959-d61c16a0d0cb' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-da06edd8-4f38-4b25-a959-d61c16a0d0cb' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-023a2dc0-cb27-4231-9dca-0cdfcce7eef1' class='xr-var-data-in' type='checkbox'><label for='data-023a2dc0-cb27-4231-9dca-0cdfcce7eef1' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([&#x27;1869-01-01T00:00:00.000000000&#x27;, &#x27;1869-01-02T00:00:00.000000000&#x27;,
-       &#x27;1869-01-03T00:00:00.000000000&#x27;, ..., &#x27;2023-06-28T00:00:00.000000000&#x27;,
-       &#x27;2023-06-29T00:00:00.000000000&#x27;, &#x27;2023-06-30T00:00:00.000000000&#x27;],
-      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-9964e7e3-4dd7-4730-b93b-cc89a36f4606' class='xr-section-summary-in' type='checkbox'  ><label for='section-9964e7e3-4dd7-4730-b93b-cc89a36f4606' class='xr-section-summary' >Indexes: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-513f5f4e-fa3f-4b90-ae48-e8d80e170674' class='xr-index-data-in' type='checkbox'/><label for='index-513f5f4e-fa3f-4b90-ae48-e8d80e170674' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;1869-01-01&#x27;, &#x27;1869-01-02&#x27;, &#x27;1869-01-03&#x27;, &#x27;1869-01-04&#x27;,
+  * time     (time) datetime64[ns] 1869-01-01 1869-01-02 ... 2023-09-30</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'toy'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 56520</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-0493426f-b686-4a97-aec7-3efded33c7f9' class='xr-array-in' type='checkbox' checked><label for='section-0493426f-b686-4a97-aec7-3efded33c7f9' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>-1.891 -0.1798 -0.6718 -0.02775 1.815 ... 0.4904 0.7425 -1.094 0.2768</span></div><div class='xr-array-data'><pre>array([-1.89089054, -0.17981681, -0.67180523, ...,  0.74250198,
+       -1.09405932,  0.27681281])</pre></div></div></li><li class='xr-section-item'><input id='section-24134019-8c44-4019-b197-63d2f797b550' class='xr-section-summary-in' type='checkbox'  checked><label for='section-24134019-8c44-4019-b197-63d2f797b550' class='xr-section-summary' >Coordinates: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1869-01-01 ... 2023-09-30</div><input id='attrs-3e5a5a23-2fe7-4c42-b406-29224d01d4bc' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-3e5a5a23-2fe7-4c42-b406-29224d01d4bc' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-bd6cf1b8-7634-4414-90c3-743e8dda70e8' class='xr-var-data-in' type='checkbox'><label for='data-bd6cf1b8-7634-4414-90c3-743e8dda70e8' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([&#x27;1869-01-01T00:00:00.000000000&#x27;, &#x27;1869-01-02T00:00:00.000000000&#x27;,
+       &#x27;1869-01-03T00:00:00.000000000&#x27;, ..., &#x27;2023-09-28T00:00:00.000000000&#x27;,
+       &#x27;2023-09-29T00:00:00.000000000&#x27;, &#x27;2023-09-30T00:00:00.000000000&#x27;],
+      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-12b40f25-eee0-4abe-8ecb-cc7ad7025424' class='xr-section-summary-in' type='checkbox'  ><label for='section-12b40f25-eee0-4abe-8ecb-cc7ad7025424' class='xr-section-summary' >Indexes: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-2eef783c-39a0-47ea-94aa-9016c5cd2895' class='xr-index-data-in' type='checkbox'/><label for='index-2eef783c-39a0-47ea-94aa-9016c5cd2895' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;1869-01-01&#x27;, &#x27;1869-01-02&#x27;, &#x27;1869-01-03&#x27;, &#x27;1869-01-04&#x27;,
                &#x27;1869-01-05&#x27;, &#x27;1869-01-06&#x27;, &#x27;1869-01-07&#x27;, &#x27;1869-01-08&#x27;,
                &#x27;1869-01-09&#x27;, &#x27;1869-01-10&#x27;,
                ...
-               &#x27;2023-06-21&#x27;, &#x27;2023-06-22&#x27;, &#x27;2023-06-23&#x27;, &#x27;2023-06-24&#x27;,
-               &#x27;2023-06-25&#x27;, &#x27;2023-06-26&#x27;, &#x27;2023-06-27&#x27;, &#x27;2023-06-28&#x27;,
-               &#x27;2023-06-29&#x27;, &#x27;2023-06-30&#x27;],
-              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, length=56428, freq=None))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-cd6da142-4629-480f-8f3c-f8e90bca1b9d' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-cd6da142-4629-480f-8f3c-f8e90bca1b9d' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
+               &#x27;2023-09-21&#x27;, &#x27;2023-09-22&#x27;, &#x27;2023-09-23&#x27;, &#x27;2023-09-24&#x27;,
+               &#x27;2023-09-25&#x27;, &#x27;2023-09-26&#x27;, &#x27;2023-09-27&#x27;, &#x27;2023-09-28&#x27;,
+               &#x27;2023-09-29&#x27;, &#x27;2023-09-30&#x27;],
+              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, length=56520, freq=None))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-5ec79e4e-007d-45aa-9fb0-153e44e45718' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-5ec79e4e-007d-45aa-9fb0-153e44e45718' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
 </div>
 <p>Now, create the plots:</p>
 <div class="cell docutils container">
@@ -832,7 +833,7 @@ Coordinates:
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;count [unitless]&#39;)
 </pre></div>
 </div>
-<img alt="../_images/15e895297262ea9343e6e2b29ffbe6bb7fae1184405d93ba19d4e910df602e0d.png" src="../_images/15e895297262ea9343e6e2b29ffbe6bb7fae1184405d93ba19d4e910df602e0d.png" />
+<img alt="../_images/ffb7ea1c34123b6057c0f93063fd921f488ac42627776814880caa66be170393.png" src="../_images/ffb7ea1c34123b6057c0f93063fd921f488ac42627776814880caa66be170393.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -847,7 +848,7 @@ Coordinates:
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;toy data [unitless]&#39;)
 </pre></div>
 </div>
-<img alt="../_images/c5db81f904aba9b227503c089f7465e2cdbc31d21a7b7fe2216d9c54fcca2668.png" src="../_images/c5db81f904aba9b227503c089f7465e2cdbc31d21a7b7fe2216d9c54fcca2668.png" />
+<img alt="../_images/93bea1b9fa469aa4988a176f2d6d093a3eb3cb1db0ad828c1b33a5807cb8b4a7.png" src="../_images/93bea1b9fa469aa4988a176f2d6d093a3eb3cb1db0ad828c1b33a5807cb8b4a7.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -863,7 +864,7 @@ Coordinates:
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;toy data [unitless]&#39;)
 </pre></div>
 </div>
-<img alt="../_images/65868b760cc9e73db1f516e1b0da001836ebf9916bc6822911d1efd2b0b90a39.png" src="../_images/65868b760cc9e73db1f516e1b0da001836ebf9916bc6822911d1efd2b0b90a39.png" />
+<img alt="../_images/0c8644db37831de02fd0b333c5e58bbf21d84fdc3f9535fde880bcf89eff2baf.png" src="../_images/0c8644db37831de02fd0b333c5e58bbf21d84fdc3f9535fde880bcf89eff2baf.png" />
 </div>
 </div>
 <p>There you go.  (We’ll return to scatterplots further below.)</p>
@@ -895,7 +896,7 @@ Coordinates:
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0.98, &#39;Histogram, box-and-whisker, and timeseries plots of the toy array&#39;)
 </pre></div>
 </div>
-<img alt="../_images/52219bb30f732c46c3388239e7e7945aa34506276b47c3acdb30b0ef38a8f35c.png" src="../_images/52219bb30f732c46c3388239e7e7945aa34506276b47c3acdb30b0ef38a8f35c.png" />
+<img alt="../_images/8ba21e637c75f6daf1f6a73b5e7a3c369a7e1eb9591ce7f8d0f621a828fa29ff.png" src="../_images/8ba21e637c75f6daf1f6a73b5e7a3c369a7e1eb9591ce7f8d0f621a828fa29ff.png" />
 </div>
 </div>
 <section id="if-you-re-using-the-netcdf4-package">
@@ -915,10 +916,10 @@ Coordinates:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1591bc4d0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1579bb210&gt;]
 </pre></div>
 </div>
-<img alt="../_images/762d53cf121504f922337ac080a855077c0686bcf5b7dc662579fed6667e8b30.png" src="../_images/762d53cf121504f922337ac080a855077c0686bcf5b7dc662579fed6667e8b30.png" />
+<img alt="../_images/63bec26ae76d513a870d4b1e22423d699eccfb3e94f9d684974850ee6b3d3579.png" src="../_images/63bec26ae76d513a870d4b1e22423d699eccfb3e94f9d684974850ee6b3d3579.png" />
 </div>
 </div>
 <p>We don’t want that; we want the actual dates.  So if you’re using <code class="docutils literal notranslate"><span class="pre">netCDF4</span></code>, in order to get the array of dates, you can use the following lines of code (note that the <code class="docutils literal notranslate"><span class="pre">cftime</span></code> package is automatically installed when <code class="docutils literal notranslate"><span class="pre">netCDF4</span></code> is, so you should have it; but worst case do <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">cftime</span></code>):</p>
@@ -938,7 +939,7 @@ Coordinates:
 </div>
 </div>
 </div>
-<p>Then for your timeseries plots you can do e.g.:</p>
+<p>Then for your timeseries plots you can do e.g. (again, notice the labeled values along the x axis):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dates</span><span class="p">,</span> <span class="n">ds_nc4</span><span class="p">[</span><span class="s2">&quot;temp_avg&quot;</span><span class="p">][:],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
@@ -946,10 +947,10 @@ Coordinates:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x15920c790&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x15798d4d0&gt;]
 </pre></div>
 </div>
-<img alt="../_images/2f3965e6a92bfccfeebbdce029ea021da51c102d1c30a36e3678a5da98a19c22.png" src="../_images/2f3965e6a92bfccfeebbdce029ea021da51c102d1c30a36e3678a5da98a19c22.png" />
+<img alt="../_images/e996d6252781c831622025a885cb3cb0c834ed64e471117ed4693b501fe8bfc2.png" src="../_images/e996d6252781c831622025a885cb3cb0c834ed64e471117ed4693b501fe8bfc2.png" />
 </div>
 </div>
 </section>
@@ -997,9 +998,9 @@ Coordinates:
 </section>
 <section id="how-to-submit">
 <h2><span class="section-number">2.4. </span>How to submit<a class="headerlink" href="#how-to-submit" title="Permalink to this heading">#</a></h2>
-<section id="submission-url">
-<h3><span class="section-number">2.4.1. </span>Submission URL<a class="headerlink" href="#submission-url" title="Permalink to this heading">#</a></h3>
-<p>Use the Google Form at <a class="reference external" href="https://forms.gle/VLaVEfGyHifJJygE6">this link</a> (you must be logged into your CUNY citymail account in Google to be granted access).</p>
+<section id="submission-urls">
+<h3><span class="section-number">2.4.1. </span>Submission URLs<a class="headerlink" href="#submission-urls" title="Permalink to this heading">#</a></h3>
+<p>Use the Google Form link in the “Links for homework submissions” document on the course Blackboard site to submit.  It’s the one labeled “HW2”.  (You must be logged into your CUNY citymail account in Google to be granted access to the submission form.)</p>
 <p>Submit the notebook as a <em>single</em> <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> file with a filename matching <strong>exactly</strong> the pattern <code class="docutils literal notranslate"><span class="pre">eas42000_hw1_lastname-firstname.ipynb</span></code>, replacing <code class="docutils literal notranslate"><span class="pre">lastname</span></code> with your last name and <code class="docutils literal notranslate"><span class="pre">firstname</span></code> with your first name.</p>
 </section>
 <section id="use-a-relative-path-to-the-netcdf-file-in-your-code">
@@ -1029,6 +1030,17 @@ Coordinates:
 <h3><span class="section-number">2.5.1. </span>Repeat these analyses on data you’re using for your final project<a class="headerlink" href="#repeat-these-analyses-on-data-you-re-using-for-your-final-project" title="Permalink to this heading">#</a></h3>
 <p>For at least one quantity in the dataset you’re using for your final project, generate the histogram, box-and-whisker, and (if applicable) timeseries plots, following the same instructions as above.</p>
 <p>This is a double bonus: it gets you extra credit on this assignment <em>and</em> helps you make progress on your final project!</p>
+</section>
+<section id="submitting-the-extra-credit-as-the-html-output-of-a-separate-notebook-file">
+<h3><span class="section-number">2.5.2. </span>Submitting the extra credit: <strong>as the .html output of a separate notebook file</strong><a class="headerlink" href="#submitting-the-extra-credit-as-the-html-output-of-a-separate-notebook-file" title="Permalink to this heading">#</a></h3>
+<p>Each of you is using a different dataset, none of which I have on my local computer where I’ll be running your notebooks.  And some of these datasets are quite large, so it’s impractical to have you include your datasets along with the notebook file.  But that means that I won’t be able to execute this portion of your code on my laptop.</p>
+<p>For that reason, please do the following:</p>
+<ol class="arabic simple">
+<li><p>Perform all of your calculations for the extra credit <strong>in a separate .ipynb</strong> notebook file from the main one that you’ll submit as described above.</p></li>
+<li><p>Once your Extra Credit notebook is 100% ready, reset and run it start to finish as described above.</p></li>
+<li><p>At that point, <strong>export it to an HTML file using Jupyter’s built-in exporting features.</strong></p></li>
+<li><p>Upload <strong>that HTML file</strong> via the same link described above for the main submission.</p></li>
+</ol>
 </section>
 </section>
 </section>
@@ -1102,13 +1114,14 @@ Coordinates:
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-submit">2.4. How to submit</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#submission-url">2.4.1. Submission URL</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#submission-urls">2.4.1. Submission URLs</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-a-relative-path-to-the-netcdf-file-in-your-code">2.4.2. Use a <em>relative</em> path to the netCDF file in your code</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#your-notebook-must-run-successfully-start-to-finish-on-my-laptop">2.4.3. Your Notebook <em>must</em> run successfully start-to-finish on <em>my</em> laptop</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extra-credit">2.5. Extra credit</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#repeat-these-analyses-on-data-you-re-using-for-your-final-project">2.5.1. Repeat these analyses on data you’re using for your final project</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#submitting-the-extra-credit-as-the-html-output-of-a-separate-notebook-file">2.5.2. Submitting the extra credit: <strong>as the .html output of a separate notebook file</strong></a></li>
 </ul>
 </li>
 </ul>

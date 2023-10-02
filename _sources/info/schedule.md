@@ -56,11 +56,11 @@ Please check back here frequently as the schedule is subject to change.
 * - M 10/2
   - 9
   - Probability II
-  - [**HW2**](../assignments/hw-data-viz) [**due by 10:00pm ET**](syllabus:hw)
+  - 
 * - W 10/4
   - 10
   - Probability III; Python: pandas, xarray
-  - 2-min final project in-class descriptions; HW3 assigned
+  - [**HW2**](../assignments/hw-data-viz) [**due by 10:00pm ET**](syllabus:hw); 2-min final project in-class descriptions; HW3 assigned
 * - M 10/9
   - NO CLASS
   - Happy Columbus Day & Indigenous Peoples' Day!
