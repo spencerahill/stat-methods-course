@@ -56,23 +56,23 @@ Please check back here frequently as the schedule is subject to change.
 * - M 10/2
   - 9
   - Probability II
-  - [**HW2**](../assignments/hw-data-viz) [**due by 10:00pm ET**](syllabus:hw)
+  - 
 * - W 10/4
   - 10
-  - Probability III; Python: pandas, xarray
-  - 2-min final project in-class descriptions; HW3 assigned
+  - Probability III
+  - [**HW2**](../assignments/hw-data-viz) [**due by 10:00pm ET**](syllabus:hw); 2-min final project in-class descriptions; 
 * - M 10/9
   - NO CLASS
   - Happy Columbus Day & Indigenous Peoples' Day!
-  -
+  - 
 * - **T 10/10 2-3:15pm** *(note abnormal day of week)*
   - 11
-  - Hypothesis testing I
-  -
+  - Hypothesis testing I; Python: [pandas](https://pandas.pydata.org/) and [xarray](https://docs.xarray.dev/en/stable/)
+  - [HW3](../assignments/hw-probability) assigned
 * - W 10/11
   - 12
   - Hypothesis testing II
-  - **HW3**  [**due**](syllabus:hw); HW4 assigned
+  - 
 * - M 10/16
   - 13
   - Linear regression I
@@ -80,7 +80,7 @@ Please check back here frequently as the schedule is subject to change.
 * - W 10/18
   - 14
   - Linear regression II
-  - **HW4**  [**due**](syllabus:hw); HW5 assigned
+  - **HW3**  [**due by 10:00pm ET**](syllabus:hw); HW4 assigned
 * - M 10/23
   - 15
   - Review session for Midterm 1
@@ -92,11 +92,11 @@ Please check back here frequently as the schedule is subject to change.
 * - M 10/30
   - 16
   - Extreme value analysis I
-  -
+  - **HW4**  [**due**](syllabus:hw); HW5 assigned
 * - W 11/1
   - 17
   - Extreme value analysis II
-  - **HW5** [**due**](syllabus:hw); HW6 assigned
+  - 
 * - M 11/6
   - 18
   - Time series analysis I
@@ -104,7 +104,7 @@ Please check back here frequently as the schedule is subject to change.
 * - W 11/8
   - 19
   - Time series analysis II
-  - **HW6** [**due**](syllabus:hw); HW7 assigned
+  - **HW5** [**due**](syllabus:hw); HW6 assigned
 * - M 11/13
   - 20
   - Principal component analysis I
@@ -112,7 +112,7 @@ Please check back here frequently as the schedule is subject to change.
 * - W 11/15
   - 21
   - Principal component analysis II
-  - **HW7** [**due**](syllabus:hw); HW8 (last one!) assigned
+  - **HW6** [**due**](syllabus:hw); HW7 assigned
 * - M 11/20
   - 22
   - TBD
@@ -124,7 +124,7 @@ Please check back here frequently as the schedule is subject to change.
 * - M 11/27
   - 23
   - Cluster analysis
-  - **HW8** [**due**](syllabus:hw)
+  - **HW7** [**due**](syllabus:hw); HW8 (last one!) assigned
 * - W 11/29
   - 24
   - Review session for Midterm 2
@@ -132,13 +132,13 @@ Please check back here frequently as the schedule is subject to change.
 * - M 12/4
   - 25
   - Final project presentations (1st of 2)
-  -
+  - **HW8** [**due**](syllabus:hw) *if you are presenting on Wednesday*
 * - W 12/6
   - 26
   - Final project presentations (2nd of 2)
-  -
+  - **HW8** [**due**](syllabus:hw) *if you presented Monday*
 * - M 12/11
   - MT2
   - MIDTERM 2
-  -  
+  -
 ```

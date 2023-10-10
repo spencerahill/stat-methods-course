@@ -19,4 +19,5 @@ parts:
     chapters:
       - file: assignments/hw-descriptive-statistics
       - file: assignments/hw-data-viz
+      - file: assignments/hw-probability
 

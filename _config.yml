@@ -9,6 +9,7 @@ logo: logo.png
 # See https://jupyterbook.org/content/execute.html
 execute:
   execute_notebooks: force
+  stderr_output: severe
 
 # Only build files listed in the TOC (i.e. exclude unfinished/"draft" files)
 only_build_toc_files: true
