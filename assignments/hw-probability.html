@@ -1,0 +1,702 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>3. Key concepts from probability theory and empirical probabilities computed from the Central Park weather dataset &#8212; Statistical</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'assignments/hw-probability';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="2. Generating core data visualizations on the Central Park weather dataset in Python" href="hw-data-viz.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../home.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../home.html">
+                    EAS42000: Statistical Methods in Earth and Atmospheric Science
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Information</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../info/syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../info/schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../info/resources.html">Resources</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lectures/intro.html">1. Introduction to <em>Statistical Methods in Earth and Atmospheric Sciences</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/descriptive-statistics.html">2. Descriptive Statistics</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="hw-descriptive-statistics.html">1. Writing key quantities from descriptive statistics in Python yourself</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw-data-viz.html">2. Generating core data visualizations on the Central Park weather dataset in Python</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">3. Key concepts from probability theory and empirical probabilities computed from the Central Park weather dataset</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/spencerahill/stat-methods-course" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/spencerahill/stat-methods-course/issues/new?title=Issue%20on%20page%20%2Fassignments/hw-probability.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/assignments/hw-probability.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Key concepts from probability theory and empirical probabilities computed from the Central Park weather dataset</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">3.1. Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notice-use-the-updated-central-park-dataset-that-includes-data-through-the-end-of-september-2023">3.1.1. NOTICE: use the updated Central Park dataset that includes data through the end of September 2023</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#your-specific-tasks">3.2. Your specific tasks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sets-and-probabilities">3.2.1. Sets and probabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#empirical-probabilities-in-the-central-park-dataset">3.2.2. Empirical probabilities in the Central Park dataset</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#empirical-pdfs-and-cdfs-in-the-central-park-dataset">3.3. Empirical PDFs and CDFs in the Central Park dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-submit">3.4. How to submit</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#submission-urls">3.4.1. Submission URLs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-a-relative-path-to-the-netcdf-file-in-your-code">3.4.2. Use a <em>relative</em> path to the netCDF file in your code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-this-exact-name-for-the-netcdf-file-central-park-station-data-1869-01-01-2023-09-30-nc">3.4.3. Use this exact name for the netCDF file: <code class="docutils literal notranslate"><span class="pre">central-park-station-data_1869-01-01_2023-09-30.nc</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#your-notebook-must-run-successfully-start-to-finish-on-my-laptop">3.4.4. Your Notebook <em>must</em> run successfully start-to-finish on <em>my</em> laptop</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-note-on-chatgpt-etc">3.4.5. A note on ChatGPT etc.</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extra-credit">3.5. Extra credit</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explicitly-compare-the-empirical-cdfs-to-the-integrals-of-your-empirical-pdfs">3.5.1. Explicitly compare the empirical CDFs to the integrals of your empirical PDFs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#try-out-bayesian-blocks-for-your-pdf-bins">3.5.2. Try out “Bayesian blocks” for your PDF bins</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-some-key-empirical-probabilities-on-data-you-re-using-for-your-final-project">3.5.3. Compute some key empirical probabilities on data you’re using for your final project</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#submitting-the-extra-credit-as-the-html-output-of-a-separate-notebook-file">3.5.4. Submitting the extra credit: <strong>as the .html output of a separate notebook file</strong></a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="key-concepts-from-probability-theory-and-empirical-probabilities-computed-from-the-central-park-weather-dataset">
+<h1><span class="section-number">3. </span>Key concepts from probability theory and empirical probabilities computed from the Central Park weather dataset<a class="headerlink" href="#key-concepts-from-probability-theory-and-empirical-probabilities-computed-from-the-central-park-weather-dataset" title="Permalink to this heading">#</a></h1>
+<section id="introduction">
+<h2><span class="section-number">3.1. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
+<p>In this assignment, you’ll first answer some questions about the fundamental concepts underlying probability theory, and then you’ll compute various empirical probabilities using the Central Park weather dataset.</p>
+<section id="notice-use-the-updated-central-park-dataset-that-includes-data-through-the-end-of-september-2023">
+<h3><span class="section-number">3.1.1. </span>NOTICE: use the updated Central Park dataset that includes data through the end of September 2023<a class="headerlink" href="#notice-use-the-updated-central-park-dataset-that-includes-data-through-the-end-of-september-2023" title="Permalink to this heading">#</a></h3>
+<p>I have generated a new version of the dataset that includes through the end of September, in order to include the historic rain event we experienced on September 29th.  Please download and use this updated version.  It is labeled on Blackboard as “Central Park weather station dataset, 1869-01-01 to 2023-09-30 (as netCDF file)”.  And see farther below for specific instructions about the filename.</p>
+</section>
+</section>
+<section id="your-specific-tasks">
+<h2><span class="section-number">3.2. </span>Your specific tasks<a class="headerlink" href="#your-specific-tasks" title="Permalink to this heading">#</a></h2>
+<section id="sets-and-probabilities">
+<h3><span class="section-number">3.2.1. </span>Sets and probabilities<a class="headerlink" href="#sets-and-probabilities" title="Permalink to this heading">#</a></h3>
+<p>Answer each of the following, by providing <strong>two</strong> things:</p>
+<ul class="simple">
+<li><p>A <strong>symbolic</strong> answer: that is, the answer written using numbers and mathematical symbols like <span class="math notranslate nohighlight">\(P(E)\)</span>, etc.  Follow all notation that we used in class.  OR, if the question is yes/no, then either “Yes” or “No”.</p></li>
+<li><p>A one or two sentence explanation in plain English of what your answer <em>means</em>.</p></li>
+</ul>
+<p>Here’s an example:</p>
+<p><strong>Question 0</strong>: Is <span class="math notranslate nohighlight">\(\{1/6, 1/6, 1/6, 1/6, 1/6, 1/6\}\)</span> a valid set?</p>
+<p><strong>Answer 0</strong>: No.  Each member in a set must be unique.  The closest to this that would be a valid set is <span class="math notranslate nohighlight">\(\{1/6\}\)</span>.</p>
+<p>OK, now here are the actual 12 questions for <em>you</em> to answer:</p>
+<ol class="arabic simple">
+<li><p>If <span class="math notranslate nohighlight">\(E_1=\{1,2,3\}\)</span> and <span class="math notranslate nohighlight">\(E_2=\{3,1,2\}\)</span>, what’s the relationship between <span class="math notranslate nohighlight">\(E_1\)</span> and <span class="math notranslate nohighlight">\(E_2\)</span>?</p></li>
+<li><p>What is <span class="math notranslate nohighlight">\(\{1, 3, 5\}\cup\{1,2,3\}\)</span>?</p></li>
+<li><p>What is <span class="math notranslate nohighlight">\(\{1, 3, 5\}\cap\{1,2,3\}\)</span>?</p></li>
+<li><p>Consider a single roll of a fair, standard 6-sided dice.  Is the event {roll a 1, roll a 6} a simple event?</p></li>
+<li><p>If some outcome is impossible, does that mean it can’t be a valid event?  (Provide an example.)</p></li>
+<li><p>What is the sample space of three consecutive coin flips?  (Use H to denote Heads and T to denote tails.)</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(S_1\)</span> and <span class="math notranslate nohighlight">\(S_2\)</span> are sets, and <span class="math notranslate nohighlight">\(S_1\subseteq S_2\)</span>, what is <span class="math notranslate nohighlight">\(S_1\cup S_2\)</span>?</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(S_1\)</span> and <span class="math notranslate nohighlight">\(S_2\)</span> are sets, and <span class="math notranslate nohighlight">\(S_1\subseteq S_2\)</span>, what is <span class="math notranslate nohighlight">\(S_1\cap S_2\)</span>?</p></li>
+<li><p>What is <span class="math notranslate nohighlight">\((E_1\cup E_2)^C\)</span>?  (The Venn diagram graphical depiction of the sample space is helpful here.)</p></li>
+<li><p>What is <span class="math notranslate nohighlight">\((E_2\cap E_1)^C\)</span>?</p></li>
+<li><p>Suppose you know <span class="math notranslate nohighlight">\(P(E_1|E_2)\)</span>, <span class="math notranslate nohighlight">\(P(E_1)\)</span>, and <span class="math notranslate nohighlight">\(P(E_2)\)</span>.  What is <span class="math notranslate nohighlight">\(P(E_2|E_1)\)</span> in terms of those three quantities?</p></li>
+<li><p>Can two events (each with nonzero probability) that are independent also be mutually exclusive?</p></li>
+</ol>
+</section>
+<section id="empirical-probabilities-in-the-central-park-dataset">
+<h3><span class="section-number">3.2.2. </span>Empirical probabilities in the Central Park dataset<a class="headerlink" href="#empirical-probabilities-in-the-central-park-dataset" title="Permalink to this heading">#</a></h3>
+<p>For <strong>each</strong> of the following probabilities:</p>
+<ol class="arabic simple">
+<li><p>P(daily average temperature &gt; 70°F)</p></li>
+<li><p>P(daily average temperature &gt; 70°F | the day is in July)</p></li>
+<li><p>P(daily average temperature &gt; 70°F | the day is in January)</p></li>
+<li><p>P(snow fall &gt; 0”)</p></li>
+<li><p>P(snow fall &gt; 0” | the day is in January or February)</p></li>
+<li><p>P(temp_anom <em>magnitude</em> exceeds 5°F)</p></li>
+<li><p>P(temp_anom <em>magnitude</em> exceeds 5°F | the day is a Wednesday)</p></li>
+<li><p>P(daily minimum temperature &lt; 32°F)</p></li>
+<li><p>P(daily minimum temperature &lt; 32°F | year is 1901-1930)</p></li>
+<li><p>P(daily minimum temperature &lt; 32°F | year is 1991-2020)</p></li>
+<li><p>P(precip &gt; 5”)</p></li>
+<li><p>P(precip &gt; 5” | the day is in September)</p></li>
+</ol>
+<p>…do <strong>each</strong> of the following:</p>
+<ul class="simple">
+<li><p>[ ] Compute the empirical probability using the Central Park dataset.  Include the code you used to compute it as well as the actual result.</p></li>
+<li><p>[ ] Describe in 1-2 sentences your interpretation.</p></li>
+</ul>
+</section>
+</section>
+<section id="empirical-pdfs-and-cdfs-in-the-central-park-dataset">
+<h2><span class="section-number">3.3. </span>Empirical PDFs and CDFs in the Central Park dataset<a class="headerlink" href="#empirical-pdfs-and-cdfs-in-the-central-park-dataset" title="Permalink to this heading">#</a></h2>
+<p>For <strong>any 3</strong> of the following variables in the Central Park daily weather dataset…</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">temp_avg</span></code> (daily average temperature)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">temp_min</span></code> (daily minimum temperature)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">temp_max</span></code> (daily maximum temperature)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">temp_anom</span></code> (daily average temperature <em>departure</em> from “normal”, i.e. a 30-year average)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">heat_deg_days</span></code> (<a class="reference external" href="https://en.wikipedia.org/wiki/Heating_degree_day">heating degree days</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cool_deg_days</span></code> (<a class="reference external" href="https://en.wikipedia.org/wiki/Degree_day#United_States">cooling degree days</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">precip</span></code> (precipitation in inches; when it’s snow this is <a class="reference external" href="https://en.wikipedia.org/wiki/Snow_science#Measurement"><em>snow water equivalent</em></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">snow_fall</span></code> (snowfall in inches that day)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">snow_depth</span></code> (depth in inches of snow currently on the ground)</p></li>
+</ul>
+<p>…do <strong>each</strong> of the following:</p>
+<ul class="simple">
+<li><p>[ ] revisit the histogram you plotted for it from the last assignment.  Experiment with the bin spacing and the <code class="docutils literal notranslate"><span class="pre">density</span></code> keyword argument to come up with what you feel like is the best balance between resolving fine-grained details (recall the single vs. double peak in daily average temperature) on the one hand vs. excessive <em>noise</em> on the other hand.  Include <strong>only</strong> the final histogram you decide on as a plot in your notebook, and in 1-3 sentences describe any salient features, including how it compares to the one you generated last assignment.</p></li>
+<li><p>[ ] compute and plot its empirical cumulative distribution function, and describe it in 1-2 sentences.</p></li>
+</ul>
+</section>
+<section id="how-to-submit">
+<h2><span class="section-number">3.4. </span>How to submit<a class="headerlink" href="#how-to-submit" title="Permalink to this heading">#</a></h2>
+<section id="submission-urls">
+<h3><span class="section-number">3.4.1. </span>Submission URLs<a class="headerlink" href="#submission-urls" title="Permalink to this heading">#</a></h3>
+<p>Use the Google Form link in the “Links for homework submissions” document on the course Blackboard site to submit.  It’s the one labeled “HW3”.  (You must be logged into your CUNY citymail account in Google to be granted access to the submission form.)</p>
+<p>Submit the notebook as a <em>single</em> <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> file with a filename matching <strong>exactly</strong> the pattern <code class="docutils literal notranslate"><span class="pre">eas42000_hw3_lastname-firstname.ipynb</span></code>, replacing <code class="docutils literal notranslate"><span class="pre">lastname</span></code> with your last name and <code class="docutils literal notranslate"><span class="pre">firstname</span></code> with your first name.</p>
+</section>
+<section id="use-a-relative-path-to-the-netcdf-file-in-your-code">
+<h3><span class="section-number">3.4.2. </span>Use a <em>relative</em> path to the netCDF file in your code<a class="headerlink" href="#use-a-relative-path-to-the-netcdf-file-in-your-code" title="Permalink to this heading">#</a></h3>
+<p><strong>Important</strong>: you <strong>must</strong> copy the Central Park dataset netCDF file into the same directory/folder that holds your homework <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> file, <em>and</em> your code <strong>must</strong> refer to that file using a <em>relative</em> rather than <em>absolute</em> filepath.  I.e.:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">path_to_cp</span> <span class="o">=</span> <span class="s2">&quot;./central-park-station-data_1869-01-01_2023-09-30.nc&quot;</span>  <span class="c1"># this is good; it will work on my computer</span>
+</pre></div>
+</div>
+<p>NOT the <em>absolute</em> path to where the file lives on <em>your</em> computer:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">path_to_cp</span> <span class="o">=</span> <span class="s2">&quot;/Users/jane-student/eas4200/central-park-station-data_1869-01-01_2023-09-30.nc&quot;</span>  <span class="c1"># this will NOT work on my computer</span>
+</pre></div>
+</div>
+<p>If you don’t follow this instruction, it will cause your Notebook to not run successfully when I go to run it on my computer.</p>
+</section>
+<section id="use-this-exact-name-for-the-netcdf-file-central-park-station-data-1869-01-01-2023-09-30-nc">
+<h3><span class="section-number">3.4.3. </span>Use this exact name for the netCDF file: <code class="docutils literal notranslate"><span class="pre">central-park-station-data_1869-01-01_2023-09-30.nc</span></code><a class="headerlink" href="#use-this-exact-name-for-the-netcdf-file-central-park-station-data-1869-01-01-2023-09-30-nc" title="Permalink to this heading">#</a></h3>
+<p>Similar but different to the issue immediately above re: relative vs. absolute paths, on my computer the Central Park dataset is saved with the filename printed just above.  That means the file must have that name on your computer too; if your notebook refers to a file with a different name, my computer won’t find it and so your notebook will crash.</p>
+</section>
+<section id="your-notebook-must-run-successfully-start-to-finish-on-my-laptop">
+<h3><span class="section-number">3.4.4. </span>Your Notebook <em>must</em> run successfully start-to-finish on <em>my</em> laptop<a class="headerlink" href="#your-notebook-must-run-successfully-start-to-finish-on-my-laptop" title="Permalink to this heading">#</a></h3>
+<p>I will run every person’s notebook on my own computer as part of the grading.  If that is unsuccessful—meaning that when I select “Run all cells”, the code execution crashes at any point with an error message—you automatically lose 5% on the assignment.</p>
+<p>If I can easily fix the issue, I’ll proceed with that submission.  If not, I will email you asking you to re-submit a version that does run.  (And each subsequent submission that doesn’t run successfully loses an additional 5%.)</p>
+<p>This could be because of the relative/absolute filepath and/or filename issues described immediately above and/or any other bug in your code.</p>
+<p>Why?  It takes a <em>lot</em> of time to debug someone else’s Notebook that doesn’t work.  And meanwhile, it’s very easy for you to follow this instruction (see bold paragraph immediately below).  So it’s just not fair to me if I have to spend a lot of time debugging your code.</p>
+<p><strong>To prevent this, as a last step before submitting your Notebook, I URGE you to restart your Jupyter Kernel, select “Run all cells”, and make sure that it runs successfully.</strong>  <em>Then</em> save it one last time and upload it.</p>
+</section>
+<section id="a-note-on-chatgpt-etc">
+<h3><span class="section-number">3.4.5. </span>A note on ChatGPT etc.<a class="headerlink" href="#a-note-on-chatgpt-etc" title="Permalink to this heading">#</a></h3>
+<p>The first batch of questions on sets and probability are, frankly, ones that are very tempting targets to feed into ChatGPT and related tools.  Do so at your own peril!  Not because it will necessarily give you the wrong answers (it might or might not), but because then you probably won’t <strong>learn</strong> nearly as much.</p>
+<p>Also, and perhaps more practically relevant to you: the upcoming midterm exam—which will be 100% closed book/notes/computers/etc., paper-and-pencil—will have quite a few questions of a very similar nature to these.  So consider these as practice for the exam in that sense, meaning the more you find the discipline to answer them just on your own using the lecture slides and other course materials, the better off you’ll be come test day.</p>
+<p>And of course refer to and adhere to the policies in the <a class="reference internal" href="../info/syllabus.html"><span class="doc std std-doc">syllabus</span></a> regarding these tools.</p>
+</section>
+</section>
+<section id="extra-credit">
+<h2><span class="section-number">3.5. </span>Extra credit<a class="headerlink" href="#extra-credit" title="Permalink to this heading">#</a></h2>
+<p>Each extra credit option below earns you up to an extra 5% on this assignment.</p>
+<section id="explicitly-compare-the-empirical-cdfs-to-the-integrals-of-your-empirical-pdfs">
+<h3><span class="section-number">3.5.1. </span>Explicitly compare the empirical CDFs to the integrals of your empirical PDFs<a class="headerlink" href="#explicitly-compare-the-empirical-cdfs-to-the-integrals-of-your-empirical-pdfs" title="Permalink to this heading">#</a></h3>
+<p>As discussed in class, the cumulative distribution function amounts to the integral of the probability density function.  This task asks you to verify that for yourself numerically.</p>
+<p>Pick any two of the variables in the Central Park dataset.  Take the empirical PDF you generated via the histograms, and numerically integrate it using a method/package/etc. of your choosing.  Plot the result against the “true” empirical CDF you generated already.  Describe what you find in 1-2 sentences.</p>
+</section>
+<section id="try-out-bayesian-blocks-for-your-pdf-bins">
+<h3><span class="section-number">3.5.2. </span>Try out “Bayesian blocks” for your PDF bins<a class="headerlink" href="#try-out-bayesian-blocks-for-your-pdf-bins" title="Permalink to this heading">#</a></h3>
+<p><a class="reference external" href="https://jakevdp.github.io/blog/2012/09/12/dynamic-programming-in-python/">Bayesian blocks</a> is a method for choosing optimal bin sizes for histograms in which the bin sizes do not have to be uniform.  (It’s much more involved than that, but that suffices for our purposes).</p>
+<p>Return to your empirical PDFs for any two variables in the Central Park dataset.  Re-generate their histograms using the bins generated by this Bayesian blocks method.  It is implemented in the <code class="docutils literal notranslate"><span class="pre">astropy</span></code> package; see docs <a class="reference external" href="https://docs.astropy.org/en/stable/api/astropy.stats.bayesian_blocks.html">here</a>.</p>
+<p>Compare the results to the PDFs you generated before.  Describe salient differences and/or similarities.</p>
+</section>
+<section id="compute-some-key-empirical-probabilities-on-data-you-re-using-for-your-final-project">
+<h3><span class="section-number">3.5.3. </span>Compute some key empirical probabilities on data you’re using for your final project<a class="headerlink" href="#compute-some-key-empirical-probabilities-on-data-you-re-using-for-your-final-project" title="Permalink to this heading">#</a></h3>
+<p>Compute and report some key empirical probabilities from the data for your final project.  Which probabilities would be <em>key</em> vs. not depends on your particular project.  For example, suppose you were using the Central Park dataset to investigate extreme snow events.  Then probabilities of snow exceeding various high thresholds would definitely be key, while probabilities of say exceeding various thresholds in maximum daily temperatures in July (when there is never any snow) would not.</p>
+<p>This must include at least one of each of the following:</p>
+<ul class="simple">
+<li><p>unconditional probability of a single event</p></li>
+<li><p>unconditional probability of the union of two or more events</p></li>
+<li><p>unconditional probability of the intersection of two or more events</p></li>
+<li><p>one or more conditional probabilities</p></li>
+</ul>
+<p>This is a double bonus: it gets you extra credit on this assignment <em>and</em> helps you make progress on your final project!</p>
+</section>
+<section id="submitting-the-extra-credit-as-the-html-output-of-a-separate-notebook-file">
+<h3><span class="section-number">3.5.4. </span>Submitting the extra credit: <strong>as the .html output of a separate notebook file</strong><a class="headerlink" href="#submitting-the-extra-credit-as-the-html-output-of-a-separate-notebook-file" title="Permalink to this heading">#</a></h3>
+<p>(Please submit the extra credit this way even if you don’t do the part that involves using your own final project data.)</p>
+<p>Each of you is using a different dataset, none of which I have on my local computer where I’ll be running your notebooks.  And some of these datasets are quite large, so it’s impractical to have you include your datasets along with the notebook file.  But that means that I won’t be able to execute this portion of your code on my laptop.</p>
+<p>For that reason, please do the following:</p>
+<ol class="arabic simple">
+<li><p>Perform all of your calculations for the extra credit <strong>in a separate .ipynb</strong> notebook file from the main one that you’ll submit as described above.</p></li>
+<li><p>Once your Extra Credit notebook is 100% ready, reset and run it start to finish as described above.</p></li>
+<li><p>At that point, <strong>export it to an HTML file using Jupyter’s built-in exporting features.</strong></p></li>
+<li><p>Upload <strong>that HTML file</strong> via the same link described above for the main submission.</p></li>
+</ol>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./assignments"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="hw-data-viz.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Generating core data visualizations on the Central Park weather dataset in Python</p>
+      </div>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">3.1. Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notice-use-the-updated-central-park-dataset-that-includes-data-through-the-end-of-september-2023">3.1.1. NOTICE: use the updated Central Park dataset that includes data through the end of September 2023</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#your-specific-tasks">3.2. Your specific tasks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sets-and-probabilities">3.2.1. Sets and probabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#empirical-probabilities-in-the-central-park-dataset">3.2.2. Empirical probabilities in the Central Park dataset</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#empirical-pdfs-and-cdfs-in-the-central-park-dataset">3.3. Empirical PDFs and CDFs in the Central Park dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-submit">3.4. How to submit</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#submission-urls">3.4.1. Submission URLs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-a-relative-path-to-the-netcdf-file-in-your-code">3.4.2. Use a <em>relative</em> path to the netCDF file in your code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-this-exact-name-for-the-netcdf-file-central-park-station-data-1869-01-01-2023-09-30-nc">3.4.3. Use this exact name for the netCDF file: <code class="docutils literal notranslate"><span class="pre">central-park-station-data_1869-01-01_2023-09-30.nc</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#your-notebook-must-run-successfully-start-to-finish-on-my-laptop">3.4.4. Your Notebook <em>must</em> run successfully start-to-finish on <em>my</em> laptop</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-note-on-chatgpt-etc">3.4.5. A note on ChatGPT etc.</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extra-credit">3.5. Extra credit</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explicitly-compare-the-empirical-cdfs-to-the-integrals-of-your-empirical-pdfs">3.5.1. Explicitly compare the empirical CDFs to the integrals of your empirical PDFs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#try-out-bayesian-blocks-for-your-pdf-bins">3.5.2. Try out “Bayesian blocks” for your PDF bins</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-some-key-empirical-probabilities-on-data-you-re-using-for-your-final-project">3.5.3. Compute some key empirical probabilities on data you’re using for your final project</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#submitting-the-extra-credit-as-the-html-output-of-a-separate-notebook-file">3.5.4. Submitting the extra credit: <strong>as the .html output of a separate notebook file</strong></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Spencer A. Hill
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

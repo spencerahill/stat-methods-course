@@ -64,6 +64,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'assignments/hw-data-viz';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3. Key concepts from probability theory and empirical probabilities computed from the Central Park weather dataset" href="hw-probability.html" />
     <link rel="prev" title="1. Writing key quantities from descriptive statistics in Python yourself" href="hw-descriptive-statistics.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -170,6 +171,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="hw-descriptive-statistics.html">1. Writing key quantities from descriptive statistics in Python yourself</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">2. Generating core data visualizations on the Central Park weather dataset in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw-probability.html">3. Key concepts from probability theory and empirical probabilities computed from the Central Park weather dataset</a></li>
 </ul>
 
     </div>
@@ -792,21 +794,21 @@ dl.xr-attrs {
   fill: currentColor;
 }
 </style><pre class='xr-text-repr-fallback'>&lt;xarray.DataArray &#x27;toy&#x27; (time: 56520)&gt;
-array([ 1.38803851,  0.84197178,  1.5286819 , ...,  0.23396071,
-       -0.53604464, -0.09923974])
+array([ 1.36641799, -0.77199053, -0.63246853, ...,  0.07940121,
+        0.94129473, -2.36099874])
 Coordinates:
-  * time     (time) datetime64[ns] 1869-01-01 1869-01-02 ... 2023-09-30</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'toy'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 56520</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-50e5c8c1-dce0-4d30-92c9-1705ca783991' class='xr-array-in' type='checkbox' checked><label for='section-50e5c8c1-dce0-4d30-92c9-1705ca783991' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>1.388 0.842 1.529 0.5911 -0.7089 ... 1.042 0.234 -0.536 -0.09924</span></div><div class='xr-array-data'><pre>array([ 1.38803851,  0.84197178,  1.5286819 , ...,  0.23396071,
-       -0.53604464, -0.09923974])</pre></div></div></li><li class='xr-section-item'><input id='section-0ca4a29d-e4b4-4f5d-a7f3-04bbfd4a43aa' class='xr-section-summary-in' type='checkbox'  checked><label for='section-0ca4a29d-e4b4-4f5d-a7f3-04bbfd4a43aa' class='xr-section-summary' >Coordinates: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1869-01-01 ... 2023-09-30</div><input id='attrs-df7bc5df-c66e-428b-b8bf-d95ec9e0ddf2' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-df7bc5df-c66e-428b-b8bf-d95ec9e0ddf2' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-87e4feb7-a6e5-478a-a6f5-3df591bdd041' class='xr-var-data-in' type='checkbox'><label for='data-87e4feb7-a6e5-478a-a6f5-3df591bdd041' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([&#x27;1869-01-01T00:00:00.000000000&#x27;, &#x27;1869-01-02T00:00:00.000000000&#x27;,
+  * time     (time) datetime64[ns] 1869-01-01 1869-01-02 ... 2023-09-30</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'toy'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 56520</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-ca64e1a9-5cc2-43c2-a52a-7b9724e24945' class='xr-array-in' type='checkbox' checked><label for='section-ca64e1a9-5cc2-43c2-a52a-7b9724e24945' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>1.366 -0.772 -0.6325 0.1093 0.1479 ... -0.2185 0.0794 0.9413 -2.361</span></div><div class='xr-array-data'><pre>array([ 1.36641799, -0.77199053, -0.63246853, ...,  0.07940121,
+        0.94129473, -2.36099874])</pre></div></div></li><li class='xr-section-item'><input id='section-cb8a1d21-8020-4abd-97a5-ded66f797dcc' class='xr-section-summary-in' type='checkbox'  checked><label for='section-cb8a1d21-8020-4abd-97a5-ded66f797dcc' class='xr-section-summary' >Coordinates: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1869-01-01 ... 2023-09-30</div><input id='attrs-b931ae3f-3b23-4519-b74e-ccadb832caf6' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-b931ae3f-3b23-4519-b74e-ccadb832caf6' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ca04cf3f-6143-42d4-8caf-1c2ed5157c20' class='xr-var-data-in' type='checkbox'><label for='data-ca04cf3f-6143-42d4-8caf-1c2ed5157c20' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([&#x27;1869-01-01T00:00:00.000000000&#x27;, &#x27;1869-01-02T00:00:00.000000000&#x27;,
        &#x27;1869-01-03T00:00:00.000000000&#x27;, ..., &#x27;2023-09-28T00:00:00.000000000&#x27;,
        &#x27;2023-09-29T00:00:00.000000000&#x27;, &#x27;2023-09-30T00:00:00.000000000&#x27;],
-      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-6ff535a2-d127-4c73-a570-9dc70dfd5980' class='xr-section-summary-in' type='checkbox'  ><label for='section-6ff535a2-d127-4c73-a570-9dc70dfd5980' class='xr-section-summary' >Indexes: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-2cc508b0-34ae-403d-9924-7f5adb8982ea' class='xr-index-data-in' type='checkbox'/><label for='index-2cc508b0-34ae-403d-9924-7f5adb8982ea' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;1869-01-01&#x27;, &#x27;1869-01-02&#x27;, &#x27;1869-01-03&#x27;, &#x27;1869-01-04&#x27;,
+      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-ca342902-0a91-402e-b316-d63d85ddea32' class='xr-section-summary-in' type='checkbox'  ><label for='section-ca342902-0a91-402e-b316-d63d85ddea32' class='xr-section-summary' >Indexes: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-ebf61537-1e0a-460a-b4b8-f3f538b8e429' class='xr-index-data-in' type='checkbox'/><label for='index-ebf61537-1e0a-460a-b4b8-f3f538b8e429' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;1869-01-01&#x27;, &#x27;1869-01-02&#x27;, &#x27;1869-01-03&#x27;, &#x27;1869-01-04&#x27;,
                &#x27;1869-01-05&#x27;, &#x27;1869-01-06&#x27;, &#x27;1869-01-07&#x27;, &#x27;1869-01-08&#x27;,
                &#x27;1869-01-09&#x27;, &#x27;1869-01-10&#x27;,
                ...
                &#x27;2023-09-21&#x27;, &#x27;2023-09-22&#x27;, &#x27;2023-09-23&#x27;, &#x27;2023-09-24&#x27;,
                &#x27;2023-09-25&#x27;, &#x27;2023-09-26&#x27;, &#x27;2023-09-27&#x27;, &#x27;2023-09-28&#x27;,
                &#x27;2023-09-29&#x27;, &#x27;2023-09-30&#x27;],
-              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, length=56520, freq=None))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-88cdb749-2221-41a4-badf-30d5dad15821' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-88cdb749-2221-41a4-badf-30d5dad15821' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
+              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, length=56520, freq=None))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-c3ef4740-a72f-4f5b-8811-a0f7d083f114' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-c3ef4740-a72f-4f5b-8811-a0f7d083f114' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
 </div>
 <p>Now, create the plots:</p>
 <div class="cell docutils container">
@@ -833,7 +835,7 @@ Coordinates:
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;count [unitless]&#39;)
 </pre></div>
 </div>
-<img alt="../_images/26ce23c9de95a2ca2fedfb9c5d667f609f7d890f21bad51f5bfdea5f672dfdc4.png" src="../_images/26ce23c9de95a2ca2fedfb9c5d667f609f7d890f21bad51f5bfdea5f672dfdc4.png" />
+<img alt="../_images/336de537b99abe7043fea5869551f19460835b372a541fc8a87aafce28fb650e.png" src="../_images/336de537b99abe7043fea5869551f19460835b372a541fc8a87aafce28fb650e.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -848,7 +850,7 @@ Coordinates:
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;toy data [unitless]&#39;)
 </pre></div>
 </div>
-<img alt="../_images/e7760c408c3a0b02811822f98fc1a4728cb0f860fc71c0e95dfe58b7257f7c94.png" src="../_images/e7760c408c3a0b02811822f98fc1a4728cb0f860fc71c0e95dfe58b7257f7c94.png" />
+<img alt="../_images/7bbf918ee04d151135df66e39a75b7884be33d2bfeaf570ce8be3f7386d6819f.png" src="../_images/7bbf918ee04d151135df66e39a75b7884be33d2bfeaf570ce8be3f7386d6819f.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -864,7 +866,7 @@ Coordinates:
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;toy data [unitless]&#39;)
 </pre></div>
 </div>
-<img alt="../_images/9c1179ba7082989a20f2fb70a733185d4aa180c96205c34b00230cfc221421a1.png" src="../_images/9c1179ba7082989a20f2fb70a733185d4aa180c96205c34b00230cfc221421a1.png" />
+<img alt="../_images/c6a1782a55b8e54a2be8376f762133e78c628d23ddecfba31c606a36fbd9f241.png" src="../_images/c6a1782a55b8e54a2be8376f762133e78c628d23ddecfba31c606a36fbd9f241.png" />
 </div>
 </div>
 <p>There you go.  (We’ll return to scatterplots further below.)</p>
@@ -896,7 +898,7 @@ Coordinates:
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0.98, &#39;Histogram, box-and-whisker, and timeseries plots of the toy array&#39;)
 </pre></div>
 </div>
-<img alt="../_images/963ab4251f870fe268c14b3f2897d399a2b334c0d798612e18bdb3a8f576e5ef.png" src="../_images/963ab4251f870fe268c14b3f2897d399a2b334c0d798612e18bdb3a8f576e5ef.png" />
+<img alt="../_images/20846bcdaae377e5fc2f5887b9d5ad71a325d12e65951e4b5c2fca20b08e203b.png" src="../_images/20846bcdaae377e5fc2f5887b9d5ad71a325d12e65951e4b5c2fca20b08e203b.png" />
 </div>
 </div>
 <section id="if-you-re-using-the-netcdf4-package">
@@ -916,7 +918,7 @@ Coordinates:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x15aaf69d0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x16509f190&gt;]
 </pre></div>
 </div>
 <img alt="../_images/63bec26ae76d513a870d4b1e22423d699eccfb3e94f9d684974850ee6b3d3579.png" src="../_images/63bec26ae76d513a870d4b1e22423d699eccfb3e94f9d684974850ee6b3d3579.png" />
@@ -947,7 +949,7 @@ Coordinates:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x15add7e50&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1651d0e10&gt;]
 </pre></div>
 </div>
 <img alt="../_images/e996d6252781c831622025a885cb3cb0c834ed64e471117ed4693b501fe8bfc2.png" src="../_images/e996d6252781c831622025a885cb3cb0c834ed64e471117ed4693b501fe8bfc2.png" />
@@ -1084,6 +1086,15 @@ Coordinates:
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title"><span class="section-number">1. </span>Writing key quantities from descriptive statistics in Python yourself</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="hw-probability.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Key concepts from probability theory and empirical probabilities computed from the Central Park weather dataset</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div></div>
   
