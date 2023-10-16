@@ -168,6 +168,9 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Introduction to <em>Statistical Methods in Earth and Atmospheric Sciences</em></a></li>
 <li class="toctree-l1"><a class="reference internal" href="descriptive-statistics.html">2. Descriptive Statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="probability-theory.html">3. Probability theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hypothesis-tests.html">4. Hypothesis testing</a></li>
+
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
@@ -367,18 +370,17 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-this-and-who-is-it-for">1.1. What is this and who is it for?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-statistical-methods-and-why-do-we-need-them-in-earth-and-atmospheric-sciences">1.2. What are “statistical methods,” and why do we need them in Earth and atmospheric sciences?</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical">1.2.1. “Statistical”</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#methods">1.2.2. “Methods”</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#in-earth-and-atmospheric-sciences">1.2.3. “in Earth and Atmospheric Sciences”</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-statistical-methods-and-why-do-we-need-them-in-earth-and-atmospheric-sciences">1.1. What are “statistical methods,” and why do we need them in Earth and atmospheric sciences?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical">1.1.1. “Statistical”</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#methods">1.1.2. “Methods”</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#in-earth-and-atmospheric-sciences">1.1.3. “in Earth and Atmospheric Sciences”</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-care-about-statistics-at-all">1.3. Why care about statistics at all?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numeracy">1.4. Numeracy</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-numeracy-is">1.4.1. What numeracy is</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numeracy-made-up-example-a-severe-storm-and-climate-change">1.4.2. Numeracy (made-up) example: a severe storm and climate change</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lies-damned-lies-and-statistics">1.4.3. Lies, damned lies, and statistics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-care-about-statistics-at-all">1.2. Why care about statistics at all?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numeracy">1.3. Numeracy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-numeracy-is">1.3.1. What numeracy is</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numeracy-made-up-example-a-severe-storm-and-climate-change">1.3.2. Numeracy (made-up) example: a severe storm and climate change</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lies-damned-lies-and-statistics">1.3.3. Lies, damned lies, and statistics</a></li>
 </ul>
 </li>
 </ul>
@@ -394,14 +396,8 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-statistical-methods-in-earth-and-atmospheric-sciences">
 <h1><span class="section-number">1. </span>Introduction to <em>Statistical Methods in Earth and Atmospheric Sciences</em><a class="headerlink" href="#introduction-to-statistical-methods-in-earth-and-atmospheric-sciences" title="Permalink to this heading">#</a></h1>
-<section id="what-is-this-and-who-is-it-for">
-<h2><span class="section-number">1.1. </span>What is this and who is it for?<a class="headerlink" href="#what-is-this-and-who-is-it-for" title="Permalink to this heading">#</a></h2>
-<p>Welcome to these lecture notes on Statistical Methods in Earth and Atmospheric Sciences.  These cover the material for a semester-length course taught at <a class="reference external" href="https://www.ccny.cuny.edu/">The City College of New York</a> (CCNY) in the <a class="reference external" href="https://www.ccny.cuny.edu/eas">Department of Earth and Atmospheric Sciences</a> (EAS).  They were originally written by myself, <a class="reference external" href="https://shill.ccny.cuny.edu/">Spencer Hill</a>, in Fall 2023, while teaching this course for the first time.</p>
-<p>The course is open to CCNY undergraduate students in EAS and other departments (as EAS 42000), EAS Masters students (as EAS A4200), and to PhD students in the <a class="reference external" href="https://www.cuny.edu/">City <em>University</em> of New York</a> <a class="reference external" href="https://www.gc.cuny.edu/">Graduate Center</a> <a class="reference external" href="https://www.gc.cuny.edu/earth-and-environmental-sciences">Department of Earth and Environmental Sciences</a> (as EES 79903-45781).  For both Masters and PhD students, the official course title replaces “Stastical Methods” with “Quantitative Data Analysis.”</p>
-<p>That said, anybody—including you reading this now—are welcome to use any/all of these materials in your own teaching or learning.  As you do, you are free to modify your version of them however you see fit.  And I encourage you to suggest any changes or improvements—or even submit a pull request that would implement them—to the Github repository where they live, which you can access via <a class="reference external" href="https://github.com/spencerahill/stat-methods-course">this link</a> or via the <a class="reference external" href="https://octodex.github.com/original/">“Octocat”</a> silhouette logo at the top of this page.</p>
-</section>
 <section id="what-are-statistical-methods-and-why-do-we-need-them-in-earth-and-atmospheric-sciences">
-<h2><span class="section-number">1.2. </span>What are “statistical methods,” and why do we need them in Earth and atmospheric sciences?<a class="headerlink" href="#what-are-statistical-methods-and-why-do-we-need-them-in-earth-and-atmospheric-sciences" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.1. </span>What are “statistical methods,” and why do we need them in Earth and atmospheric sciences?<a class="headerlink" href="#what-are-statistical-methods-and-why-do-we-need-them-in-earth-and-atmospheric-sciences" title="Permalink to this heading">#</a></h2>
 <p>To address this, let’s split the course title into three pieces:</p>
 <ol class="arabic simple">
 <li><p><strong>Statistical</strong></p></li>
@@ -409,7 +405,7 @@ document.write(`
 <li><p><strong>in Earth and Atmospheric Sciences</strong></p></li>
 </ol>
 <section id="statistical">
-<h3><span class="section-number">1.2.1. </span>“Statistical”<a class="headerlink" href="#statistical" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">1.1.1. </span>“Statistical”<a class="headerlink" href="#statistical" title="Permalink to this heading">#</a></h3>
 <p>Imagine a very simple dataset: “Whether or not it rained more than one foot in Central Park on August 15, 2023”.  It consists of a single value: <code class="docutils literal notranslate"><span class="pre">No</span></code> (you can take my word for it).</p>
 <p>We don’t need anything complicated to characterize it.  As the saying goes, in this rather odd instance, the data “speaks for itself.”</p>
 <p>Now let’s look at a more realistic dataset: the actual daily precipitation as measured by the <a class="reference external" href="https://w1.weather.gov/data/obhistory/KNYC.html">Central Park weather station</a>.  This record spans from the year 1869 to today.  Does this data “speak for itself”?</p>
@@ -4592,7 +4588,7 @@ document.write(`
 <p>That said, for temperature too, clearly there is <em>way</em> too much going on to be able to take it in at a glance and truly understand it: here again, we need <em>statistics</em>.</p>
 </section>
 <section id="methods">
-<h3><span class="section-number">1.2.2. </span>“Methods”<a class="headerlink" href="#methods" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">1.1.2. </span>“Methods”<a class="headerlink" href="#methods" title="Permalink to this heading">#</a></h3>
 <p>Think of <em>methods</em> as just another word for <em>tools</em>.  As such, what we’re after in this course is building a <em>toolkit</em> of statistical techniques that will be valuable to you in your research and other coursework.  This has some important implications:</p>
 <ul class="simple">
 <li><p>We’ll focus <em>less</em> on the underlying theoretical basis for the techniques we’ll discuss.  Just enough to be confident in their meaning, their conceptual basis, and their interpretation.</p></li>
@@ -4608,13 +4604,13 @@ document.write(`
 </ul>
 </section>
 <section id="in-earth-and-atmospheric-sciences">
-<h3><span class="section-number">1.2.3. </span>“in Earth and Atmospheric Sciences”<a class="headerlink" href="#in-earth-and-atmospheric-sciences" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">1.1.3. </span>“in Earth and Atmospheric Sciences”<a class="headerlink" href="#in-earth-and-atmospheric-sciences" title="Permalink to this heading">#</a></h3>
 <p>Of course, being in the EAS department, we will focus almost exclusively on datasets and problems that arise in the Earth and Atmospheric Sciences (as opposed to, say, medicine or sociology).  And my own research emphasis with EAS is on rainfall and how it varies on many timescales (day to day, season to season, year to year, etc.), which will bias the example datasets used in that direction.  Finally, at <em>The</em> City College of New York after all, we’ll use data from our own backyard as much as possible—chiefly, this Central Park weather station dataset introduced above.</p>
 <p>But the overall approach—how to characterize datasets as succinctly and accurately as possible, individually and as they relate to one another—is universally applicable.  Likewise for the vast majority of the individual tools themselves; with modest effort nearly all of them can be adapted to a wide array of datasets, e.g. time series of economic data, astronomical data from telescopes, biometric data from your smart watch.</p>
 </section>
 </section>
 <section id="why-care-about-statistics-at-all">
-<h2><span class="section-number">1.3. </span>Why care about statistics at all?<a class="headerlink" href="#why-care-about-statistics-at-all" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.2. </span>Why care about statistics at all?<a class="headerlink" href="#why-care-about-statistics-at-all" title="Permalink to this heading">#</a></h2>
 <p>Why bother with things like conditional probabilities, autocorrelations, covariance matrices, etc., which especially if you haven’t heard of them before might sound like kind of a pain?  Well, virtually every major problem in the Earth sciences—and in fact, virtually every major problem facing the world—ultimately has a statistical basis.</p>
 <p>In the Earth sciences, that includes all of the following questions:</p>
 <ul class="simple">
@@ -4631,16 +4627,16 @@ document.write(`
 <p><strong>But</strong> through careful analysis using the right statistical techniques, we <em>can</em> provide <em>reasonable</em> answers to these questions and many more like them.  And these can improve decisions and outcomes in the real world, for individuals (for example, you knowing to bring an umbrella thanks to an accurate forecast of rain) to institutions (for example, where to place and how to design subway entrances given statistical models of flood risk).</p>
 </section>
 <section id="numeracy">
-<h2><span class="section-number">1.4. </span>Numeracy<a class="headerlink" href="#numeracy" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.3. </span>Numeracy<a class="headerlink" href="#numeracy" title="Permalink to this heading">#</a></h2>
 <section id="what-numeracy-is">
-<h3><span class="section-number">1.4.1. </span>What numeracy is<a class="headerlink" href="#what-numeracy-is" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">1.3.1. </span>What numeracy is<a class="headerlink" href="#what-numeracy-is" title="Permalink to this heading">#</a></h3>
 <p>As said above, we’re aiming to build a <em>toolbox</em> of quantitative techniques.  But perhaps even more important than equipping you with a collection of tools to draw from, we want to develop a <em>state of mind</em> for quantitative data analysis.  I’ll use the term <strong>numeracy</strong> as a shorthand for this.</p>
 <p><strong>Numeracy</strong> (as we’ll use it) is the ability to accurately assess <em>quantitative</em> claims.  The word is a direct analogy to <em>literacy</em>: literacy (the ability to read) enables a person to properly evaluate claims written in words; numeracy enables a person to properly evaluate claims consisting of numbers.</p>
 <p>One part of numeracy is assessing not just the <em>sign</em> (decreasing/increasing; more/less) but the <em>magnitudes</em> of different quantities that come up.  Consider the following three percentage changes in some quantity: -5%, +0.1%, +1000%.  Sure, the first one is a decrease while the second two are an increase, but in terms of magnitude the first two are much more similar—(namely, a small change) than the third (a 10-fold increase).</p>
 <p>Another part of numeracy is understanding the relevant <strong>uncertainties</strong>.  There are virtually no interesting questions in the Earth sciences for which one can generate answers with very little uncertainty.</p>
 </section>
 <section id="numeracy-made-up-example-a-severe-storm-and-climate-change">
-<h3><span class="section-number">1.4.2. </span>Numeracy (made-up) example: a severe storm and climate change<a class="headerlink" href="#numeracy-made-up-example-a-severe-storm-and-climate-change" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">1.3.2. </span>Numeracy (made-up) example: a severe storm and climate change<a class="headerlink" href="#numeracy-made-up-example-a-severe-storm-and-climate-change" title="Permalink to this heading">#</a></h3>
 <p>Imagine that tomorrow night an intense rain storm hits New York, breaking the record daily value in our Central Park dataset.  One interesting question among many that we’d like to know is what role climate change had in this event.</p>
 <p>Non-numerate claims include both of the following:</p>
 <ol class="arabic simple">
@@ -4668,7 +4664,7 @@ document.write(`
 <p>Neither approach is obviously worse or better.  And it’s possible that the two approaches could ultimately result in very similar answers!  In that case, we’d trust the combined result even more (not worrying precisely “trust” means in this context).  But it’s also possible (this happens all the time) that two different methodologies (or even just different climate models but otherwise identical methodologies) yield extremely different results!</p>
 </section>
 <section id="lies-damned-lies-and-statistics">
-<h3><span class="section-number">1.4.3. </span>Lies, damned lies, and statistics<a class="headerlink" href="#lies-damned-lies-and-statistics" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">1.3.3. </span>Lies, damned lies, and statistics<a class="headerlink" href="#lies-damned-lies-and-statistics" title="Permalink to this heading">#</a></h3>
 <blockquote class="epigraph">
 <div><p>There are three kinds of lies: lies, damned lies, and statistics.</p>
 <p class="attribution">—Mark Twain
@@ -4751,18 +4747,17 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-this-and-who-is-it-for">1.1. What is this and who is it for?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-statistical-methods-and-why-do-we-need-them-in-earth-and-atmospheric-sciences">1.2. What are “statistical methods,” and why do we need them in Earth and atmospheric sciences?</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical">1.2.1. “Statistical”</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#methods">1.2.2. “Methods”</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#in-earth-and-atmospheric-sciences">1.2.3. “in Earth and Atmospheric Sciences”</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-statistical-methods-and-why-do-we-need-them-in-earth-and-atmospheric-sciences">1.1. What are “statistical methods,” and why do we need them in Earth and atmospheric sciences?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical">1.1.1. “Statistical”</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#methods">1.1.2. “Methods”</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#in-earth-and-atmospheric-sciences">1.1.3. “in Earth and Atmospheric Sciences”</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-care-about-statistics-at-all">1.3. Why care about statistics at all?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numeracy">1.4. Numeracy</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-numeracy-is">1.4.1. What numeracy is</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numeracy-made-up-example-a-severe-storm-and-climate-change">1.4.2. Numeracy (made-up) example: a severe storm and climate change</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lies-damned-lies-and-statistics">1.4.3. Lies, damned lies, and statistics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-care-about-statistics-at-all">1.2. Why care about statistics at all?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numeracy">1.3. Numeracy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-numeracy-is">1.3.1. What numeracy is</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numeracy-made-up-example-a-severe-storm-and-climate-change">1.3.2. Numeracy (made-up) example: a severe storm and climate change</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lies-damned-lies-and-statistics">1.3.3. Lies, damned lies, and statistics</a></li>
 </ul>
 </li>
 </ul>

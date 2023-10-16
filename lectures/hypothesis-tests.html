@@ -1,0 +1,1773 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>4. Hypothesis testing &#8212; Statistical</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/hypothesis-tests';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1. Writing key quantities from descriptive statistics in Python yourself" href="../assignments/hw-descriptive-statistics.html" />
+    <link rel="prev" title="3. Probability theory" href="probability-theory.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../home.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../home.html">
+                    EAS42000: Statistical Methods in Earth and Atmospheric Science
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Information</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../info/syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../info/schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../info/resources.html">Resources</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">1. Introduction to <em>Statistical Methods in Earth and Atmospheric Sciences</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="descriptive-statistics.html">2. Descriptive Statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="probability-theory.html">3. Probability theory</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">4. Hypothesis testing</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../assignments/hw-descriptive-statistics.html">1. Writing key quantities from descriptive statistics in Python yourself</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/hw-data-viz.html">2. Generating core data visualizations on the Central Park weather dataset in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/hw-probability.html">3. Key concepts from probability theory and empirical probabilities computed from the Central Park weather dataset</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/spencerahill/stat-methods-course" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/spencerahill/stat-methods-course/issues/new?title=Issue%20on%20page%20%2Flectures/hypothesis-tests.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/lectures/hypothesis-tests.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Hypothesis testing</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">4. Hypothesis testing</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-problem">4.1. The problem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#populations-vs-samples">4.2. Populations vs. samples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analogy-to-election-polling">4.2.1. Analogy to election polling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#samples-in-the-central-park-snow-fall-question">4.2.2. Samples in the Central Park snow fall question</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#populations-of-central-park-snow-fall">4.2.3. Populations of Central Park snow fall</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-null-hypothesis-and-the-alternative-hypothesis">4.3. The null hypothesis and the alternative hypothesis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-rules-and-p-values">4.4. Decision rules and p values</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#performing-the-test">4.5. Performing the test</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-upshot">4.5.1. The upshot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#incomplete-the-more-detailed-derivation-of-the-t-statistic">4.5.2. [incomplete] The more detailed derivation of the <span class="math notranslate nohighlight">\(t\)</span> statistic</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#temperature">5. (temperature)</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="hypothesis-testing">
+<h1><span class="section-number">4. </span>Hypothesis testing<a class="headerlink" href="#hypothesis-testing" title="Permalink to this heading">#</a></h1>
+<p><strong>NOTE: STILL UNDER CONSTRUCTION</strong></p>
+<section id="the-problem">
+<h2><span class="section-number">4.1. </span>The problem<a class="headerlink" href="#the-problem" title="Permalink to this heading">#</a></h2>
+<p>Throughout this chapter on hypothesis testing, we’ll use a concrete example from the Central Park weather station dataset: snowfall averaged over the first 20 years of the 20th century, 1900-1919, vs. the first 20 years of the 21st century, 2000-2019.  Perhaps we suspect that global warming has increased the amount of snow that falls in Central Park.</p>
+<p>(Or maybe we suspect the opposite; while mean warming tends to increase <em>precipitation</em> all else equal, for <em>frozen</em> precipitation like snow, you could imagine that warming causes more days to be above freezing, causing what would have been snow to be rain instead, thus actually decreasing snow fall.)</p>
+<p>The first question we’ll ask is: are these averages different?  Let’s see:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy</span>
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+
+<span class="c1"># Load daily averaged Central Park weather station data.</span>
+<span class="n">filepath_in</span> <span class="o">=</span> <span class="s2">&quot;../data/central-park-station-data.nc&quot;</span>
+<span class="n">ds_cp_daily</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">filepath_in</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute annual averages.</span>
+<span class="n">ds_cp_ann</span> <span class="o">=</span> <span class="n">ds_cp_daily</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;time.year&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># For snow, go from inches per day to total inches per year by multiplying</span>
+<span class="c1"># by the number of days in each year</span>
+<span class="n">days_per_year</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span>
+    <span class="n">ds_cp_daily</span><span class="p">[</span><span class="s2">&quot;temp_max&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;time.year&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+    <span class="n">dims</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">],</span>
+    <span class="n">coords</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;year&quot;</span><span class="p">:</span> <span class="n">ds_cp_ann</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">]},</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;days_per_year&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">snow_ann</span> <span class="o">=</span> <span class="n">ds_cp_ann</span><span class="p">[</span><span class="s2">&quot;snow_fall&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="n">days_per_year</span>
+
+<span class="c1"># Grab 1900-1919 and separately 2000-2019</span>
+<span class="n">snow_1900_19</span> <span class="o">=</span> <span class="n">snow_ann</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="mi">1900</span><span class="p">,</span> <span class="mi">1919</span><span class="p">))</span>
+<span class="n">snow_2000_19</span> <span class="o">=</span> <span class="n">snow_ann</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="mi">2000</span><span class="p">,</span> <span class="mi">2019</span><span class="p">))</span>
+
+<span class="c1"># Compute total snow fall in each period</span>
+<span class="n">snow_mean_1900_19</span> <span class="o">=</span> <span class="n">snow_1900_19</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">snow_mean_2000_19</span> <span class="o">=</span> <span class="n">snow_2000_19</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Before plotting them, import the matplotlib package that we&#39;ll use for plotting.</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="c1"># Then update the plotting aesthetics using my own custom package named &quot;puffins&quot;</span>
+<span class="c1"># See: https://github.com/spencerahill/puffins</span>
+<span class="kn">from</span> <span class="nn">puffins</span> <span class="kn">import</span> <span class="n">plotting</span> <span class="k">as</span> <span class="n">pplt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">pplt</span><span class="o">.</span><span class="n">plt_rc_params_custom</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">pplt</span><span class="o">.</span><span class="n">faceted_ax</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvspan</span><span class="p">(</span><span class="mi">1900</span><span class="p">,</span> <span class="mi">1919</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvspan</span><span class="p">(</span><span class="mi">2000</span><span class="p">,</span> <span class="mi">2019</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="n">snow_ann</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;yearly snow fall [inches]&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;yearly snow fall [inches]&#39;)
+</pre></div>
+</div>
+<img alt="../_images/5c5877c664c596b0bfe21d5aae5669919eb5ec61bd130bff03ca174e8ff49169.png" src="../_images/5c5877c664c596b0bfe21d5aae5669919eb5ec61bd130bff03ca174e8ff49169.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gauss_fit_vals</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="o">*</span><span class="n">gauss_fit</span><span class="p">)</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">70</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">gauss_fit_vals</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="o">*</span><span class="n">gauss_fit</span><span class="p">)</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">70</span><span class="p">))</span>
+
+<span class="ne">NameError</span>: name &#39;gauss_fit&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">pplt</span><span class="o">.</span><span class="n">faceted_ax</span><span class="p">(</span><span class="n">aspect</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">snow_ann</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;histogram&quot;</span><span class="p">)</span>
+
+<span class="n">gauss_fit</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">snow_ann</span><span class="p">)</span>
+<span class="n">gauss_fit_vals</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="o">*</span><span class="n">gauss_fit</span><span class="p">)</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">70</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">70</span><span class="p">),</span> <span class="n">gauss_fit_vals</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Gaussian fit&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;snow fall [inches]&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;probability density [inches$^{-1}$]&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;probability density [inches$^{-1}$]&#39;)
+</pre></div>
+</div>
+<img alt="../_images/b820d00faf4c5cc2c2b7f59a48f1083617e9124ed22454686f791e4b88f14eb1.png" src="../_images/b820d00faf4c5cc2c2b7f59a48f1083617e9124ed22454686f791e4b88f14eb1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">pplt</span><span class="o">.</span><span class="n">faceted_ax</span><span class="p">(</span><span class="n">aspect</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">snow_1900_19</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;histogram&quot;</span><span class="p">)</span>
+
+<span class="n">gauss_fit</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">snow_ann</span><span class="p">)</span>
+<span class="n">gauss_fit_vals</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="o">*</span><span class="n">gauss_fit</span><span class="p">)</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">70</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">70</span><span class="p">),</span> <span class="n">gauss_fit_vals</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Gaussian fit&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;snow fall [inches]&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;probability density [inches$^{-1}$]&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;probability density [inches$^{-1}$]&#39;)
+</pre></div>
+</div>
+<img alt="../_images/d98b321c81dcf7b3eed2cf0d157777ba42fc38c563c960aa0e41b043916673a9.png" src="../_images/d98b321c81dcf7b3eed2cf0d157777ba42fc38c563c960aa0e41b043916673a9.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Finally, plot them.</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">pplt</span><span class="o">.</span><span class="n">faceted_ax</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="n">snow_mean_1900_19</span><span class="p">,</span> <span class="n">snow_mean_2000_19</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([</span><span class="s2">&quot;1900-1919&quot;</span><span class="p">,</span> <span class="s2">&quot;2000-2019&quot;</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;mean yearly snow fall [inches]&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">snow_mean_1900_19</span><span class="p">,</span> <span class="n">snow_mean_2000_19</span><span class="p">,</span> <span class="n">snow_mean_2000_19</span> <span class="o">-</span> <span class="n">snow_mean_1900_19</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;xarray.DataArray ()&gt;
+array(30.65334808) &lt;xarray.DataArray ()&gt;
+array(34.43115322) &lt;xarray.DataArray ()&gt;
+array(3.77780514)
+</pre></div>
+</div>
+<img alt="../_images/92442b07948328ca41fc6bbad5858eb65ab32d361797ff65eb77c2d99a9fd4a6.png" src="../_images/92442b07948328ca41fc6bbad5858eb65ab32d361797ff65eb77c2d99a9fd4a6.png" />
+</div>
+</div>
+<p>In the earlier period the mean yearly snow accumulation was 30.6 inches, and for 2000-2019 it was higher, 34.4 inches.</p>
+<p>Now the question we want to address is: how likely is it that this difference of 3.8” was <em>not</em> caused by random chance?</p>
+<p>To answer that, we have to clarify: what would it mean for it to be “caused by random chance”?  This leads to the notion of <em>populations vs. samples</em>.</p>
+</section>
+<section id="populations-vs-samples">
+<h2><span class="section-number">4.2. </span>Populations vs. samples<a class="headerlink" href="#populations-vs-samples" title="Permalink to this heading">#</a></h2>
+<section id="analogy-to-election-polling">
+<h3><span class="section-number">4.2.1. </span>Analogy to election polling<a class="headerlink" href="#analogy-to-election-polling" title="Permalink to this heading">#</a></h3>
+<p>Put snow aside for a second, and think about public opinion polling.  For example, in the leadup to a U.S. presidential election, a candidate tries to track what percentage of the American <strong>population</strong> intends to vote for her.  (Of course, the total U.S. population is not identical to the population of registered voters, but having acknowledged that we can proceed.)</p>
+<p>So they ask people by <em>polling</em> them, i.e. by having people fill out a survey asking who they intend to vote for.  Ideally, they’d do this for every member of the (voting) population.  But there are almost always far more voters than the candidate can plausibly ask.  To work around this, the pollsters try to select a <em>random subset</em> of the overall population.  This randomly drawn subset of the population is called the <strong>sample</strong>.</p>
+<p>The hope is that, if the sample is (1) large enough and (2) really drawn randomly from the total population, then that sample is <em>representative</em> of the total population.  In that case, the results from the survey administered to this sample provide a reasonable estimate of how the whole population would vote.  (And moving forward, we’ll go ahead and assume that the sample truly is drawn <em>randomly</em> from the population.)</p>
+<p>In this case, there is one single population.  So if two different randomly drawn samples got different results—let’s say in Sample 1 55.9% of respondents indicated they’d vote for Candidate X, but in Sample 2 only 54.3% indicated the same—then we can attribute that difference purely to random chance.</p>
+<p>Now, the pollsters suspect that dog owners will be more likely to vote for their candidate, because the candidate’s adorable Basset hound appears with her in all her campaign speeches and ads.  As such, they <strong>hypothesize</strong> that there are <em>two distinct populations</em> as regards voting patterns for this candidate: (1) the population of all dog owners, and (2) everybody else.</p>
+<p>However, there’s no way of knowing this for sure; perhaps dog owners and non-dog owners admire the Basset hound equally, or don’t find it relevant to how they should vote.  So the pollsters must <strong>test</strong> their hypothesis in some way.</p>
+<p>They send out their surveys and get representative samples from each of these two populations, and find that in the sample of dog owners the percentage of “Yes” votes is 56.7%, and in the sample of non dog owners it’s 55.9%.  So, yes, the two values are not identical; the dog owners answer yes by 0.8% more.</p>
+<p>But the sample from each population will have the same issue with random noise as described above.  So the question becomes: how likely is it that the difference in the two sample values, 56.7% vs. 55.9%, is due to dog owners and non dog owners truly being different populations in how they view this candidate—as opposed to the two really being the same population, and the difference being due to random chance?</p>
+<p>To answer this, we use <strong>hypothesis tests</strong>.</p>
+</section>
+<section id="samples-in-the-central-park-snow-fall-question">
+<h3><span class="section-number">4.2.2. </span>Samples in the Central Park snow fall question<a class="headerlink" href="#samples-in-the-central-park-snow-fall-question" title="Permalink to this heading">#</a></h3>
+<p>We have generated two <strong>samples</strong>: the values over 1900-1919 and the values over 2000-2019.</p>
+<p>Each of these two samples has an identical <strong>sample size</strong>, i.e. the number of distinct values within the sample.  That sample size in this case is the number of years: we have a value for each of the 20 years in either period, so there are 20 distinct observations within either sample.  (Note: in general in hypothesis testing, the two sample sizes do not have to be identical.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">pplt</span><span class="o">.</span><span class="n">faceted_ax</span><span class="p">(</span><span class="n">aspect</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+
+<span class="c1"># Plot all 20 values for each sample.</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">([</span><span class="mf">0.05</span><span class="p">]</span><span class="o">*</span><span class="mi">20</span><span class="p">,</span> <span class="n">snow_1900_19</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">([</span><span class="mf">1.05</span><span class="p">]</span><span class="o">*</span><span class="mi">20</span><span class="p">,</span> <span class="n">snow_2000_19</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
+
+<span class="c1"># Plot the sample mean and an error bar of plus or minus the sample standard deviation for each sample.</span>
+<span class="n">snow_std_1900</span> <span class="o">=</span> <span class="n">snow_1900_19</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">snow_std_2000</span> <span class="o">=</span> <span class="n">snow_2000_19</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">([</span><span class="o">-</span><span class="mf">0.05</span><span class="p">],</span> <span class="p">[</span><span class="n">snow_mean_1900_19</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;navy&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="o">-</span><span class="mf">0.05</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.05</span><span class="p">],</span> <span class="p">[</span><span class="n">snow_mean_1900_19</span> <span class="o">-</span> <span class="n">snow_std_1900</span><span class="p">,</span> <span class="n">snow_mean_1900_19</span> <span class="o">+</span> <span class="n">snow_std_1900</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;navy&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">([</span><span class="mf">0.95</span><span class="p">],</span> <span class="p">[</span><span class="n">snow_mean_2000_19</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;firebrick&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mf">0.95</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">],</span> <span class="p">[</span><span class="n">snow_mean_2000_19</span> <span class="o">-</span> <span class="n">snow_std_2000</span><span class="p">,</span> <span class="n">snow_mean_2000_19</span> <span class="o">+</span> <span class="n">snow_std_2000</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;firebrick&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([</span><span class="s2">&quot;1900-1919&quot;</span><span class="p">,</span> <span class="s2">&quot;2000-2019&quot;</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;mean yearly snow fall [inches]&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">snow_mean_1900_19</span><span class="p">,</span> <span class="n">snow_mean_2000_19</span><span class="p">,</span> <span class="n">snow_mean_2000_19</span> <span class="o">-</span> <span class="n">snow_mean_1900_19</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;xarray.DataArray ()&gt;
+array(30.65334808) &lt;xarray.DataArray ()&gt;
+array(34.43115322) &lt;xarray.DataArray ()&gt;
+array(3.77780514)
+</pre></div>
+</div>
+<img alt="../_images/3dc325cab0c044abe9f5dc9e895c4037dd6e90c54e7685fda7ced5b3d1078cbb.png" src="../_images/3dc325cab0c044abe9f5dc9e895c4037dd6e90c54e7685fda7ced5b3d1078cbb.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">pplt</span><span class="o">.</span><span class="n">faceted_ax</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">snow_1900_19</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">snow_2000_19</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([5., 2., 5., 2., 4., 2.]),
+ array([10.03885714, 18.69689245, 27.35492775, 36.01296305, 44.67099836,
+        53.32903366, 61.98706897]),
+ [&lt;matplotlib.patches.Polygon at 0x1633be590&gt;])
+</pre></div>
+</div>
+<img alt="../_images/7a3700025d7ee6a46206b5bfafdde2091f8adb7c7c7dc57c0b7bbded8332c8a9.png" src="../_images/7a3700025d7ee6a46206b5bfafdde2091f8adb7c7c7dc57c0b7bbded8332c8a9.png" />
+</div>
+</div>
+<p>By eye, there’s quite a lot of overlap between the two samples.</p>
+</section>
+<section id="populations-of-central-park-snow-fall">
+<h3><span class="section-number">4.2.3. </span>Populations of Central Park snow fall<a class="headerlink" href="#populations-of-central-park-snow-fall" title="Permalink to this heading">#</a></h3>
+<p>The identification above of the two <strong>samples</strong> of Central Park snow fall is hopefully intuitive.  Trickier is: what is/are the <strong>population(s)</strong> that these two samples are being randomly drawn from?  Are they the same population or different?</p>
+<p>It’s impossible to infer this with certainty from any finite samples: for finite sample sizes, it is always <em>possible</em> that two samples were drawn from the same population, and that any differences between them were due to random chance.</p>
+<p>And, taking one step back, how even is either population <em>distributed</em>?  Is it a normal distribution, a gamma distribution, or something else?  This too, we can never determine certaintly from finite samples (even assuming there was zero measurement error or any other confounding factors).  Instead, we <em>assume</em> that both samples are drawn from a particular distribution (for example, Gaussian), but that potentially the <em>parameters</em> of that population differ between the two.  With that assumed population distribution in hand, we ask: how likely is it that the two samples were drawn from .</p>
+<p>For example, a normal distribution is defined by two parameters, its mean and standard deviation.  Two normal distributions are identical if and only if their means are identical <em>and</em> their standard deviations are identical.  In practice, often hypothesis testing skips over the question of whether their standard deviations are identical and jumps straight to asking whether the means are identical, <em>assuming that the standard deviations <strong>are</strong> indeed identical</em>.</p>
+<p>In that case, hopefully it’s intuitive that the best estimate of the population standard deviation is the average of the two sample standard deviations.  This is called the <em>pooled</em> estimate.</p>
+</section>
+</section>
+<section id="the-null-hypothesis-and-the-alternative-hypothesis">
+<h2><span class="section-number">4.3. </span>The null hypothesis and the alternative hypothesis<a class="headerlink" href="#the-null-hypothesis-and-the-alternative-hypothesis" title="Permalink to this heading">#</a></h2>
+<p>The <strong>null hypothesis</strong> is that the two populations are the <em>same</em>.  In our example, this would mean that the 1900-1919 yearly snow fall and 2000-2019 yearly snow fall are both being drawn from the same distribution.  The standard notation for the null hypothesis is <span class="math notranslate nohighlight">\(H_0\)</span>.</p>
+<p>The <strong>alternative hypothesis</strong> is, well, some other hypothesis than the null.  Most often, it is simply that the null hypothesis is not true (i.e. it is the <em>complement</em> of the null hypothesis).  Its standard notation is <span class="math notranslate nohighlight">\(H_A\)</span>.</p>
+<p>Let’s denote our 1900-1919 and 2000-2019 snowfall populations as <span class="math notranslate nohighlight">\(p_{20th}\)</span> and <span class="math notranslate nohighlight">\(p_{21st}\)</span>, respectively (the subscripts allude to the 20th century vs. the 21st century).  Then our null hypothesis is <span class="math notranslate nohighlight">\(H_O\)</span>: <span class="math notranslate nohighlight">\(p_{20th}=p_{21st}\)</span>, and our alternative hypothesis is <span class="math notranslate nohighlight">\(H_A\)</span>: <span class="math notranslate nohighlight">\(p_{20th}\neq p_{21st}\)</span>.</p>
+</section>
+<section id="decision-rules-and-p-values">
+<h2><span class="section-number">4.4. </span>Decision rules and p values<a class="headerlink" href="#decision-rules-and-p-values" title="Permalink to this heading">#</a></h2>
+<p>What value of the test statistic is sufficient to reject the null hypothesis?  There is no single right answer.</p>
+</section>
+<section id="performing-the-test">
+<h2><span class="section-number">4.5. </span>Performing the test<a class="headerlink" href="#performing-the-test" title="Permalink to this heading">#</a></h2>
+<section id="the-upshot">
+<h3><span class="section-number">4.5.1. </span>The upshot<a class="headerlink" href="#the-upshot" title="Permalink to this heading">#</a></h3>
+<p>The key quantity is <span class="math notranslate nohighlight">\(T_0\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[T_0=\frac{\hat\mu_{21st}-\hat\mu_{20th}}{\hat\sigma_p\sqrt{\frac{1}{N_{21st}}+\frac{1}{N_{20th}}}},\]</div>
+<p>where <span class="math notranslate nohighlight">\(\hat\sigma_p\)</span> is the square root of the <em>pooled variance</em> <span class="math notranslate nohighlight">\(\hat\sigma_p^2\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\hat\sigma_p^2=\frac{(N_{21st}-1)\hat\sigma_{21st}^2+(N_{20th}-1)\hat\sigma_{20th}^2}{N_{21st}+N_{20th}-2}.\]</div>
+<p>This amounts to an average of the two sample variances weighted by the sample size in each.  In the case where the two sample sizes are identical, this becomes the simple, unweighted average of the two: <span class="math notranslate nohighlight">\(\hat\sigma_p^2=(\hat\sigma_{20th}^2+\hat\sigma_{21st}^2)/2\)</span>, and the whole denominator of the quantity <span class="math notranslate nohighlight">\(T_0\)</span> becomes <span class="math notranslate nohighlight">\((\hat\sigma_{20th}^2+\hat\sigma_{21st}^2)/\sqrt{N}\)</span>, where <span class="math notranslate nohighlight">\(N\)</span> is the sample size.</p>
+<p>Now let’s plug in our values and see what we get:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean_diff</span> <span class="o">=</span> <span class="n">snow_mean_2000_19</span> <span class="o">-</span> <span class="n">snow_mean_1900_19</span>
+
+<span class="n">snow_var_1900</span> <span class="o">=</span> <span class="n">snow_1900_19</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">snow_var_2000</span> <span class="o">=</span> <span class="n">snow_2000_19</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">pooled_var</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">snow_var_1900</span> <span class="o">+</span> <span class="n">snow_var_2000</span><span class="p">)</span>
+
+<span class="n">num_1900</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">snow_1900_19</span><span class="p">)</span>
+<span class="n">num_2000</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">snow_2000_19</span><span class="p">)</span>
+
+<span class="n">t_snow_1900_v_2000</span> <span class="o">=</span> <span class="n">mean_diff</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">pooled_var</span> <span class="o">/</span> <span class="n">num_1900</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">t_snow_1900_v_2000</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7428996579337688
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">t_stat</span><span class="p">(</span><span class="n">sam_mean1</span><span class="p">,</span> <span class="n">sam_mean2</span><span class="p">,</span> <span class="n">sam_var1</span><span class="p">,</span> <span class="n">sam_var2</span><span class="p">,</span> <span class="n">num_obs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;t statistic assuming equal number of obs in the two samples.&quot;&quot;&quot;</span>
+    <span class="n">numer</span> <span class="o">=</span> <span class="n">sam_mean1</span> <span class="o">-</span> <span class="n">sam_mean2</span>
+    <span class="n">denom</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">sam_var1</span> <span class="o">+</span> <span class="n">sam_var2</span><span class="p">)</span> <span class="o">/</span> <span class="n">num_obs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">numer</span> <span class="o">/</span> <span class="n">denom</span>
+
+
+<span class="n">t_stat</span><span class="p">(</span><span class="n">snow_mean_2000_19</span><span class="p">,</span> <span class="n">snow_mean_1900_19</span><span class="p">,</span> <span class="n">snow_var_1900</span><span class="p">,</span> <span class="n">snow_var_2000</span><span class="p">,</span> <span class="n">num_1900</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
+<defs>
+<symbol id="icon-database" viewBox="0 0 32 32">
+<path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path>
+<path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+<path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+</symbol>
+<symbol id="icon-file-text2" viewBox="0 0 32 32">
+<path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path>
+<path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+</symbol>
+</defs>
+</svg>
+<style>/* CSS stylesheet for displaying xarray objects in jupyterlab.
+ *
+ */
+
+:root {
+  --xr-font-color0: var(--jp-content-font-color0, rgba(0, 0, 0, 1));
+  --xr-font-color2: var(--jp-content-font-color2, rgba(0, 0, 0, 0.54));
+  --xr-font-color3: var(--jp-content-font-color3, rgba(0, 0, 0, 0.38));
+  --xr-border-color: var(--jp-border-color2, #e0e0e0);
+  --xr-disabled-color: var(--jp-layout-color3, #bdbdbd);
+  --xr-background-color: var(--jp-layout-color0, white);
+  --xr-background-color-row-even: var(--jp-layout-color1, white);
+  --xr-background-color-row-odd: var(--jp-layout-color2, #eeeeee);
+}
+
+html[theme=dark],
+body[data-theme=dark],
+body.vscode-dark {
+  --xr-font-color0: rgba(255, 255, 255, 1);
+  --xr-font-color2: rgba(255, 255, 255, 0.54);
+  --xr-font-color3: rgba(255, 255, 255, 0.38);
+  --xr-border-color: #1F1F1F;
+  --xr-disabled-color: #515151;
+  --xr-background-color: #111111;
+  --xr-background-color-row-even: #111111;
+  --xr-background-color-row-odd: #313131;
+}
+
+.xr-wrap {
+  display: block !important;
+  min-width: 300px;
+  max-width: 700px;
+}
+
+.xr-text-repr-fallback {
+  /* fallback to plain text repr when CSS is not injected (untrusted notebook) */
+  display: none;
+}
+
+.xr-header {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin-bottom: 4px;
+  border-bottom: solid 1px var(--xr-border-color);
+}
+
+.xr-header > div,
+.xr-header > ul {
+  display: inline;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.xr-obj-type,
+.xr-array-name {
+  margin-left: 2px;
+  margin-right: 10px;
+}
+
+.xr-obj-type {
+  color: var(--xr-font-color2);
+}
+
+.xr-sections {
+  padding-left: 0 !important;
+  display: grid;
+  grid-template-columns: 150px auto auto 1fr 20px 20px;
+}
+
+.xr-section-item {
+  display: contents;
+}
+
+.xr-section-item input {
+  display: none;
+}
+
+.xr-section-item input + label {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-item input:enabled + label {
+  cursor: pointer;
+  color: var(--xr-font-color2);
+}
+
+.xr-section-item input:enabled + label:hover {
+  color: var(--xr-font-color0);
+}
+
+.xr-section-summary {
+  grid-column: 1;
+  color: var(--xr-font-color2);
+  font-weight: 500;
+}
+
+.xr-section-summary > span {
+  display: inline-block;
+  padding-left: 0.5em;
+}
+
+.xr-section-summary-in:disabled + label {
+  color: var(--xr-font-color2);
+}
+
+.xr-section-summary-in + label:before {
+  display: inline-block;
+  content: '►';
+  font-size: 11px;
+  width: 15px;
+  text-align: center;
+}
+
+.xr-section-summary-in:disabled + label:before {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-summary-in:checked + label:before {
+  content: '▼';
+}
+
+.xr-section-summary-in:checked + label > span {
+  display: none;
+}
+
+.xr-section-summary,
+.xr-section-inline-details {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.xr-section-inline-details {
+  grid-column: 2 / -1;
+}
+
+.xr-section-details {
+  display: none;
+  grid-column: 1 / -1;
+  margin-bottom: 5px;
+}
+
+.xr-section-summary-in:checked ~ .xr-section-details {
+  display: contents;
+}
+
+.xr-array-wrap {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 20px auto;
+}
+
+.xr-array-wrap > label {
+  grid-column: 1;
+  vertical-align: top;
+}
+
+.xr-preview {
+  color: var(--xr-font-color3);
+}
+
+.xr-array-preview,
+.xr-array-data {
+  padding: 0 5px !important;
+  grid-column: 2;
+}
+
+.xr-array-data,
+.xr-array-in:checked ~ .xr-array-preview {
+  display: none;
+}
+
+.xr-array-in:checked ~ .xr-array-data,
+.xr-array-preview {
+  display: inline-block;
+}
+
+.xr-dim-list {
+  display: inline-block !important;
+  list-style: none;
+  padding: 0 !important;
+  margin: 0;
+}
+
+.xr-dim-list li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+.xr-dim-list:before {
+  content: '(';
+}
+
+.xr-dim-list:after {
+  content: ')';
+}
+
+.xr-dim-list li:not(:last-child):after {
+  content: ',';
+  padding-right: 5px;
+}
+
+.xr-has-index {
+  font-weight: bold;
+}
+
+.xr-var-list,
+.xr-var-item {
+  display: contents;
+}
+
+.xr-var-item > div,
+.xr-var-item label,
+.xr-var-item > .xr-var-name span {
+  background-color: var(--xr-background-color-row-even);
+  margin-bottom: 0;
+}
+
+.xr-var-item > .xr-var-name:hover span {
+  padding-right: 5px;
+}
+
+.xr-var-list > li:nth-child(odd) > div,
+.xr-var-list > li:nth-child(odd) > label,
+.xr-var-list > li:nth-child(odd) > .xr-var-name span {
+  background-color: var(--xr-background-color-row-odd);
+}
+
+.xr-var-name {
+  grid-column: 1;
+}
+
+.xr-var-dims {
+  grid-column: 2;
+}
+
+.xr-var-dtype {
+  grid-column: 3;
+  text-align: right;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-preview {
+  grid-column: 4;
+}
+
+.xr-index-preview {
+  grid-column: 2 / 5;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-name,
+.xr-var-dims,
+.xr-var-dtype,
+.xr-preview,
+.xr-attrs dt {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 10px;
+}
+
+.xr-var-name:hover,
+.xr-var-dims:hover,
+.xr-var-dtype:hover,
+.xr-attrs dt:hover {
+  overflow: visible;
+  width: auto;
+  z-index: 1;
+}
+
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  display: none;
+  background-color: var(--xr-background-color) !important;
+  padding-bottom: 5px !important;
+}
+
+.xr-var-attrs-in:checked ~ .xr-var-attrs,
+.xr-var-data-in:checked ~ .xr-var-data,
+.xr-index-data-in:checked ~ .xr-index-data {
+  display: block;
+}
+
+.xr-var-data > table {
+  float: right;
+}
+
+.xr-var-name span,
+.xr-var-data,
+.xr-index-name div,
+.xr-index-data,
+.xr-attrs {
+  padding-left: 25px !important;
+}
+
+.xr-attrs,
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  grid-column: 1 / -1;
+}
+
+dl.xr-attrs {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 125px auto;
+}
+
+.xr-attrs dt,
+.xr-attrs dd {
+  padding: 0;
+  margin: 0;
+  float: left;
+  padding-right: 10px;
+  width: auto;
+}
+
+.xr-attrs dt {
+  font-weight: normal;
+  grid-column: 1;
+}
+
+.xr-attrs dt:hover span {
+  display: inline-block;
+  background: var(--xr-background-color);
+  padding-right: 10px;
+}
+
+.xr-attrs dd {
+  grid-column: 2;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.xr-icon-database,
+.xr-icon-file-text2,
+.xr-no-icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1.5em !important;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+</style><pre class='xr-text-repr-fallback'>&lt;xarray.DataArray ()&gt;
+array(0.74289966)</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'></div></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-1c8b6d59-da7b-42a5-98ce-9db4d315ba42' class='xr-array-in' type='checkbox' checked><label for='section-1c8b6d59-da7b-42a5-98ce-9db4d315ba42' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>0.7429</span></div><div class='xr-array-data'><pre>array(0.74289966)</pre></div></div></li><li class='xr-section-item'><input id='section-8833ec04-ac81-4dda-8d2d-4c3979f7ce37' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-8833ec04-ac81-4dda-8d2d-4c3979f7ce37' class='xr-section-summary'  title='Expand/collapse section'>Coordinates: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'></ul></div></li><li class='xr-section-item'><input id='section-841eeb50-5e7e-4abb-9550-3a1784b62497' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-841eeb50-5e7e-4abb-9550-3a1784b62497' class='xr-section-summary'  title='Expand/collapse section'>Indexes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'></ul></div></li><li class='xr-section-item'><input id='section-2ca860e2-2b00-432d-8dac-74a02b7746b8' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-2ca860e2-2b00-432d-8dac-74a02b7746b8' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
+</div>
+<p>Now we’ll determine the corresponding <span class="math notranslate nohighlight">\(p\)</span> value:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">cdf</span><span class="p">((</span><span class="n">t_1900_v_2000</span><span class="p">),</span> <span class="mi">38</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.46211065330642187
+</pre></div>
+</div>
+</div>
+</div>
+<p>So our p value is 0.46.  This is far above any standard critical value used for decision rules (like 0.01, 0.05, or the most lenient, 0.10).</p>
+<p>In other words, we do not reject the null hypothesis: it is entirely plausible that the snow fall in the two time periods is not being drawn from distinct populations.</p>
+<p>Finally, we can verify this calculation we’ve performed by hand against scipy’s <span class="xref myst">ttest_ind</span> function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">snow_1900_19</span><span class="p">,</span> <span class="n">snow_2000_19</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TtestResult(statistic=-0.7428996579337688, pvalue=0.46211065330642187, df=38.0)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="incomplete-the-more-detailed-derivation-of-the-t-statistic">
+<h3><span class="section-number">4.5.2. </span>[incomplete] The more detailed derivation of the <span class="math notranslate nohighlight">\(t\)</span> statistic<a class="headerlink" href="#incomplete-the-more-detailed-derivation-of-the-t-statistic" title="Permalink to this heading">#</a></h3>
+<p>We have computed the sample mean and sample variance for both of our samples: <span class="math notranslate nohighlight">\(\hat\mu_{20th}\)</span> and <span class="math notranslate nohighlight">\(\hat\sigma_{20th}^2\)</span> for 1900-1919 and <span class="math notranslate nohighlight">\(\hat\mu_{21st}\)</span> and <span class="math notranslate nohighlight">\(\hat\sigma_{21st}^2\)</span> for 2000-2019.</p>
+<p>We know that the sample means are both normally distributed:
+<span class="math notranslate nohighlight">\(\hat\mu_{20th}\sim\cal{N}\left(\mu_{20th},\frac{\sigma_{20th}^2}{N_{20th}}\right)\)</span> and
+<span class="math notranslate nohighlight">\(\hat\mu_{21st}\sim\cal{N}\left(\mu_{21st},\frac{\sigma_{21st}^2}{N_{21st}}\right)\)</span>.</p>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="temperature">
+<h1><span class="section-number">5. </span>(temperature)<a class="headerlink" href="#temperature" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">tmin_1900_19</span><span class="p">,</span> <span class="n">tmin_2000_19</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TtestResult(statistic=-5.720198743021243, pvalue=1.3779053112043898e-06, df=38.0)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tmin_ann</span> <span class="o">=</span> <span class="n">ds_cp_ann</span><span class="p">[</span><span class="s2">&quot;temp_min&quot;</span><span class="p">]</span>
+
+<span class="c1"># Grab 1900-1919 and separately 2000-2019</span>
+<span class="n">tmin_1900_19</span> <span class="o">=</span> <span class="n">tmin_ann</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="mi">1900</span><span class="p">,</span> <span class="mi">1919</span><span class="p">))</span>
+<span class="n">tmin_2000_19</span> <span class="o">=</span> <span class="n">tmin_ann</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="mi">2000</span><span class="p">,</span> <span class="mi">2019</span><span class="p">))</span>
+
+<span class="c1"># Compute sample mean and sample standard deviation for each period</span>
+<span class="n">tmin_mean_1900_19</span> <span class="o">=</span> <span class="n">tmin_1900_19</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">tmin_mean_2000_19</span> <span class="o">=</span> <span class="n">tmin_2000_19</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">tmin_std_1900_19</span> <span class="o">=</span> <span class="n">tmin_1900_19</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">tmin_std_2000_19</span> <span class="o">=</span> <span class="n">tmin_2000_19</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">pplt</span><span class="o">.</span><span class="n">faceted_ax</span><span class="p">()</span>
+
+<span class="c1"># Plot all 20 values for each sample.</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">([</span><span class="mf">0.05</span><span class="p">]</span><span class="o">*</span><span class="mi">20</span><span class="p">,</span> <span class="n">tmin_1900_19</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">([</span><span class="mf">1.05</span><span class="p">]</span><span class="o">*</span><span class="mi">20</span><span class="p">,</span> <span class="n">tmin_2000_19</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">)</span>
+
+<span class="c1"># Plot the sample mean and an error bar of plus or minus the sample standard deviation for each sample.</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">([</span><span class="o">-</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">],</span> <span class="p">[</span><span class="n">tmin_mean_1900_19</span><span class="p">,</span> <span class="n">tmin_mean_2000_19</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="o">-</span><span class="mf">0.05</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.05</span><span class="p">],</span> <span class="p">[</span><span class="n">tmin_mean_1900_19</span> <span class="o">-</span> <span class="n">tmin_std_1900_19</span><span class="p">,</span> <span class="n">tmin_mean_1900_19</span> <span class="o">+</span> <span class="n">tmin_std_1900_19</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mf">0.95</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">],</span> <span class="p">[</span><span class="n">tmin_mean_2000_19</span> <span class="o">-</span> <span class="n">tmin_std_2000_19</span><span class="p">,</span> <span class="n">tmin_mean_2000_19</span> <span class="o">+</span> <span class="n">tmin_std_2000_19</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([</span><span class="s2">&quot;1900-1919&quot;</span><span class="p">,</span> <span class="s2">&quot;2000-2019&quot;</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;mean yearly tmin fall [inches]&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">tmin_mean_1900_19</span><span class="p">,</span> <span class="n">tmin_mean_2000_19</span><span class="p">,</span> <span class="n">tmin_mean_2000_19</span> <span class="o">-</span> <span class="n">tmin_mean_1900_19</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;xarray.DataArray &#39;temp_min&#39; ()&gt;
+array(46.35545849) &lt;xarray.DataArray &#39;temp_min&#39; ()&gt;
+array(48.6393772) &lt;xarray.DataArray &#39;temp_min&#39; ()&gt;
+array(2.28391871)
+</pre></div>
+</div>
+<img alt="../_images/90893b8332196276b0c80269be015cae895f7cc37612eadd83c8574173599260.png" src="../_images/90893b8332196276b0c80269be015cae895f7cc37612eadd83c8574173599260.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">pplt</span><span class="o">.</span><span class="n">faceted_ax</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">tmin_1900_19</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">tmin_2000_19</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">tmin_ann</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([0.00450036, 0.        , 0.00900072, 0.06750539, 0.13951115,
+        0.26552122, 0.11700935, 0.09000719, 0.        , 0.00450036]),
+ array([38.88767123, 40.32124843, 41.75482563, 43.18840283, 44.62198003,
+        46.05555723, 47.48913443, 48.92271163, 50.35628883, 51.78986602,
+        53.22344322]),
+ [&lt;matplotlib.patches.Polygon at 0x163162e90&gt;])
+</pre></div>
+</div>
+<img alt="../_images/b34a680b41f331c3142ddc21c25bcd0fc8a713fde4fdcbaac3f6adbb06c18c94.png" src="../_images/b34a680b41f331c3142ddc21c25bcd0fc8a713fde4fdcbaac3f6adbb06c18c94.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">pplt</span><span class="o">.</span><span class="n">faceted_ax</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvspan</span><span class="p">(</span><span class="mi">1900</span><span class="p">,</span> <span class="mi">1919</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;grey&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvspan</span><span class="p">(</span><span class="mi">2000</span><span class="p">,</span> <span class="mi">2019</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;orange&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="n">tmin_ann</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;yearly snow fall [inches]&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;yearly snow fall [inches]&#39;)
+</pre></div>
+</div>
+<img alt="../_images/ddbd673085ed4eb1956741c5a339a6c697f23ae69c5db8ea8b3c9b4e61b18ba6.png" src="../_images/ddbd673085ed4eb1956741c5a339a6c697f23ae69c5db8ea8b3c9b4e61b18ba6.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean_diff_tmin</span> <span class="o">=</span> <span class="n">tmin_mean_2000_19</span> <span class="o">-</span> <span class="n">tmin_mean_1900_19</span>
+
+<span class="n">tmin_var_1900</span> <span class="o">=</span> <span class="n">tmin_1900_19</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">tmin_var_2000</span> <span class="o">=</span> <span class="n">tmin_2000_19</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">pooled_var</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">tmin_var_1900</span> <span class="o">+</span> <span class="n">tmin_var_2000</span><span class="p">)</span>
+
+<span class="n">num_1900</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">tmin_1900_19</span><span class="p">)</span>
+<span class="n">num_2000</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">tmin_2000_19</span><span class="p">)</span>
+
+<span class="n">t_1900_v_2000</span> <span class="o">=</span> <span class="n">mean_diff</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">2.</span> <span class="o">*</span> <span class="n">pooled_var</span> <span class="o">/</span> <span class="n">num_1900</span><span class="p">)</span>
+<span class="n">t_1900_v_2000</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
+<defs>
+<symbol id="icon-database" viewBox="0 0 32 32">
+<path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path>
+<path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+<path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+</symbol>
+<symbol id="icon-file-text2" viewBox="0 0 32 32">
+<path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path>
+<path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+</symbol>
+</defs>
+</svg>
+<style>/* CSS stylesheet for displaying xarray objects in jupyterlab.
+ *
+ */
+
+:root {
+  --xr-font-color0: var(--jp-content-font-color0, rgba(0, 0, 0, 1));
+  --xr-font-color2: var(--jp-content-font-color2, rgba(0, 0, 0, 0.54));
+  --xr-font-color3: var(--jp-content-font-color3, rgba(0, 0, 0, 0.38));
+  --xr-border-color: var(--jp-border-color2, #e0e0e0);
+  --xr-disabled-color: var(--jp-layout-color3, #bdbdbd);
+  --xr-background-color: var(--jp-layout-color0, white);
+  --xr-background-color-row-even: var(--jp-layout-color1, white);
+  --xr-background-color-row-odd: var(--jp-layout-color2, #eeeeee);
+}
+
+html[theme=dark],
+body[data-theme=dark],
+body.vscode-dark {
+  --xr-font-color0: rgba(255, 255, 255, 1);
+  --xr-font-color2: rgba(255, 255, 255, 0.54);
+  --xr-font-color3: rgba(255, 255, 255, 0.38);
+  --xr-border-color: #1F1F1F;
+  --xr-disabled-color: #515151;
+  --xr-background-color: #111111;
+  --xr-background-color-row-even: #111111;
+  --xr-background-color-row-odd: #313131;
+}
+
+.xr-wrap {
+  display: block !important;
+  min-width: 300px;
+  max-width: 700px;
+}
+
+.xr-text-repr-fallback {
+  /* fallback to plain text repr when CSS is not injected (untrusted notebook) */
+  display: none;
+}
+
+.xr-header {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin-bottom: 4px;
+  border-bottom: solid 1px var(--xr-border-color);
+}
+
+.xr-header > div,
+.xr-header > ul {
+  display: inline;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.xr-obj-type,
+.xr-array-name {
+  margin-left: 2px;
+  margin-right: 10px;
+}
+
+.xr-obj-type {
+  color: var(--xr-font-color2);
+}
+
+.xr-sections {
+  padding-left: 0 !important;
+  display: grid;
+  grid-template-columns: 150px auto auto 1fr 20px 20px;
+}
+
+.xr-section-item {
+  display: contents;
+}
+
+.xr-section-item input {
+  display: none;
+}
+
+.xr-section-item input + label {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-item input:enabled + label {
+  cursor: pointer;
+  color: var(--xr-font-color2);
+}
+
+.xr-section-item input:enabled + label:hover {
+  color: var(--xr-font-color0);
+}
+
+.xr-section-summary {
+  grid-column: 1;
+  color: var(--xr-font-color2);
+  font-weight: 500;
+}
+
+.xr-section-summary > span {
+  display: inline-block;
+  padding-left: 0.5em;
+}
+
+.xr-section-summary-in:disabled + label {
+  color: var(--xr-font-color2);
+}
+
+.xr-section-summary-in + label:before {
+  display: inline-block;
+  content: '►';
+  font-size: 11px;
+  width: 15px;
+  text-align: center;
+}
+
+.xr-section-summary-in:disabled + label:before {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-summary-in:checked + label:before {
+  content: '▼';
+}
+
+.xr-section-summary-in:checked + label > span {
+  display: none;
+}
+
+.xr-section-summary,
+.xr-section-inline-details {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.xr-section-inline-details {
+  grid-column: 2 / -1;
+}
+
+.xr-section-details {
+  display: none;
+  grid-column: 1 / -1;
+  margin-bottom: 5px;
+}
+
+.xr-section-summary-in:checked ~ .xr-section-details {
+  display: contents;
+}
+
+.xr-array-wrap {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 20px auto;
+}
+
+.xr-array-wrap > label {
+  grid-column: 1;
+  vertical-align: top;
+}
+
+.xr-preview {
+  color: var(--xr-font-color3);
+}
+
+.xr-array-preview,
+.xr-array-data {
+  padding: 0 5px !important;
+  grid-column: 2;
+}
+
+.xr-array-data,
+.xr-array-in:checked ~ .xr-array-preview {
+  display: none;
+}
+
+.xr-array-in:checked ~ .xr-array-data,
+.xr-array-preview {
+  display: inline-block;
+}
+
+.xr-dim-list {
+  display: inline-block !important;
+  list-style: none;
+  padding: 0 !important;
+  margin: 0;
+}
+
+.xr-dim-list li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+.xr-dim-list:before {
+  content: '(';
+}
+
+.xr-dim-list:after {
+  content: ')';
+}
+
+.xr-dim-list li:not(:last-child):after {
+  content: ',';
+  padding-right: 5px;
+}
+
+.xr-has-index {
+  font-weight: bold;
+}
+
+.xr-var-list,
+.xr-var-item {
+  display: contents;
+}
+
+.xr-var-item > div,
+.xr-var-item label,
+.xr-var-item > .xr-var-name span {
+  background-color: var(--xr-background-color-row-even);
+  margin-bottom: 0;
+}
+
+.xr-var-item > .xr-var-name:hover span {
+  padding-right: 5px;
+}
+
+.xr-var-list > li:nth-child(odd) > div,
+.xr-var-list > li:nth-child(odd) > label,
+.xr-var-list > li:nth-child(odd) > .xr-var-name span {
+  background-color: var(--xr-background-color-row-odd);
+}
+
+.xr-var-name {
+  grid-column: 1;
+}
+
+.xr-var-dims {
+  grid-column: 2;
+}
+
+.xr-var-dtype {
+  grid-column: 3;
+  text-align: right;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-preview {
+  grid-column: 4;
+}
+
+.xr-index-preview {
+  grid-column: 2 / 5;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-name,
+.xr-var-dims,
+.xr-var-dtype,
+.xr-preview,
+.xr-attrs dt {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 10px;
+}
+
+.xr-var-name:hover,
+.xr-var-dims:hover,
+.xr-var-dtype:hover,
+.xr-attrs dt:hover {
+  overflow: visible;
+  width: auto;
+  z-index: 1;
+}
+
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  display: none;
+  background-color: var(--xr-background-color) !important;
+  padding-bottom: 5px !important;
+}
+
+.xr-var-attrs-in:checked ~ .xr-var-attrs,
+.xr-var-data-in:checked ~ .xr-var-data,
+.xr-index-data-in:checked ~ .xr-index-data {
+  display: block;
+}
+
+.xr-var-data > table {
+  float: right;
+}
+
+.xr-var-name span,
+.xr-var-data,
+.xr-index-name div,
+.xr-index-data,
+.xr-attrs {
+  padding-left: 25px !important;
+}
+
+.xr-attrs,
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  grid-column: 1 / -1;
+}
+
+dl.xr-attrs {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 125px auto;
+}
+
+.xr-attrs dt,
+.xr-attrs dd {
+  padding: 0;
+  margin: 0;
+  float: left;
+  padding-right: 10px;
+  width: auto;
+}
+
+.xr-attrs dt {
+  font-weight: normal;
+  grid-column: 1;
+}
+
+.xr-attrs dt:hover span {
+  display: inline-block;
+  background: var(--xr-background-color);
+  padding-right: 10px;
+}
+
+.xr-attrs dd {
+  grid-column: 2;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.xr-icon-database,
+.xr-icon-file-text2,
+.xr-no-icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1.5em !important;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+</style><pre class='xr-text-repr-fallback'>&lt;xarray.DataArray ()&gt;
+array(9.46171866)</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'></div></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-537cdffe-6bf0-4d89-85f6-de8a8028fc22' class='xr-array-in' type='checkbox' checked><label for='section-537cdffe-6bf0-4d89-85f6-de8a8028fc22' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>9.462</span></div><div class='xr-array-data'><pre>array(9.46171866)</pre></div></div></li><li class='xr-section-item'><input id='section-fcdf775b-94d1-40dc-a278-d4c9cc5fe15e' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-fcdf775b-94d1-40dc-a278-d4c9cc5fe15e' class='xr-section-summary'  title='Expand/collapse section'>Coordinates: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'></ul></div></li><li class='xr-section-item'><input id='section-9ecad709-2525-4201-a265-8cc06c2591cf' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-9ecad709-2525-4201-a265-8cc06c2591cf' class='xr-section-summary'  title='Expand/collapse section'>Indexes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'></ul></div></li><li class='xr-section-item'><input id='section-6de9dd16-2988-4a8f-afd1-5c08db865628' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-6de9dd16-2988-4a8f-afd1-5c08db865628' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">pplt</span><span class="o">.</span><span class="n">faceted_ax</span><span class="p">(</span><span class="n">aspect</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">tmin_ann</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;histogram&quot;</span><span class="p">)</span>
+
+<span class="n">gauss_fit_tmin</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">tmin_ann</span><span class="p">)</span>
+<span class="n">gauss_fit_tmin_vals</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="o">*</span><span class="n">gauss_fit_tmin</span><span class="p">)</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">38</span><span class="p">,</span> <span class="mi">55</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">38</span><span class="p">,</span> <span class="mi">55</span><span class="p">),</span> <span class="n">gauss_fit_tmin_vals</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Gaussian fit&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;min. temp [$^\circ$F]&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;probability density [$^\circ$F$^{-1}$]&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;probability density [$^\\circ$F$^{-1}$]&#39;)
+</pre></div>
+</div>
+<img alt="../_images/aa52285eadac99deb824b1d6af9fd4c17e412b104b795fe7a5ed75c24ca3645c.png" src="../_images/aa52285eadac99deb824b1d6af9fd4c17e412b104b795fe7a5ed75c24ca3645c.png" />
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lectures"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="probability-theory.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Probability theory</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../assignments/hw-descriptive-statistics.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Writing key quantities from descriptive statistics in Python yourself</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">4. Hypothesis testing</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-problem">4.1. The problem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#populations-vs-samples">4.2. Populations vs. samples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analogy-to-election-polling">4.2.1. Analogy to election polling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#samples-in-the-central-park-snow-fall-question">4.2.2. Samples in the Central Park snow fall question</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#populations-of-central-park-snow-fall">4.2.3. Populations of Central Park snow fall</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-null-hypothesis-and-the-alternative-hypothesis">4.3. The null hypothesis and the alternative hypothesis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-rules-and-p-values">4.4. Decision rules and p values</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#performing-the-test">4.5. Performing the test</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-upshot">4.5.1. The upshot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#incomplete-the-more-detailed-derivation-of-the-t-statistic">4.5.2. [incomplete] The more detailed derivation of the <span class="math notranslate nohighlight">\(t\)</span> statistic</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#temperature">5. (temperature)</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Spencer A. Hill
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

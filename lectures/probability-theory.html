@@ -1,0 +1,704 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>3. Probability theory &#8212; Statistical</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/probability-theory';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4. Hypothesis testing" href="hypothesis-tests.html" />
+    <link rel="prev" title="2. Descriptive Statistics" href="descriptive-statistics.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../home.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../home.html">
+                    EAS42000: Statistical Methods in Earth and Atmospheric Science
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Information</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../info/syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../info/schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../info/resources.html">Resources</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">1. Introduction to <em>Statistical Methods in Earth and Atmospheric Sciences</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="descriptive-statistics.html">2. Descriptive Statistics</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">3. Probability theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hypothesis-tests.html">4. Hypothesis testing</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../assignments/hw-descriptive-statistics.html">1. Writing key quantities from descriptive statistics in Python yourself</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/hw-data-viz.html">2. Generating core data visualizations on the Central Park weather dataset in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/hw-probability.html">3. Key concepts from probability theory and empirical probabilities computed from the Central Park weather dataset</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/spencerahill/stat-methods-course" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/spencerahill/stat-methods-course/issues/new?title=Issue%20on%20page%20%2Flectures/probability-theory.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/lectures/probability-theory.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Probability theory</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intro">3.1. Intro</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recap-of-last-time">3.1.1. Recap of last time</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#today-probability-theory">3.1.2. Today: Probability theory</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-3-axioms">3.2. The 3 axioms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#observations-random-variables">3.3. Observations, random variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discrete-vs-continuous-variables">3.4. Discrete vs. continuous variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-distributions">3.5. Probability distributions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-mass-and-density-functions">3.5.1. Probability mass and density functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cumulative-distribution-functions">3.5.2. Cumulative distribution functions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#expectation-and-population-mean">3.6. Expectation and population mean</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#theoretical-distributions">3.7. Theoretical distributions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discrete">3.7.1. Discrete</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#uniform">3.7.1.1. Uniform</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#binomial">3.7.1.2. Binomial</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#continuous">3.7.2. Continuous</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#normal-gaussian">3.7.2.1. Normal (“Gaussian”)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#central-limit-theorem">3.8. Central Limit Theorem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusions">3.9. Conclusions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supplementary-materials">3.10. Supplementary Materials</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="probability-theory">
+<h1><span class="section-number">3. </span>Probability theory<a class="headerlink" href="#probability-theory" title="Permalink to this heading">#</a></h1>
+<p><strong>Note that this lecture is currently incomplete; if you come back to the page and this message is gone, you can consider it complete.</strong></p>
+<section id="intro">
+<h2><span class="section-number">3.1. </span>Intro<a class="headerlink" href="#intro" title="Permalink to this heading">#</a></h2>
+<section id="recap-of-last-time">
+<h3><span class="section-number">3.1.1. </span>Recap of last time<a class="headerlink" href="#recap-of-last-time" title="Permalink to this heading">#</a></h3>
+<p>In the <a class="reference internal" href="intro.html"><span class="doc std std-doc">Introductory lecture</span></a>, we X</p>
+<p>what we’ll covere here: <strong>probability theory</strong>.</p>
+</section>
+<section id="today-probability-theory">
+<h3><span class="section-number">3.1.2. </span>Today: Probability theory<a class="headerlink" href="#today-probability-theory" title="Permalink to this heading">#</a></h3>
+<p>abc</p>
+<p>Before jumping in further, let’s re-load that same dataset, and while we’re at it import the needed packages we’ll need to make nice plots:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+
+<span class="n">filepath_in</span> <span class="o">=</span> <span class="s2">&quot;../data/central-park-station-data.nc&quot;</span>
+<span class="n">ds_central_park</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">filepath_in</span><span class="p">)</span>
+<span class="n">precip_central_park</span> <span class="o">=</span> <span class="n">ds_central_park</span><span class="p">[</span><span class="s2">&quot;precip&quot;</span><span class="p">]</span>
+<span class="n">temp_central_park</span> <span class="o">=</span> <span class="n">ds_central_park</span><span class="p">[</span><span class="s2">&quot;temp_avg&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># First, import the matplotlib package that we&#39;ll use for plotting.</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="c1"># Then update the plotting aesthetics using my own custom package named &quot;puffins&quot;</span>
+<span class="c1"># See: https://github.com/spencerahill/puffins</span>
+<span class="kn">from</span> <span class="nn">puffins</span> <span class="kn">import</span> <span class="n">plotting</span> <span class="k">as</span> <span class="n">pplt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">pplt</span><span class="o">.</span><span class="n">plt_rc_params_custom</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+</section>
+<section id="the-3-axioms">
+<h2><span class="section-number">3.2. </span>The 3 axioms<a class="headerlink" href="#the-3-axioms" title="Permalink to this heading">#</a></h2>
+<p>Recall the 3 axioms:</p>
+<ol class="arabic simple">
+<li><p><strong>Non-negativity</strong>: the probability <span class="math notranslate nohighlight">\(P\)</span> of any event <span class="math notranslate nohighlight">\(E\)</span> is at least zero: <span class="math notranslate nohighlight">\(P(E)\geq0\)</span></p></li>
+<li><p><strong>X</strong>: the probability <span class="math notranslate nohighlight">\(P\)</span> of the sample space <span class="math notranslate nohighlight">\(S\)</span> is unity: <span class="math notranslate nohighlight">\(P(S)=1\)</span>.</p></li>
+<li><p><strong>Additivity</strong>: For two mutually exclusive events <span class="math notranslate nohighlight">\(E_1\)</span> and <span class="math notranslate nohighlight">\(E_2\)</span>, the probability of their union <span class="math notranslate nohighlight">\(E_1\cup E_2\)</span> is the sum of their individual probabilities: <span class="math notranslate nohighlight">\(P(E_1\cup E_2)=P(E_1)+P(E_2)\)</span></p></li>
+</ol>
+<p>In class, we used these to formally prove a couple things:</p>
+<ul class="simple">
+<li><p>All probabilities are bounded by 0 and 1: for any event <span class="math notranslate nohighlight">\(E\)</span>, <span class="math notranslate nohighlight">\(0\leq P(E) \leq 1\)</span>.</p></li>
+<li><p>Probability of the <strong>complement</strong>: If <span class="math notranslate nohighlight">\(E\)</span> is an event and <span class="math notranslate nohighlight">\(E^C\)</span> is its complement, then <span class="math notranslate nohighlight">\(P(E^C)=1-P(E)\)</span></p></li>
+</ul>
+<p>Use these to prove the following: <span class="math notranslate nohighlight">\(P((E_1\cup E_2)^C)=1-P(E_1\cup E_2)=1-[P(E_1)+P(E_2)-P(E_1\cap E_2)]\)</span></p>
+</section>
+<section id="observations-random-variables">
+<h2><span class="section-number">3.3. </span>Observations, random variables<a class="headerlink" href="#observations-random-variables" title="Permalink to this heading">#</a></h2>
+<p>We consider each <strong>observation</strong>—that is, each inidividual value in any dataset, to be the result of an experiment performed on nature.</p>
+<p>A <strong>random variable</strong> is a function that maps the outcome of any observation to a real number.</p>
+</section>
+<section id="discrete-vs-continuous-variables">
+<h2><span class="section-number">3.4. </span>Discrete vs. continuous variables<a class="headerlink" href="#discrete-vs-continuous-variables" title="Permalink to this heading">#</a></h2>
+<p>A <strong>discrete</strong> variable is one that can only take on a finite number of values.  A <strong>continuous</strong> variable is one that can take on infinitely many values.</p>
+<p>In practice, often physical quantities that are in reality continuous, like temperature, end up as effectively discrete, because they are only reported up to a finite precision.  But unless this precision is quite coarse, we can usually still usefully treat them as if they really were continuous.</p>
+</section>
+<section id="probability-distributions">
+<h2><span class="section-number">3.5. </span>Probability distributions<a class="headerlink" href="#probability-distributions" title="Permalink to this heading">#</a></h2>
+<section id="probability-mass-and-density-functions">
+<h3><span class="section-number">3.5.1. </span>Probability mass and density functions<a class="headerlink" href="#probability-mass-and-density-functions" title="Permalink to this heading">#</a></h3>
+<p>For discrete random variables, the probability mass function specifies the probability of every possible outcome of that variable.  For example, the probability mass function of a fair 6-sided dice would be 1/6 for each of the 6 faces, since they’re all equally likely.</p>
+<p>Notice in this dice roll case that the probability mass function summed over all possible up to exactly one…that is true for all probability mass functions.</p>
+<p>For <em>continuous</em> random variables,</p>
+</section>
+<section id="cumulative-distribution-functions">
+<h3><span class="section-number">3.5.2. </span>Cumulative distribution functions<a class="headerlink" href="#cumulative-distribution-functions" title="Permalink to this heading">#</a></h3>
+<p>The <strong>cumulative distribution function</strong> (CDF) of a random variable—whether continuous or discrete—gives the probability for each possible value that the variable is less than or equal to that value.  In other words, for each value <span class="math notranslate nohighlight">\(x\)</span>, it gives the corresponding <strong>quantile</strong>.  As such, it always ranges from 0 (for values less than the variable’s minimum value, or for <span class="math notranslate nohighlight">\(-\infty\)</span> if there is no minimum value) to 1 (for values greater than the variable’s maximum value, or for <span class="math notranslate nohighlight">\(+\infty\)</span> if there is no maximum value).</p>
+<p>For discrete variables, the CDF is the sum of the probability mass function over all values less than or equal to the given value:
+$<span class="math notranslate nohighlight">\(F(x_j)=\sum_{i=1}^j p(x_i),\)</span><span class="math notranslate nohighlight">\(
+where \)</span>x_j<span class="math notranslate nohighlight">\( is the value of interest, \)</span>f(x)<span class="math notranslate nohighlight">\( is the probability mass function, and the values of \)</span>x<span class="math notranslate nohighlight">\( are assumed to be ordered from the smallest value \)</span>x_0<span class="math notranslate nohighlight">\( to their largest value \)</span>x_N$.</p>
+<p>For continuous variables, the CDF is the <em>integral</em> of the probability density function:
+$<span class="math notranslate nohighlight">\(F(x)=P(X\leq x)=\int_{-\infty}^xp(u)\,\mathrm{d}u.\)</span>$</p>
+</section>
+</section>
+<section id="expectation-and-population-mean">
+<h2><span class="section-number">3.6. </span>Expectation and population mean<a class="headerlink" href="#expectation-and-population-mean" title="Permalink to this heading">#</a></h2>
+<p>Conceptually, <strong>expectation</strong> (also known as “expected value”) is simply a probability-weighted average over a random variable.</p>
+<p>For a discrete variable, this is
+$<span class="math notranslate nohighlight">\(E[g(X)]=\sum_{i=1}^Ng(X_i)p_i,\)</span><span class="math notranslate nohighlight">\(
+where \)</span>g(X)$ is some function.</p>
+<p>For a continuous variable, the expectation is
+$<span class="math notranslate nohighlight">\(E[g(X)]=\int_{-\infty}^{\infty}g(x)p(x)\,\mathrm{d}x.\)</span>$</p>
+</section>
+<section id="theoretical-distributions">
+<h2><span class="section-number">3.7. </span>Theoretical distributions<a class="headerlink" href="#theoretical-distributions" title="Permalink to this heading">#</a></h2>
+<section id="discrete">
+<h3><span class="section-number">3.7.1. </span>Discrete<a class="headerlink" href="#discrete" title="Permalink to this heading">#</a></h3>
+<section id="uniform">
+<h4><span class="section-number">3.7.1.1. </span>Uniform<a class="headerlink" href="#uniform" title="Permalink to this heading">#</a></h4>
+</section>
+<section id="binomial">
+<h4><span class="section-number">3.7.1.2. </span>Binomial<a class="headerlink" href="#binomial" title="Permalink to this heading">#</a></h4>
+</section>
+</section>
+<section id="continuous">
+<h3><span class="section-number">3.7.2. </span>Continuous<a class="headerlink" href="#continuous" title="Permalink to this heading">#</a></h3>
+<section id="normal-gaussian">
+<h4><span class="section-number">3.7.2.1. </span>Normal (“Gaussian”)<a class="headerlink" href="#normal-gaussian" title="Permalink to this heading">#</a></h4>
+<p>The <strong>normal distribution</strong> is crucially important.  Its probability density is given by
+$<span class="math notranslate nohighlight">\(p(x)=\frac{1}{\sqrt{2\pi}}\frac{1}{\sigma}\exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\right),\)</span>$
+where</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mu\)</span> is the mean</p></li>
+<li><p><span class="math notranslate nohighlight">\(\sigma\)</span> is the standard deviation</p></li>
+</ul>
+<p>If <span class="math notranslate nohighlight">\(\mu=0\)</span> and <span class="math notranslate nohighlight">\(\sigma=1\)</span>, the resulting distribution is called the <strong>standard normal</strong>:
+$<span class="math notranslate nohighlight">\(p(x)=\frac{1}{\sqrt{2\pi}}\exp\left(-\frac{x^2}{2}\right).\)</span>$</p>
+</section>
+</section>
+</section>
+<section id="central-limit-theorem">
+<h2><span class="section-number">3.8. </span>Central Limit Theorem<a class="headerlink" href="#central-limit-theorem" title="Permalink to this heading">#</a></h2>
+<p>Conceptually / in essence: the sum of random variables tends to be Gaussian, whether or not the variable themselves are Gaussian.</p>
+<p>Formally:</p>
+<p>Let <span class="math notranslate nohighlight">\(X_1\)</span>, …, <span class="math notranslate nohighlight">\(X_N\)</span> be independent and identically distributed (“IID”) random variables, all with identical mean <span class="math notranslate nohighlight">\(\mu_X\)</span> and identical (finite) variance <span class="math notranslate nohighlight">\(\sigma_X\)</span>.  <em>Note that, while they must be IID, their distribution does <strong>not</strong> have to be the Gaussian.</em>  Then the random variable
+$<span class="math notranslate nohighlight">\(Z=\frac{\hat\mu_X-\mu_X}{\sigma_X/\sqrt{N}}\)</span><span class="math notranslate nohighlight">\(
+converges to the standard normal distribution as \)</span>N\rightarrow\infty$.</p>
+</section>
+<section id="conclusions">
+<h2><span class="section-number">3.9. </span>Conclusions<a class="headerlink" href="#conclusions" title="Permalink to this heading">#</a></h2>
+</section>
+<section id="supplementary-materials">
+<h2><span class="section-number">3.10. </span>Supplementary Materials<a class="headerlink" href="#supplementary-materials" title="Permalink to this heading">#</a></h2>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lectures"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="descriptive-statistics.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Descriptive Statistics</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="hypothesis-tests.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>Hypothesis testing</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intro">3.1. Intro</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recap-of-last-time">3.1.1. Recap of last time</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#today-probability-theory">3.1.2. Today: Probability theory</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-3-axioms">3.2. The 3 axioms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#observations-random-variables">3.3. Observations, random variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discrete-vs-continuous-variables">3.4. Discrete vs. continuous variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-distributions">3.5. Probability distributions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-mass-and-density-functions">3.5.1. Probability mass and density functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cumulative-distribution-functions">3.5.2. Cumulative distribution functions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#expectation-and-population-mean">3.6. Expectation and population mean</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#theoretical-distributions">3.7. Theoretical distributions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discrete">3.7.1. Discrete</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#uniform">3.7.1.1. Uniform</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#binomial">3.7.1.2. Binomial</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#continuous">3.7.2. Continuous</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#normal-gaussian">3.7.2.1. Normal (“Gaussian”)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#central-limit-theorem">3.8. Central Limit Theorem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusions">3.9. Conclusions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supplementary-materials">3.10. Supplementary Materials</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Spencer A. Hill
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

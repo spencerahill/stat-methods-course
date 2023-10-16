@@ -166,6 +166,9 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../lectures/intro.html">1. Introduction to <em>Statistical Methods in Earth and Atmospheric Sciences</em></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/descriptive-statistics.html">2. Descriptive Statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/probability-theory.html">3. Probability theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/hypothesis-tests.html">4. Hypothesis testing</a></li>
+
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
@@ -371,17 +374,20 @@ document.write(`
 <h1>Schedule<a class="headerlink" href="#schedule" title="Permalink to this heading">#</a></h1>
 <p>Here you can find the subject matter and assigned reading for every class day as well as expected homework dates.</p>
 <p>Please check back here frequently as the schedule is subject to change.</p>
+<p>The textbook sections refer to <a class="reference external" href="https://link.springer.com/book/10.1007/978-3-031-07719-7"><em>Python Recipes for Earth Sciences</em> by Martin H. Trauth</a>.  PDF version is free.</p>
 <table class="colwidths-given table" id="id1">
 <colgroup>
 <col style="width: 15%" />
 <col style="width: 15%" />
-<col style="width: 35%" />
-<col style="width: 35%" />
+<col style="width: 25%" />
+<col style="width: 20%" />
+<col style="width: 25%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Date (2023)</p></th>
 <th class="head"><p>Class number</p></th>
 <th class="head"><p>Topic</p></th>
+<th class="head"><p>Textbook sections</p></th>
 <th class="head"><p>Notes</p></th>
 </tr>
 </thead>
@@ -389,161 +395,193 @@ document.write(`
 <tr class="row-even"><td><p>M 8/28</p></td>
 <td><p>1</p></td>
 <td><p>Course overview; <a class="reference internal" href="syllabus.html"><span class="doc std std-doc">syllabus</span></a>; <a class="reference internal" href="../lectures/intro.html"><span class="doc std std-doc">Numeracy</span></a></p></td>
+<td><p>1.1</p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>W 8/30</p></td>
 <td><p>2</p></td>
-<td><p><a class="reference internal" href="../lectures/intro.html"><span class="doc std std-doc">Descriptive Statistics part I</span></a></p></td>
+<td><p><a class="reference internal" href="../lectures/descriptive-statistics.html"><span class="doc std std-doc">Descriptive Statistics part I</span></a></p></td>
+<td><p>1.4, 3.1, 3.2,</p></td>
 <td></td>
 </tr>
 <tr class="row-even"><td><p>M 9/4</p></td>
 <td><p>NO CLASS</p></td>
 <td><p>Happy Labor Day!</p></td>
 <td></td>
+<td></td>
 </tr>
 <tr class="row-odd"><td><p>W 9/6</p></td>
 <td><p>3</p></td>
-<td><p><a class="reference internal" href="../lectures/intro.html"><span class="doc std std-doc">Descriptive Statistics part II</span></a></p></td>
+<td><p><a class="reference internal" href="../lectures/descriptive-statistics.html"><span class="doc std std-doc">Descriptive Statistics part II</span></a></p></td>
+<td></td>
 <td></td>
 </tr>
 <tr class="row-even"><td><p>M 9/11</p></td>
 <td><p>4</p></td>
 <td><p>Python bootcamp part I</p></td>
+<td><p>2.1-2.3, 2.7, 2.8</p></td>
 <td><p><strong>Please bring your laptop with you to class!</strong>  Homework #1 (HW1) assigned</p></td>
 </tr>
 <tr class="row-odd"><td><p>W 9/13</p></td>
 <td><p>5</p></td>
 <td><p>Python bootcamp part II</p></td>
-<td></td>
+<td><p>2.4, 2.5,</p></td>
+<td><p>2</p></td>
 </tr>
 <tr class="row-even"><td><p>M 9/18</p></td>
 <td><p>6</p></td>
 <td><p>Data Visualization I</p></td>
+<td><p>2.9</p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>W 9/20</p></td>
 <td><p>7</p></td>
 <td><p>Data Visualization II; Python: jupyter, matplotlib, numpy, netCDF4</p></td>
+<td></td>
 <td><p><a class="reference internal" href="../assignments/hw-descriptive-statistics.html"><span class="doc std std-doc"><strong>HW1</strong></span></a> <a class="reference internal" href="syllabus.html#syllabus-hw"><span class="std std-ref"><strong>due by 11:59pm ET</strong></span></a></p></td>
 </tr>
 <tr class="row-even"><td><p>M 9/25</p></td>
 <td><p>NO CLASS</p></td>
 <td><p>Happy Yom Kippur!</p></td>
+<td></td>
 <td><p><a class="reference internal" href="../assignments/hw-data-viz.html"><span class="doc std std-doc">HW2</span></a> assigned</p></td>
 </tr>
 <tr class="row-odd"><td><p>W 9/27</p></td>
 <td><p>8</p></td>
 <td><p>Probability I</p></td>
+<td><p>3.4</p></td>
 <td></td>
 </tr>
 <tr class="row-even"><td><p>M 10/2</p></td>
 <td><p>9</p></td>
 <td><p>Probability II</p></td>
+<td><p>3.5</p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>W 10/4</p></td>
 <td><p>10</p></td>
 <td><p>Probability III</p></td>
+<td></td>
 <td><p><a class="reference internal" href="../assignments/hw-data-viz.html"><span class="doc std std-doc"><strong>HW2</strong></span></a> <a class="reference internal" href="syllabus.html#syllabus-hw"><span class="std std-ref"><strong>due by 10:00pm ET</strong></span></a>; 2-min final project in-class descriptions;</p></td>
 </tr>
 <tr class="row-even"><td><p>M 10/9</p></td>
 <td><p>NO CLASS</p></td>
 <td><p>Happy Columbus Day &amp; Indigenous Peoples’ Day!</p></td>
 <td></td>
+<td></td>
 </tr>
 <tr class="row-odd"><td><p><strong>T 10/10 2-3:15pm</strong> <em>(note abnormal day of week)</em></p></td>
 <td><p>11</p></td>
-<td><p>Hypothesis testing I; Python: <a class="reference external" href="https://pandas.pydata.org/">pandas</a> and <a class="reference external" href="https://docs.xarray.dev/en/stable/">xarray</a></p></td>
+<td><p>Hypothesis testing intro; Python: <a class="reference external" href="https://pandas.pydata.org/">pandas</a> and <a class="reference external" href="https://docs.xarray.dev/en/stable/">xarray</a></p></td>
+<td><p>3.6</p></td>
 <td><p><a class="reference internal" href="../assignments/hw-probability.html"><span class="doc std std-doc">HW3</span></a> assigned</p></td>
 </tr>
 <tr class="row-even"><td><p>W 10/11</p></td>
 <td><p>12</p></td>
-<td><p>Hypothesis testing II</p></td>
+<td><p>Populations vs. samples; theoretical probability distributions</p></td>
+<td><p>3.7</p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>M 10/16</p></td>
 <td><p>13</p></td>
-<td><p>Linear regression I</p></td>
+<td><p>Hypothesis testing II</p></td>
+<td><p>3.13, 3.14</p></td>
 <td></td>
 </tr>
 <tr class="row-even"><td><p>W 10/18</p></td>
 <td><p>14</p></td>
-<td><p>Linear regression II</p></td>
-<td><p><strong>HW3</strong>  <a class="reference internal" href="syllabus.html#syllabus-hw"><span class="std std-ref"><strong>due by 10:00pm ET</strong></span></a>; HW4 assigned</p></td>
+<td><p>Linear regression I</p></td>
+<td><p>4.1-4.4</p></td>
+<td><p><a class="reference internal" href="../assignments/hw-probability.html"><span class="doc std std-doc"><strong>HW3</strong></span></a> <a class="reference internal" href="syllabus.html#syllabus-hw"><span class="std std-ref"><strong>due by 10:00pm ET</strong></span></a>; HW4 assigned</p></td>
 </tr>
 <tr class="row-odd"><td><p>M 10/23</p></td>
 <td><p>15</p></td>
-<td><p>Review session for Midterm 1</p></td>
+<td><p>Linear regression II</p></td>
+<td></td>
 <td></td>
 </tr>
 <tr class="row-even"><td><p>W 10/25</p></td>
 <td><p>MT1</p></td>
 <td><p>MIDTERM 1</p></td>
 <td></td>
+<td></td>
 </tr>
 <tr class="row-odd"><td><p>M 10/30</p></td>
 <td><p>16</p></td>
 <td><p>Extreme value analysis I</p></td>
+<td></td>
 <td><p><strong>HW4</strong>  <a class="reference internal" href="syllabus.html#syllabus-hw"><span class="std std-ref"><strong>due</strong></span></a>; HW5 assigned</p></td>
 </tr>
 <tr class="row-even"><td><p>W 11/1</p></td>
 <td><p>17</p></td>
 <td><p>Extreme value analysis II</p></td>
 <td></td>
+<td></td>
 </tr>
 <tr class="row-odd"><td><p>M 11/6</p></td>
 <td><p>18</p></td>
 <td><p>Time series analysis I</p></td>
+<td><p>5.1</p></td>
 <td></td>
 </tr>
 <tr class="row-even"><td><p>W 11/8</p></td>
 <td><p>19</p></td>
 <td><p>Time series analysis II</p></td>
+<td></td>
 <td><p><strong>HW5</strong> <a class="reference internal" href="syllabus.html#syllabus-hw"><span class="std std-ref"><strong>due</strong></span></a>; HW6 assigned</p></td>
 </tr>
 <tr class="row-odd"><td><p>M 11/13</p></td>
 <td><p>20</p></td>
 <td><p>Principal component analysis I</p></td>
 <td></td>
+<td></td>
 </tr>
 <tr class="row-even"><td><p>W 11/15</p></td>
 <td><p>21</p></td>
 <td><p>Principal component analysis II</p></td>
+<td></td>
 <td><p><strong>HW6</strong> <a class="reference internal" href="syllabus.html#syllabus-hw"><span class="std std-ref"><strong>due</strong></span></a>; HW7 assigned</p></td>
 </tr>
 <tr class="row-odd"><td><p>M 11/20</p></td>
 <td><p>22</p></td>
 <td><p>TBD</p></td>
 <td></td>
+<td></td>
 </tr>
 <tr class="row-even"><td><p>W 11/22</p></td>
 <td><p>NO CLASS</p></td>
 <td><p>Happy Thanksgiving!</p></td>
 <td></td>
+<td></td>
 </tr>
 <tr class="row-odd"><td><p>M 11/27</p></td>
 <td><p>23</p></td>
 <td><p>Cluster analysis</p></td>
+<td></td>
 <td><p><strong>HW7</strong> <a class="reference internal" href="syllabus.html#syllabus-hw"><span class="std std-ref"><strong>due</strong></span></a>; HW8 (last one!) assigned</p></td>
 </tr>
 <tr class="row-even"><td><p>W 11/29</p></td>
 <td><p>24</p></td>
 <td><p>Review session for Midterm 2</p></td>
 <td></td>
+<td></td>
 </tr>
 <tr class="row-odd"><td><p>M 12/4</p></td>
 <td><p>25</p></td>
 <td><p>Final project presentations (1st of 2)</p></td>
+<td></td>
 <td><p><strong>HW8</strong> <a class="reference internal" href="syllabus.html#syllabus-hw"><span class="std std-ref"><strong>due</strong></span></a> <em>if you are presenting on Wednesday</em></p></td>
 </tr>
 <tr class="row-even"><td><p>W 12/6</p></td>
 <td><p>26</p></td>
 <td><p>Final project presentations (2nd of 2)</p></td>
+<td></td>
 <td><p><strong>HW8</strong> <a class="reference internal" href="syllabus.html#syllabus-hw"><span class="std std-ref"><strong>due</strong></span></a> <em>if you presented Monday</em></p></td>
 </tr>
 <tr class="row-odd"><td><p>M 12/11</p></td>
 <td><p>MT2</p></td>
 <td><p>MIDTERM 2</p></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
