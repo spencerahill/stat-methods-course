@@ -376,6 +376,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analogy-to-election-polling">4.2.1. Analogy to election polling</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#samples-in-the-central-park-snow-fall-question">4.2.2. Samples in the Central Park snow fall question</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#populations-of-central-park-snow-fall">4.2.3. Populations of Central Park snow fall</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-means-and-sample-variances">4.2.4. Sample means and sample variances</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-null-hypothesis-and-the-alternative-hypothesis">4.3. The null hypothesis and the alternative hypothesis</a></li>
@@ -658,6 +659,51 @@ array(3.77780514)
 <p>And, taking one step back, how even is either population <em>distributed</em>?  Is it a normal distribution, a gamma distribution, or something else?  This too, we can never determine certaintly from finite samples (even assuming there was zero measurement error or any other confounding factors).  Instead, we <em>assume</em> that both samples are drawn from a particular distribution (for example, Gaussian), but that potentially the <em>parameters</em> of that population differ between the two.  With that assumed population distribution in hand, we ask: how likely is it that the two samples were drawn from .</p>
 <p>For example, a normal distribution is defined by two parameters, its mean and standard deviation.  Two normal distributions are identical if and only if their means are identical <em>and</em> their standard deviations are identical.  In practice, often hypothesis testing skips over the question of whether their standard deviations are identical and jumps straight to asking whether the means are identical, <em>assuming that the standard deviations <strong>are</strong> indeed identical</em>.</p>
 <p>In that case, hopefully it’s intuitive that the best estimate of the population standard deviation is the average of the two sample standard deviations.  This is called the <em>pooled</em> estimate.</p>
+</section>
+<section id="sample-means-and-sample-variances">
+<h3><span class="section-number">4.2.4. </span>Sample means and sample variances<a class="headerlink" href="#sample-means-and-sample-variances" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Define population parameters</span>
+<span class="n">population_mean</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">population_variance</span> <span class="o">=</span> <span class="mi">25</span>  <span class="c1"># sigma^2</span>
+<span class="n">population_size</span> <span class="o">=</span> <span class="mi">1000000</span>
+<span class="n">num_samples</span> <span class="o">=</span> <span class="mi">10000</span>  <span class="c1"># Number of samples</span>
+<span class="n">sample_size</span> <span class="o">=</span> <span class="mi">50</span>  <span class="c1"># Size of each sample</span>
+
+<span class="c1"># Create a synthetic population</span>
+<span class="n">population</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">population_mean</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">population_variance</span><span class="p">),</span> <span class="n">population_size</span><span class="p">)</span>
+
+<span class="c1"># Initialize lists to hold sample variances</span>
+<span class="n">variance_n</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">variance_n_minus_1</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># Generate samples and compute variances</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_samples</span><span class="p">):</span>
+    <span class="n">sample</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">population</span><span class="p">,</span> <span class="n">sample_size</span><span class="p">)</span>
+    <span class="n">variance_n</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">sample</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+    <span class="n">variance_n_minus_1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">sample</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="c1"># Compute the average of the sample variances</span>
+<span class="n">average_variance_n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">variance_n</span><span class="p">)</span>
+<span class="n">average_variance_n_minus_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">variance_n_minus_1</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Population variance: </span><span class="si">{</span><span class="n">population_variance</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Average sample variance (N in denominator): </span><span class="si">{</span><span class="n">average_variance_n</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Average sample variance (N-1 in denominator): </span><span class="si">{</span><span class="n">average_variance_n_minus_1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Population variance: 25
+Average sample variance (N in denominator): 24.58692680977447
+Average sample variance (N-1 in denominator): 25.088700826300478
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 <section id="the-null-hypothesis-and-the-alternative-hypothesis">
@@ -1704,6 +1750,7 @@ array(9.46171866)</pre><div class='xr-wrap' style='display:none'><div class='xr-
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analogy-to-election-polling">4.2.1. Analogy to election polling</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#samples-in-the-central-park-snow-fall-question">4.2.2. Samples in the Central Park snow fall question</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#populations-of-central-park-snow-fall">4.2.3. Populations of Central Park snow fall</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-means-and-sample-variances">4.2.4. Sample means and sample variances</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-null-hypothesis-and-the-alternative-hypothesis">4.3. The null hypothesis and the alternative hypothesis</a></li>
