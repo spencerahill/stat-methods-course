@@ -1,0 +1,34 @@
+name: stat-methods-course
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python
+  - pip
+  - jupyter
+  - jupyterlab
+  - jupyter-book
+  - nodejs
+  - xarray
+  - netcdf4
+  - numpy
+  - scipy
+  - scikit-learn
+  - matplotlib
+  - nc-time-axis
+  - cartopy
+  - ghp-import
+  - ca-certificates
+  - certifi
+  - openssl
+  - openpyxl
+  - plotly
+  - hvplot
+  - jupyterlab_code_formatter
+  - python-lsp-server
+  - seaborn
+  - nbgrader
+  - pip:
+    - git+https://github.com/spencerahill/puffins.git
+
+
