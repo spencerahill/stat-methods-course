@@ -10,6 +10,7 @@ dependencies:
   - jupyter-book
   - nodejs
   - xarray
+  - astropy
   - netcdf4
   - numpy
   - scipy
