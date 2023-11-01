@@ -16,10 +16,12 @@ parts:
       - file: lectures/descriptive-statistics
       - file: lectures/probability-theory
       - file: lectures/hypothesis-tests
+      - file: lectures/linear-regression
   - caption: Assignments
     numbered: 4
     chapters:
       - file: assignments/hw-descriptive-statistics
       - file: assignments/hw-data-viz
       - file: assignments/hw-probability
+      - file: assignments/hw-hypoth-tests
 
