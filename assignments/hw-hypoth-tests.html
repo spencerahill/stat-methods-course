@@ -1,0 +1,633 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>4. Probability distributions and hypothesis tests homework assignment &#8212; Statistical</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'assignments/hw-hypoth-tests';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="3. Key concepts from probability theory and empirical probabilities computed from the Central Park weather dataset" href="hw-probability.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../home.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../home.html">
+                    EAS42000: Statistical Methods in Earth and Atmospheric Science
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Information</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../info/syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../info/schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../info/resources.html">Resources</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lectures/intro.html">1. Introduction to <em>Statistical Methods in Earth and Atmospheric Sciences</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/descriptive-statistics.html">2. Descriptive Statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/probability-theory.html">3. Probability theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/hypothesis-tests.html">4. Hypothesis testing</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../lectures/linear-regression.html">6. Linear regression</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="hw-descriptive-statistics.html">1. Writing key quantities from descriptive statistics in Python yourself</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw-data-viz.html">2. Generating core data visualizations on the Central Park weather dataset in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw-probability.html">3. Key concepts from probability theory and empirical probabilities computed from the Central Park weather dataset</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">4. Probability distributions and hypothesis tests homework assignment</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/spencerahill/stat-methods-course/main/v2/gh/spencerahill/stat-methods-course/master?urlpath=tree/docs/assignments/hw-hypoth-tests.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/spencerahill/stat-methods-course" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/spencerahill/stat-methods-course/issues/new?title=Issue%20on%20page%20%2Fassignments/hw-hypoth-tests.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/assignments/hw-hypoth-tests.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Probability distributions and hypothesis tests homework assignment</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compare-the-t-and-normal-distributions">4.1. Compare the <span class="math notranslate nohighlight">\(t\)</span> and normal distributions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#find-the-most-helpful-online-resources-on-t-tests-you-can-find">4.2. Find the most helpful online resources on <span class="math notranslate nohighlight">\(t\)</span> tests you can find</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#write-your-own-function-s-for-computing-t-tests">4.3. Write your own function(s) for computing <span class="math notranslate nohighlight">\(t\)</span> tests</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extra-credit">4.4. Extra credit</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-the-t-test-for-two-or-more-salient-differences-in-mean-for-your-final-project">4.4.1. Compute the <span class="math notranslate nohighlight">\(t\)</span> test for two or more salient differences-in-mean for your final project.</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-submit">4.5. How to submit</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#do-not-call-pip-conda-or-any-shell-commands-in-your-notebook">4.5.1. Do NOT call <code class="docutils literal notranslate"><span class="pre">pip</span></code>, <code class="docutils literal notranslate"><span class="pre">conda</span></code>, or any shell commands in your notebook</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="probability-distributions-and-hypothesis-tests-homework-assignment">
+<h1><span class="section-number">4. </span>Probability distributions and hypothesis tests homework assignment<a class="headerlink" href="#probability-distributions-and-hypothesis-tests-homework-assignment" title="Permalink to this heading">#</a></h1>
+<p>In this assignment, we’ll dig further into <span class="math notranslate nohighlight">\(t\)</span> tests.</p>
+<p><strong>Please read through the entire assignment carefully.</strong>  Note, the instructions for this assignment are <em>deliberately</em> less explicit than previous ones.  This is to help you build the critical scientific skills of <em>reading carefully</em>, <em>thinking critically</em>, and making <em>decisions under uncertainty</em>.  In other words, it’s on you to: find what’s being asked, make your own plan for how to tackle it, and then execute that plan.</p>
+<section id="compare-the-t-and-normal-distributions">
+<h2><span class="section-number">4.1. </span>Compare the <span class="math notranslate nohighlight">\(t\)</span> and normal distributions<a class="headerlink" href="#compare-the-t-and-normal-distributions" title="Permalink to this heading">#</a></h2>
+<p>In class, we learned that for hypothesis testing of differences in means, the test statistic is called Student’s <span class="math notranslate nohighlight">\(t\)</span> or just <span class="math notranslate nohighlight">\(t\)</span>.  The <span class="math notranslate nohighlight">\(t\)</span> distribution is similar but not identical to the standard normal distribution, especially for small sample sizes.  Its exact shape depends on the <em>degrees of freedom</em>, denoted <span class="math notranslate nohighlight">\(\nu\)</span>.  For the difference in two means, this is simply <span class="math notranslate nohighlight">\(\nu=N_1+N_2-2\)</span>, where <span class="math notranslate nohighlight">\(N_1\)</span> and <span class="math notranslate nohighlight">\(N_2\)</span> are the sample sizes of the first and second samples, respectively.</p>
+<p>Using <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.t.html#scipy.stats.t">scipy.stats.t.pdf</a> and <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.norm.html#scipy.stats.norm">scipy.stats.norm.pdf</a>,
+plot the PDFs of both distributions spanning from -5 to 5.  For the <span class="math notranslate nohighlight">\(t\)</span> distribution, overlay 3 different versions on the same axes: <span class="math notranslate nohighlight">\(\nu=1, 10, and 100\)</span>.  Add a legend labeling each of these and the normal.</p>
+<p>This demonstrates that, as the sample sizes grow, the <span class="math notranslate nohighlight">\(t\)</span> distribution increasingly is well approximated by the standard normal.  (In fact, it holds mathematically that the <span class="math notranslate nohighlight">\(t\)</span> distribution approaches the standard normal exactly as <span class="math notranslate nohighlight">\(\nu\rightarrow\infty\)</span>.)</p>
+</section>
+<section id="find-the-most-helpful-online-resources-on-t-tests-you-can-find">
+<h2><span class="section-number">4.2. </span>Find the most helpful online resources on <span class="math notranslate nohighlight">\(t\)</span> tests you can find<a class="headerlink" href="#find-the-most-helpful-online-resources-on-t-tests-you-can-find" title="Permalink to this heading">#</a></h2>
+<p>There are tons of great resources that are available online and completely free.  These include blog posts, YouTube videos, tutorials in the documentation to statistical software packages, whole semester-length university classes that have been pre-recorded, and more.  (The course <a class="reference internal" href="../info/resources.html"><span class="doc std std-doc">resources</span></a> page lists just a few.)  An important but overlooked skill (you could call it a <em>meta</em> skill) for scientists and engineers is learning to make use of these resources.</p>
+<p>For this assignment, search the web for <strong>three</strong> different resources.  They can be any of the types listed above or even something else.  (For example, it could be 2 YouTube videos and 1 blog post; 1 blog post, 1 tutorial, and 1 textbook chapter; etc.)  Study these three resources, and then do the following:</p>
+<ul class="simple">
+<li><p>For each resource: provide the URL to the resource and describe how you found it.</p></li>
+<li><p>If it’s a YouTube video, embed the video in your Jupyter notebook.</p></li>
+<li><p>Write summaries in <em>your own words</em> of what each resource conveys.</p></li>
+<li><p>Describe one or more things that each resource helped you understand.</p></li>
+<li><p>Describe one or more things that each resource did <em>not</em> help you with, either because it was missing or was included but you’re still unclear on it.</p></li>
+<li><p>Rank the three resources from least helpful to most helpful for you, and explain your ranking.</p></li>
+</ul>
+<p><strong>Note: for this particular assignment, do NOT include ChatGPT or other related tools.</strong>  They will be the focus of a subsequent assignment.</p>
+</section>
+<section id="write-your-own-function-s-for-computing-t-tests">
+<h2><span class="section-number">4.3. </span>Write your own function(s) for computing <span class="math notranslate nohighlight">\(t\)</span> tests<a class="headerlink" href="#write-your-own-function-s-for-computing-t-tests" title="Permalink to this heading">#</a></h2>
+<p>Write a python function that computes a <span class="math notranslate nohighlight">\(t\)</span> test for the difference in means between two samples.  You can import any functions, modules, or packages that you’d like for this purpose <strong>other than</strong> any that directly compute the <span class="math notranslate nohighlight">\(t\)</span> statistic or corresponding <span class="math notranslate nohighlight">\(p\)</span> value.  (For example, you <em>can’t</em> use <code class="docutils literal notranslate"><span class="pre">scipy.stats.ttest_ind</span></code>, since it directly outputs both <span class="math notranslate nohighlight">\(t\)</span> and <span class="math notranslate nohighlight">\(p\)</span></p>
+<p>Your functions’ <em>call signatures</em> should be as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">t_stat</span><span class="p">(</span><span class="n">sample1</span><span class="p">,</span> <span class="n">sample2</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute the t statistic for difference in means of the two samples.</span>
+<span class="sd">    </span>
+<span class="sd">    Arguments:</span>
+
+<span class="sd">    sample1, sample2: xarray.DataArrays, each containing one of the </span>
+<span class="sd">                      two samples to compute the t statistic for</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Insert your code here for computing the t statistic</span>
+    <span class="k">return</span> <span class="n">t_stat</span>
+
+
+<span class="k">def</span> <span class="nf">pval_of_ttest</span><span class="p">(</span><span class="n">t_stat</span><span class="p">,</span> <span class="n">deg_free</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute the p value of of the given t statistic and degrees of freedom.</span>
+<span class="sd">    </span>
+<span class="sd">    Arguments:</span>
+
+<span class="sd">    t_stat: scalar, the value of the t statistic</span>
+<span class="sd">    deg_free: scalar, the number of degrees of freedom corresponding to t_stat</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Insert your code here for computing the p value</span>
+    <span class="k">return</span> <span class="n">p_val</span>
+</pre></div>
+</div>
+<p>Where <code class="docutils literal notranslate"><span class="pre">t_stat</span></code> is the value of the <span class="math notranslate nohighlight">\(t\)</span> statistic, and <code class="docutils literal notranslate"><span class="pre">p_val</span></code> is the corresponding <span class="math notranslate nohighlight">\(p\)</span> value.</p>
+<p>Specifically, for each of the following pairs of samples from the Central Park dataset:</p>
+<ol class="arabic simple">
+<li><p>Across all years 1869-2022, monthly average precipitation in September vs. in January.</p></li>
+<li><p>Average annual sum of cooling degree days for the period 1971-2000 vs. 2001-2022.</p></li>
+</ol>
+<p>Use <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.isclose.html">numpy.isclose</a> to explicitly test your values against the results of <code class="docutils literal notranslate"><span class="pre">scipy.stats.ttest_ind</span></code>.</p>
+</section>
+<section id="extra-credit">
+<h2><span class="section-number">4.4. </span>Extra credit<a class="headerlink" href="#extra-credit" title="Permalink to this heading">#</a></h2>
+<section id="compute-the-t-test-for-two-or-more-salient-differences-in-mean-for-your-final-project">
+<h3><span class="section-number">4.4.1. </span>Compute the <span class="math notranslate nohighlight">\(t\)</span> test for two or more salient differences-in-mean for your final project.<a class="headerlink" href="#compute-the-t-test-for-two-or-more-salient-differences-in-mean-for-your-final-project" title="Permalink to this heading">#</a></h3>
+<p>Find at least two pairs of sample means from your datasets whose difference are scientifically interesting for your project.  Perform the <span class="math notranslate nohighlight">\(t\)</span> test for each.  Report the numerical values of the <span class="math notranslate nohighlight">\(t\)</span> statistic, <span class="math notranslate nohighlight">\(p\)</span> value, degrees of freedom.  Describe your interpretation of the <span class="math notranslate nohighlight">\(t\)</span> test from a statistical perspective.  Also describe your interpretaiton from a physical/scientific perspective.</p>
+</section>
+</section>
+<section id="how-to-submit">
+<h2><span class="section-number">4.5. </span>How to submit<a class="headerlink" href="#how-to-submit" title="Permalink to this heading">#</a></h2>
+<p>The instructions from the last HW all apply for this one, so refer to those (available <a class="reference internal" href="hw-probability.html"><span class="doc std std-doc">here</span></a> under “How to submit”).</p>
+<p>In addition, please read the following carefully:</p>
+<section id="do-not-call-pip-conda-or-any-shell-commands-in-your-notebook">
+<h3><span class="section-number">4.5.1. </span>Do NOT call <code class="docutils literal notranslate"><span class="pre">pip</span></code>, <code class="docutils literal notranslate"><span class="pre">conda</span></code>, or any shell commands in your notebook<a class="headerlink" href="#do-not-call-pip-conda-or-any-shell-commands-in-your-notebook" title="Permalink to this heading">#</a></h3>
+<p>Jupyter notebooks are <em>extremely</em> powerful.  With a simple exclamation point (!), you can use a cell block to run not Python code but any shell command.  This could include commands that, for example, download something nefarious from the internet, or delete all the files on my computer.</p>
+<p>As a less extreme example but one that actually has happened, it is possible to call <code class="docutils literal notranslate"><span class="pre">pip</span></code> and <code class="docutils literal notranslate"><span class="pre">conda</span></code> from within your Jupyter notebook.  When your notebook then runs on my computer, this could potentially mess up the package installations I have.</p>
+<p>For this reason, you MUST NOT include any code that calls these or any other command line tools.  And you must not use any of the Python builtin tools that accomplish similar things (such as the <code class="docutils literal notranslate"><span class="pre">subprocess</span></code> package).  If you need to install a package or update an existing one, do so OUTSIDE of your notebook, either from a terminal session or using Anaconda Navigator.</p>
+<p>I have safeguards implemented to identify these kinds of things, but still if any of them are included in your notebook I will automatically deduct 20% of the possible score from your grade.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./assignments"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="hw-probability.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Key concepts from probability theory and empirical probabilities computed from the Central Park weather dataset</p>
+      </div>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compare-the-t-and-normal-distributions">4.1. Compare the <span class="math notranslate nohighlight">\(t\)</span> and normal distributions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#find-the-most-helpful-online-resources-on-t-tests-you-can-find">4.2. Find the most helpful online resources on <span class="math notranslate nohighlight">\(t\)</span> tests you can find</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#write-your-own-function-s-for-computing-t-tests">4.3. Write your own function(s) for computing <span class="math notranslate nohighlight">\(t\)</span> tests</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extra-credit">4.4. Extra credit</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-the-t-test-for-two-or-more-salient-differences-in-mean-for-your-final-project">4.4.1. Compute the <span class="math notranslate nohighlight">\(t\)</span> test for two or more salient differences-in-mean for your final project.</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-submit">4.5. How to submit</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#do-not-call-pip-conda-or-any-shell-commands-in-your-notebook">4.5.1. Do NOT call <code class="docutils literal notranslate"><span class="pre">pip</span></code>, <code class="docutils literal notranslate"><span class="pre">conda</span></code>, or any shell commands in your notebook</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Spencer A. Hill
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

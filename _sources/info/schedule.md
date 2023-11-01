@@ -94,17 +94,17 @@ The textbook sections refer to [*Python Recipes for Earth Sciences* by Martin H.
   -
 * - M 10/16
   - 13
-  - Hypothesis testing II
+  - Hypothesis testing I
   - 3.13, 3.14
   -
 * - W 10/18
   - 14
-  - Linear regression I
+  - Hypothesis testing II
   - 4.1-4.4
-  - [**HW3**](../assignments/hw-probability) [**due by 10:00pm ET**](syllabus:hw); HW4 assigned
+  - [**HW3**](../assignments/hw-probability) [**due by 10:00pm ET**](syllabus:hw)
 * - M 10/23
   - 15
-  - Linear regression II
+  - Wrap hypothesis testing; Midterm 1 review
   -
   -
 * - W 10/25
@@ -114,39 +114,39 @@ The textbook sections refer to [*Python Recipes for Earth Sciences* by Martin H.
   -
 * - M 10/30
   - 16
-  - Extreme value analysis I
+  - Linear regression I
   -
-  - **HW4**  [**due**](syllabus:hw); HW5 assigned
+  - HW4 assigned
 * - W 11/1
   - 17
-  - Extreme value analysis II
+  - Linear regression II
   -
   - 
 * - M 11/6
   - 18
   - Time series analysis I
   - 5.1
-  -
+  - **HW4** [**due**](syllabus:hw); HW5 assigned
 * - W 11/8
   - 19
   - Time series analysis II
   -
-  - **HW5** [**due**](syllabus:hw); HW6 assigned
+  -
 * - M 11/13
   - 20
   - Principal component analysis I
   -
-  -
+  - **HW5** [**due**](syllabus:hw); HW6 assigned
 * - W 11/15
   - 21
   - Principal component analysis II
   -
-  - **HW6** [**due**](syllabus:hw); HW7 assigned
+  -
 * - M 11/20
   - 22
-  - TBD
+  - Extreme value analysis
   - 
-  -
+  - **HW6** [**due**](syllabus:hw); HW7 assigned
 * - W 11/22
   - NO CLASS
   - Happy Thanksgiving!

@@ -66,7 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/hypothesis-tests';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="1. Writing key quantities from descriptive statistics in Python yourself" href="../assignments/hw-descriptive-statistics.html" />
+    <link rel="next" title="6. Linear regression" href="linear-regression.html" />
     <link rel="prev" title="3. Probability theory" href="probability-theory.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -171,12 +171,14 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="probability-theory.html">3. Probability theory</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">4. Hypothesis testing</a></li>
 
+<li class="toctree-l1"><a class="reference internal" href="linear-regression.html">6. Linear regression</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../assignments/hw-descriptive-statistics.html">1. Writing key quantities from descriptive statistics in Python yourself</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../assignments/hw-data-viz.html">2. Generating core data visualizations on the Central Park weather dataset in Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../assignments/hw-probability.html">3. Key concepts from probability theory and empirical probabilities computed from the Central Park weather dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/hw-hypoth-tests.html">4. Probability distributions and hypothesis tests homework assignment</a></li>
 </ul>
 
     </div>
@@ -218,6 +220,37 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="header-article-item">
 
 <div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/spencerahill/stat-methods-course/main/v2/gh/spencerahill/stat-methods-course/master?urlpath=tree/docs/lectures/hypothesis-tests.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
 
 
 
@@ -384,6 +417,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#performing-the-test">4.5. Performing the test</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-upshot">4.5.1. The upshot</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#incomplete-the-more-detailed-derivation-of-the-t-statistic">4.5.2. [incomplete] The more detailed derivation of the <span class="math notranslate nohighlight">\(t\)</span> statistic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-distributions-of-hat-mu-1-and-hat-mu-2">4.5.3. Step 1: distributions of <span class="math notranslate nohighlight">\(\hat\mu_1\)</span> and <span class="math notranslate nohighlight">\(\hat\mu_2\)</span></a></li>
 </ul>
 </li>
 </ul>
@@ -416,7 +450,7 @@ document.write(`
 <span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
 
 <span class="c1"># Load daily averaged Central Park weather station data.</span>
-<span class="n">filepath_in</span> <span class="o">=</span> <span class="s2">&quot;../data/central-park-station-data.nc&quot;</span>
+<span class="n">filepath_in</span> <span class="o">=</span> <span class="s2">&quot;../data/central-park-station-data_1869-01-01_2023-09-30.nc&quot;</span>
 <span class="n">ds_cp_daily</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">filepath_in</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -488,23 +522,6 @@ document.write(`
 </pre></div>
 </div>
 <img alt="../_images/5c5877c664c596b0bfe21d5aae5669919eb5ec61bd130bff03ca174e8ff49169.png" src="../_images/5c5877c664c596b0bfe21d5aae5669919eb5ec61bd130bff03ca174e8ff49169.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gauss_fit_vals</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="o">*</span><span class="n">gauss_fit</span><span class="p">)</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">70</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">gauss_fit_vals</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="o">*</span><span class="n">gauss_fit</span><span class="p">)</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">70</span><span class="p">))</span>
-
-<span class="ne">NameError</span>: name &#39;gauss_fit&#39; is not defined
-</pre></div>
-</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -644,7 +661,7 @@ array(3.77780514)
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([5., 2., 5., 2., 4., 2.]),
  array([10.03885714, 18.69689245, 27.35492775, 36.01296305, 44.67099836,
         53.32903366, 61.98706897]),
- [&lt;matplotlib.patches.Polygon at 0x1633be590&gt;])
+ [&lt;matplotlib.patches.Polygon at 0x16efd1e10&gt;])
 </pre></div>
 </div>
 <img alt="../_images/7a3700025d7ee6a46206b5bfafdde2091f8adb7c7c7dc57c0b7bbded8332c8a9.png" src="../_images/7a3700025d7ee6a46206b5bfafdde2091f8adb7c7c7dc57c0b7bbded8332c8a9.png" />
@@ -698,8 +715,8 @@ array(3.77780514)
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Population variance: 25
-Average sample variance (N in denominator): 24.58692680977447
-Average sample variance (N-1 in denominator): 25.088700826300478
+Average sample variance (N in denominator): 24.582697534235503
+Average sample variance (N-1 in denominator): 25.084385239015823
 </pre></div>
 </div>
 </div>
@@ -715,6 +732,214 @@ Average sample variance (N-1 in denominator): 25.088700826300478
 <section id="decision-rules-and-p-values">
 <h2><span class="section-number">4.4. </span>Decision rules and p values<a class="headerlink" href="#decision-rules-and-p-values" title="Permalink to this heading">#</a></h2>
 <p>What value of the test statistic is sufficient to reject the null hypothesis?  There is no single right answer.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">t</span>
+
+<span class="c1"># Parameters</span>
+<span class="n">df</span> <span class="o">=</span> <span class="mi">10</span>  <span class="c1"># Degrees of freedom</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>  <span class="c1"># Significance level</span>
+
+<span class="c1"># Calculate critical t-value (two-tailed)</span>
+<span class="n">t_crit</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">df</span><span class="p">)</span>
+
+<span class="c1"># Values for plotting</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">df</span><span class="p">)</span>
+
+<span class="c1"># Create the plot</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+
+<span class="c1"># Plot t-distribution</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="c1"># Add rejection regions</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvspan</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="n">t_crit</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvspan</span><span class="p">(</span><span class="n">t_crit</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="c1"># Add critical t-values</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="o">-</span><span class="n">t_crit</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">t_crit</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+
+<span class="c1"># Label regions</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="mf">3.5</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="s1">&#39;Rejection</span><span class="se">\n</span><span class="s1">Region&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">3.5</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="s1">&#39;Rejection</span><span class="se">\n</span><span class="s1">Region&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="s1">&#39;Acceptance</span><span class="se">\n</span><span class="s1">Region of</span><span class="se">\n</span><span class="s1">null hypothesis&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;t-value&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Probability Density Function (PDF)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/518f60463dd72a5b3450f4616ee812e7c030752a3f19bed91caae0577de7b5f1.png" src="../_images/518f60463dd72a5b3450f4616ee812e7c030752a3f19bed91caae0577de7b5f1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">t</span>
+
+<span class="c1"># Parameters</span>
+<span class="n">df</span> <span class="o">=</span> <span class="mi">10</span>  <span class="c1"># Degrees of freedom</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>  <span class="c1"># Significance level</span>
+<span class="n">t_value</span> <span class="o">=</span> <span class="mf">1.5</span>  <span class="c1"># Observed t-statistic value</span>
+
+<span class="c1"># Calculate critical t-values</span>
+<span class="n">t_crit</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">df</span><span class="p">)</span>
+
+<span class="c1"># Values for plotting</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">df</span><span class="p">)</span>
+
+<span class="c1"># Create the plot</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+
+<span class="c1"># Plot t-distribution</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="c1"># Add rejection regions</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvspan</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="n">t_crit</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvspan</span><span class="p">(</span><span class="n">t_crit</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="c1"># Add critical t-values</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="o">-</span><span class="n">t_crit</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">t_crit</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+
+<span class="c1"># Label regions</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="mf">4.5</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">,</span> <span class="s1">&#39;Rejection&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">3.5</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">,</span> <span class="s1">&#39;Rejection&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="s1">&#39;Acceptance&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="c1"># Overlay observed t-statistic value</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_value</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">t_value</span><span class="p">,</span> <span class="n">df</span><span class="p">),</span> <span class="s1">&#39;bo&#39;</span><span class="p">)</span>  <span class="c1"># Add a blue dot for the t-value</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;t = </span><span class="si">{</span><span class="n">t_value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">t_value</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">t_value</span><span class="p">,</span> <span class="n">df</span><span class="p">)),</span> <span class="n">textcoords</span><span class="o">=</span><span class="s2">&quot;offset points&quot;</span><span class="p">,</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;t-value&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Probability Density Function (PDF)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/8ccd2f15c399899753aed5a21656940ad87dc2b8ac1308af46039d4fce608b37.png" src="../_images/8ccd2f15c399899753aed5a21656940ad87dc2b8ac1308af46039d4fce608b37.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">t</span>
+
+<span class="c1"># Parameters</span>
+<span class="n">df</span> <span class="o">=</span> <span class="mi">10</span>  <span class="c1"># Degrees of freedom</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>  <span class="c1"># Significance level</span>
+<span class="n">t_value</span> <span class="o">=</span> <span class="o">-</span><span class="mi">3</span>  <span class="c1"># Observed t-statistic value</span>
+
+<span class="c1"># Calculate critical t-values</span>
+<span class="n">t_crit</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">df</span><span class="p">)</span>
+
+<span class="c1"># Values for plotting</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">df</span><span class="p">)</span>
+
+<span class="c1"># Create the plot</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+
+<span class="c1"># Plot t-distribution</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="c1"># Add rejection regions</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvspan</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="n">t_crit</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvspan</span><span class="p">(</span><span class="n">t_crit</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="c1"># Add critical t-values</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="o">-</span><span class="n">t_crit</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">t_crit</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+
+<span class="c1"># Label regions</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="mf">4.5</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;Reject $H_0$&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">3.5</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;Reject $H_0$&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;Accept $H_0$&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="c1"># Overlay observed t-statistic value</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_value</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">t_value</span><span class="p">,</span> <span class="n">df</span><span class="p">),</span> <span class="s1">&#39;ro&#39;</span><span class="p">)</span>  <span class="c1"># Add a blue dot for the t-value</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;t = </span><span class="si">{</span><span class="n">t_value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">t_value</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">t_value</span><span class="p">,</span> <span class="n">df</span><span class="p">)),</span> <span class="n">textcoords</span><span class="o">=</span><span class="s2">&quot;offset points&quot;</span><span class="p">,</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;t-value&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Probability Density Function (PDF)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/9c64ae208036753d7691fb79884fc73424d0960f935668531a9ce4b816642540.png" src="../_images/9c64ae208036753d7691fb79884fc73424d0960f935668531a9ce4b816642540.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">t</span>
+
+<span class="c1"># Parameters</span>
+<span class="n">df</span> <span class="o">=</span> <span class="mi">10</span>  <span class="c1"># Degrees of freedom</span>
+<span class="n">alpha1</span> <span class="o">=</span> <span class="mf">0.05</span>  <span class="c1"># Significance level</span>
+<span class="n">alpha2</span> <span class="o">=</span> <span class="mf">0.01</span>  <span class="c1"># More stringent significance level</span>
+
+<span class="c1"># Calculate critical t-values</span>
+<span class="n">t_crit1</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">df</span><span class="p">)</span>
+<span class="n">t_crit2</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha2</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">df</span><span class="p">)</span>
+
+<span class="c1"># Values for plotting</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">df</span><span class="p">)</span>
+
+<span class="c1"># Create the plot</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+
+<span class="c1"># Plot t-distribution</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="c1"># Add rejection regions for alpha1</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvspan</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="n">t_crit1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;alpha=</span><span class="si">{</span><span class="n">alpha1</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvspan</span><span class="p">(</span><span class="n">t_crit1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="c1"># Add rejection regions for alpha2</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvspan</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="n">t_crit2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;purple&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;alpha=</span><span class="si">{</span><span class="n">alpha2</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvspan</span><span class="p">(</span><span class="n">t_crit2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;purple&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+
+<span class="c1"># Add critical t-values</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="o">-</span><span class="n">t_crit1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">t_crit1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="o">-</span><span class="n">t_crit2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;purple&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">t_crit2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;purple&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+
+<span class="c1"># Label regions</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="mf">4.5</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">,</span> <span class="s1">&#39;Rejection&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">3.5</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">,</span> <span class="s1">&#39;Rejection&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="s1">&#39;Acceptance&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;t-value&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Probability Density Function (PDF)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/2f594ab53b7e9c502e12c720c927806b56761e1dc28de1729e0d407e4be6ca29.png" src="../_images/2f594ab53b7e9c502e12c720c927806b56761e1dc28de1729e0d407e4be6ca29.png" />
+</div>
+</div>
 </section>
 <section id="performing-the-test">
 <h2><span class="section-number">4.5. </span>Performing the test<a class="headerlink" href="#performing-the-test" title="Permalink to this heading">#</a></h2>
@@ -760,7 +985,8 @@ Average sample variance (N-1 in denominator): 25.088700826300478
     <span class="k">return</span> <span class="n">numer</span> <span class="o">/</span> <span class="n">denom</span>
 
 
-<span class="n">t_stat</span><span class="p">(</span><span class="n">snow_mean_2000_19</span><span class="p">,</span> <span class="n">snow_mean_1900_19</span><span class="p">,</span> <span class="n">snow_var_1900</span><span class="p">,</span> <span class="n">snow_var_2000</span><span class="p">,</span> <span class="n">num_1900</span><span class="p">)</span>
+<span class="n">t_1900_v_2000</span> <span class="o">=</span> <span class="n">t_stat</span><span class="p">(</span><span class="n">snow_mean_2000_19</span><span class="p">,</span> <span class="n">snow_mean_1900_19</span><span class="p">,</span> <span class="n">snow_var_1900</span><span class="p">,</span> <span class="n">snow_var_2000</span><span class="p">,</span> <span class="n">num_1900</span><span class="p">)</span>
+<span class="n">t_1900_v_2000</span>
 </pre></div>
 </div>
 </div>
@@ -1129,9 +1355,47 @@ dl.xr-attrs {
   fill: currentColor;
 }
 </style><pre class='xr-text-repr-fallback'>&lt;xarray.DataArray ()&gt;
-array(0.74289966)</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'></div></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-1c8b6d59-da7b-42a5-98ce-9db4d315ba42' class='xr-array-in' type='checkbox' checked><label for='section-1c8b6d59-da7b-42a5-98ce-9db4d315ba42' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>0.7429</span></div><div class='xr-array-data'><pre>array(0.74289966)</pre></div></div></li><li class='xr-section-item'><input id='section-8833ec04-ac81-4dda-8d2d-4c3979f7ce37' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-8833ec04-ac81-4dda-8d2d-4c3979f7ce37' class='xr-section-summary'  title='Expand/collapse section'>Coordinates: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'></ul></div></li><li class='xr-section-item'><input id='section-841eeb50-5e7e-4abb-9550-3a1784b62497' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-841eeb50-5e7e-4abb-9550-3a1784b62497' class='xr-section-summary'  title='Expand/collapse section'>Indexes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'></ul></div></li><li class='xr-section-item'><input id='section-2ca860e2-2b00-432d-8dac-74a02b7746b8' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-2ca860e2-2b00-432d-8dac-74a02b7746b8' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
+array(0.74289966)</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'></div></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-51bdb68d-31fb-49b2-bd14-3be46b2e1655' class='xr-array-in' type='checkbox' checked><label for='section-51bdb68d-31fb-49b2-bd14-3be46b2e1655' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>0.7429</span></div><div class='xr-array-data'><pre>array(0.74289966)</pre></div></div></li><li class='xr-section-item'><input id='section-e8bb4fde-afe0-47d3-85db-efeabf6b652d' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-e8bb4fde-afe0-47d3-85db-efeabf6b652d' class='xr-section-summary'  title='Expand/collapse section'>Coordinates: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'></ul></div></li><li class='xr-section-item'><input id='section-83c910f0-87ce-4206-8b50-d0395aed57f8' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-83c910f0-87ce-4206-8b50-d0395aed57f8' class='xr-section-summary'  title='Expand/collapse section'>Indexes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'></ul></div></li><li class='xr-section-item'><input id='section-17cdd8d0-5b39-472d-b261-a6f902bde8db' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-17cdd8d0-5b39-472d-b261-a6f902bde8db' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
 </div>
 <p>Now we’ll determine the corresponding <span class="math notranslate nohighlight">\(p\)</span> value:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">t</span>
+
+<span class="c1"># Parameters</span>
+<span class="n">df</span> <span class="o">=</span> <span class="mi">10</span>  <span class="c1"># Degrees of freedom</span>
+<span class="n">t_value</span> <span class="o">=</span> <span class="mf">2.5</span>  <span class="c1"># Specific t-value for illustration</span>
+
+<span class="c1"># Generate data</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">y_cdf</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">df</span><span class="p">)</span>
+
+<span class="c1"># Compute p-value at given t-value</span>
+<span class="n">p_value</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">t</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">t_value</span><span class="p">),</span> <span class="n">df</span><span class="p">))</span>
+
+<span class="c1"># Plotting</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y_cdf</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;t-distribution CDF&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">t_value</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;t-value = </span><span class="si">{</span><span class="n">t_value</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p_value</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;p-value = </span><span class="si">{</span><span class="n">p_value</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># Annotations</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">t_value</span> <span class="o">+</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;p-value = </span><span class="si">{</span><span class="n">p_value</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">)</span>
+
+<span class="c1"># Labels and Title</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;CDF(t)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/da9f2c057f42567e5f10efe426e6d933371015895b7f081152cf230887325d0f.png" src="../_images/da9f2c057f42567e5f10efe426e6d933371015895b7f081152cf230887325d0f.png" />
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">cdf</span><span class="p">((</span><span class="n">t_1900_v_2000</span><span class="p">),</span> <span class="mi">38</span><span class="p">))</span>
@@ -1149,6 +1413,18 @@ array(0.74289966)</pre><div class='xr-wrap' style='display:none'><div class='xr-
 <p>Finally, we can verify this calculation we’ve performed by hand against scipy’s <span class="xref myst">ttest_ind</span> function:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="mf">0.74289966</span><span class="p">,</span> <span class="mf">0.7428996579337688</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">snow_1900_19</span><span class="p">,</span> <span class="n">snow_2000_19</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1162,27 +1438,822 @@ array(0.74289966)</pre><div class='xr-wrap' style='display:none'><div class='xr-
 </section>
 <section id="incomplete-the-more-detailed-derivation-of-the-t-statistic">
 <h3><span class="section-number">4.5.2. </span>[incomplete] The more detailed derivation of the <span class="math notranslate nohighlight">\(t\)</span> statistic<a class="headerlink" href="#incomplete-the-more-detailed-derivation-of-the-t-statistic" title="Permalink to this heading">#</a></h3>
+<p>In class, we skipped over most of the derivation leading to the precise value of the <span class="math notranslate nohighlight">\(t\)</span> statistic for difference in means.  Here we’ll walk through the steps of that derivation to make sure we understand it.</p>
+<ol class="arabic simple">
+<li><p>We collect two samples of observations, call one <span class="math notranslate nohighlight">\(S_1\)</span> and the other <span class="math notranslate nohighlight">\(S_2\)</span>.  The respective <em>sample</em> means are <span class="math notranslate nohighlight">\(\hat\mu_1\)</span> and <span class="math notranslate nohighlight">\(\hat\mu_2\)</span>.</p></li>
+<li><p>We <em>assume</em> that the values in each sample were drawn <em>randomly</em> from a specific probability <em>distribution</em> (i.e. the population).  Call these distributions <span class="math notranslate nohighlight">\(p_1\)</span> and <span class="math notranslate nohighlight">\(p_2\)</span>.</p></li>
+<li><p>We want to know whether two samples are drawn from the same distribution or a different one: does <span class="math notranslate nohighlight">\(p_1=p_2\)</span>?  Or <span class="math notranslate nohighlight">\(p_1\neq p_2\)</span>?  The first case is the <em>null hypothesis</em>: <span class="math notranslate nohighlight">\(H_0^*\)</span>: <span class="math notranslate nohighlight">\(p_1=p_2\)</span>.  The second is the <em>alternative hypothesis</em>: <span class="math notranslate nohighlight">\(H_A^*\)</span>: <span class="math notranslate nohighlight">\(p_1\neq p_2\)</span>.</p></li>
+<li><p>We’ll assume that both distributions are normal: <span class="math notranslate nohighlight">\(p_1=\mathcal{N}(\mu_1,\sigma_1^2)\)</span> and <span class="math notranslate nohighlight">\(p_2\sim\mathcal{N}(\mu_2,\sigma_2^2)\)</span>, where <span class="math notranslate nohighlight">\(\mathcal{N}(\mu,\sigma^2)\)</span> denotes a normal distribution with mean <span class="math notranslate nohighlight">\(\mu\)</span> and variance <span class="math notranslate nohighlight">\(\sigma^2\)</span>.</p></li>
+<li><p>In that case, if the two distributions are the same, then the means are equal and the variances are equal: <span class="math notranslate nohighlight">\(\mu_1=\mu_2\)</span> and <span class="math notranslate nohighlight">\(\sigma_1^2=\sigma_2^2\)</span>.</p></li>
+<li><p>To test for a difference in the means, we’ll <em>assume</em> that the variances (and hence standard deviations) are equal: <span class="math notranslate nohighlight">\(\sigma_1^2=\sigma_2^2\)</span>, or equivalently <span class="math notranslate nohighlight">\(\sigma_1=\sigma_2\)</span>.</p></li>
+<li><p>We then assume that, indeed, the population means are identical: <span class="math notranslate nohighlight">\(\mu_1=\mu_2\)</span>.  This results in a refined <em>null hypothesis</em> <span class="math notranslate nohighlight">\(H_0\)</span>: <span class="math notranslate nohighlight">\(\mu_1=\mu_2\)</span> and <span class="math notranslate nohighlight">\(\sigma_1=\sigma_2\)</span>.  The corresponding refined <em>alternative hypothesis</em> is: <span class="math notranslate nohighlight">\(H_A\)</span>: <span class="math notranslate nohighlight">\(\mu_1\neq\mu_2\)</span> and <span class="math notranslate nohighlight">\(\sigma_1=\sigma_2\)</span>.</p></li>
+<li><p>Whereas the two sample means are (almost always) not: <span class="math notranslate nohighlight">\(\hat\mu_1-\hat\mu_2\neq0\)</span>.  (If they’re truly identical, <span class="math notranslate nohighlight">\(\hat\mu_1=\hat\mu_2\)</span>, then no statistical test will reject <span class="math notranslate nohighlight">\(H_0\)</span>, so your job is done.)</p></li>
+<li><p>We then ask: what’s the probability of drawing two samples randomly from this distribution (i.e. from <span class="math notranslate nohighlight">\(\mathcal{N}(\mu_1,\sigma_1^2)=\mathcal{N}(\mu_2,\sigma_2^2)\)</span>) with a difference in their means <em>at least as large</em> in magnitude as the observed difference between the two <em>sample</em> means, <span class="math notranslate nohighlight">\(\hat\mu_1-\hat\mu_2\)</span>.</p></li>
+<li><p>But we don’t know <span class="math notranslate nohighlight">\(\mu_1\)</span>, <span class="math notranslate nohighlight">\(\mu_2\)</span>, <span class="math notranslate nohighlight">\(\sigma_1\)</span>, or <span class="math notranslate nohighlight">\(\sigma_2\)</span>!  So how to proceed?</p></li>
+<li><p>We consider the <em>sampling distribution</em>: the distribution of <span class="math notranslate nohighlight">\(\hat\mu_1-\hat\mu_2\)</span> that would arise in the case that <span class="math notranslate nohighlight">\(H_0\)</span> is true.</p></li>
+</ol>
+</section>
+<section id="step-1-distributions-of-hat-mu-1-and-hat-mu-2">
+<h3><span class="section-number">4.5.3. </span>Step 1: distributions of <span class="math notranslate nohighlight">\(\hat\mu_1\)</span> and <span class="math notranslate nohighlight">\(\hat\mu_2\)</span><a class="headerlink" href="#step-1-distributions-of-hat-mu-1-and-hat-mu-2" title="Permalink to this heading">#</a></h3>
+<p>Use a random number gnerator to convince yourself of the following:
+$<span class="math notranslate nohighlight">\(\hat\mu_1\sim N\left(\mu_1,\frac{\sigma^2_1}{N_1}\right),\quad\quad\hat\mu_2\sim N\left(\mu_2,\frac{\sigma^2_2}{N_2}\right)\)</span>$
+In words: the sample means are normally distributed, with mean equal to their population’s mean and the variance equal to the population variance divided by the sample size.</p>
+<p>These both follow from the following general rule (a.k.a. <em>theorem</em>): Consider values <span class="math notranslate nohighlight">\(X_1\)</span>, <span class="math notranslate nohighlight">\(X_2\)</span>, <span class="math notranslate nohighlight">\(\dots\)</span>, <span class="math notranslate nohighlight">\(X_{N_X}\)</span> drawn randomly and independently from a normal distribution <span class="math notranslate nohighlight">\(\mathcal{N}(\mu_X, \sigma^2_X)\)</span>.  If <span class="math notranslate nohighlight">\(\hat\mu_X\)</span> is the sample mean of these <span class="math notranslate nohighlight">\(N\)</span> values, then the <em>distribution</em> of <span class="math notranslate nohighlight">\(\hat\mu_X\)</span> is also normal.  Specifically, <span class="math notranslate nohighlight">\(\hat\mu_X\sim\mathcal{N}\left(\hat\mu,  \frac{\sigma^2_X}{N_X}\right)\)</span>.</p>
+<p>There are two components to this: (1) that <span class="math notranslate nohighlight">\(E[\hat\mu_X]=\mu_X\)</span>, i.e. that the expectation of the sample mean is the population mean, and (2) that <span class="math notranslate nohighlight">\(\text{var}[\hat\mu_X]=\sigma^2_X/N_X\)</span>, i.e. that the variance of the sample mean with sample size <span class="math notranslate nohighlight">\(N_X\)</span> is the population variance divided by the sample size.</p>
+<p>The corresponding standard deviation, <span class="math notranslate nohighlight">\(\sigma_X/\sqrt{N_X}\)</span>, is called the <strong>standard error</strong> of the mean.</p>
+<p>Notice that the variance of the sample mean <em>decreases</em> as the sample size <em>increases</em>.  This implies that, as the sample size gets larger and larger, it converges to the true population mean: <span class="math notranslate nohighlight">\(\hat\mu_X\rightarrow\mu_X\)</span> as <span class="math notranslate nohighlight">\(N_X\rightarrow\infty\)</span>.</p>
 <p>We have computed the sample mean and sample variance for both of our samples: <span class="math notranslate nohighlight">\(\hat\mu_{20th}\)</span> and <span class="math notranslate nohighlight">\(\hat\sigma_{20th}^2\)</span> for 1900-1919 and <span class="math notranslate nohighlight">\(\hat\mu_{21st}\)</span> and <span class="math notranslate nohighlight">\(\hat\sigma_{21st}^2\)</span> for 2000-2019.</p>
 <p>We know that the sample means are both normally distributed:
 <span class="math notranslate nohighlight">\(\hat\mu_{20th}\sim\cal{N}\left(\mu_{20th},\frac{\sigma_{20th}^2}{N_{20th}}\right)\)</span> and
 <span class="math notranslate nohighlight">\(\hat\mu_{21st}\sim\cal{N}\left(\mu_{21st},\frac{\sigma_{21st}^2}{N_{21st}}\right)\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">t</span><span class="p">,</span> <span class="n">norm</span>
+
+<span class="c1"># Generate data</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+
+<span class="c1"># PDF of t-distributions</span>
+<span class="n">y_t1</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">y_t10</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">y_t100</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="c1"># PDF of standard normal distribution</span>
+<span class="n">y_norm</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Plotting</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y_t1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;t (df=1)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y_t10</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;t (df=10)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y_t100</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;t (df=100)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y_norm</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Normal (0, 1)&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+
+<span class="c1"># Labels and Title</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;PDF(x)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/77d1cfb302cffeae23af9acec6b5c536f571b157268fd60a8d92363684fa9517.png" src="../_images/77d1cfb302cffeae23af9acec6b5c536f571b157268fd60a8d92363684fa9517.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">t</span>
+
+<span class="c1"># Generate data</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+
+<span class="c1"># CDF of t-distributions</span>
+<span class="n">cdf_t1</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">cdf_t10</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">cdf_t100</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="c1"># Calculate t-values for p=0.05</span>
+<span class="n">t_val1</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="mf">0.025</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">t_val10</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="mf">0.025</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">t_val100</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="mf">0.025</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="c1"># Plotting</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">cdf_t1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;t (df=1)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">cdf_t10</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;t (df=10)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">cdf_t100</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;t (df=100)&#39;</span><span class="p">)</span>
+
+<span class="c1"># Mark t-values</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">t_val1</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;p=0.05 t-value (df=1) = </span><span class="si">{</span><span class="n">t_val1</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">t_val10</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;p=0.05 t-value (df=10) = </span><span class="si">{</span><span class="n">t_val10</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">t_val100</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;p=0.05 t-value (df=100) = </span><span class="si">{</span><span class="n">t_val100</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># Labels and Title</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;CDF(t)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/9db9c9a05926fd71e0ba2be837ec152ee545d4c7cc2e645dde55b3fdca832701.png" src="../_images/9db9c9a05926fd71e0ba2be837ec152ee545d4c7cc2e645dde55b3fdca832701.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">holoviews</span> <span class="k">as</span> <span class="nn">hv</span>
+<span class="kn">from</span> <span class="nn">holoviews</span> <span class="kn">import</span> <span class="n">opts</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">t</span><span class="p">,</span> <span class="n">norm</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">panel</span> <span class="k">as</span> <span class="nn">pn</span>
+
+<span class="n">hv</span><span class="o">.</span><span class="n">extension</span><span class="p">(</span><span class="s1">&#39;bokeh&#39;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">plot_t_distribution</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+    <span class="n">y_t</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">df</span><span class="p">)</span>
+    <span class="n">y_norm</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    
+    <span class="n">curve_t</span> <span class="o">=</span> <span class="n">hv</span><span class="o">.</span><span class="n">Curve</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y_t</span><span class="p">),</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;Density&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">opts</span><span class="p">(</span><span class="n">line_color</span><span class="o">=</span><span class="s1">&#39;purple&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">relabel</span><span class="p">(</span><span class="s1">&#39;t-distribution&#39;</span><span class="p">)</span>
+    <span class="n">curve_norm</span> <span class="o">=</span> <span class="n">hv</span><span class="o">.</span><span class="n">Curve</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y_norm</span><span class="p">),</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;Density&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">opts</span><span class="p">(</span><span class="n">line_color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">relabel</span><span class="p">(</span><span class="s1">&#39;Standard Normal&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">curve_t</span> <span class="o">*</span> <span class="n">curve_norm</span><span class="p">)</span><span class="o">.</span><span class="n">opts</span><span class="p">(</span><span class="n">legend_position</span><span class="o">=</span><span class="s1">&#39;top_right&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
+
+<span class="n">df_slider</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">widgets</span><span class="o">.</span><span class="n">IntSlider</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Degrees of Freedom&#39;</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">dmap</span> <span class="o">=</span> <span class="n">hv</span><span class="o">.</span><span class="n">DynamicMap</span><span class="p">(</span><span class="n">plot_t_distribution</span><span class="p">,</span> <span class="n">kdims</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;df&#39;</span><span class="p">])</span>
+
+<span class="n">pn</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">df_slider</span><span class="p">,</span> <span class="n">dmap</span><span class="o">.</span><span class="n">redim</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">51</span><span class="p">))))</span><span class="o">.</span><span class="n">servable</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/javascript">(function(root) {
+  function now() {
+    return new Date();
+  }
+
+  var force = true;
+  var py_version = '3.2.2'.replace('rc', '-rc.').replace('.dev', '-dev.');
+  var is_dev = py_version.indexOf("+") !== -1 || py_version.indexOf("-") !== -1;
+  var reloading = false;
+  var Bokeh = root.Bokeh;
+  var bokeh_loaded = Bokeh != null && (Bokeh.version === py_version || (Bokeh.versions !== undefined && Bokeh.versions.has(py_version)));
+
+  if (typeof (root._bokeh_timeout) === "undefined" || force) {
+    root._bokeh_timeout = Date.now() + 5000;
+    root._bokeh_failed_load = false;
+  }
+
+  function run_callbacks() {
+    try {
+      root._bokeh_onload_callbacks.forEach(function(callback) {
+        if (callback != null)
+          callback();
+      });
+    } finally {
+      delete root._bokeh_onload_callbacks;
+    }
+    console.debug("Bokeh: all callbacks have finished");
+  }
+
+  function load_libs(css_urls, js_urls, js_modules, js_exports, callback) {
+    if (css_urls == null) css_urls = [];
+    if (js_urls == null) js_urls = [];
+    if (js_modules == null) js_modules = [];
+    if (js_exports == null) js_exports = {};
+
+    root._bokeh_onload_callbacks.push(callback);
+
+    if (root._bokeh_is_loading > 0) {
+      console.debug("Bokeh: BokehJS is being loaded, scheduling callback at", now());
+      return null;
+    }
+    if (js_urls.length === 0 && js_modules.length === 0 && Object.keys(js_exports).length === 0) {
+      run_callbacks();
+      return null;
+    }
+    if (!reloading) {
+      console.debug("Bokeh: BokehJS not loaded, scheduling load and callback at", now());
+    }
+
+    function on_load() {
+      root._bokeh_is_loading--;
+      if (root._bokeh_is_loading === 0) {
+        console.debug("Bokeh: all BokehJS libraries/stylesheets loaded");
+        run_callbacks()
+      }
+    }
+    window._bokeh_on_load = on_load
+
+    function on_error() {
+      console.error("failed to load " + url);
+    }
+
+    var skip = [];
+    if (window.requirejs) {
+      window.requirejs.config({'packages': {}, 'paths': {'jspanel': 'https://cdn.jsdelivr.net/npm/jspanel4@4.12.0/dist/jspanel', 'jspanel-modal': 'https://cdn.jsdelivr.net/npm/jspanel4@4.12.0/dist/extensions/modal/jspanel.modal', 'jspanel-tooltip': 'https://cdn.jsdelivr.net/npm/jspanel4@4.12.0/dist/extensions/tooltip/jspanel.tooltip', 'jspanel-hint': 'https://cdn.jsdelivr.net/npm/jspanel4@4.12.0/dist/extensions/hint/jspanel.hint', 'jspanel-layout': 'https://cdn.jsdelivr.net/npm/jspanel4@4.12.0/dist/extensions/layout/jspanel.layout', 'jspanel-contextmenu': 'https://cdn.jsdelivr.net/npm/jspanel4@4.12.0/dist/extensions/contextmenu/jspanel.contextmenu', 'jspanel-dock': 'https://cdn.jsdelivr.net/npm/jspanel4@4.12.0/dist/extensions/dock/jspanel.dock', 'gridstack': 'https://cdn.jsdelivr.net/npm/gridstack@7.2.3/dist/gridstack-all', 'notyf': 'https://cdn.jsdelivr.net/npm/notyf@3/notyf.min'}, 'shim': {'jspanel': {'exports': 'jsPanel'}, 'gridstack': {'exports': 'GridStack'}}});
+      require(["jspanel"], function(jsPanel) {
+	window.jsPanel = jsPanel
+	on_load()
+      })
+      require(["jspanel-modal"], function() {
+	on_load()
+      })
+      require(["jspanel-tooltip"], function() {
+	on_load()
+      })
+      require(["jspanel-hint"], function() {
+	on_load()
+      })
+      require(["jspanel-layout"], function() {
+	on_load()
+      })
+      require(["jspanel-contextmenu"], function() {
+	on_load()
+      })
+      require(["jspanel-dock"], function() {
+	on_load()
+      })
+      require(["gridstack"], function(GridStack) {
+	window.GridStack = GridStack
+	on_load()
+      })
+      require(["notyf"], function() {
+	on_load()
+      })
+      root._bokeh_is_loading = css_urls.length + 9;
+    } else {
+      root._bokeh_is_loading = css_urls.length + js_urls.length + js_modules.length + Object.keys(js_exports).length;
+    }
+
+    var existing_stylesheets = []
+    var links = document.getElementsByTagName('link')
+    for (var i = 0; i < links.length; i++) {
+      var link = links[i]
+      if (link.href != null) {
+	existing_stylesheets.push(link.href)
+      }
+    }
+    for (var i = 0; i < css_urls.length; i++) {
+      var url = css_urls[i];
+      if (existing_stylesheets.indexOf(url) !== -1) {
+	on_load()
+	continue;
+      }
+      const element = document.createElement("link");
+      element.onload = on_load;
+      element.onerror = on_error;
+      element.rel = "stylesheet";
+      element.type = "text/css";
+      element.href = url;
+      console.debug("Bokeh: injecting link tag for BokehJS stylesheet: ", url);
+      document.body.appendChild(element);
+    }    if (((window['jsPanel'] !== undefined) && (!(window['jsPanel'] instanceof HTMLElement))) || window.requirejs) {
+      var urls = ['https://cdn.holoviz.org/panel/1.2.2/dist/bundled/floatpanel/jspanel4@4.12.0/dist/jspanel.js', 'https://cdn.holoviz.org/panel/1.2.2/dist/bundled/floatpanel/jspanel4@4.12.0/dist/extensions/modal/jspanel.modal.js', 'https://cdn.holoviz.org/panel/1.2.2/dist/bundled/floatpanel/jspanel4@4.12.0/dist/extensions/tooltip/jspanel.tooltip.js', 'https://cdn.holoviz.org/panel/1.2.2/dist/bundled/floatpanel/jspanel4@4.12.0/dist/extensions/hint/jspanel.hint.js', 'https://cdn.holoviz.org/panel/1.2.2/dist/bundled/floatpanel/jspanel4@4.12.0/dist/extensions/layout/jspanel.layout.js', 'https://cdn.holoviz.org/panel/1.2.2/dist/bundled/floatpanel/jspanel4@4.12.0/dist/extensions/contextmenu/jspanel.contextmenu.js', 'https://cdn.holoviz.org/panel/1.2.2/dist/bundled/floatpanel/jspanel4@4.12.0/dist/extensions/dock/jspanel.dock.js'];
+      for (var i = 0; i < urls.length; i++) {
+        skip.push(urls[i])
+      }
+    }    if (((window['GridStack'] !== undefined) && (!(window['GridStack'] instanceof HTMLElement))) || window.requirejs) {
+      var urls = ['https://cdn.holoviz.org/panel/1.2.2/dist/bundled/gridstack/gridstack@7.2.3/dist/gridstack-all.js'];
+      for (var i = 0; i < urls.length; i++) {
+        skip.push(urls[i])
+      }
+    }    if (((window['Notyf'] !== undefined) && (!(window['Notyf'] instanceof HTMLElement))) || window.requirejs) {
+      var urls = ['https://cdn.holoviz.org/panel/1.2.2/dist/bundled/notificationarea/notyf@3/notyf.min.js'];
+      for (var i = 0; i < urls.length; i++) {
+        skip.push(urls[i])
+      }
+    }    var existing_scripts = []
+    var scripts = document.getElementsByTagName('script')
+    for (var i = 0; i < scripts.length; i++) {
+      var script = scripts[i]
+      if (script.src != null) {
+	existing_scripts.push(script.src)
+      }
+    }
+    for (var i = 0; i < js_urls.length; i++) {
+      var url = js_urls[i];
+      if (skip.indexOf(url) !== -1 || existing_scripts.indexOf(url) !== -1) {
+	if (!window.requirejs) {
+	  on_load();
+	}
+	continue;
+      }
+      var element = document.createElement('script');
+      element.onload = on_load;
+      element.onerror = on_error;
+      element.async = false;
+      element.src = url;
+      console.debug("Bokeh: injecting script tag for BokehJS library: ", url);
+      document.head.appendChild(element);
+    }
+    for (var i = 0; i < js_modules.length; i++) {
+      var url = js_modules[i];
+      if (skip.indexOf(url) !== -1 || existing_scripts.indexOf(url) !== -1) {
+	if (!window.requirejs) {
+	  on_load();
+	}
+	continue;
+      }
+      var element = document.createElement('script');
+      element.onload = on_load;
+      element.onerror = on_error;
+      element.async = false;
+      element.src = url;
+      element.type = "module";
+      console.debug("Bokeh: injecting script tag for BokehJS library: ", url);
+      document.head.appendChild(element);
+    }
+    for (const name in js_exports) {
+      var url = js_exports[name];
+      if (skip.indexOf(url) >= 0 || root[name] != null) {
+	if (!window.requirejs) {
+	  on_load();
+	}
+	continue;
+      }
+      var element = document.createElement('script');
+      element.onerror = on_error;
+      element.async = false;
+      element.type = "module";
+      console.debug("Bokeh: injecting script tag for BokehJS library: ", url);
+      element.textContent = `
+      import ${name} from "${url}"
+      window.${name} = ${name}
+      window._bokeh_on_load()
+      `
+      document.head.appendChild(element);
+    }
+    if (!js_urls.length && !js_modules.length) {
+      on_load()
+    }
+  };
+
+  function inject_raw_css(css) {
+    const element = document.createElement("style");
+    element.appendChild(document.createTextNode(css));
+    document.body.appendChild(element);
+  }
+
+  var js_urls = ["https://cdn.bokeh.org/bokeh/release/bokeh-3.2.2.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-gl-3.2.2.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-3.2.2.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-3.2.2.min.js", "https://cdn.holoviz.org/panel/1.2.2/dist/panel.min.js"];
+  var js_modules = [];
+  var js_exports = {};
+  var css_urls = [];
+  var inline_js = [    function(Bokeh) {
+      Bokeh.set_log_level("info");
+    },
+function(Bokeh) {} // ensure no trailing comma for IE
+  ];
+
+  function run_inline_js() {
+    if ((root.Bokeh !== undefined) || (force === true)) {
+      for (var i = 0; i < inline_js.length; i++) {
+        inline_js[i].call(root, root.Bokeh);
+      }
+      // Cache old bokeh versions
+      if (Bokeh != undefined && !reloading) {
+	var NewBokeh = root.Bokeh;
+	if (Bokeh.versions === undefined) {
+	  Bokeh.versions = new Map();
+	}
+	if (NewBokeh.version !== Bokeh.version) {
+	  Bokeh.versions.set(NewBokeh.version, NewBokeh)
+	}
+	root.Bokeh = Bokeh;
+      }} else if (Date.now() < root._bokeh_timeout) {
+      setTimeout(run_inline_js, 100);
+    } else if (!root._bokeh_failed_load) {
+      console.log("Bokeh: BokehJS failed to load within specified timeout.");
+      root._bokeh_failed_load = true;
+    }
+    root._bokeh_is_initializing = false
+  }
+
+  function load_or_wait() {
+    // Implement a backoff loop that tries to ensure we do not load multiple
+    // versions of Bokeh and its dependencies at the same time.
+    // In recent versions we use the root._bokeh_is_initializing flag
+    // to determine whether there is an ongoing attempt to initialize
+    // bokeh, however for backward compatibility we also try to ensure
+    // that we do not start loading a newer (Panel>=1.0 and Bokeh>3) version
+    // before older versions are fully initialized.
+    if (root._bokeh_is_initializing && Date.now() > root._bokeh_timeout) {
+      root._bokeh_is_initializing = false;
+      root._bokeh_onload_callbacks = undefined;
+      console.log("Bokeh: BokehJS was loaded multiple times but one version failed to initialize.");
+      load_or_wait();
+    } else if (root._bokeh_is_initializing || (typeof root._bokeh_is_initializing === "undefined" && root._bokeh_onload_callbacks !== undefined)) {
+      setTimeout(load_or_wait, 100);
+    } else {
+      Bokeh = root.Bokeh;
+      bokeh_loaded = Bokeh != null && (Bokeh.version === py_version || (Bokeh.versions !== undefined && Bokeh.versions.has(py_version)));
+      root._bokeh_is_initializing = true
+      root._bokeh_onload_callbacks = []
+      if (!reloading && (!bokeh_loaded || is_dev)) {
+	root.Bokeh = undefined;
+      }
+      load_libs(css_urls, js_urls, js_modules, js_exports, function() {
+	console.debug("Bokeh: BokehJS plotting callback run at", now());
+	run_inline_js();
+      });
+    }
+  }
+  // Give older versions of the autoload script a head-start to ensure
+  // they initialize before we start loading newer version.
+  setTimeout(load_or_wait, 100)
+}(window));</script><script type="application/javascript">
+if ((window.PyViz === undefined) || (window.PyViz instanceof HTMLElement)) {
+  window.PyViz = {comms: {}, comm_status:{}, kernels:{}, receivers: {}, plot_index: []}
+}
+
+
+    function JupyterCommManager() {
+    }
+
+    JupyterCommManager.prototype.register_target = function(plot_id, comm_id, msg_handler) {
+      if (window.comm_manager || ((window.Jupyter !== undefined) && (Jupyter.notebook.kernel != null))) {
+        var comm_manager = window.comm_manager || Jupyter.notebook.kernel.comm_manager;
+        comm_manager.register_target(comm_id, function(comm) {
+          comm.on_msg(msg_handler);
+        });
+      } else if ((plot_id in window.PyViz.kernels) && (window.PyViz.kernels[plot_id])) {
+        window.PyViz.kernels[plot_id].registerCommTarget(comm_id, function(comm) {
+          comm.onMsg = msg_handler;
+        });
+      } else if (typeof google != 'undefined' && google.colab.kernel != null) {
+        google.colab.kernel.comms.registerTarget(comm_id, (comm) => {
+          var messages = comm.messages[Symbol.asyncIterator]();
+          function processIteratorResult(result) {
+            var message = result.value;
+            console.log(message)
+            var content = {data: message.data, comm_id};
+            var buffers = []
+            for (var buffer of message.buffers || []) {
+              buffers.push(new DataView(buffer))
+            }
+            var metadata = message.metadata || {};
+            var msg = {content, buffers, metadata}
+            msg_handler(msg);
+            return messages.next().then(processIteratorResult);
+          }
+          return messages.next().then(processIteratorResult);
+        })
+      }
+    }
+
+    JupyterCommManager.prototype.get_client_comm = function(plot_id, comm_id, msg_handler) {
+      if (comm_id in window.PyViz.comms) {
+        return window.PyViz.comms[comm_id];
+      } else if (window.comm_manager || ((window.Jupyter !== undefined) && (Jupyter.notebook.kernel != null))) {
+        var comm_manager = window.comm_manager || Jupyter.notebook.kernel.comm_manager;
+        var comm = comm_manager.new_comm(comm_id, {}, {}, {}, comm_id);
+        if (msg_handler) {
+          comm.on_msg(msg_handler);
+        }
+      } else if ((plot_id in window.PyViz.kernels) && (window.PyViz.kernels[plot_id])) {
+        var comm = window.PyViz.kernels[plot_id].connectToComm(comm_id);
+        comm.open();
+        if (msg_handler) {
+          comm.onMsg = msg_handler;
+        }
+      } else if (typeof google != 'undefined' && google.colab.kernel != null) {
+        var comm_promise = google.colab.kernel.comms.open(comm_id)
+        comm_promise.then((comm) => {
+          window.PyViz.comms[comm_id] = comm;
+          if (msg_handler) {
+            var messages = comm.messages[Symbol.asyncIterator]();
+            function processIteratorResult(result) {
+              var message = result.value;
+              var content = {data: message.data};
+              var metadata = message.metadata || {comm_id};
+              var msg = {content, metadata}
+              msg_handler(msg);
+              return messages.next().then(processIteratorResult);
+            }
+            return messages.next().then(processIteratorResult);
+          }
+        }) 
+        var sendClosure = (data, metadata, buffers, disposeOnDone) => {
+          return comm_promise.then((comm) => {
+            comm.send(data, metadata, buffers, disposeOnDone);
+          });
+        };
+        var comm = {
+          send: sendClosure
+        };
+      }
+      window.PyViz.comms[comm_id] = comm;
+      return comm;
+    }
+    window.PyViz.comm_manager = new JupyterCommManager();
+    
+
+
+var JS_MIME_TYPE = 'application/javascript';
+var HTML_MIME_TYPE = 'text/html';
+var EXEC_MIME_TYPE = 'application/vnd.holoviews_exec.v0+json';
+var CLASS_NAME = 'output';
+
+/**
+ * Render data to the DOM node
+ */
+function render(props, node) {
+  var div = document.createElement("div");
+  var script = document.createElement("script");
+  node.appendChild(div);
+  node.appendChild(script);
+}
+
+/**
+ * Handle when a new output is added
+ */
+function handle_add_output(event, handle) {
+  var output_area = handle.output_area;
+  var output = handle.output;
+  if ((output.data == undefined) || (!output.data.hasOwnProperty(EXEC_MIME_TYPE))) {
+    return
+  }
+  var id = output.metadata[EXEC_MIME_TYPE]["id"];
+  var toinsert = output_area.element.find("." + CLASS_NAME.split(' ')[0]);
+  if (id !== undefined) {
+    var nchildren = toinsert.length;
+    var html_node = toinsert[nchildren-1].children[0];
+    html_node.innerHTML = output.data[HTML_MIME_TYPE];
+    var scripts = [];
+    var nodelist = html_node.querySelectorAll("script");
+    for (var i in nodelist) {
+      if (nodelist.hasOwnProperty(i)) {
+        scripts.push(nodelist[i])
+      }
+    }
+
+    scripts.forEach( function (oldScript) {
+      var newScript = document.createElement("script");
+      var attrs = [];
+      var nodemap = oldScript.attributes;
+      for (var j in nodemap) {
+        if (nodemap.hasOwnProperty(j)) {
+          attrs.push(nodemap[j])
+        }
+      }
+      attrs.forEach(function(attr) { newScript.setAttribute(attr.name, attr.value) });
+      newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+      oldScript.parentNode.replaceChild(newScript, oldScript);
+    });
+    if (JS_MIME_TYPE in output.data) {
+      toinsert[nchildren-1].children[1].textContent = output.data[JS_MIME_TYPE];
+    }
+    output_area._hv_plot_id = id;
+    if ((window.Bokeh !== undefined) && (id in Bokeh.index)) {
+      window.PyViz.plot_index[id] = Bokeh.index[id];
+    } else {
+      window.PyViz.plot_index[id] = null;
+    }
+  } else if (output.metadata[EXEC_MIME_TYPE]["server_id"] !== undefined) {
+    var bk_div = document.createElement("div");
+    bk_div.innerHTML = output.data[HTML_MIME_TYPE];
+    var script_attrs = bk_div.children[0].attributes;
+    for (var i = 0; i < script_attrs.length; i++) {
+      toinsert[toinsert.length - 1].childNodes[1].setAttribute(script_attrs[i].name, script_attrs[i].value);
+    }
+    // store reference to server id on output_area
+    output_area._bokeh_server_id = output.metadata[EXEC_MIME_TYPE]["server_id"];
+  }
+}
+
+/**
+ * Handle when an output is cleared or removed
+ */
+function handle_clear_output(event, handle) {
+  var id = handle.cell.output_area._hv_plot_id;
+  var server_id = handle.cell.output_area._bokeh_server_id;
+  if (((id === undefined) || !(id in PyViz.plot_index)) && (server_id !== undefined)) { return; }
+  var comm = window.PyViz.comm_manager.get_client_comm("hv-extension-comm", "hv-extension-comm", function () {});
+  if (server_id !== null) {
+    comm.send({event_type: 'server_delete', 'id': server_id});
+    return;
+  } else if (comm !== null) {
+    comm.send({event_type: 'delete', 'id': id});
+  }
+  delete PyViz.plot_index[id];
+  if ((window.Bokeh !== undefined) & (id in window.Bokeh.index)) {
+    var doc = window.Bokeh.index[id].model.document
+    doc.clear();
+    const i = window.Bokeh.documents.indexOf(doc);
+    if (i > -1) {
+      window.Bokeh.documents.splice(i, 1);
+    }
+  }
+}
+
+/**
+ * Handle kernel restart event
+ */
+function handle_kernel_cleanup(event, handle) {
+  delete PyViz.comms["hv-extension-comm"];
+  window.PyViz.plot_index = {}
+}
+
+/**
+ * Handle update_display_data messages
+ */
+function handle_update_output(event, handle) {
+  handle_clear_output(event, {cell: {output_area: handle.output_area}})
+  handle_add_output(event, handle)
+}
+
+function register_renderer(events, OutputArea) {
+  function append_mime(data, metadata, element) {
+    // create a DOM node to render to
+    var toinsert = this.create_output_subarea(
+    metadata,
+    CLASS_NAME,
+    EXEC_MIME_TYPE
+    );
+    this.keyboard_manager.register_events(toinsert);
+    // Render to node
+    var props = {data: data, metadata: metadata[EXEC_MIME_TYPE]};
+    render(props, toinsert[0]);
+    element.append(toinsert);
+    return toinsert
+  }
+
+  events.on('output_added.OutputArea', handle_add_output);
+  events.on('output_updated.OutputArea', handle_update_output);
+  events.on('clear_output.CodeCell', handle_clear_output);
+  events.on('delete.Cell', handle_clear_output);
+  events.on('kernel_ready.Kernel', handle_kernel_cleanup);
+
+  OutputArea.prototype.register_mime_type(EXEC_MIME_TYPE, append_mime, {
+    safe: true,
+    index: 0
+  });
+}
+
+if (window.Jupyter !== undefined) {
+  try {
+    var events = require('base/js/events');
+    var OutputArea = require('notebook/js/outputarea').OutputArea;
+    if (OutputArea.prototype.mime_types().indexOf(EXEC_MIME_TYPE) == -1) {
+      register_renderer(events, OutputArea);
+    }
+  } catch(err) {
+  }
+}
+</script><div class="output text_html"><style>*[data-root-id],
+*[data-root-id] > * {
+  box-sizing: border-box;
+  font-family: var(--jp-ui-font-family);
+  font-size: var(--jp-ui-font-size1);
+  color: var(--vscode-editor-foreground, var(--jp-ui-font-color1));
+}
+
+/* Override VSCode background color */
+.cell-output-ipywidget-background:has(
+    > .cell-output-ipywidget-background > .lm-Widget > *[data-root-id]
+  ),
+.cell-output-ipywidget-background:has(> .lm-Widget > *[data-root-id]) {
+  background-color: transparent !important;
+}
+</style></div><div class="output text_html">
+<div class="logo-block">
+<img src='data:image/png;base64,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
+roTBs2RqAAAAAElFTkSuQmCC'
+     style='height:25px; border-radius:12px; display: inline-block; float: left; vertical-align: middle'></img>
+
+
+  <img src='data:image/png;base64,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'
+       style='height:15px; border-radius:12px; display: inline-block; float: left'></img>
+  
+
+
+
+
+</div>
+</div><div class="output text_html"><div id='p1002'>
+  <div id="ab79ae08-d8fe-4e01-a729-9d9823e084ed" data-root-id="p1002" style="display: contents;"></div>
+</div>
+<script type="application/javascript">(function(root) {
+  var docs_json = {"ab1a1847-05b7-4077-b98c-e9ae80c14339":{"version":"3.2.2","title":"Bokeh Application","roots":[{"type":"object","name":"panel.models.layout.Column","id":"p1002","attributes":{"name":"Column00836","stylesheets":["\n:host(.pn-loading.pn-arc):before, .pn-loading.pn-arc:before {\n  background-image: url(\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHN0eWxlPSJtYXJnaW46IGF1dG87IGJhY2tncm91bmQ6IG5vbmU7IGRpc3BsYXk6IGJsb2NrOyBzaGFwZS1yZW5kZXJpbmc6IGF1dG87IiB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ieE1pZFlNaWQiPiAgPGNpcmNsZSBjeD0iNTAiIGN5PSI1MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYzNjM2MzIiBzdHJva2Utd2lkdGg9IjEwIiByPSIzNSIgc3Ryb2tlLWRhc2hhcnJheT0iMTY0LjkzMzYxNDMxMzQ2NDE1IDU2Ljk3Nzg3MTQzNzgyMTM4Ij4gICAgPGFuaW1hdGVUcmFuc2Zvcm0gYXR0cmlidXRlTmFtZT0idHJhbnNmb3JtIiB0eXBlPSJyb3RhdGUiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiBkdXI9IjFzIiB2YWx1ZXM9IjAgNTAgNTA7MzYwIDUwIDUwIiBrZXlUaW1lcz0iMDsxIj48L2FuaW1hdGVUcmFuc2Zvcm0+ICA8L2NpcmNsZT48L3N2Zz4=\");\n  background-size: auto calc(min(50%, 400px));\n}",{"type":"object","name":"ImportedStyleSheet","id":"p1005","attributes":{"url":"https://cdn.holoviz.org/panel/1.2.2/dist/css/loading.css"}},{"type":"object","name":"ImportedStyleSheet","id":"p1079","attributes":{"url":"https://cdn.holoviz.org/panel/1.2.2/dist/css/listpanel.css"}},{"type":"object","name":"ImportedStyleSheet","id":"p1003","attributes":{"url":"https://cdn.holoviz.org/panel/1.2.2/dist/bundled/theme/default.css"}},{"type":"object","name":"ImportedStyleSheet","id":"p1004","attributes":{"url":"https://cdn.holoviz.org/panel/1.2.2/dist/bundled/theme/native.css"}}],"margin":0,"align":"start","children":[{"type":"object","name":"Slider","id":"p1006","attributes":{"stylesheets":["\n:host(.pn-loading.pn-arc):before, .pn-loading.pn-arc:before {\n  background-image: url(\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHN0eWxlPSJtYXJnaW46IGF1dG87IGJhY2tncm91bmQ6IG5vbmU7IGRpc3BsYXk6IGJsb2NrOyBzaGFwZS1yZW5kZXJpbmc6IGF1dG87IiB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ieE1pZFlNaWQiPiAgPGNpcmNsZSBjeD0iNTAiIGN5PSI1MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYzNjM2MzIiBzdHJva2Utd2lkdGg9IjEwIiByPSIzNSIgc3Ryb2tlLWRhc2hhcnJheT0iMTY0LjkzMzYxNDMxMzQ2NDE1IDU2Ljk3Nzg3MTQzNzgyMTM4Ij4gICAgPGFuaW1hdGVUcmFuc2Zvcm0gYXR0cmlidXRlTmFtZT0idHJhbnNmb3JtIiB0eXBlPSJyb3RhdGUiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiBkdXI9IjFzIiB2YWx1ZXM9IjAgNTAgNTA7MzYwIDUwIDUwIiBrZXlUaW1lcz0iMDsxIj48L2FuaW1hdGVUcmFuc2Zvcm0+ICA8L2NpcmNsZT48L3N2Zz4=\");\n  background-size: auto calc(min(50%, 400px));\n}",{"id":"p1005"},{"id":"p1003"},{"id":"p1004"}],"margin":[5,10],"align":"start","title":"Degrees of Freedom","start":1,"end":50,"value":1}},{"type":"object","name":"Row","id":"p1007","attributes":{"name":"Row00805","stylesheets":["\n:host(.pn-loading.pn-arc):before, .pn-loading.pn-arc:before {\n  background-image: url(\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHN0eWxlPSJtYXJnaW46IGF1dG87IGJhY2tncm91bmQ6IG5vbmU7IGRpc3BsYXk6IGJsb2NrOyBzaGFwZS1yZW5kZXJpbmc6IGF1dG87IiB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ieE1pZFlNaWQiPiAgPGNpcmNsZSBjeD0iNTAiIGN5PSI1MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYzNjM2MzIiBzdHJva2Utd2lkdGg9IjEwIiByPSIzNSIgc3Ryb2tlLWRhc2hhcnJheT0iMTY0LjkzMzYxNDMxMzQ2NDE1IDU2Ljk3Nzg3MTQzNzgyMTM4Ij4gICAgPGFuaW1hdGVUcmFuc2Zvcm0gYXR0cmlidXRlTmFtZT0idHJhbnNmb3JtIiB0eXBlPSJyb3RhdGUiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiBkdXI9IjFzIiB2YWx1ZXM9IjAgNTAgNTA7MzYwIDUwIDUwIiBrZXlUaW1lcz0iMDsxIj48L2FuaW1hdGVUcmFuc2Zvcm0+ICA8L2NpcmNsZT48L3N2Zz4=\");\n  background-size: auto calc(min(50%, 400px));\n}",{"id":"p1005"},{"id":"p1079"},{"id":"p1003"},{"id":"p1004"}],"margin":0,"align":"start","children":[{"type":"object","name":"Figure","id":"p1016","attributes":{"height":400,"margin":[5,10],"sizing_mode":"fixed","align":"start","x_range":{"type":"object","name":"Range1d","id":"p1008","attributes":{"tags":[[["x","x",null]],[]],"start":-5.0,"end":5.0,"reset_start":-5.0,"reset_end":5.0}},"y_range":{"type":"object","name":"Range1d","id":"p1009","attributes":{"tags":[[["Density","Density",null]],{"type":"map","entries":[["invert_yaxis",false],["autorange",false]]}],"start":-0.039889460392763816,"end":0.4388019049545787,"reset_start":-0.039889460392763816,"reset_end":0.4388019049545787}},"x_scale":{"type":"object","name":"LinearScale","id":"p1026"},"y_scale":{"type":"object","name":"LinearScale","id":"p1027"},"title":{"type":"object","name":"Title","id":"p1019","attributes":{"text":"df: 1","text_color":"black","text_font_size":"12pt"}},"renderers":[{"type":"object","name":"GlyphRenderer","id":"p1052","attributes":{"name":"t-distribution","data_source":{"type":"object","name":"ColumnDataSource","id":"p1043","attributes":{"selected":{"type":"object","name":"Selection","id":"p1044","attributes":{"indices":[],"line_indices":[]}},"selection_policy":{"type":"object","name":"UnionRenderers","id":"p1045"},"data":{"type":"map","entries":[["x",{"type":"ndarray","array":{"type":"bytes","data":"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"},"shape":[400],"dtype":"float64","order":"little"}],["Density",{"type":"ndarray","array":{"type":"bytes","data":"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"},"shape":[400],"dtype":"float64","order":"little"}]]}}},"view":{"type":"object","name":"CDSView","id":"p1053","attributes":{"filter":{"type":"object","name":"AllIndices","id":"p1054"}}},"glyph":{"type":"object","name":"Line","id":"p1049","attributes":{"tags":["apply_ranges"],"x":{"type":"field","field":"x"},"y":{"type":"field","field":"Density"},"line_color":"purple","line_width":2}},"selection_glyph":{"type":"object","name":"Line","id":"p1057","attributes":{"tags":["apply_ranges"],"x":{"type":"field","field":"x"},"y":{"type":"field","field":"Density"},"line_color":"purple","line_width":2}},"nonselection_glyph":{"type":"object","name":"Line","id":"p1050","attributes":{"tags":["apply_ranges"],"x":{"type":"field","field":"x"},"y":{"type":"field","field":"Density"},"line_color":"purple","line_alpha":0.1,"line_width":2}},"muted_glyph":{"type":"object","name":"Line","id":"p1051","attributes":{"tags":["apply_ranges"],"x":{"type":"field","field":"x"},"y":{"type":"field","field":"Density"},"line_color":"purple","line_alpha":0.2,"line_width":2}}}},{"type":"object","name":"GlyphRenderer","id":"p1067","attributes":{"name":"Standard Normal","data_source":{"type":"object","name":"ColumnDataSource","id":"p1058","attributes":{"selected":{"type":"object","name":"Selection","id":"p1059","attributes":{"indices":[],"line_indices":[]}},"selection_policy":{"type":"object","name":"UnionRenderers","id":"p1060"},"data":{"type":"map","entries":[["x",{"type":"ndarray","array":{"type":"bytes","data":"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"},"shape":[400],"dtype":"float64","order":"little"}],["Density",{"type":"ndarray","array":{"type":"bytes","data":"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"},"shape":[400],"dtype":"float64","order":"little"}]]}}},"view":{"type":"object","name":"CDSView","id":"p1068","attributes":{"filter":{"type":"object","name":"AllIndices","id":"p1069"}}},"glyph":{"type":"object","name":"Line","id":"p1064","attributes":{"tags":["apply_ranges"],"x":{"type":"field","field":"x"},"y":{"type":"field","field":"Density"},"line_color":"green","line_width":2}},"selection_glyph":{"type":"object","name":"Line","id":"p1071","attributes":{"tags":["apply_ranges"],"x":{"type":"field","field":"x"},"y":{"type":"field","field":"Density"},"line_color":"green","line_width":2}},"nonselection_glyph":{"type":"object","name":"Line","id":"p1065","attributes":{"tags":["apply_ranges"],"x":{"type":"field","field":"x"},"y":{"type":"field","field":"Density"},"line_color":"green","line_alpha":0.1,"line_width":2}},"muted_glyph":{"type":"object","name":"Line","id":"p1066","attributes":{"tags":["apply_ranges"],"x":{"type":"field","field":"x"},"y":{"type":"field","field":"Density"},"line_color":"green","line_alpha":0.2,"line_width":2}}}}],"toolbar":{"type":"object","name":"Toolbar","id":"p1025","attributes":{"tools":[{"type":"object","name":"WheelZoomTool","id":"p1013","attributes":{"tags":["hv_created"],"zoom_together":"none"}},{"type":"object","name":"SaveTool","id":"p1038"},{"type":"object","name":"PanTool","id":"p1039"},{"type":"object","name":"BoxZoomTool","id":"p1040","attributes":{"overlay":{"type":"object","name":"BoxAnnotation","id":"p1041","attributes":{"syncable":false,"level":"overlay","visible":false,"left_units":"canvas","right_units":"canvas","bottom_units":"canvas","top_units":"canvas","line_color":"black","line_alpha":1.0,"line_width":2,"line_dash":[4,4],"fill_color":"lightgrey","fill_alpha":0.5}}}},{"type":"object","name":"ResetTool","id":"p1042"}],"active_drag":{"id":"p1039"},"active_scroll":{"id":"p1013"}}},"left":[{"type":"object","name":"LinearAxis","id":"p1033","attributes":{"ticker":{"type":"object","name":"BasicTicker","id":"p1034","attributes":{"mantissas":[1,2,5]}},"formatter":{"type":"object","name":"BasicTickFormatter","id":"p1035"},"axis_label":"Density","major_label_policy":{"type":"object","name":"AllLabels","id":"p1036"}}}],"below":[{"type":"object","name":"LinearAxis","id":"p1028","attributes":{"ticker":{"type":"object","name":"BasicTicker","id":"p1029","attributes":{"mantissas":[1,2,5]}},"formatter":{"type":"object","name":"BasicTickFormatter","id":"p1030"},"axis_label":"x","major_label_policy":{"type":"object","name":"AllLabels","id":"p1031"}}}],"center":[{"type":"object","name":"Grid","id":"p1032","attributes":{"axis":{"id":"p1028"},"grid_line_color":null}},{"type":"object","name":"Grid","id":"p1037","attributes":{"dimension":1,"axis":{"id":"p1033"},"grid_line_color":null}},{"type":"object","name":"Legend","id":"p1055","attributes":{"click_policy":"mute","items":[{"type":"object","name":"LegendItem","id":"p1056","attributes":{"label":{"type":"value","value":"t-distribution"},"renderers":[{"id":"p1052"}]}},{"type":"object","name":"LegendItem","id":"p1070","attributes":{"label":{"type":"value","value":"Standard Normal"},"renderers":[{"id":"p1067"}]}}]}}],"min_border_top":10,"min_border_bottom":10,"min_border_left":10,"min_border_right":10,"output_backend":"webgl"}},{"type":"object","name":"panel.models.layout.Column","id":"p1072","attributes":{"name":"WidgetBox00808","css_classes":["panel-widget-box"],"stylesheets":["\n:host(.pn-loading.pn-arc):before, .pn-loading.pn-arc:before {\n  background-image: url(\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHN0eWxlPSJtYXJnaW46IGF1dG87IGJhY2tncm91bmQ6IG5vbmU7IGRpc3BsYXk6IGJsb2NrOyBzaGFwZS1yZW5kZXJpbmc6IGF1dG87IiB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ieE1pZFlNaWQiPiAgPGNpcmNsZSBjeD0iNTAiIGN5PSI1MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYzNjM2MzIiBzdHJva2Utd2lkdGg9IjEwIiByPSIzNSIgc3Ryb2tlLWRhc2hhcnJheT0iMTY0LjkzMzYxNDMxMzQ2NDE1IDU2Ljk3Nzg3MTQzNzgyMTM4Ij4gICAgPGFuaW1hdGVUcmFuc2Zvcm0gYXR0cmlidXRlTmFtZT0idHJhbnNmb3JtIiB0eXBlPSJyb3RhdGUiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiBkdXI9IjFzIiB2YWx1ZXM9IjAgNTAgNTA7MzYwIDUwIDUwIiBrZXlUaW1lcz0iMDsxIj48L2FuaW1hdGVUcmFuc2Zvcm0+ICA8L2NpcmNsZT48L3N2Zz4=\");\n  background-size: auto calc(min(50%, 400px));\n}",{"id":"p1005"},{"type":"object","name":"ImportedStyleSheet","id":"p1081","attributes":{"url":"https://cdn.holoviz.org/panel/1.2.2/dist/css/widgetbox.css"}},{"id":"p1079"},{"id":"p1003"},{"id":"p1004"}],"margin":0,"align":["end","start"],"children":[{"type":"object","name":"panel.models.layout.Column","id":"p1073","attributes":{"name":"Column00829","stylesheets":["\n:host(.pn-loading.pn-arc):before, .pn-loading.pn-arc:before {\n  background-image: url(\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHN0eWxlPSJtYXJnaW46IGF1dG87IGJhY2tncm91bmQ6IG5vbmU7IGRpc3BsYXk6IGJsb2NrOyBzaGFwZS1yZW5kZXJpbmc6IGF1dG87IiB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ieE1pZFlNaWQiPiAgPGNpcmNsZSBjeD0iNTAiIGN5PSI1MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYzNjM2MzIiBzdHJva2Utd2lkdGg9IjEwIiByPSIzNSIgc3Ryb2tlLWRhc2hhcnJheT0iMTY0LjkzMzYxNDMxMzQ2NDE1IDU2Ljk3Nzg3MTQzNzgyMTM4Ij4gICAgPGFuaW1hdGVUcmFuc2Zvcm0gYXR0cmlidXRlTmFtZT0idHJhbnNmb3JtIiB0eXBlPSJyb3RhdGUiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiBkdXI9IjFzIiB2YWx1ZXM9IjAgNTAgNTA7MzYwIDUwIDUwIiBrZXlUaW1lcz0iMDsxIj48L2FuaW1hdGVUcmFuc2Zvcm0+ICA8L2NpcmNsZT48L3N2Zz4=\");\n  background-size: auto calc(min(50%, 400px));\n}",{"id":"p1005"},{"id":"p1079"},{"id":"p1003"},{"id":"p1004"}],"width":290,"min_width":290,"margin":0,"align":"start","children":[{"type":"object","name":"Div","id":"p1075","attributes":{"stylesheets":["\n:host(.pn-loading.pn-arc):before, .pn-loading.pn-arc:before {\n  background-image: url(\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHN0eWxlPSJtYXJnaW46IGF1dG87IGJhY2tncm91bmQ6IG5vbmU7IGRpc3BsYXk6IGJsb2NrOyBzaGFwZS1yZW5kZXJpbmc6IGF1dG87IiB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ieE1pZFlNaWQiPiAgPGNpcmNsZSBjeD0iNTAiIGN5PSI1MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYzNjM2MzIiBzdHJva2Utd2lkdGg9IjEwIiByPSIzNSIgc3Ryb2tlLWRhc2hhcnJheT0iMTY0LjkzMzYxNDMxMzQ2NDE1IDU2Ljk3Nzg3MTQzNzgyMTM4Ij4gICAgPGFuaW1hdGVUcmFuc2Zvcm0gYXR0cmlidXRlTmFtZT0idHJhbnNmb3JtIiB0eXBlPSJyb3RhdGUiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiBkdXI9IjFzIiB2YWx1ZXM9IjAgNTAgNTA7MzYwIDUwIDUwIiBrZXlUaW1lcz0iMDsxIj48L2FuaW1hdGVUcmFuc2Zvcm0+ICA8L2NpcmNsZT48L3N2Zz4=\");\n  background-size: auto calc(min(50%, 400px));\n}",{"id":"p1005"},{"id":"p1003"},{"id":"p1004"}],"width":250,"min_width":250,"margin":[20,0,0,20],"align":"start","text":"df: <b>1</b>"}},{"type":"object","name":"Slider","id":"p1077","attributes":{"js_property_callbacks":{"type":"map","entries":[["change:value",[{"type":"object","name":"CustomJS","id":"p1087","attributes":{"tags":[[6191744912,[null,"value"],[null,null]]],"args":{"type":"map","entries":[["bidirectional",false],["properties",{"type":"map"}],["source",{"id":"p1077"}],["target",{"id":"p1075"}]]},"code":"try { \n    var labels = ['df: <b>1</b>', 'df: <b>2</b>', 'df: <b>3</b>', 'df: <b>4</b>', 'df: <b>5</b>', 'df: <b>6</b>', 'df: <b>7</b>', 'df: <b>8</b>', 'df: <b>9</b>', 'df: <b>10</b>', 'df: <b>11</b>', 'df: <b>12</b>', 'df: <b>13</b>', 'df: <b>14</b>', 'df: <b>15</b>', 'df: <b>16</b>', 'df: <b>17</b>', 'df: <b>18</b>', 'df: <b>19</b>', 'df: <b>20</b>', 'df: <b>21</b>', 'df: <b>22</b>', 'df: <b>23</b>', 'df: <b>24</b>', 'df: <b>25</b>', 'df: <b>26</b>', 'df: <b>27</b>', 'df: <b>28</b>', 'df: <b>29</b>', 'df: <b>30</b>', 'df: <b>31</b>', 'df: <b>32</b>', 'df: <b>33</b>', 'df: <b>34</b>', 'df: <b>35</b>', 'df: <b>36</b>', 'df: <b>37</b>', 'df: <b>38</b>', 'df: <b>39</b>', 'df: <b>40</b>', 'df: <b>41</b>', 'df: <b>42</b>', 'df: <b>43</b>', 'df: <b>44</b>', 'df: <b>45</b>', 'df: <b>46</b>', 'df: <b>47</b>', 'df: <b>48</b>', 'df: <b>49</b>', 'df: <b>50</b>']\n    target.text = labels[source.value]\n     } catch(err) { console.log(err) }"}}]]]},"stylesheets":["\n:host(.pn-loading.pn-arc):before, .pn-loading.pn-arc:before {\n  background-image: url(\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHN0eWxlPSJtYXJnaW46IGF1dG87IGJhY2tncm91bmQ6IG5vbmU7IGRpc3BsYXk6IGJsb2NrOyBzaGFwZS1yZW5kZXJpbmc6IGF1dG87IiB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ieE1pZFlNaWQiPiAgPGNpcmNsZSBjeD0iNTAiIGN5PSI1MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYzNjM2MzIiBzdHJva2Utd2lkdGg9IjEwIiByPSIzNSIgc3Ryb2tlLWRhc2hhcnJheT0iMTY0LjkzMzYxNDMxMzQ2NDE1IDU2Ljk3Nzg3MTQzNzgyMTM4Ij4gICAgPGFuaW1hdGVUcmFuc2Zvcm0gYXR0cmlidXRlTmFtZT0idHJhbnNmb3JtIiB0eXBlPSJyb3RhdGUiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiBkdXI9IjFzIiB2YWx1ZXM9IjAgNTAgNTA7MzYwIDUwIDUwIiBrZXlUaW1lcz0iMDsxIj48L2FuaW1hdGVUcmFuc2Zvcm0+ICA8L2NpcmNsZT48L3N2Zz4=\");\n  background-size: auto calc(min(50%, 400px));\n}",{"id":"p1005"},{"id":"p1003"},{"id":"p1004"}],"width":250,"min_width":250,"margin":[0,20,20,20],"align":"start","show_value":false,"tooltips":false,"start":0,"end":49,"value":0}}]}}]}}]}}]}},{"type":"object","name":"panel.models.comm_manager.CommManager","id":"p1088","attributes":{"plot_id":"p1002","comm_id":"65c23b4530344706afa9397c63918ca8","client_comm_id":"7c4c0597d9204b2aac7cd40f99a18c28"}},{"type":"object","name":"panel.models.location.Location","id":"p1089","attributes":{"reload":false}}],"defs":[{"type":"model","name":"ReactiveHTML1"},{"type":"model","name":"FlexBox1","properties":[{"name":"align_content","kind":"Any","default":"flex-start"},{"name":"align_items","kind":"Any","default":"flex-start"},{"name":"flex_direction","kind":"Any","default":"row"},{"name":"flex_wrap","kind":"Any","default":"wrap"},{"name":"justify_content","kind":"Any","default":"flex-start"}]},{"type":"model","name":"FloatPanel1","properties":[{"name":"config","kind":"Any","default":{"type":"map"}},{"name":"contained","kind":"Any","default":true},{"name":"position","kind":"Any","default":"right-top"},{"name":"offsetx","kind":"Any","default":null},{"name":"offsety","kind":"Any","default":null},{"name":"theme","kind":"Any","default":"primary"},{"name":"status","kind":"Any","default":"normalized"}]},{"type":"model","name":"GridStack1","properties":[{"name":"mode","kind":"Any","default":"warn"},{"name":"ncols","kind":"Any","default":null},{"name":"nrows","kind":"Any","default":null},{"name":"allow_resize","kind":"Any","default":true},{"name":"allow_drag","kind":"Any","default":true},{"name":"state","kind":"Any","default":[]}]},{"type":"model","name":"drag1","properties":[{"name":"slider_width","kind":"Any","default":5},{"name":"slider_color","kind":"Any","default":"black"},{"name":"value","kind":"Any","default":50}]},{"type":"model","name":"click1","properties":[{"name":"terminal_output","kind":"Any","default":""},{"name":"debug_name","kind":"Any","default":""},{"name":"clears","kind":"Any","default":0}]},{"type":"model","name":"FastWrapper1","properties":[{"name":"object","kind":"Any","default":null},{"name":"style","kind":"Any","default":null}]},{"type":"model","name":"NotificationAreaBase1","properties":[{"name":"js_events","kind":"Any","default":{"type":"map"}},{"name":"position","kind":"Any","default":"bottom-right"},{"name":"_clear","kind":"Any","default":0}]},{"type":"model","name":"NotificationArea1","properties":[{"name":"js_events","kind":"Any","default":{"type":"map"}},{"name":"notifications","kind":"Any","default":[]},{"name":"position","kind":"Any","default":"bottom-right"},{"name":"_clear","kind":"Any","default":0},{"name":"types","kind":"Any","default":[{"type":"map","entries":[["type","warning"],["background","#ffc107"],["icon",{"type":"map","entries":[["className","fas fa-exclamation-triangle"],["tagName","i"],["color","white"]]}]]},{"type":"map","entries":[["type","info"],["background","#007bff"],["icon",{"type":"map","entries":[["className","fas fa-info-circle"],["tagName","i"],["color","white"]]}]]}]}]},{"type":"model","name":"Notification","properties":[{"name":"background","kind":"Any","default":null},{"name":"duration","kind":"Any","default":3000},{"name":"icon","kind":"Any","default":null},{"name":"message","kind":"Any","default":""},{"name":"notification_type","kind":"Any","default":null},{"name":"_destroyed","kind":"Any","default":false}]},{"type":"model","name":"TemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"BootstrapTemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"MaterialTemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]}]}};
+  var render_items = [{"docid":"ab1a1847-05b7-4077-b98c-e9ae80c14339","roots":{"p1002":"ab79ae08-d8fe-4e01-a729-9d9823e084ed"},"root_ids":["p1002"]}];
+  var docs = Object.values(docs_json)
+  if (!docs) {
+    return
+  }
+  const py_version = docs[0].version.replace('rc', '-rc.').replace('.dev', '-dev.')
+  const is_dev = py_version.indexOf("+") !== -1 || py_version.indexOf("-") !== -1
+  function embed_document(root) {
+    var Bokeh = get_bokeh(root)
+    Bokeh.embed.embed_items_notebook(docs_json, render_items);
+    for (const render_item of render_items) {
+      for (const root_id of render_item.root_ids) {
+	const id_el = document.getElementById(root_id)
+	if (id_el.children.length && (id_el.children[0].className === 'bk-root')) {
+	  const root_el = id_el.children[0]
+	  root_el.id = root_el.id + '-rendered'
+	}
+      }
+    }
+  }
+  function get_bokeh(root) {
+    if (root.Bokeh === undefined) {
+      return null
+    } else if (root.Bokeh.version !== py_version && !is_dev) {
+      if (root.Bokeh.versions === undefined || !root.Bokeh.versions.has(py_version)) {
+	return null
+      }
+      return root.Bokeh.versions.get(py_version);
+    } else if (root.Bokeh.version === py_version) {
+      return root.Bokeh
+    }
+    return null
+  }
+  function is_loaded(root) {
+    var Bokeh = get_bokeh(root)
+    return (Bokeh != null && Bokeh.Panel !== undefined)
+  }
+  if (is_loaded(root)) {
+    embed_document(root);
+  } else {
+    var attempts = 0;
+    var timer = setInterval(function(root) {
+      if (is_loaded(root)) {
+        clearInterval(timer);
+        embed_document(root);
+      } else if (document.readyState == "complete") {
+        attempts++;
+        if (attempts > 200) {
+          clearInterval(timer);
+	  var Bokeh = get_bokeh(root)
+	  if (Bokeh == null || Bokeh.Panel == null) {
+            console.warn("Panel: ERROR: Unable to run Panel code because Bokeh or Panel library is missing");
+	  } else {
+	    console.warn("Panel: WARNING: Attempting to render but not all required libraries could be resolved.")
+	    embed_document(root)
+	  }
+        }
+      }
+    }, 25, root)
+  }
+})(window);</script></div></div>
+</div>
 </section>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="temperature">
 <h1><span class="section-number">5. </span>(temperature)<a class="headerlink" href="#temperature" title="Permalink to this heading">#</a></h1>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">tmin_1900_19</span><span class="p">,</span> <span class="n">tmin_2000_19</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TtestResult(statistic=-5.720198743021243, pvalue=1.3779053112043898e-06, df=38.0)
-</pre></div>
-</div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tmin_ann</span> <span class="o">=</span> <span class="n">ds_cp_ann</span><span class="p">[</span><span class="s2">&quot;temp_min&quot;</span><span class="p">]</span>
@@ -1206,7 +2277,7 @@ array(0.74289966)</pre><div class='xr-wrap' style='display:none'><div class='xr-
 
 <span class="c1"># Plot all 20 values for each sample.</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">([</span><span class="mf">0.05</span><span class="p">]</span><span class="o">*</span><span class="mi">20</span><span class="p">,</span> <span class="n">tmin_1900_19</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">([</span><span class="mf">1.05</span><span class="p">]</span><span class="o">*</span><span class="mi">20</span><span class="p">,</span> <span class="n">tmin_2000_19</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">([</span><span class="mf">1.05</span><span class="p">]</span><span class="o">*</span><span class="mi">20</span><span class="p">,</span> <span class="n">tmin_2000_19</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
 
 <span class="c1"># Plot the sample mean and an error bar of plus or minus the sample standard deviation for each sample.</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">([</span><span class="o">-</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">],</span> <span class="p">[</span><span class="n">tmin_mean_1900_19</span><span class="p">,</span> <span class="n">tmin_mean_2000_19</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
@@ -1229,7 +2300,7 @@ array(48.6393772) &lt;xarray.DataArray &#39;temp_min&#39; ()&gt;
 array(2.28391871)
 </pre></div>
 </div>
-<img alt="../_images/90893b8332196276b0c80269be015cae895f7cc37612eadd83c8574173599260.png" src="../_images/90893b8332196276b0c80269be015cae895f7cc37612eadd83c8574173599260.png" />
+<img alt="../_images/a64911770d26fc22face666ac21f23dda0e261c62ea7eeff1a8f2bd6e36a20bb.png" src="../_images/a64911770d26fc22face666ac21f23dda0e261c62ea7eeff1a8f2bd6e36a20bb.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1247,7 +2318,7 @@ array(2.28391871)
  array([38.88767123, 40.32124843, 41.75482563, 43.18840283, 44.62198003,
         46.05555723, 47.48913443, 48.92271163, 50.35628883, 51.78986602,
         53.22344322]),
- [&lt;matplotlib.patches.Polygon at 0x163162e90&gt;])
+ [&lt;matplotlib.patches.Polygon at 0x171340bd0&gt;])
 </pre></div>
 </div>
 <img alt="../_images/b34a680b41f331c3142ddc21c25bcd0fc8a713fde4fdcbaac3f6adbb06c18c94.png" src="../_images/b34a680b41f331c3142ddc21c25bcd0fc8a713fde4fdcbaac3f6adbb06c18c94.png" />
@@ -1652,7 +2723,7 @@ dl.xr-attrs {
   fill: currentColor;
 }
 </style><pre class='xr-text-repr-fallback'>&lt;xarray.DataArray ()&gt;
-array(9.46171866)</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'></div></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-537cdffe-6bf0-4d89-85f6-de8a8028fc22' class='xr-array-in' type='checkbox' checked><label for='section-537cdffe-6bf0-4d89-85f6-de8a8028fc22' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>9.462</span></div><div class='xr-array-data'><pre>array(9.46171866)</pre></div></div></li><li class='xr-section-item'><input id='section-fcdf775b-94d1-40dc-a278-d4c9cc5fe15e' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-fcdf775b-94d1-40dc-a278-d4c9cc5fe15e' class='xr-section-summary'  title='Expand/collapse section'>Coordinates: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'></ul></div></li><li class='xr-section-item'><input id='section-9ecad709-2525-4201-a265-8cc06c2591cf' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-9ecad709-2525-4201-a265-8cc06c2591cf' class='xr-section-summary'  title='Expand/collapse section'>Indexes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'></ul></div></li><li class='xr-section-item'><input id='section-6de9dd16-2988-4a8f-afd1-5c08db865628' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-6de9dd16-2988-4a8f-afd1-5c08db865628' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
+array(9.46171866)</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'></div></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-bc27689f-e2bf-4199-8f99-32a20cd95be3' class='xr-array-in' type='checkbox' checked><label for='section-bc27689f-e2bf-4199-8f99-32a20cd95be3' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>9.462</span></div><div class='xr-array-data'><pre>array(9.46171866)</pre></div></div></li><li class='xr-section-item'><input id='section-6c0c1eae-24b6-4065-8c82-e28aefdd2e12' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-6c0c1eae-24b6-4065-8c82-e28aefdd2e12' class='xr-section-summary'  title='Expand/collapse section'>Coordinates: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'></ul></div></li><li class='xr-section-item'><input id='section-c12d3888-36a2-460b-965b-3bff0f6faeaa' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-c12d3888-36a2-460b-965b-3bff0f6faeaa' class='xr-section-summary'  title='Expand/collapse section'>Indexes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'></ul></div></li><li class='xr-section-item'><input id='section-6151feec-2ee5-4eeb-8ffb-ce1d0d3ec3c9' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-6151feec-2ee5-4eeb-8ffb-ce1d0d3ec3c9' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1673,6 +2744,18 @@ array(9.46171866)</pre><div class='xr-wrap' style='display:none'><div class='xr-
 </pre></div>
 </div>
 <img alt="../_images/aa52285eadac99deb824b1d6af9fd4c17e412b104b795fe7a5ed75c24ca3645c.png" src="../_images/aa52285eadac99deb824b1d6af9fd4c17e412b104b795fe7a5ed75c24ca3645c.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">tmin_1900_19</span><span class="p">,</span> <span class="n">tmin_2000_19</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TtestResult(statistic=-5.720198743021243, pvalue=1.3779053112043898e-06, df=38.0)
+</pre></div>
+</div>
 </div>
 </div>
 </section>
@@ -1718,11 +2801,11 @@ array(9.46171866)</pre><div class='xr-wrap' style='display:none'><div class='xr-
       </div>
     </a>
     <a class="right-next"
-       href="../assignments/hw-descriptive-statistics.html"
+       href="linear-regression.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">1. </span>Writing key quantities from descriptive statistics in Python yourself</p>
+        <p class="prev-next-title"><span class="section-number">6. </span>Linear regression</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1758,6 +2841,7 @@ array(9.46171866)</pre><div class='xr-wrap' style='display:none'><div class='xr-
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#performing-the-test">4.5. Performing the test</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-upshot">4.5.1. The upshot</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#incomplete-the-more-detailed-derivation-of-the-t-statistic">4.5.2. [incomplete] The more detailed derivation of the <span class="math notranslate nohighlight">\(t\)</span> statistic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-distributions-of-hat-mu-1-and-hat-mu-2">4.5.3. Step 1: distributions of <span class="math notranslate nohighlight">\(\hat\mu_1\)</span> and <span class="math notranslate nohighlight">\(\hat\mu_2\)</span></a></li>
 </ul>
 </li>
 </ul>

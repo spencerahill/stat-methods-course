@@ -18,14 +18,25 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-gauss_fit_vals = scipy.stats.norm(*gauss_fit).pdf(np.arange(0, 70))
+# Load the file from disk if you haven't already.
+import netCDF4
+ds_nc4  = netCDF4.Dataset("../data/central-park-station-data.nc", "r")
+
+plt.plot(ds_nc4["time"][:], ds_nc4["temp_avg"][:], linewidth=0.5)
 ------------------
 
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mNameError[0m                                 Traceback (most recent call last)
-Cell [0;32mIn[6], line 1[0m
-[0;32m----> 1[0m gauss_fit_vals [38;5;241m=[39m scipy[38;5;241m.[39mstats[38;5;241m.[39mnorm([38;5;241m*[39m[43mgauss_fit[49m)[38;5;241m.[39mpdf(np[38;5;241m.[39marange([38;5;241m0[39m, [38;5;241m70[39m))
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+Cell [0;32mIn[7], line 3[0m
+[1;32m      1[0m [38;5;66;03m# Load the file from disk if you haven't already.[39;00m
+[1;32m      2[0m [38;5;28;01mimport[39;00m [38;5;21;01mnetCDF4[39;00m
+[0;32m----> 3[0m ds_nc4  [38;5;241m=[39m [43mnetCDF4[49m[38;5;241;43m.[39;49m[43mDataset[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43m../data/central-park-station-data.nc[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[38;5;124;43m"[39;49m[38;5;124;43mr[39;49m[38;5;124;43m"[39;49m[43m)[49m
+[1;32m      5[0m plt[38;5;241m.[39mplot(ds_nc4[[38;5;124m"[39m[38;5;124mtime[39m[38;5;124m"[39m][:], ds_nc4[[38;5;124m"[39m[38;5;124mtemp_avg[39m[38;5;124m"[39m][:], linewidth[38;5;241m=[39m[38;5;241m0.5[39m)
 
-[0;31mNameError[0m: name 'gauss_fit' is not defined
+File [0;32msrc/netCDF4/_netCDF4.pyx:2464[0m, in [0;36mnetCDF4._netCDF4.Dataset.__init__[0;34m()[0m
+
+File [0;32msrc/netCDF4/_netCDF4.pyx:2027[0m, in [0;36mnetCDF4._netCDF4._ensure_nc_success[0;34m()[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: '../data/central-park-station-data.nc'
 

@@ -169,12 +169,14 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../lectures/probability-theory.html">3. Probability theory</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/hypothesis-tests.html">4. Hypothesis testing</a></li>
 
+<li class="toctree-l1"><a class="reference internal" href="../lectures/linear-regression.html">6. Linear regression</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="hw-descriptive-statistics.html">1. Writing key quantities from descriptive statistics in Python yourself</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">2. Generating core data visualizations on the Central Park weather dataset in Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hw-probability.html">3. Key concepts from probability theory and empirical probabilities computed from the Central Park weather dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw-hypoth-tests.html">4. Probability distributions and hypothesis tests homework assignment</a></li>
 </ul>
 
     </div>
@@ -216,6 +218,37 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="header-article-item">
 
 <div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/spencerahill/stat-methods-course/main/v2/gh/spencerahill/stat-methods-course/master?urlpath=tree/docs/assignments/hw-data-viz.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
 
 
 
@@ -418,7 +451,7 @@ document.write(`
 
 <span class="c1"># Load the Central Park dataset from disk.</span>
 <span class="c1"># Note: on my computer, the filepath below is the correct one.  But it probably won&#39;t be on yours!  Replace it as needed.</span>
-<span class="n">filepath_in</span> <span class="o">=</span> <span class="s2">&quot;../data/central-park-station-data.nc&quot;</span>
+<span class="n">filepath_in</span> <span class="o">=</span> <span class="s2">&quot;../data/central-park-station-data_1869-01-01_2023-09-30.nc&quot;</span>
 <span class="n">ds_central_park</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">filepath_in</span><span class="p">)</span>
 
 <span class="c1"># Draw randomly from a Gaussian distribution.</span>
@@ -797,21 +830,21 @@ dl.xr-attrs {
   fill: currentColor;
 }
 </style><pre class='xr-text-repr-fallback'>&lt;xarray.DataArray &#x27;toy&#x27; (time: 56520)&gt;
-array([-0.63450203, -1.48061244,  0.65396082, ...,  2.14116226,
-        1.12759686, -0.04024075])
+array([-1.1789655 ,  0.23811937, -1.28944887, ..., -1.09255625,
+       -1.42851221,  0.63692049])
 Coordinates:
-  * time     (time) datetime64[ns] 1869-01-01 1869-01-02 ... 2023-09-30</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'toy'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 56520</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-922a73d7-c951-442f-978f-780f299afceb' class='xr-array-in' type='checkbox' checked><label for='section-922a73d7-c951-442f-978f-780f299afceb' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>-0.6345 -1.481 0.654 -1.12 0.04828 ... 0.835 2.141 1.128 -0.04024</span></div><div class='xr-array-data'><pre>array([-0.63450203, -1.48061244,  0.65396082, ...,  2.14116226,
-        1.12759686, -0.04024075])</pre></div></div></li><li class='xr-section-item'><input id='section-899da78f-d501-4437-b80c-d81781f614b8' class='xr-section-summary-in' type='checkbox'  checked><label for='section-899da78f-d501-4437-b80c-d81781f614b8' class='xr-section-summary' >Coordinates: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1869-01-01 ... 2023-09-30</div><input id='attrs-8f56de86-aa09-48c3-bfd1-dc0e6129fec5' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-8f56de86-aa09-48c3-bfd1-dc0e6129fec5' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f7164be4-4bea-4ec2-8554-a577276f17b4' class='xr-var-data-in' type='checkbox'><label for='data-f7164be4-4bea-4ec2-8554-a577276f17b4' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([&#x27;1869-01-01T00:00:00.000000000&#x27;, &#x27;1869-01-02T00:00:00.000000000&#x27;,
+  * time     (time) datetime64[ns] 1869-01-01 1869-01-02 ... 2023-09-30</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'toy'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 56520</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-a5b73962-a83f-46c2-b103-dbf68d33bb50' class='xr-array-in' type='checkbox' checked><label for='section-a5b73962-a83f-46c2-b103-dbf68d33bb50' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>-1.179 0.2381 -1.289 -0.04883 1.486 ... -0.6849 -1.093 -1.429 0.6369</span></div><div class='xr-array-data'><pre>array([-1.1789655 ,  0.23811937, -1.28944887, ..., -1.09255625,
+       -1.42851221,  0.63692049])</pre></div></div></li><li class='xr-section-item'><input id='section-24a02bdd-f037-4c0a-b743-ecb01315055c' class='xr-section-summary-in' type='checkbox'  checked><label for='section-24a02bdd-f037-4c0a-b743-ecb01315055c' class='xr-section-summary' >Coordinates: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1869-01-01 ... 2023-09-30</div><input id='attrs-58d9197d-1f5d-4fd3-b84a-a6f2b7c492d3' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-58d9197d-1f5d-4fd3-b84a-a6f2b7c492d3' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-fd4e1a84-dd22-4ef7-85bd-94e1666cbd40' class='xr-var-data-in' type='checkbox'><label for='data-fd4e1a84-dd22-4ef7-85bd-94e1666cbd40' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([&#x27;1869-01-01T00:00:00.000000000&#x27;, &#x27;1869-01-02T00:00:00.000000000&#x27;,
        &#x27;1869-01-03T00:00:00.000000000&#x27;, ..., &#x27;2023-09-28T00:00:00.000000000&#x27;,
        &#x27;2023-09-29T00:00:00.000000000&#x27;, &#x27;2023-09-30T00:00:00.000000000&#x27;],
-      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-02b23483-617b-4356-815b-ad3e7f6dc261' class='xr-section-summary-in' type='checkbox'  ><label for='section-02b23483-617b-4356-815b-ad3e7f6dc261' class='xr-section-summary' >Indexes: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-e02cc98e-1f1b-42b9-98dc-2ab7e9564780' class='xr-index-data-in' type='checkbox'/><label for='index-e02cc98e-1f1b-42b9-98dc-2ab7e9564780' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;1869-01-01&#x27;, &#x27;1869-01-02&#x27;, &#x27;1869-01-03&#x27;, &#x27;1869-01-04&#x27;,
+      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-59c440cb-b247-42ed-b4a8-4f38b20f0503' class='xr-section-summary-in' type='checkbox'  ><label for='section-59c440cb-b247-42ed-b4a8-4f38b20f0503' class='xr-section-summary' >Indexes: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-e7ad2524-7279-4256-b7fb-a2a25a0f6a6d' class='xr-index-data-in' type='checkbox'/><label for='index-e7ad2524-7279-4256-b7fb-a2a25a0f6a6d' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;1869-01-01&#x27;, &#x27;1869-01-02&#x27;, &#x27;1869-01-03&#x27;, &#x27;1869-01-04&#x27;,
                &#x27;1869-01-05&#x27;, &#x27;1869-01-06&#x27;, &#x27;1869-01-07&#x27;, &#x27;1869-01-08&#x27;,
                &#x27;1869-01-09&#x27;, &#x27;1869-01-10&#x27;,
                ...
                &#x27;2023-09-21&#x27;, &#x27;2023-09-22&#x27;, &#x27;2023-09-23&#x27;, &#x27;2023-09-24&#x27;,
                &#x27;2023-09-25&#x27;, &#x27;2023-09-26&#x27;, &#x27;2023-09-27&#x27;, &#x27;2023-09-28&#x27;,
                &#x27;2023-09-29&#x27;, &#x27;2023-09-30&#x27;],
-              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, length=56520, freq=None))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-831cb6ba-5c76-4303-b456-129fd4d3be37' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-831cb6ba-5c76-4303-b456-129fd4d3be37' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
+              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, length=56520, freq=None))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-f7dfc2b7-9b84-46b1-8d03-d955b9da4732' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-f7dfc2b7-9b84-46b1-8d03-d955b9da4732' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
 </div>
 <p>Now, create the plots:</p>
 <div class="cell docutils container">
@@ -838,7 +871,7 @@ Coordinates:
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;count [unitless]&#39;)
 </pre></div>
 </div>
-<img alt="../_images/6aee69d4feccdce834dea2c073b6b459e60707eed065b94007093568cc59756a.png" src="../_images/6aee69d4feccdce834dea2c073b6b459e60707eed065b94007093568cc59756a.png" />
+<img alt="../_images/af962aea758202843666d67d052b754de050ee0a557d2e81ccf9a271ba161914.png" src="../_images/af962aea758202843666d67d052b754de050ee0a557d2e81ccf9a271ba161914.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -853,7 +886,7 @@ Coordinates:
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;toy data [unitless]&#39;)
 </pre></div>
 </div>
-<img alt="../_images/bf4e1e59e34886d23ddabf2b5c61fa280931ef357e9fbdd49f08799032967217.png" src="../_images/bf4e1e59e34886d23ddabf2b5c61fa280931ef357e9fbdd49f08799032967217.png" />
+<img alt="../_images/15ab5eafcdeb8e0b4f14f543b1db286dad2138f7dc7c079a53e72666db977250.png" src="../_images/15ab5eafcdeb8e0b4f14f543b1db286dad2138f7dc7c079a53e72666db977250.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -869,7 +902,7 @@ Coordinates:
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;toy data [unitless]&#39;)
 </pre></div>
 </div>
-<img alt="../_images/1524fbdeb036d5ea19933ce1889e454e5d6493d581a36706d50342a56b8752bd.png" src="../_images/1524fbdeb036d5ea19933ce1889e454e5d6493d581a36706d50342a56b8752bd.png" />
+<img alt="../_images/8471f91925e7a67ec6dcdc2ad2bd92adf15794b4bb8fb2b3310d66f1ec5f67e5.png" src="../_images/8471f91925e7a67ec6dcdc2ad2bd92adf15794b4bb8fb2b3310d66f1ec5f67e5.png" />
 </div>
 </div>
 <p>There you go.  (We’ll return to scatterplots further below.)</p>
@@ -901,7 +934,7 @@ Coordinates:
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0.98, &#39;Histogram, box-and-whisker, and timeseries plots of the toy array&#39;)
 </pre></div>
 </div>
-<img alt="../_images/79cf1b49183b82e38b03832cb9b23e5ccd5ec4d870ab039097dd1d9c21cc4f9d.png" src="../_images/79cf1b49183b82e38b03832cb9b23e5ccd5ec4d870ab039097dd1d9c21cc4f9d.png" />
+<img alt="../_images/a04f2c4c62c6ca52baee11f192f2da45eda2631eb4d5719ebd298ff42552ed73.png" src="../_images/a04f2c4c62c6ca52baee11f192f2da45eda2631eb4d5719ebd298ff42552ed73.png" />
 </div>
 </div>
 <section id="if-you-re-using-the-netcdf4-package">
@@ -921,10 +954,21 @@ Coordinates:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x164695ad0&gt;]
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Load the file from disk if you haven&#39;t already.</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">netCDF4</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">ds_nc4</span>  <span class="o">=</span> <span class="n">netCDF4</span><span class="o">.</span><span class="n">Dataset</span><span class="p">(</span><span class="s2">&quot;../data/central-park-station-data.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ds_nc4</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">][:],</span> <span class="n">ds_nc4</span><span class="p">[</span><span class="s2">&quot;temp_avg&quot;</span><span class="p">][:],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="nn">File src/netCDF4/_netCDF4.pyx:2464,</span> in <span class="ni">netCDF4._netCDF4.Dataset.__init__</span><span class="nt">()</span>
+
+<span class="nn">File src/netCDF4/_netCDF4.pyx:2027,</span> in <span class="ni">netCDF4._netCDF4._ensure_nc_success</span><span class="nt">()</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;../data/central-park-station-data.nc&#39;
 </pre></div>
 </div>
-<img alt="../_images/63bec26ae76d513a870d4b1e22423d699eccfb3e94f9d684974850ee6b3d3579.png" src="../_images/63bec26ae76d513a870d4b1e22423d699eccfb3e94f9d684974850ee6b3d3579.png" />
 </div>
 </div>
 <p>We don’t want that; we want the actual dates.  So if you’re using <code class="docutils literal notranslate"><span class="pre">netCDF4</span></code>, in order to get the array of dates, you can use the following lines of code (note that the <code class="docutils literal notranslate"><span class="pre">cftime</span></code> package is automatically installed when <code class="docutils literal notranslate"><span class="pre">netCDF4</span></code> is, so you should have it; but worst case do <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">cftime</span></code>):</p>
@@ -952,10 +996,10 @@ Coordinates:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x16483dc10&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x15a66ab10&gt;]
 </pre></div>
 </div>
-<img alt="../_images/e996d6252781c831622025a885cb3cb0c834ed64e471117ed4693b501fe8bfc2.png" src="../_images/e996d6252781c831622025a885cb3cb0c834ed64e471117ed4693b501fe8bfc2.png" />
+<img alt="../_images/2f3965e6a92bfccfeebbdce029ea021da51c102d1c30a36e3678a5da98a19c22.png" src="../_images/2f3965e6a92bfccfeebbdce029ea021da51c102d1c30a36e3678a5da98a19c22.png" />
 </div>
 </div>
 </section>

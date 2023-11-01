@@ -171,12 +171,14 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="probability-theory.html">3. Probability theory</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hypothesis-tests.html">4. Hypothesis testing</a></li>
 
+<li class="toctree-l1"><a class="reference internal" href="linear-regression.html">6. Linear regression</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../assignments/hw-descriptive-statistics.html">1. Writing key quantities from descriptive statistics in Python yourself</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../assignments/hw-data-viz.html">2. Generating core data visualizations on the Central Park weather dataset in Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../assignments/hw-probability.html">3. Key concepts from probability theory and empirical probabilities computed from the Central Park weather dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/hw-hypoth-tests.html">4. Probability distributions and hypothesis tests homework assignment</a></li>
 </ul>
 
     </div>
@@ -218,6 +220,37 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="header-article-item">
 
 <div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/spencerahill/stat-methods-course/main/v2/gh/spencerahill/stat-methods-course/master?urlpath=tree/docs/lectures/descriptive-statistics.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
 
 
 
@@ -440,7 +473,7 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
 
-<span class="n">filepath_in</span> <span class="o">=</span> <span class="s2">&quot;../data/central-park-station-data.nc&quot;</span>
+<span class="n">filepath_in</span> <span class="o">=</span> <span class="s2">&quot;../data/central-park-station-data_1869-01-01_2023-09-30.nc&quot;</span>
 <span class="n">ds_central_park</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">filepath_in</span><span class="p">)</span>
 <span class="n">precip_central_park</span> <span class="o">=</span> <span class="n">ds_central_park</span><span class="p">[</span><span class="s2">&quot;precip&quot;</span><span class="p">]</span>
 <span class="n">temp_central_park</span> <span class="o">=</span> <span class="n">ds_central_park</span><span class="p">[</span><span class="s2">&quot;temp_avg&quot;</span><span class="p">]</span>
@@ -919,7 +952,7 @@ dl.xr-attrs {
 </style><pre class='xr-text-repr-fallback'>&lt;xarray.DataArray &#x27;precip&#x27; (quantile: 4)&gt;
 array([0.  , 0.  , 0.05, 1.71])
 Coordinates:
-  * quantile  (quantile) float64 0.25 0.5 0.75 0.99</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'precip'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>quantile</span>: 4</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-26bf73dd-b590-494d-aab2-95971f68a73e' class='xr-array-in' type='checkbox' checked><label for='section-26bf73dd-b590-494d-aab2-95971f68a73e' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>0.0 0.0 0.05 1.71</span></div><div class='xr-array-data'><pre>array([0.  , 0.  , 0.05, 1.71])</pre></div></div></li><li class='xr-section-item'><input id='section-4d64b5fd-dd79-40bf-9a06-1330dc361d14' class='xr-section-summary-in' type='checkbox'  checked><label for='section-4d64b5fd-dd79-40bf-9a06-1330dc361d14' class='xr-section-summary' >Coordinates: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>quantile</span></div><div class='xr-var-dims'>(quantile)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>0.25 0.5 0.75 0.99</div><input id='attrs-f1ea117d-bfbf-4da3-9cb8-f8862843a27e' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-f1ea117d-bfbf-4da3-9cb8-f8862843a27e' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b52ba559-05b0-4882-9d24-f043ed7062dd' class='xr-var-data-in' type='checkbox'><label for='data-b52ba559-05b0-4882-9d24-f043ed7062dd' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([0.25, 0.5 , 0.75, 0.99])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-e3c2fa95-8611-47d0-9051-04d3b0ca8e86' class='xr-section-summary-in' type='checkbox'  ><label for='section-e3c2fa95-8611-47d0-9051-04d3b0ca8e86' class='xr-section-summary' >Indexes: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>quantile</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-028f1d18-e689-4236-8923-aca0bfc139e9' class='xr-index-data-in' type='checkbox'/><label for='index-028f1d18-e689-4236-8923-aca0bfc139e9' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([0.25, 0.5, 0.75, 0.99], dtype=&#x27;float64&#x27;, name=&#x27;quantile&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-490a4fbd-d5e4-4597-8ceb-8a4d2c6a158d' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-490a4fbd-d5e4-4597-8ceb-8a4d2c6a158d' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
+  * quantile  (quantile) float64 0.25 0.5 0.75 0.99</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'precip'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>quantile</span>: 4</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-341758d3-1b25-471d-8689-0d4caa7d16d5' class='xr-array-in' type='checkbox' checked><label for='section-341758d3-1b25-471d-8689-0d4caa7d16d5' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>0.0 0.0 0.05 1.71</span></div><div class='xr-array-data'><pre>array([0.  , 0.  , 0.05, 1.71])</pre></div></div></li><li class='xr-section-item'><input id='section-c86b8dea-445b-4c7f-9f09-ce0cb4446d29' class='xr-section-summary-in' type='checkbox'  checked><label for='section-c86b8dea-445b-4c7f-9f09-ce0cb4446d29' class='xr-section-summary' >Coordinates: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>quantile</span></div><div class='xr-var-dims'>(quantile)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>0.25 0.5 0.75 0.99</div><input id='attrs-eb61db9f-f268-4e7d-977c-014d842e5018' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-eb61db9f-f268-4e7d-977c-014d842e5018' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-1919b07b-b9a6-472d-a7f3-0e2b27ad38f1' class='xr-var-data-in' type='checkbox'><label for='data-1919b07b-b9a6-472d-a7f3-0e2b27ad38f1' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([0.25, 0.5 , 0.75, 0.99])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-c9277fd1-2d9d-42ae-a609-cd2d8186ba0e' class='xr-section-summary-in' type='checkbox'  ><label for='section-c9277fd1-2d9d-42ae-a609-cd2d8186ba0e' class='xr-section-summary' >Indexes: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>quantile</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-e4548132-4a89-459e-ac52-6306db259f8c' class='xr-index-data-in' type='checkbox'/><label for='index-e4548132-4a89-459e-ac52-6306db259f8c' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([0.25, 0.5, 0.75, 0.99], dtype=&#x27;float64&#x27;, name=&#x27;quantile&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-4db3582c-a649-4c32-9ef4-45e1e6b6cea2' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-4db3582c-a649-4c32-9ef4-45e1e6b6cea2' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
 </div>
 <p>So in this case, the bottom 75% of points span only a 0.05 inch range, while the 75th to 99th percentile spans 1.66 inches!</p>
 </section>
