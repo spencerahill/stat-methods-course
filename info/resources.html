@@ -168,8 +168,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../lectures/descriptive-statistics.html">2. Descriptive Statistics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/probability-theory.html">3. Probability theory</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/hypothesis-tests.html">4. Hypothesis testing</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="../lectures/linear-regression.html">6. Linear regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/linear-regression.html">5. Linear regression</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
@@ -177,6 +176,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../assignments/hw-data-viz.html">2. Generating core data visualizations on the Central Park weather dataset in Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../assignments/hw-probability.html">3. Key concepts from probability theory and empirical probabilities computed from the Central Park weather dataset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../assignments/hw-hypoth-tests.html">4. Probability distributions and hypothesis tests homework assignment</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Final Project</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../final-project/final-project.html">Final project requirements</a></li>
 </ul>
 
     </div>
@@ -370,11 +373,17 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#required-but-free-textbook">Required (but free!) textbook</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recommended-and-free-textbook">Recommended (and free!) textbook</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-supplemental-materials">Optional, supplemental materials</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#textbooks-and-lecture-notes">Textbooks and lecture notes</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#videos">Videos</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#online-courses">Online courses</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computing">Computing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-basics">Python basics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#anaconda">Anaconda</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#managing-python-environments-and-packages">Managing python environments and packages</a></li>
 </ul>
 </li>
 </ul>
@@ -392,8 +401,8 @@ document.write(`
 <h1>Resources<a class="headerlink" href="#resources" title="Permalink to this heading">#</a></h1>
 <p>There are <em>tons</em> of resources available online that will help you in learning statistical methods.  Here are a few that have come to my attention that may be particularly useful.</p>
 <p>Note that this will be amended / added to as the semester goes on.  And if you have something you find valuable that isn’t on here, please share it!</p>
-<section id="required-but-free-textbook">
-<h2>Required (but free!) textbook<a class="headerlink" href="#required-but-free-textbook" title="Permalink to this heading">#</a></h2>
+<section id="recommended-and-free-textbook">
+<h2>Recommended (and free!) textbook<a class="headerlink" href="#recommended-and-free-textbook" title="Permalink to this heading">#</a></h2>
 <p><a class="reference external" href="https://link.springer.com/book/10.1007/978-3-031-07719-7"><em>Python Recipes for Earth Sciences</em> by Martin H. Trauth</a>.  PDF version is free.</p>
 </section>
 <section id="optional-supplemental-materials">
@@ -420,6 +429,42 @@ document.write(`
 <ul class="simple">
 <li><p><a class="reference external" href="https://geo-python-site.readthedocs.io/en/latest/index.html">Geo-Python course</a></p></li>
 <li><p><a class="reference external" href="https://users.monash.edu.au/~dietmard/teaching/statistics-for-climate-reserach/"><em>Statistics for Climate Dynamics</em> course by Dietmar Dommenget, University of Monash</a></p></li>
+</ul>
+</section>
+</section>
+<section id="computing">
+<h2>Computing<a class="headerlink" href="#computing" title="Permalink to this heading">#</a></h2>
+<section id="python-basics">
+<h3>Python basics<a class="headerlink" href="#python-basics" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Official Python (“docs”): <a class="reference external" href="https://www.python.org/doc/">https://www.python.org/doc/</a></p></li>
+<li><p>Official Python beginner’s guide: <a class="reference external" href="https://wiki.python.org/moin/BeginnersGuide">https://wiki.python.org/moin/BeginnersGuide</a></p></li>
+</ul>
+</section>
+<section id="anaconda">
+<h3>Anaconda<a class="headerlink" href="#anaconda" title="Permalink to this heading">#</a></h3>
+<p>Anaconda/conda distributions of python are the strongly recommended way to use python.</p>
+<ul class="simple">
+<li><p>Official website: <a class="reference external" href="https://www.anaconda.com/">https://www.anaconda.com/</a></p></li>
+<li><p>For those on Windows and for anybody new to Python, I recommend installing the Anaconda distribution on your laptop: <a class="reference external" href="https://www.anaconda.com/download">https://www.anaconda.com/download</a></p></li>
+<li><p>For those on MacOS or Linux with more programming experience, I recommend installing the lightweight “miniconda” distribution instead and learning to work with it from the command line: <a class="reference external" href="https://docs.conda.io/projects/miniconda/en/latest/">https://docs.conda.io/projects/miniconda/en/latest/</a></p></li>
+</ul>
+</section>
+<section id="managing-python-environments-and-packages">
+<h3>Managing python environments and packages<a class="headerlink" href="#managing-python-environments-and-packages" title="Permalink to this heading">#</a></h3>
+<p>Benefits of using Python environments rather than a single installation:</p>
+<ul class="simple">
+<li><p>Precise control for each class/project/etc. on exactly what packages you want installed.  (Suppose one project you’re working on uses some old legacy code that requires Python 2, whereas at this point everything else runs Python 3.)</p></li>
+<li><p>Via conda/anaconda, automated installation of required non-python dependencies as well</p></li>
+<li><p>On shared computing clusters where you don’t have “root” access, ability to install packages and run things (like Jupyter!) in your home directory rather than having to go through the sysadmin</p></li>
+<li><p>Ability to experiment with updated versions of things without worrying about breaking your stuff.  For example, latest Python version, 3.12, just came out.  Some packages might not have support for it yet, but you can create a dedicated “python312” environment to try it out without worrying about breaking your other stuff</p></li>
+<li><p>Conda environments underlie modern cloud-based data science and scientific computation…Binder, cloud service providers, all of these rely on conda environments</p></li>
+</ul>
+<p>Online resources:</p>
+<ul class="simple">
+<li><p>Managing environments using Anaconda Navigator: <a class="reference external" href="https://docs.anaconda.com/free/navigator/tutorials/manage-environments/">https://docs.anaconda.com/free/navigator/tutorials/manage-environments/</a></p></li>
+<li><p>Managing environments using <code class="docutils literal notranslate"><span class="pre">conda</span></code>: <a class="reference external" href="https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#create-env-file-manually">https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#create-env-file-manually</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mamba</span></code> drop-in replacement for <code class="docutils literal notranslate"><span class="pre">conda</span></code> (does everything much faster and has additional nice features): <a class="reference external" href="https://mamba.readthedocs.io/en/latest/index.html">https://mamba.readthedocs.io/en/latest/index.html</a></p></li>
 </ul>
 </section>
 </section>
@@ -492,11 +537,17 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#required-but-free-textbook">Required (but free!) textbook</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recommended-and-free-textbook">Recommended (and free!) textbook</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-supplemental-materials">Optional, supplemental materials</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#textbooks-and-lecture-notes">Textbooks and lecture notes</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#videos">Videos</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#online-courses">Online courses</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computing">Computing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-basics">Python basics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#anaconda">Anaconda</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#managing-python-environments-and-packages">Managing python environments and packages</a></li>
 </ul>
 </li>
 </ul>

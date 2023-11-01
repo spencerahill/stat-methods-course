@@ -1,0 +1,802 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Final project requirements &#8212; Statistical</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'final-project/final-project';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="4. Probability distributions and hypothesis tests homework assignment" href="../assignments/hw-hypoth-tests.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../home.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../home.html">
+                    EAS42000: Statistical Methods in Earth and Atmospheric Science
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Information</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../info/syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../info/schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../info/resources.html">Resources</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lectures/intro.html">1. Introduction to <em>Statistical Methods in Earth and Atmospheric Sciences</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/descriptive-statistics.html">2. Descriptive Statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/probability-theory.html">3. Probability theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/hypothesis-tests.html">4. Hypothesis testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/linear-regression.html">5. Linear regression</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../assignments/hw-descriptive-statistics.html">1. Writing key quantities from descriptive statistics in Python yourself</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/hw-data-viz.html">2. Generating core data visualizations on the Central Park weather dataset in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/hw-probability.html">3. Key concepts from probability theory and empirical probabilities computed from the Central Park weather dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/hw-hypoth-tests.html">4. Probability distributions and hypothesis tests homework assignment</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Final Project</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Final project requirements</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/spencerahill/stat-methods-course/main/v2/gh/spencerahill/stat-methods-course/master?urlpath=tree/docs/final-project/final-project.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/spencerahill/stat-methods-course" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/spencerahill/stat-methods-course/issues/new?title=Issue%20on%20page%20%2Ffinal-project/final-project.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/final-project/final-project.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Final project requirements</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#topic-and-dataset">Topic and dataset</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#final-report">Final report</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overall-scope">Overall scope</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#format-jupyter-notebook">Format: Jupyter Notebook</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notebook-contents">Notebook contents</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notebook-structure-same-as-a-normal-written-report-would-be">Notebook structure: same as a normal written report would be</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#incomplete-required-calculations-to-incorporate">(incomplete) Required calculations to incorporate</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-class-presentation">In-class presentation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#format">Format</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logistics">Logistics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#presentation-requirements">Presentation requirements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#guidelines">Guidelines</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#presentation-scope">Presentation scope</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#narrative">Narrative</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#presentation-structure">Presentation structure</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#slides">Slides</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#delivering-the-presentation">Delivering the presentation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#answering-questions">Answering questions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deadlines">Deadlines</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grading-your-presentation">Grading, your presentation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grading-participation">Grading, participation</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="final-project-requirements">
+<h1>Final project requirements<a class="headerlink" href="#final-project-requirements" title="Permalink to this heading">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
+<section id="overview">
+<h3>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h3>
+<p>In the final project, you will apply some of the statistical methods learned throughout the course to a real-world problem in Earth and Atmospheric Sciences of your choosing. In consultation with the professor, you will select a topic of interest; then you will conduct data analysis, write a final report (in the form of a self-contained, fully executable Jupyter Notebook), and present your findings to the class.</p>
+<p>The grade will be based on the final report and presentation, both equally weighted. The presentations will be split over two class periods, tentatively scheduled for Monday, December 4th and Wednesday, December 6th.</p>
+</section>
+<section id="topic-and-dataset">
+<h3>Topic and dataset<a class="headerlink" href="#topic-and-dataset" title="Permalink to this heading">#</a></h3>
+<p>By now, each of you has already met with the professor, agreed upon a scientific topic, and selected one or more datasets to analyze.</p>
+</section>
+</section>
+<section id="final-report">
+<h2>Final report<a class="headerlink" href="#final-report" title="Permalink to this heading">#</a></h2>
+<section id="overall-scope">
+<h3>Overall scope<a class="headerlink" href="#overall-scope" title="Permalink to this heading">#</a></h3>
+<p>There are two goals of the final report:</p>
+<ol class="arabic simple">
+<li><p>(Most important) demonstrate your mastery of select concepts (listed below) we have learned in class, by applying them to your dataset in a way that is in service of the scientific question you seek to answer.</p></li>
+<li><p>Use those calculations to actually make some progress toward answering your chosen scientific question.</p></li>
+</ol>
+<p>Note, however, that you will not be directly graded on the scientific <em>outcomes</em>.  It could be that your analyses generate statistically unclear signals, even though you did them correctly.  That still is <em>progress</em>: it’s often just as important to know what things are <em>not</em> related as what things <em>are</em> related.</p>
+</section>
+<section id="format-jupyter-notebook">
+<h3>Format: Jupyter Notebook<a class="headerlink" href="#format-jupyter-notebook" title="Permalink to this heading">#</a></h3>
+<p>The final report will be submitted as a Jupyter Notebook.</p>
+<p>It will be bundled together with the data you are using along with an <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> file that specifies all of the python packages that it requires.  With that all together, the professor will be able to execute the whole notebook in order to verify that the calculations work.</p>
+<p>More details on how to bundle the project data and on the <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> file will follow.</p>
+</section>
+<section id="notebook-contents">
+<h3>Notebook contents<a class="headerlink" href="#notebook-contents" title="Permalink to this heading">#</a></h3>
+<p>Like the homework assignments, the notebook will be a mixture of Markdown cells containing mostly text and code cells that perform your analyses and generate your plots.</p>
+</section>
+<section id="notebook-structure-same-as-a-normal-written-report-would-be">
+<h3>Notebook structure: same as a normal written report would be<a class="headerlink" href="#notebook-structure-same-as-a-normal-written-report-would-be" title="Permalink to this heading">#</a></h3>
+<p>Though it is written as an interactive Jupyter Notebook, your final report should be organized and read as if it were a standard scientific report written in say Microsoft Word or LaTeX.  This means is should:</p>
+<ul class="simple">
+<li><p>be organized into labeled and numbered sections and subsections (Use hash-signs in markdown cells for this: starting a line with <code class="docutils literal notranslate"><span class="pre">#</span></code> makes it a top-level heading; <code class="docutils literal notranslate"><span class="pre">##</span></code> 2nd level heading, <code class="docutils literal notranslate"><span class="pre">###</span></code> 3rd level, etc.)</p></li>
+<li><p>be written in complete English sentences, organized into paragraphs and sections.</p></li>
+<li><p>be free of grammatical, spelling, or other similar errors.</p></li>
+</ul>
+<p>Perhaps a useful way to think about it is: imagine that the code blocks were stripped out, and only their outputs kept.  The resulting document should look and read basically like a standard final report would look and read.</p>
+</section>
+<section id="incomplete-required-calculations-to-incorporate">
+<h3>(incomplete) Required calculations to incorporate<a class="headerlink" href="#incomplete-required-calculations-to-incorporate" title="Permalink to this heading">#</a></h3>
+<p>(Things that are on this list will not be removed, but additional items will be added as we cover them in class.  You will be notified when the list is fully finalized.)</p>
+<p>The following calculations <strong>must</strong> be executed, presented, and described:</p>
+<p>From Intro and numeracy:</p>
+<ul class="simple">
+<li><p>thorough explanation of the dataset: time span, location, physical quantities being observed, instruments used to measure them</p></li>
+<li><p>any other salient metadata: e.g. changes in instrumentation, change in location, calibration issues, spatial coverage</p></li>
+</ul>
+<p>From Descriptive statistics:</p>
+<ul class="simple">
+<li><p>mean and median of at least one key quantity</p></li>
+<li><p>range, IQR, sample variance, sample standard deviation of at least one key quantity</p></li>
+<li><p>skewness and kurtosis of at least one key quantity</p></li>
+</ul>
+<p>From Data visualization:</p>
+<ul class="simple">
+<li><p>at least one each of: histogram, boxplot, scatterplot, and timeseries (unless the data are not defined in time)</p></li>
+</ul>
+<p>From Probability theory:</p>
+<ul class="simple">
+<li><p>at least two empirical unconditional probabilities</p></li>
+<li><p>at least two empirical conditional probabilities</p></li>
+</ul>
+<p>From Probability distributions:</p>
+<ul class="simple">
+<li><p>empirical PDFs and CDFs</p></li>
+<li><p>a fitted normal distribution</p></li>
+</ul>
+<p>From Hypothesis testing:</p>
+<ul class="simple">
+<li><p>at least one <span class="math notranslate nohighlight">\(t\)</span> test of differences in means between two samples</p></li>
+</ul>
+<p>From Linear regression:</p>
+<ul class="simple">
+<li><p>at least two correlation coefficients computed and discussed</p></li>
+<li><p>at least one variable modeled by linear regression on another variable, including disucssion of goodness of fit</p></li>
+</ul>
+</section>
+</section>
+<section id="in-class-presentation">
+<h2>In-class presentation<a class="headerlink" href="#in-class-presentation" title="Permalink to this heading">#</a></h2>
+<p>Each student will present a “conference-style” oral presentation to the class summarizing their final project.  “Conference style” means that it follows the format of a standard oral presentation typical of major conferences in Earth Sciences such as the <a class="reference external" href="https://www.agu.org/">American Geophysical Union</a> <a class="reference external" href="https://www.agu.org/Fall-Meeting">Fall Meeting</a> and the <a class="reference external" href="https://www.ametsoc.org">American Meteorological Society</a> <a class="reference external" href="https://annual.ametsoc.org">Annual Meeting</a>.</p>
+<section id="format">
+<h3>Format<a class="headerlink" href="#format" title="Permalink to this heading">#</a></h3>
+<p>Conference style means the following:</p>
+<ul class="simple">
+<li><p>Total duration: 10 minutes</p></li>
+<li><p>Presentation: 8 minutes</p></li>
+<li><p>Questions from the audience: 2 minutes</p></li>
+</ul>
+<p>(The more standard conference length is 15 minutes, 12 for the talk and then 3 for Q&amp;A, but to get the whole class in we have to do a shorter style.  Also, since COVID, more conferences are doing shorter talks for various reasons.)</p>
+</section>
+<section id="logistics">
+<h3>Logistics<a class="headerlink" href="#logistics" title="Permalink to this heading">#</a></h3>
+<p>The presentations will be split across two class days:</p>
+<ul class="simple">
+<li><p>Monday, December 4th (6 students)</p></li>
+<li><p>Wednesday, December 6th (7 students)</p></li>
+</ul>
+<p>You must attend <strong>BOTH</strong> days to receive full credit, because you will be submitting a written question or comment on every other student’s presentation.  These questions will be graded, as described below.</p>
+</section>
+<section id="presentation-requirements">
+<h3>Presentation requirements<a class="headerlink" href="#presentation-requirements" title="Permalink to this heading">#</a></h3>
+<p>You must include slides.  These can be in Powerpoint, Keynote, Google Slides, or anything else.  You will submit these and they will be evaluated on their own in addition to your actual delivery of the presentation.  Guidelines below offer recommendations, but ultimately there are no hard requirements on the actual content of your slides.</p>
+<p>Specific instructions on how to submit your slides will be posted later.</p>
+</section>
+<section id="guidelines">
+<h3>Guidelines<a class="headerlink" href="#guidelines" title="Permalink to this heading">#</a></h3>
+<section id="presentation-scope">
+<h4>Presentation scope<a class="headerlink" href="#presentation-scope" title="Permalink to this heading">#</a></h4>
+<p>Whereas the written report for this project is meant to be fairly exhaustive, where you document <em>all</em> the important analyses that you performed, an oral presentation has to be more targeted.  Eight minutes will fly by!  So ask yourself: if you had to pick just <em>one</em> thing that you want to convey about your project, what would it be?  Then build your talk around that.</p>
+</section>
+<section id="narrative">
+<h4>Narrative<a class="headerlink" href="#narrative" title="Permalink to this heading">#</a></h4>
+<p>Human beings are storytellers.  We understand and retain things best when they are presented as a coherent <em>narrative</em>, with a beginning, middle, and end.  (Actually, we retain them best of all when they are put to music, but I won’t ask you to sing your presentation.)</p>
+<p>This approach of creating a <em>narrative</em> can be contrasted with what’s unfortunately more typical in scientific presentations (and teaching writ large): a “data dump” listing one fact after the other without linking things together.</p>
+<p>So before you start hacking away at slides, a useful first step is to write down the <em>thesis statement</em> of your presentation: what’s the 1 sentence summary of what you want to convey?  From there, you can craft a narrative with an intro that motivates that problem (“beginning”), a main, middle section that actually conveys it (“middle”), and an end that synthesizes the  individual things you presented (“end”) and leaves the audience wanting more.</p>
+</section>
+<section id="presentation-structure">
+<h4>Presentation structure<a class="headerlink" href="#presentation-structure" title="Permalink to this heading">#</a></h4>
+<blockquote class="epigraph">
+<div><p>Tell the audience what you’re going to say, say it;
+then tell them what you’ve said.</p>
+<p class="attribution">—Dale Carnegie</p>
+</div></blockquote>
+<p>(source: <a class="reference external" href="https://www.genardmethod.com/blog/bid/192061/how-to-open-a-presentation-tell-em-what-you-re-going-to-say">https://www.genardmethod.com/blog/bid/192061/how-to-open-a-presentation-tell-em-what-you-re-going-to-say</a>)</p>
+<p>A good rule of thumb is 1 minute per slide <em>on average</em> over your whole presentation.  So for an 8 minute talk (not 10!  the last 2 are for Q&amp;A), you should aim for 10 slides.  This suggests the following template:</p>
+<ol class="arabic simple">
+<li><p>Title slide: who are you, what’s the overall topic you’ll be presenting</p></li>
+<li><p>Motivation: what is the big-picture topic you’re addressing, and why is it important and/or interesting?  (I.e. why should we care?)</p></li>
+<li><p>Introduction of your specific analyses: what, in broad strokes, did <em>you</em> do to address it?</p></li>
+<li><p>Talk outline (“tell the audience what you’re going to say”): <span class="math notranslate nohighlight">\(\leq\)</span>1 sentence summary of each of your <span class="math notranslate nohighlight">\(\leq\)</span>3 main points</p></li>
+<li><p>Main point 1</p></li>
+<li><p>More on main point 1</p></li>
+<li><p>Main point 2</p></li>
+<li><p>More on main point 2</p></li>
+<li><p>Recap (“tell them what you’ve said”): this can be <em>identical</em> to your outline slide: hammer home the key takeaways</p></li>
+<li><p>Discussion: where is this going / could this go from here?  What are the implications?</p></li>
+</ol>
+</section>
+<section id="slides">
+<h4>Slides<a class="headerlink" href="#slides" title="Permalink to this heading">#</a></h4>
+<p>Some guidelines:</p>
+<ul class="simple">
+<li><p>Less is more.</p></li>
+<li><p>Make each slide do one thing, not multiple things.</p></li>
+<li><p>Make each slide’s title a complete sentence that summarizes the main point you want the slide to convey</p></li>
+<li><p>Some text is helpful, but usually people include too much.  Boil it down to the essentials.</p></li>
+<li><p>Plots: describe in words every single image you include.  This is for accessibility, but also because otherwise the audience won’t be able to t</p></li>
+<li><p>Make all text, plot labels, plotted symbols, and images big enough that everyone in the room can read them.</p></li>
+<li><p>Give your slides some breathing room: a slide that’s totally full with</p></li>
+<li><p>Dispense with “slidejunk”: you don’t need slide numbers, logos, the date, etc. on every slide.  (Except for a logo of your institution on the title slide, you don’t even need these anywhere!)</p></li>
+<li><p>If the professor’s own slides for this class fail to meet these recommendations sometimes, well, “Do as I say, not as I do” ;)</p></li>
+</ul>
+</section>
+</section>
+<section id="delivering-the-presentation">
+<h3>Delivering the presentation<a class="headerlink" href="#delivering-the-presentation" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Try not to worry!  Public speaking can be intimidating, but especially in this setting everyone, the professor and the other students, are there to support you and learn from you.</p></li>
+<li><p>Practice the talk at least once ahead of time <strong>with a timer</strong>.  Make sure that you’re within the 12 minute time limit.  Nobody likes a talk that goes way beyond its allotted time; it’s rude to the audience and the other presenters.</p></li>
+<li><p>Don’t be afraid of silence.  For the audience, it’s actually a huge relief when a speaker takes a few seconds between slides or to take a sip of water.  It helps the audience take a second to gather their thoughts.</p></li>
+</ul>
+</section>
+<section id="answering-questions">
+<h3>Answering questions<a class="headerlink" href="#answering-questions" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>It can be helpful for everybody, yourself included, to repeat the question back to the person in your own words for two reasons: (1) you make sure everyone in the audience heard it.  (2) You make sure that you interpreted the question correctly.</p></li>
+<li><p>Once you’ve confirmed you understand what they’re asking, take a second (or a few)!  There’s no</p></li>
+<li><p>If you don’t know the answer to a question, that’s OK!</p></li>
+</ul>
+</section>
+<section id="deadlines">
+<h3>Deadlines<a class="headerlink" href="#deadlines" title="Permalink to this heading">#</a></h3>
+<p>You must submit your final slides before midnight the night prior to your presentation.  So that’s:</p>
+<ul class="simple">
+<li><p>Sunday, December 3rd by 11:59pm if you’re presenting on 12/4</p></li>
+<li><p>Tuesday, December 5th by 11:58pm if you’re presenting on 12/6</p></li>
+</ul>
+<p>The professor will download the submitted slides to his computer the morning before class, and everyone will use the same computer to present (rather than each person trying to connect their own computer to the A/V system one after the other).</p>
+</section>
+<section id="grading-your-presentation">
+<h3>Grading, your presentation<a class="headerlink" href="#grading-your-presentation" title="Permalink to this heading">#</a></h3>
+<p>Your presentation will be graded based on the following:</p>
+<ul class="simple">
+<li><p>Narrative quality: do you tell a “scientific story” with a coherent beginning, middle, and end?</p></li>
+<li><p>Slide quality: do your slides</p></li>
+<li><p>Length: did you complete your presentation within the 12 minute time limit?  Or did you go over?  (To ensure</p></li>
+<li><p>Answering questions: do you</p></li>
+</ul>
+</section>
+<section id="grading-participation">
+<h3>Grading, participation<a class="headerlink" href="#grading-participation" title="Permalink to this heading">#</a></h3>
+<p>You will be required to submit in writing one question and one piece of constructive criticism for each classmate’s presentation.</p>
+<ul class="simple">
+<li><p>Question: what in the presentation would you like to know more about?  Or something you didn’t understand that you’d like clarified?</p></li>
+<li><p>Constructive criticism: this could be positive—something the presenter did well.  Or, if delivered <em>respectfully and fairly</em>, something you’d recommend changing or that didn’t quite land for you.</p></li>
+</ul>
+<p>Afterwards, all students will be provided the ANONYMIZED questions and answers from their classmates.</p>
+<p>Details on precisely how these will be submitted will be posted later.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./final-project"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../assignments/hw-hypoth-tests.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>Probability distributions and hypothesis tests homework assignment</p>
+      </div>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#topic-and-dataset">Topic and dataset</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#final-report">Final report</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overall-scope">Overall scope</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#format-jupyter-notebook">Format: Jupyter Notebook</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notebook-contents">Notebook contents</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notebook-structure-same-as-a-normal-written-report-would-be">Notebook structure: same as a normal written report would be</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#incomplete-required-calculations-to-incorporate">(incomplete) Required calculations to incorporate</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-class-presentation">In-class presentation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#format">Format</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logistics">Logistics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#presentation-requirements">Presentation requirements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#guidelines">Guidelines</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#presentation-scope">Presentation scope</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#narrative">Narrative</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#presentation-structure">Presentation structure</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#slides">Slides</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#delivering-the-presentation">Delivering the presentation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#answering-questions">Answering questions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deadlines">Deadlines</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grading-your-presentation">Grading, your presentation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grading-participation">Grading, participation</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Spencer A. Hill
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
