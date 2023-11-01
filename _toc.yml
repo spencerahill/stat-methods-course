@@ -24,4 +24,8 @@ parts:
       - file: assignments/hw-data-viz
       - file: assignments/hw-probability
       - file: assignments/hw-hypoth-tests
+  - caption: Final Project
+    numbered: 0
+    chapters:
+      - file: final-project/final-project
 
