@@ -4,7 +4,7 @@ clean:
 	jb clean -a ${ROOTDIR}
 
 build:
-	jb build ${ROOTDIR}
+	PYDEVD_DISABLE_FILE_VALIDATION=1 jb build ${ROOTDIR}
 ghp-import:
 	ghp-import -n -p -f ${ROOTDIR}/_build/html
 
