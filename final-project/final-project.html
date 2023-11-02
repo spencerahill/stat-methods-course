@@ -411,14 +411,17 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#final-report">Final report</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#due-date-friday-december-15th-by-11-59pm-et">Due date: Friday, December 15th, by 11:59pm ET</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overall-scope">Overall scope</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#format-jupyter-notebook">Format: Jupyter Notebook</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notebook-contents">Notebook contents</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notebook-structure-same-as-a-normal-written-report-would-be">Notebook structure: same as a normal written report would be</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#incomplete-required-calculations-to-incorporate">(incomplete) Required calculations to incorporate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-blocks-excess-code-style-commenting-etc">Code blocks: excess code, style, commenting, etc.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#required-calculations-to-incorporate">Required calculations to incorporate</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-class-presentation">In-class presentation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deadlines">Deadlines</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#format">Format</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logistics">Logistics</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#presentation-requirements">Presentation requirements</a></li>
@@ -431,7 +434,6 @@ document.write(`
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#delivering-the-presentation">Delivering the presentation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#answering-questions">Answering questions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deadlines">Deadlines</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grading-your-presentation">Grading, your presentation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grading-participation">Grading, participation</a></li>
 </ul>
@@ -463,6 +465,10 @@ document.write(`
 </section>
 <section id="final-report">
 <h2>Final report<a class="headerlink" href="#final-report" title="Permalink to this heading">#</a></h2>
+<section id="due-date-friday-december-15th-by-11-59pm-et">
+<h3>Due date: Friday, December 15th, by 11:59pm ET<a class="headerlink" href="#due-date-friday-december-15th-by-11-59pm-et" title="Permalink to this heading">#</a></h3>
+<p>Precise submission instructions will be posted later.</p>
+</section>
 <section id="overall-scope">
 <h3>Overall scope<a class="headerlink" href="#overall-scope" title="Permalink to this heading">#</a></h3>
 <p>There are two goals of the final report:</p>
@@ -484,17 +490,25 @@ document.write(`
 </section>
 <section id="notebook-structure-same-as-a-normal-written-report-would-be">
 <h3>Notebook structure: same as a normal written report would be<a class="headerlink" href="#notebook-structure-same-as-a-normal-written-report-would-be" title="Permalink to this heading">#</a></h3>
-<p>Though it is written as an interactive Jupyter Notebook, your final report should be organized and read as if it were a standard scientific report written in say Microsoft Word or LaTeX.  This means is should:</p>
+<p>Though it is written as an interactive Jupyter Notebook, your final report should be organized and read as if it were a standard scientific report written in say Microsoft Word or LaTeX.  This means it should:</p>
 <ul class="simple">
 <li><p>be organized into labeled and numbered sections and subsections (Use hash-signs in markdown cells for this: starting a line with <code class="docutils literal notranslate"><span class="pre">#</span></code> makes it a top-level heading; <code class="docutils literal notranslate"><span class="pre">##</span></code> 2nd level heading, <code class="docutils literal notranslate"><span class="pre">###</span></code> 3rd level, etc.)</p></li>
 <li><p>be written in complete English sentences, organized into paragraphs and sections.</p></li>
 <li><p>be free of grammatical, spelling, or other similar errors.</p></li>
 </ul>
-<p>Perhaps a useful way to think about it is: imagine that the code blocks were stripped out, and only their outputs kept.  The resulting document should look and read basically like a standard final report would look and read.</p>
+<p>Perhaps a useful way to think about it is: imagine that the code blocks were stripped out, and only their outputs kept.  The resulting document should look and read basically like an old-school printed final report would look and read.</p>
 </section>
-<section id="incomplete-required-calculations-to-incorporate">
-<h3>(incomplete) Required calculations to incorporate<a class="headerlink" href="#incomplete-required-calculations-to-incorporate" title="Permalink to this heading">#</a></h3>
-<p>(Things that are on this list will not be removed, but additional items will be added as we cover them in class.  You will be notified when the list is fully finalized.)</p>
+<section id="code-blocks-excess-code-style-commenting-etc">
+<h3>Code blocks: excess code, style, commenting, etc.<a class="headerlink" href="#code-blocks-excess-code-style-commenting-etc" title="Permalink to this heading">#</a></h3>
+<p>Your code should be pruned down to only the lines required to generate the values you report and plots that you generate.  <em>All other blocks or lines of code should be removed!</em>  Otherwise it makes understanding and ultimately grading your code much more difficult.</p>
+<p>Adding explanatory comments or adhering to style conventions is less important.  Of course, you are encouraged to include helpful comments as appropriate and to use style-enforcement tools such as <a class="reference external" href="https://github.com/psf/black">black</a> (which you can configure to automatically run your whole notebook via the <a class="reference external" href="https://github.com/ryantam626/jupyterlab_code_formatter">jupyterlab_code_formatter</a> tool.</p>
+</section>
+<section id="required-calculations-to-incorporate">
+<h3>Required calculations to incorporate<a class="headerlink" href="#required-calculations-to-incorporate" title="Permalink to this heading">#</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Things that are on this list will not be removed, but additional items will be added as we cover them in class.  You will be notified when the list is fully finalized.</p>
+</div>
 <p>The following calculations <strong>must</strong> be executed, presented, and described:</p>
 <p>From Intro and numeracy:</p>
 <ul class="simple">
@@ -535,6 +549,16 @@ document.write(`
 <section id="in-class-presentation">
 <h2>In-class presentation<a class="headerlink" href="#in-class-presentation" title="Permalink to this heading">#</a></h2>
 <p>Each student will present a “conference-style” oral presentation to the class summarizing their final project.  “Conference style” means that it follows the format of a standard oral presentation typical of major conferences in Earth Sciences such as the <a class="reference external" href="https://www.agu.org/">American Geophysical Union</a> <a class="reference external" href="https://www.agu.org/Fall-Meeting">Fall Meeting</a> and the <a class="reference external" href="https://www.ametsoc.org">American Meteorological Society</a> <a class="reference external" href="https://annual.ametsoc.org">Annual Meeting</a>.</p>
+<section id="deadlines">
+<h3>Deadlines<a class="headerlink" href="#deadlines" title="Permalink to this heading">#</a></h3>
+<p>You must submit your final slides before midnight the night prior to your presentation.  So that’s:</p>
+<ul class="simple">
+<li><p>Sunday, December 3rd by 11:59pm if you’re presenting on 12/4</p></li>
+<li><p>Tuesday, December 5th by 11:58pm if you’re presenting on 12/6</p></li>
+</ul>
+<p>Specific submission instructions will be posted later.</p>
+<p>The professor will download the submitted slides to his computer the morning before class, and everyone will use the same computer to present (rather than each person trying to connect their own computer to the A/V system one after the other).</p>
+</section>
 <section id="format">
 <h3>Format<a class="headerlink" href="#format" title="Permalink to this heading">#</a></h3>
 <p>Conference style means the following:</p>
@@ -561,6 +585,10 @@ document.write(`
 </section>
 <section id="guidelines">
 <h3>Guidelines<a class="headerlink" href="#guidelines" title="Permalink to this heading">#</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Everything in this section is meant to be helpful, but none of it is strictly required.  You can deviate from e.g. the slide template if you feel like your presentation will be better served by a different structure.</p>
+</div>
 <section id="presentation-scope">
 <h4>Presentation scope<a class="headerlink" href="#presentation-scope" title="Permalink to this heading">#</a></h4>
 <p>Whereas the written report for this project is meant to be fairly exhaustive, where you document <em>all</em> the important analyses that you performed, an oral presentation has to be more targeted.  Eight minutes will fly by!  So ask yourself: if you had to pick just <em>one</em> thing that you want to convey about your project, what would it be?  Then build your talk around that.</p>
@@ -579,18 +607,16 @@ then tell them what you’ve said.</p>
 <p class="attribution">—Dale Carnegie</p>
 </div></blockquote>
 <p>(source: <a class="reference external" href="https://www.genardmethod.com/blog/bid/192061/how-to-open-a-presentation-tell-em-what-you-re-going-to-say">https://www.genardmethod.com/blog/bid/192061/how-to-open-a-presentation-tell-em-what-you-re-going-to-say</a>)</p>
-<p>A good rule of thumb is 1 minute per slide <em>on average</em> over your whole presentation.  So for an 8 minute talk (not 10!  the last 2 are for Q&amp;A), you should aim for 10 slides.  This suggests the following template:</p>
+<p>A good rule of thumb is 1 minute per slide <em>on average</em> over your whole presentation.  So for an 8 minute talk (not 10!  the last 2 are for Q&amp;A), you should aim for 8 slides.  This suggests the following template:</p>
 <ol class="arabic simple">
 <li><p>Title slide: who are you, what’s the overall topic you’ll be presenting</p></li>
 <li><p>Motivation: what is the big-picture topic you’re addressing, and why is it important and/or interesting?  (I.e. why should we care?)</p></li>
-<li><p>Introduction of your specific analyses: what, in broad strokes, did <em>you</em> do to address it?</p></li>
-<li><p>Talk outline (“tell the audience what you’re going to say”): <span class="math notranslate nohighlight">\(\leq\)</span>1 sentence summary of each of your <span class="math notranslate nohighlight">\(\leq\)</span>3 main points</p></li>
+<li><p>Introducing your project (what, in broad strokes, did <em>you</em> do to address the topic?) and talk outline (“tell the audience what you’re going to say”): <span class="math notranslate nohighlight">\(\leq\)</span>1 sentence summary of each of your <span class="math notranslate nohighlight">\(\leq\)</span>3 main points. (In a longer talk, these would be split into separate slides.)</p></li>
 <li><p>Main point 1</p></li>
 <li><p>More on main point 1</p></li>
 <li><p>Main point 2</p></li>
-<li><p>More on main point 2</p></li>
-<li><p>Recap (“tell them what you’ve said”): this can be <em>identical</em> to your outline slide: hammer home the key takeaways</p></li>
-<li><p>Discussion: where is this going / could this go from here?  What are the implications?</p></li>
+<li><p>More on main point 2 (or maybe a 3rd main point if you have it.)</p></li>
+<li><p>Recap (“tell them what you’ve said”) and Discussion (Where is this going / could this go from here?  What are the implications?)  (In a longer talk, these would be split into separate slides.)</p></li>
 </ol>
 </section>
 <section id="slides">
@@ -624,15 +650,6 @@ then tell them what you’ve said.</p>
 <li><p>Once you’ve confirmed you understand what they’re asking, take a second (or a few)!  There’s no</p></li>
 <li><p>If you don’t know the answer to a question, that’s OK!</p></li>
 </ul>
-</section>
-<section id="deadlines">
-<h3>Deadlines<a class="headerlink" href="#deadlines" title="Permalink to this heading">#</a></h3>
-<p>You must submit your final slides before midnight the night prior to your presentation.  So that’s:</p>
-<ul class="simple">
-<li><p>Sunday, December 3rd by 11:59pm if you’re presenting on 12/4</p></li>
-<li><p>Tuesday, December 5th by 11:58pm if you’re presenting on 12/6</p></li>
-</ul>
-<p>The professor will download the submitted slides to his computer the morning before class, and everyone will use the same computer to present (rather than each person trying to connect their own computer to the A/V system one after the other).</p>
 </section>
 <section id="grading-your-presentation">
 <h3>Grading, your presentation<a class="headerlink" href="#grading-your-presentation" title="Permalink to this heading">#</a></h3>
@@ -721,14 +738,17 @@ then tell them what you’ve said.</p>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#final-report">Final report</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#due-date-friday-december-15th-by-11-59pm-et">Due date: Friday, December 15th, by 11:59pm ET</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overall-scope">Overall scope</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#format-jupyter-notebook">Format: Jupyter Notebook</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notebook-contents">Notebook contents</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notebook-structure-same-as-a-normal-written-report-would-be">Notebook structure: same as a normal written report would be</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#incomplete-required-calculations-to-incorporate">(incomplete) Required calculations to incorporate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-blocks-excess-code-style-commenting-etc">Code blocks: excess code, style, commenting, etc.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#required-calculations-to-incorporate">Required calculations to incorporate</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-class-presentation">In-class presentation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deadlines">Deadlines</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#format">Format</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logistics">Logistics</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#presentation-requirements">Presentation requirements</a></li>
@@ -741,7 +761,6 @@ then tell them what you’ve said.</p>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#delivering-the-presentation">Delivering the presentation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#answering-questions">Answering questions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deadlines">Deadlines</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grading-your-presentation">Grading, your presentation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grading-participation">Grading, participation</a></li>
 </ul>
