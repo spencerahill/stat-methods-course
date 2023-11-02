@@ -168,8 +168,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../lectures/descriptive-statistics.html">2. Descriptive Statistics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/probability-theory.html">3. Probability theory</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/hypothesis-tests.html">4. Hypothesis testing</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="../lectures/linear-regression.html">6. Linear regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/linear-regression.html">5. Linear regression</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="current nav bd-sidenav">
@@ -177,6 +176,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">2. Generating core data visualizations on the Central Park weather dataset in Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hw-probability.html">3. Key concepts from probability theory and empirical probabilities computed from the Central Park weather dataset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hw-hypoth-tests.html">4. Probability distributions and hypothesis tests homework assignment</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Final Project</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../final-project/final-project.html">Final project requirements</a></li>
 </ul>
 
     </div>
@@ -830,21 +833,21 @@ dl.xr-attrs {
   fill: currentColor;
 }
 </style><pre class='xr-text-repr-fallback'>&lt;xarray.DataArray &#x27;toy&#x27; (time: 56520)&gt;
-array([-1.49221025,  0.08973906,  1.20206772, ..., -0.73087343,
-        1.69688405, -0.81205706])
+array([-1.32632522,  0.40605013,  0.26020098, ...,  0.38601565,
+       -0.08651636,  1.08150576])
 Coordinates:
-  * time     (time) datetime64[ns] 1869-01-01 1869-01-02 ... 2023-09-30</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'toy'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 56520</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-595810ca-5acc-4ab3-a339-65e840e5678a' class='xr-array-in' type='checkbox' checked><label for='section-595810ca-5acc-4ab3-a339-65e840e5678a' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>-1.492 0.08974 1.202 -0.3003 -0.1779 ... 1.063 -0.7309 1.697 -0.8121</span></div><div class='xr-array-data'><pre>array([-1.49221025,  0.08973906,  1.20206772, ..., -0.73087343,
-        1.69688405, -0.81205706])</pre></div></div></li><li class='xr-section-item'><input id='section-79fafe8f-8dea-46d7-95e6-1971047b5fb6' class='xr-section-summary-in' type='checkbox'  checked><label for='section-79fafe8f-8dea-46d7-95e6-1971047b5fb6' class='xr-section-summary' >Coordinates: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1869-01-01 ... 2023-09-30</div><input id='attrs-a6e1d568-fc7b-4b2a-989f-9483c923cf2b' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-a6e1d568-fc7b-4b2a-989f-9483c923cf2b' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-84d9348a-fd94-46d0-aac3-3d915eb4244d' class='xr-var-data-in' type='checkbox'><label for='data-84d9348a-fd94-46d0-aac3-3d915eb4244d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([&#x27;1869-01-01T00:00:00.000000000&#x27;, &#x27;1869-01-02T00:00:00.000000000&#x27;,
+  * time     (time) datetime64[ns] 1869-01-01 1869-01-02 ... 2023-09-30</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'toy'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 56520</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-3516605c-1803-44e9-9985-16c3b6374ae0' class='xr-array-in' type='checkbox' checked><label for='section-3516605c-1803-44e9-9985-16c3b6374ae0' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>-1.326 0.4061 0.2602 0.9583 -0.6024 ... -0.1437 0.386 -0.08652 1.082</span></div><div class='xr-array-data'><pre>array([-1.32632522,  0.40605013,  0.26020098, ...,  0.38601565,
+       -0.08651636,  1.08150576])</pre></div></div></li><li class='xr-section-item'><input id='section-a20e188b-5770-4296-95a3-ccd580bba4d5' class='xr-section-summary-in' type='checkbox'  checked><label for='section-a20e188b-5770-4296-95a3-ccd580bba4d5' class='xr-section-summary' >Coordinates: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1869-01-01 ... 2023-09-30</div><input id='attrs-660de72e-a119-434b-913d-50258518e088' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-660de72e-a119-434b-913d-50258518e088' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-750debeb-1135-4be8-ae98-923c282b0634' class='xr-var-data-in' type='checkbox'><label for='data-750debeb-1135-4be8-ae98-923c282b0634' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([&#x27;1869-01-01T00:00:00.000000000&#x27;, &#x27;1869-01-02T00:00:00.000000000&#x27;,
        &#x27;1869-01-03T00:00:00.000000000&#x27;, ..., &#x27;2023-09-28T00:00:00.000000000&#x27;,
        &#x27;2023-09-29T00:00:00.000000000&#x27;, &#x27;2023-09-30T00:00:00.000000000&#x27;],
-      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-7dd3ce3c-bfd4-4bfe-b09d-6406f55eae72' class='xr-section-summary-in' type='checkbox'  ><label for='section-7dd3ce3c-bfd4-4bfe-b09d-6406f55eae72' class='xr-section-summary' >Indexes: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-ee71864f-9d1a-4f19-a8c8-85dab630ff21' class='xr-index-data-in' type='checkbox'/><label for='index-ee71864f-9d1a-4f19-a8c8-85dab630ff21' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;1869-01-01&#x27;, &#x27;1869-01-02&#x27;, &#x27;1869-01-03&#x27;, &#x27;1869-01-04&#x27;,
+      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-9fcc128e-479a-42f2-bc53-47564c6a6c00' class='xr-section-summary-in' type='checkbox'  ><label for='section-9fcc128e-479a-42f2-bc53-47564c6a6c00' class='xr-section-summary' >Indexes: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-9e059daa-c8b9-418b-8ca7-779e0c1a95fc' class='xr-index-data-in' type='checkbox'/><label for='index-9e059daa-c8b9-418b-8ca7-779e0c1a95fc' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;1869-01-01&#x27;, &#x27;1869-01-02&#x27;, &#x27;1869-01-03&#x27;, &#x27;1869-01-04&#x27;,
                &#x27;1869-01-05&#x27;, &#x27;1869-01-06&#x27;, &#x27;1869-01-07&#x27;, &#x27;1869-01-08&#x27;,
                &#x27;1869-01-09&#x27;, &#x27;1869-01-10&#x27;,
                ...
                &#x27;2023-09-21&#x27;, &#x27;2023-09-22&#x27;, &#x27;2023-09-23&#x27;, &#x27;2023-09-24&#x27;,
                &#x27;2023-09-25&#x27;, &#x27;2023-09-26&#x27;, &#x27;2023-09-27&#x27;, &#x27;2023-09-28&#x27;,
                &#x27;2023-09-29&#x27;, &#x27;2023-09-30&#x27;],
-              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, length=56520, freq=None))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-3d38a82b-537a-48c4-bee5-f05535ac7103' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-3d38a82b-537a-48c4-bee5-f05535ac7103' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
+              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, length=56520, freq=None))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-6d4ba7c6-9750-479a-94b5-1271a8efd25a' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-6d4ba7c6-9750-479a-94b5-1271a8efd25a' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
 </div>
 <p>Now, create the plots:</p>
 <div class="cell docutils container">
@@ -871,7 +874,7 @@ Coordinates:
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;count [unitless]&#39;)
 </pre></div>
 </div>
-<img alt="../_images/8c913faecc31acf85fecdb881c143467021105a752ee61aa1653030060ae6337.png" src="../_images/8c913faecc31acf85fecdb881c143467021105a752ee61aa1653030060ae6337.png" />
+<img alt="../_images/cc3ecfb7a4e37ebbb5a01013b6fb52edcd6b759398e3b64e8da01044e6daaee6.png" src="../_images/cc3ecfb7a4e37ebbb5a01013b6fb52edcd6b759398e3b64e8da01044e6daaee6.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -886,7 +889,7 @@ Coordinates:
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;toy data [unitless]&#39;)
 </pre></div>
 </div>
-<img alt="../_images/25d047eb170bb2bfd22341b9c910529c7091f1f6b269ef77b8e1f32dff73c27e.png" src="../_images/25d047eb170bb2bfd22341b9c910529c7091f1f6b269ef77b8e1f32dff73c27e.png" />
+<img alt="../_images/0c8c22a84858bad477de554967838c36b6c61ecece8455104ffffa85e52e01c1.png" src="../_images/0c8c22a84858bad477de554967838c36b6c61ecece8455104ffffa85e52e01c1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -902,7 +905,7 @@ Coordinates:
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;toy data [unitless]&#39;)
 </pre></div>
 </div>
-<img alt="../_images/fc8c03b7194818673447319a263813bdfe46d5cbff513962f4734923ad15160a.png" src="../_images/fc8c03b7194818673447319a263813bdfe46d5cbff513962f4734923ad15160a.png" />
+<img alt="../_images/6253f57365cdd41ab31832ec6dc61bdd720de634fc33374c201171e50a3c8553.png" src="../_images/6253f57365cdd41ab31832ec6dc61bdd720de634fc33374c201171e50a3c8553.png" />
 </div>
 </div>
 <p>There you go.  (We’ll return to scatterplots further below.)</p>
@@ -934,7 +937,7 @@ Coordinates:
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0.98, &#39;Histogram, box-and-whisker, and timeseries plots of the toy array&#39;)
 </pre></div>
 </div>
-<img alt="../_images/773372006d74d15ac3cd756781fc9389c1e60cfbe84badb27c6ba5b731588d34.png" src="../_images/773372006d74d15ac3cd756781fc9389c1e60cfbe84badb27c6ba5b731588d34.png" />
+<img alt="../_images/b7a57b99d15561e313c92dc032f6647433f37cfe688d7ab9ec84b95cc20616e9.png" src="../_images/b7a57b99d15561e313c92dc032f6647433f37cfe688d7ab9ec84b95cc20616e9.png" />
 </div>
 </div>
 <section id="if-you-re-using-the-netcdf4-package">

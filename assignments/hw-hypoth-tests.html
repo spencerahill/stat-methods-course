@@ -66,6 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'assignments/hw-hypoth-tests';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Final project requirements" href="../final-project/final-project.html" />
     <link rel="prev" title="3. Key concepts from probability theory and empirical probabilities computed from the Central Park weather dataset" href="hw-probability.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -169,8 +170,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../lectures/descriptive-statistics.html">2. Descriptive Statistics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/probability-theory.html">3. Probability theory</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/hypothesis-tests.html">4. Hypothesis testing</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="../lectures/linear-regression.html">6. Linear regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/linear-regression.html">5. Linear regression</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="current nav bd-sidenav">
@@ -178,6 +178,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="hw-data-viz.html">2. Generating core data visualizations on the Central Park weather dataset in Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hw-probability.html">3. Key concepts from probability theory and empirical probabilities computed from the Central Park weather dataset</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">4. Probability distributions and hypothesis tests homework assignment</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Final Project</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../final-project/final-project.html">Final project requirements</a></li>
 </ul>
 
     </div>
@@ -407,12 +411,10 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#write-your-own-function-s-for-computing-t-tests">4.3. Write your own function(s) for computing <span class="math notranslate nohighlight">\(t\)</span> tests</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extra-credit">4.4. Extra credit</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-the-t-test-for-two-or-more-salient-differences-in-mean-for-your-final-project">4.4.1. Compute the <span class="math notranslate nohighlight">\(t\)</span> test for two or more salient differences-in-mean for your final project.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-dedicated-conda-environment-for-this-course">4.4.2. Create a dedicated conda environment for this course</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-submit">4.5. How to submit</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#do-not-call-pip-conda-or-any-shell-commands-in-your-notebook">4.5.1. Do NOT call <code class="docutils literal notranslate"><span class="pre">pip</span></code>, <code class="docutils literal notranslate"><span class="pre">conda</span></code>, or any shell commands in your notebook</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-submit">4.5. How to submit</a></li>
 </ul>
             </nav>
         </div>
@@ -432,7 +434,7 @@ document.write(`
 <h2><span class="section-number">4.1. </span>Compare the <span class="math notranslate nohighlight">\(t\)</span> and normal distributions<a class="headerlink" href="#compare-the-t-and-normal-distributions" title="Permalink to this heading">#</a></h2>
 <p>In class, we learned that for hypothesis testing of differences in means, the test statistic is called Student’s <span class="math notranslate nohighlight">\(t\)</span> or just <span class="math notranslate nohighlight">\(t\)</span>.  The <span class="math notranslate nohighlight">\(t\)</span> distribution is similar but not identical to the standard normal distribution, especially for small sample sizes.  Its exact shape depends on the <em>degrees of freedom</em>, denoted <span class="math notranslate nohighlight">\(\nu\)</span>.  For the difference in two means, this is simply <span class="math notranslate nohighlight">\(\nu=N_1+N_2-2\)</span>, where <span class="math notranslate nohighlight">\(N_1\)</span> and <span class="math notranslate nohighlight">\(N_2\)</span> are the sample sizes of the first and second samples, respectively.</p>
 <p>Using <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.t.html#scipy.stats.t">scipy.stats.t.pdf</a> and <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.norm.html#scipy.stats.norm">scipy.stats.norm.pdf</a>,
-plot the PDFs of both distributions spanning from -5 to 5.  For the <span class="math notranslate nohighlight">\(t\)</span> distribution, overlay 3 different versions on the same axes: <span class="math notranslate nohighlight">\(\nu=1, 10, and 100\)</span>.  Add a legend labeling each of these and the normal.</p>
+plot the PDFs of both distributions spanning from -5 to 5.  For the <span class="math notranslate nohighlight">\(t\)</span> distribution, overlay 3 different versions on the same axes: <span class="math notranslate nohighlight">\(\nu=1, 10\)</span>, and <span class="math notranslate nohighlight">\(100\)</span>.  Add a legend labeling each of these and the normal.</p>
 <p>This demonstrates that, as the sample sizes grow, the <span class="math notranslate nohighlight">\(t\)</span> distribution increasingly is well approximated by the standard normal.  (In fact, it holds mathematically that the <span class="math notranslate nohighlight">\(t\)</span> distribution approaches the standard normal exactly as <span class="math notranslate nohighlight">\(\nu\rightarrow\infty\)</span>.)</p>
 </section>
 <section id="find-the-most-helpful-online-resources-on-t-tests-you-can-find">
@@ -447,7 +449,10 @@ plot the PDFs of both distributions spanning from -5 to 5.  For the <span class=
 <li><p>Describe one or more things that each resource did <em>not</em> help you with, either because it was missing or was included but you’re still unclear on it.</p></li>
 <li><p>Rank the three resources from least helpful to most helpful for you, and explain your ranking.</p></li>
 </ul>
-<p><strong>Note: for this particular assignment, do NOT include ChatGPT or other related tools.</strong>  They will be the focus of a subsequent assignment.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For this particular assignment, don’t include ChatGPT or other related tools.  They are great, but they will be the focus of a subsequent assignment.</p>
+</div>
 </section>
 <section id="write-your-own-function-s-for-computing-t-tests">
 <h2><span class="section-number">4.3. </span>Write your own function(s) for computing <span class="math notranslate nohighlight">\(t\)</span> tests<a class="headerlink" href="#write-your-own-function-s-for-computing-t-tests" title="Permalink to this heading">#</a></h2>
@@ -493,18 +498,52 @@ plot the PDFs of both distributions spanning from -5 to 5.  For the <span class=
 <h3><span class="section-number">4.4.1. </span>Compute the <span class="math notranslate nohighlight">\(t\)</span> test for two or more salient differences-in-mean for your final project.<a class="headerlink" href="#compute-the-t-test-for-two-or-more-salient-differences-in-mean-for-your-final-project" title="Permalink to this heading">#</a></h3>
 <p>Find at least two pairs of sample means from your datasets whose difference are scientifically interesting for your project.  Perform the <span class="math notranslate nohighlight">\(t\)</span> test for each.  Report the numerical values of the <span class="math notranslate nohighlight">\(t\)</span> statistic, <span class="math notranslate nohighlight">\(p\)</span> value, degrees of freedom.  Describe your interpretation of the <span class="math notranslate nohighlight">\(t\)</span> test from a statistical perspective.  Also describe your interpretaiton from a physical/scientific perspective.</p>
 </section>
+<section id="create-a-dedicated-conda-environment-for-this-course">
+<h3><span class="section-number">4.4.2. </span>Create a dedicated conda environment for this course<a class="headerlink" href="#create-a-dedicated-conda-environment-for-this-course" title="Permalink to this heading">#</a></h3>
+<p>The <a class="reference internal" href="../info/resources.html"><span class="doc std std-doc">Resources</span></a> page explains why it’s a good idea to create separate virtual environments for different projects/classes/ etc. using the Anaconda/conda environment manager.  For this extra credit opportunity, create a dedicated environment using Anaconda Navigator or the conda command line tool.  The environment must be created specifically for this purpose; you could name it <code class="docutils literal notranslate"><span class="pre">eas42000</span></code> or <code class="docutils literal notranslate"><span class="pre">eas-a4200</span></code> for example.</p>
+<p>To show that you have done this, include the following cell in your notebook.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">jupyter_core</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Python executable: </span><span class="si">{</span><span class="n">sys</span><span class="o">.</span><span class="n">executable</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Jupyter location: </span><span class="si">{</span><span class="n">jupyter_core</span><span class="o">.</span><span class="vm">__file__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;Currently active conda environment: </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;CONDA_DEFAULT_ENV&quot;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Python executable: /Users/sah2249/miniconda3/envs/stat-methods-course/bin/python
+Jupyter location: /Users/sah2249/miniconda3/envs/stat-methods-course/lib/python3.11/site-packages/jupyter_core/__init__.py
+Currently active conda environment: stat-methods-course
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When I run your notebook, it will be overwritten with the values on my own computer, the ones printed below the cell just below.  But I keep a copy of your original submissions, and from there I can see what it outputted on your machine.)</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>On subsequent assignments, this will be <em>mandatory</em>, not extra credit.  So if you do it now, you get bonus points for something that you’ll end up have to do anyways later.  And you can reuse the same environment for subsequent assignments once you’ve made it…it would be overkill to create a new environment for every single assignment.</p>
+</div>
+</section>
 </section>
 <section id="how-to-submit">
 <h2><span class="section-number">4.5. </span>How to submit<a class="headerlink" href="#how-to-submit" title="Permalink to this heading">#</a></h2>
 <p>The instructions from the last HW all apply for this one, so refer to those (available <a class="reference internal" href="hw-probability.html"><span class="doc std std-doc">here</span></a> under “How to submit”).</p>
-<p>In addition, please read the following carefully:</p>
-<section id="do-not-call-pip-conda-or-any-shell-commands-in-your-notebook">
-<h3><span class="section-number">4.5.1. </span>Do NOT call <code class="docutils literal notranslate"><span class="pre">pip</span></code>, <code class="docutils literal notranslate"><span class="pre">conda</span></code>, or any shell commands in your notebook<a class="headerlink" href="#do-not-call-pip-conda-or-any-shell-commands-in-your-notebook" title="Permalink to this heading">#</a></h3>
+<p>In addition, please read the following Warning block carefully:</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>Do NOT</strong> call <code class="docutils literal notranslate"><span class="pre">pip</span></code>, <code class="docutils literal notranslate"><span class="pre">conda</span></code>, or any shell commands in your notebook.</p>
 <p>Jupyter notebooks are <em>extremely</em> powerful.  With a simple exclamation point (!), you can use a cell block to run not Python code but any shell command.  This could include commands that, for example, download something nefarious from the internet, or delete all the files on my computer.</p>
 <p>As a less extreme example but one that actually has happened, it is possible to call <code class="docutils literal notranslate"><span class="pre">pip</span></code> and <code class="docutils literal notranslate"><span class="pre">conda</span></code> from within your Jupyter notebook.  When your notebook then runs on my computer, this could potentially mess up the package installations I have.</p>
 <p>For this reason, you MUST NOT include any code that calls these or any other command line tools.  And you must not use any of the Python builtin tools that accomplish similar things (such as the <code class="docutils literal notranslate"><span class="pre">subprocess</span></code> package).  If you need to install a package or update an existing one, do so OUTSIDE of your notebook, either from a terminal session or using Anaconda Navigator.</p>
 <p>I have safeguards implemented to identify these kinds of things, but still if any of them are included in your notebook I will automatically deduct 20% of the possible score from your grade.</p>
-</section>
+</div>
 </section>
 </section>
 
@@ -548,6 +587,15 @@ plot the PDFs of both distributions spanning from -5 to 5.  For the <span class=
         <p class="prev-next-title"><span class="section-number">3. </span>Key concepts from probability theory and empirical probabilities computed from the Central Park weather dataset</p>
       </div>
     </a>
+    <a class="right-next"
+       href="../final-project/final-project.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Final project requirements</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div></div>
   
 </div>
@@ -571,12 +619,10 @@ plot the PDFs of both distributions spanning from -5 to 5.  For the <span class=
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#write-your-own-function-s-for-computing-t-tests">4.3. Write your own function(s) for computing <span class="math notranslate nohighlight">\(t\)</span> tests</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extra-credit">4.4. Extra credit</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-the-t-test-for-two-or-more-salient-differences-in-mean-for-your-final-project">4.4.1. Compute the <span class="math notranslate nohighlight">\(t\)</span> test for two or more salient differences-in-mean for your final project.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-dedicated-conda-environment-for-this-course">4.4.2. Create a dedicated conda environment for this course</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-submit">4.5. How to submit</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#do-not-call-pip-conda-or-any-shell-commands-in-your-notebook">4.5.1. Do NOT call <code class="docutils literal notranslate"><span class="pre">pip</span></code>, <code class="docutils literal notranslate"><span class="pre">conda</span></code>, or any shell commands in your notebook</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-submit">4.5. How to submit</a></li>
 </ul>
   </nav></div>
 
