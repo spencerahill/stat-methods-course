@@ -25,18 +25,18 @@ Note that this will be amended / added to as the semester goes on.  And if you h
 
 
 ## Computing
+This course is heavily computational.  The language used is [Python](https://www.python.org/), and most graded work is submitted as executable [Jupyter notebooks](https://jupyter.org/).
 
 ### Python basics
 * Official Python ("docs"): https://www.python.org/doc/ 
 * Official Python beginner's guide: https://wiki.python.org/moin/BeginnersGuide
 
-### Anaconda
+### Anaconda distributions of Python
 Anaconda/conda distributions of python are the strongly recommended way to use python.
 
 * Official website: https://www.anaconda.com/
-* For those on Windows and for anybody new to Python, I recommend installing the Anaconda distribution on your laptop: https://www.anaconda.com/download
+* For those on Windows and for anybody new to Python, I recommend installing the [Anaconda distribution](https://www.anaconda.com/download) on whatever computer you'll be using for this.  This installation includes the [Anaconda Navigator](https://docs.anaconda.com/free/navigator/) GUI.
 * For those on MacOS or Linux with more programming experience, I recommend installing the lightweight "miniconda" distribution instead and learning to work with it from the command line: https://docs.conda.io/projects/miniconda/en/latest/
-
 
 ### Managing python environments and packages
 Benefits of using Python environments rather than a single installation:
