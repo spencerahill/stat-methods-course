@@ -31,6 +31,9 @@ This course is heavily computational.  The language used is [Python](https://www
 * Official Python ("docs"): https://www.python.org/doc/ 
 * Official Python beginner's guide: https://wiki.python.org/moin/BeginnersGuide
 
+### Jupyter
+* Jupyter homepage: https://jupyter.org/
+
 ### Anaconda distributions of Python
 Anaconda/conda distributions of python are the strongly recommended way to use python.
 
@@ -51,5 +54,6 @@ Online resources:
 
 * Managing environments using Anaconda Navigator: https://docs.anaconda.com/free/navigator/tutorials/manage-environments/ 
 * Managing environments using `conda`: https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#create-env-file-manually
+* Conda cheatsheet [PDF](https://docs.conda.io/projects/conda/en/latest/_downloads/843d9e0198f2a193a3484886fa28163c/conda-cheatsheet.pdf)
 * `mamba` drop-in replacement for `conda` (does everything much faster and has additional nice features): https://mamba.readthedocs.io/en/latest/index.html
 
