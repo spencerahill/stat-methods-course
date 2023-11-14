@@ -119,17 +119,17 @@ The textbook sections refer to [*Python Recipes for Earth Sciences* by Martin H.
   - [HW4](../assignments/hw-hypoth-tests) assigned
 * - W 11/1
   - 17
-  - Python environments; Linear regression II
+  - Python environments; final project specs
   -
   - 
 * - M 11/6
   - 18
-  - Time series analysis I
+  -  Linear regression II
   - 5.1
   - [**HW4**](../assignments/hw-hypoth-tests) [**due**](syllabus:hw) Tuesday 11/7 by 10pm; HW5 assigned
 * - W 11/8
   - 19
-  - Time series analysis II
+  - Git and github; Time series analysis I
   -
   -
 * - M 11/13
