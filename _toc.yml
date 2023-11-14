@@ -24,6 +24,7 @@ parts:
       - file: assignments/hw-data-viz
       - file: assignments/hw-probability
       - file: assignments/hw-hypoth-tests
+      - file: assignments/hw-lin-regress-llms
   - caption: Final Project
     numbered: 0
     chapters:
