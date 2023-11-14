@@ -126,27 +126,27 @@ The textbook sections refer to [*Python Recipes for Earth Sciences* by Martin H.
   - 18
   -  Linear regression II
   - 5.1
-  - [**HW4**](../assignments/hw-hypoth-tests) [**due**](syllabus:hw) Tuesday 11/7 by 10pm; HW5 assigned
+  - [**HW4**](../assignments/hw-hypoth-tests) [**due**](syllabus:hw) Tuesday 11/7 by 10pm
 * - W 11/8
   - 19
-  - Git and github; Time series analysis I
+  - ChatGPT
   -
   -
 * - M 11/13
   - 20
-  - Principal component analysis I
+  - Time Series I
   -
-  - **HW5** [**due**](syllabus:hw); HW6 assigned
+  - [HW5](../assignments/hw-lin-regress-llms) assigned
 * - W 11/15
   - 21
-  - Principal component analysis II
+  - Time Series II
   -
   -
 * - M 11/20
   - 22
-  - Extreme value analysis
+  - Time Series III
   - 
-  - **HW6** [**due**](syllabus:hw); HW7 assigned
+  - [**HW5**](../assignments/hw-lin-regress-llms) [**due**](syllabus:hw) by 10pm; response to classmates' post due by 10pm Tuesday 11/21.
 * - W 11/22
   - NO CLASS
   - Happy Thanksgiving!
@@ -154,24 +154,24 @@ The textbook sections refer to [*Python Recipes for Earth Sciences* by Martin H.
   -
 * - M 11/27
   - 23
-  - Cluster analysis
+  - Principal Component Analysis I
   -
-  - **HW7** [**due**](syllabus:hw); HW8 (last one!) assigned
+  - 
 * - W 11/29
   - 24
-  - Review session for Midterm 2
+  - Principal Component Analysis II
   -
   -
 * - M 12/4
   - 25
   - Final project presentations (1st of 2)
   -
-  - **HW8** [**due**](syllabus:hw) *if you are presenting on Wednesday*
+  - 
 * - W 12/6
   - 26
   - Final project presentations (2nd of 2)
   -
-  - **HW8** [**due**](syllabus:hw) *if you presented Monday*
+  - 
 * - M 12/11
   - MT2
   - MIDTERM 2
