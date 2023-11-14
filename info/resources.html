@@ -176,6 +176,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../assignments/hw-data-viz.html">2. Generating core data visualizations on the Central Park weather dataset in Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../assignments/hw-probability.html">3. Key concepts from probability theory and empirical probabilities computed from the Central Park weather dataset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../assignments/hw-hypoth-tests.html">4. Probability distributions and hypothesis tests homework assignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/hw-lin-regress-llms.html">5. Learning more about linear regressions using large-language models</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Final Project</span></p>
 <ul class="nav bd-sidenav">
@@ -384,7 +385,12 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-basics">Python basics</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter">Jupyter</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#anaconda-distributions-of-python">Anaconda distributions of Python</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#managing-python-environments-and-packages">Managing python environments and packages</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#managing-python-environments-and-packages">Managing python environments and packages</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#benefits-of-using-python-environments-rather-than-a-single-installation">Benefits of using Python environments rather than a single installation:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#online-resources">Online resources</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#artificial-intelligence-tools">Artificial intelligence tools</a></li>
 </ul>
 </li>
 </ul>
@@ -460,7 +466,8 @@ document.write(`
 </section>
 <section id="managing-python-environments-and-packages">
 <h3>Managing python environments and packages<a class="headerlink" href="#managing-python-environments-and-packages" title="Permalink to this heading">#</a></h3>
-<p>Benefits of using Python environments rather than a single installation:</p>
+<section id="benefits-of-using-python-environments-rather-than-a-single-installation">
+<h4>Benefits of using Python environments rather than a single installation:<a class="headerlink" href="#benefits-of-using-python-environments-rather-than-a-single-installation" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
 <li><p>Precise control for each class/project/etc. on exactly what packages you want installed.  (Suppose one project you’re working on uses some old legacy code that requires Python 2, whereas at this point everything else runs Python 3.)</p></li>
 <li><p>Via conda/anaconda, automated installation of required non-python dependencies as well</p></li>
@@ -468,12 +475,25 @@ document.write(`
 <li><p>Ability to experiment with updated versions of things without worrying about breaking your stuff.  For example, latest Python version, 3.12, just came out.  Some packages might not have support for it yet, but you can create a dedicated “python312” environment to try it out without worrying about breaking your other stuff</p></li>
 <li><p>Conda environments underlie modern cloud-based data science and scientific computation…Binder, cloud service providers, all of these rely on conda environments</p></li>
 </ul>
-<p>Online resources:</p>
+</section>
+<section id="online-resources">
+<h4>Online resources<a class="headerlink" href="#online-resources" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
 <li><p>Managing environments using Anaconda Navigator: <a class="reference external" href="https://docs.anaconda.com/free/navigator/tutorials/manage-environments/">https://docs.anaconda.com/free/navigator/tutorials/manage-environments/</a></p></li>
 <li><p>Managing environments using <code class="docutils literal notranslate"><span class="pre">conda</span></code>: <a class="reference external" href="https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#create-env-file-manually">https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#create-env-file-manually</a></p></li>
 <li><p>Conda cheatsheet <a class="reference external" href="https://docs.conda.io/projects/conda/en/latest/_downloads/843d9e0198f2a193a3484886fa28163c/conda-cheatsheet.pdf">PDF</a></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">mamba</span></code> drop-in replacement for <code class="docutils literal notranslate"><span class="pre">conda</span></code> (does everything much faster and has additional nice features): <a class="reference external" href="https://mamba.readthedocs.io/en/latest/index.html">https://mamba.readthedocs.io/en/latest/index.html</a></p></li>
+</ul>
+</section>
+</section>
+<section id="artificial-intelligence-tools">
+<h3>Artificial intelligence tools<a class="headerlink" href="#artificial-intelligence-tools" title="Permalink to this heading">#</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>As with any tool that is at all outside of your own brain, you <strong>must</strong> obey any and all rules regarding the use (or prohibition) of AI tools in your coursework, both for this course and any others.  See the <a class="reference internal" href="syllabus.html"><span class="doc std std-doc">syllabus</span></a> for more on this, as well as the equally important concern regarding these tools being used to benefit your learning vs. a crutch that actually impedes it.</p>
+</div>
+<ul class="simple">
+<li><p><a class="reference external" href="https://chat.openai.com">ChatGPT</a></p></li>
 </ul>
 </section>
 </section>
@@ -557,7 +577,12 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-basics">Python basics</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter">Jupyter</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#anaconda-distributions-of-python">Anaconda distributions of Python</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#managing-python-environments-and-packages">Managing python environments and packages</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#managing-python-environments-and-packages">Managing python environments and packages</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#benefits-of-using-python-environments-rather-than-a-single-installation">Benefits of using Python environments rather than a single installation:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#online-resources">Online resources</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#artificial-intelligence-tools">Artificial intelligence tools</a></li>
 </ul>
 </li>
 </ul>

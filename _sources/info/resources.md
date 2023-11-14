@@ -42,18 +42,23 @@ Anaconda/conda distributions of python are the strongly recommended way to use p
 * For those on MacOS or Linux with more programming experience, I recommend installing the lightweight "miniconda" distribution instead and learning to work with it from the command line: https://docs.conda.io/projects/miniconda/en/latest/
 
 ### Managing python environments and packages
-Benefits of using Python environments rather than a single installation:
 
+#### Benefits of using Python environments rather than a single installation:
 * Precise control for each class/project/etc. on exactly what packages you want installed.  (Suppose one project you're working on uses some old legacy code that requires Python 2, whereas at this point everything else runs Python 3.)
 * Via conda/anaconda, automated installation of required non-python dependencies as well 
 * On shared computing clusters where you don't have "root" access, ability to install packages and run things (like Jupyter!) in your home directory rather than having to go through the sysadmin
 * Ability to experiment with updated versions of things without worrying about breaking your stuff.  For example, latest Python version, 3.12, just came out.  Some packages might not have support for it yet, but you can create a dedicated "python312" environment to try it out without worrying about breaking your other stuff
 * Conda environments underlie modern cloud-based data science and scientific computation...Binder, cloud service providers, all of these rely on conda environments 
 
-Online resources:
-
+#### Online resources
 * Managing environments using Anaconda Navigator: https://docs.anaconda.com/free/navigator/tutorials/manage-environments/ 
 * Managing environments using `conda`: https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#create-env-file-manually
 * Conda cheatsheet [PDF](https://docs.conda.io/projects/conda/en/latest/_downloads/843d9e0198f2a193a3484886fa28163c/conda-cheatsheet.pdf)
 * `mamba` drop-in replacement for `conda` (does everything much faster and has additional nice features): https://mamba.readthedocs.io/en/latest/index.html
 
+### Artificial intelligence tools
+:::{warning}
+As with any tool that is at all outside of your own brain, you **must** obey any and all rules regarding the use (or prohibition) of AI tools in your coursework, both for this course and any others.  See the [syllabus](./syllabus) for more on this, as well as the equally important concern regarding these tools being used to benefit your learning vs. a crutch that actually impedes it.
+:::
+
+* [ChatGPT](https://chat.openai.com)
