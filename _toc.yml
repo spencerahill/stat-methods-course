@@ -17,6 +17,7 @@ parts:
       - file: lectures/probability-theory
       - file: lectures/hypothesis-tests
       - file: lectures/linear-regression
+      - file: lectures/timeseries
   - caption: Assignments
     numbered: 4
     chapters:
