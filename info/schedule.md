@@ -114,22 +114,22 @@ The textbook sections refer to [*Python Recipes for Earth Sciences* by Martin H.
   -
 * - M 10/30
   - 16
-  - Linear regression I
+  - Science: Linear regression I
   -
   - [HW4](../assignments/hw-hypoth-tests) assigned
 * - W 11/1
   - 17
-  - Python environments; final project specs
+  - Tech: Python environments; final project specs
   -
   - 
 * - M 11/6
   - 18
-  -  Linear regression II
+  - Science: Linear regression II
   - 5.1
   - [**HW4**](../assignments/hw-hypoth-tests) [**due**](syllabus:hw) Tuesday 11/7 by 10pm
 * - W 11/8
   - 19
-  - ChatGPT
+  - Tech: ChatGPT
   -
   -
 * - M 11/13
@@ -139,13 +139,13 @@ The textbook sections refer to [*Python Recipes for Earth Sciences* by Martin H.
   - [HW5](../assignments/hw-lin-regress-llms) assigned
 * - W 11/15
   - 21
-  - Time Series II
+  - Tech: Git and github
   -
   -
 * - M 11/20
   - 22
-  - Time Series III
-  - 
+  - Time Series II (NO IN-PERSON CLASS; pre-recorded)
+  -
   - [**HW5**](../assignments/hw-lin-regress-llms) [**due**](syllabus:hw) by 10pm; response to classmates' post due by 10pm Tuesday 11/21.
 * - W 11/22
   - NO CLASS
