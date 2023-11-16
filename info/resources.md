@@ -62,3 +62,10 @@ As with any tool that is at all outside of your own brain, you **must** obey any
 :::
 
 * [ChatGPT](https://chat.openai.com)
+
+### Git and Github
+
+* ["Learn git in 15 minutes"](https://www.youtube.com/watch?v=USjZcfj8yxE) YouTube video and [accompanying notes](https://zarkom.notion.site/zarkom/Introduction-to-Git-ac396a0697704709a12b6a0e545db049)
+* ["Learn Github in 20 minutes"](https://www.youtube.com/watch?v=nhNq2kIvi9s) YouTube video and [accompanying notes](https://zarkom.notion.site/zarkom/Introduction-to-GitHub-202af6f64bbd4299b15f238dcd09d2a7)
+* The Github [repository](https://github.com/spencerahill/stat-methods-course) for this course website
+* [Module on git and github](https://geo-python-site.readthedocs.io/en/latest/lessons/L2/git-basics.html) from the [Geo-Python course](https://geo-python-site.readthedocs.io/en/latest/index.html)
