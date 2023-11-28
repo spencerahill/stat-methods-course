@@ -23,7 +23,6 @@ Note that this will be amended / added to as the semester goes on.  And if you h
 * [Geo-Python course](https://geo-python-site.readthedocs.io/en/latest/index.html)
 * [*Statistics for Climate Dynamics* course by Dietmar Dommenget, University of Monash](https://users.monash.edu.au/~dietmard/teaching/statistics-for-climate-reserach/)
 
-
 ## Computing
 This course is heavily computational.  The language used is [Python](https://www.python.org/), and most graded work is submitted as executable [Jupyter notebooks](https://jupyter.org/).
 
@@ -69,3 +68,4 @@ As with any tool that is at all outside of your own brain, you **must** obey any
 * ["Learn Github in 20 minutes"](https://www.youtube.com/watch?v=nhNq2kIvi9s) YouTube video and [accompanying notes](https://zarkom.notion.site/zarkom/Introduction-to-GitHub-202af6f64bbd4299b15f238dcd09d2a7)
 * The Github [repository](https://github.com/spencerahill/stat-methods-course) for this course website
 * [Module on git and github](https://geo-python-site.readthedocs.io/en/latest/lessons/L2/git-basics.html) from the [Geo-Python course](https://geo-python-site.readthedocs.io/en/latest/index.html)
+* [Git cheat sheet](https://education.github.com/git-cheat-sheet-education.pdf) created by GitHub Education
