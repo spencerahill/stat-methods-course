@@ -18,6 +18,7 @@ parts:
       - file: lectures/hypothesis-tests
       - file: lectures/linear-regression
       - file: lectures/timeseries
+      - file: lectures/spectral-analysis
   - caption: Assignments
     numbered: 4
     chapters:
