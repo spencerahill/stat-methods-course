@@ -154,12 +154,12 @@ The textbook sections refer to [*Python Recipes for Earth Sciences* by Martin H.
   -
 * - M 11/27
   - 23
-  - Principal Component Analysis I
+  - Time Series III
   -
   - 
 * - W 11/29
   - 24
-  - Principal Component Analysis II
+  - Time Series IV
   -
   -
 * - M 12/4
