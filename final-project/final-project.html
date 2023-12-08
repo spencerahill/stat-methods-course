@@ -416,7 +416,8 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#final-report">Final report</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#due-date-friday-december-15th-by-11-59pm-et">Due date: Friday, December 15th, by 11:59pm ET</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overall-scope">Overall scope</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#format-jupyter-notebook">Format: Jupyter Notebook</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#report-format-a-jupyter-notebook">Report format: a Jupyter Notebook</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-you-will-submit-the-notebook-itself-plus-a-freshly-executed-version-of-your-notebook-exported-to-html">What you will submit: the notebook itself plus a freshly executed version of your notebook exported to HTML</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notebook-contents">Notebook contents</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notebook-structure-same-as-a-normal-written-report-would-be">Notebook structure: same as a normal written report would be</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-blocks-excess-code-style-commenting-etc">Code blocks: excess code, style, commenting, etc.</a></li>
@@ -486,11 +487,24 @@ document.write(`
 </ol>
 <p>Note, however, that you will not be directly graded on the scientific <em>outcomes</em>.  It could be that your analyses generate statistically unclear signals, even though you did them correctly.  That still is <em>progress</em>: it’s often just as important to know what things are <em>not</em> related as what things <em>are</em> related.</p>
 </section>
-<section id="format-jupyter-notebook">
-<h3>Format: Jupyter Notebook<a class="headerlink" href="#format-jupyter-notebook" title="Permalink to this heading">#</a></h3>
-<p>The final report will be submitted as a Jupyter Notebook.</p>
-<p>It will be bundled together with the data you are using along with an <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> file that specifies all of the python packages that it requires.  With that all together, the professor will be able to execute the whole notebook in order to verify that the calculations work.</p>
-<p>More details on how to bundle the project data and on the <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> file will follow.</p>
+<section id="report-format-a-jupyter-notebook">
+<h3>Report format: a Jupyter Notebook<a class="headerlink" href="#report-format-a-jupyter-notebook" title="Permalink to this heading">#</a></h3>
+<p>You will write the final report as a Jupyter notebook file, with your text as Markdown cells and your analysis code all included as code cells.  See sections further below for style and formatting guidelines.</p>
+</section>
+<section id="what-you-will-submit-the-notebook-itself-plus-a-freshly-executed-version-of-your-notebook-exported-to-html">
+<h3>What you will submit: the notebook itself plus a freshly executed version of your notebook exported to HTML<a class="headerlink" href="#what-you-will-submit-the-notebook-itself-plus-a-freshly-executed-version-of-your-notebook-exported-to-html" title="Permalink to this heading">#</a></h3>
+<p>The steps for submission are:</p>
+<ol class="arabic simple">
+<li><p>Create your report as a Jupyter Notebook.</p></li>
+<li><p>Once your report is 100% ready, reset your Jupyter kernel and re-run the whole notebook from start to finish.  (There is an option under the “Kernel” drop-down that does this for you: “Restart Kernel and run all cells”)</p></li>
+<li><p>At that point, export it to an HTML file using Jupyter’s built-in exporting features.</p></li>
+<li><p>Upload both the original notebook file  (.ipynb) and the HTML export (.html) following the link provided on Blackboard.</p></li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Points <strong>WILL</strong> be deducted if the cell blocks in your notebook output do not show that they were executed all in order immediately following a reset of your kernel.  In other words, the number to the left of the first code cell MUST be <code class="docutils literal notranslate"><span class="pre">[1]</span></code>, the next code block must be <code class="docutils literal notranslate"><span class="pre">[2]</span></code>, etc. etc. until the very end of the notebook.</p>
+<p>The reason for this is to ensure that the results of your code cells aren’t accidentally being affected by running first some cells earlier in your notebook, then others later, etc., which otherwise happens all the time working with Jupyter notebooks.  The only way to be certain this isn’t the case is following step 2 above.</p>
+</div>
 </section>
 <section id="notebook-contents">
 <h3>Notebook contents<a class="headerlink" href="#notebook-contents" title="Permalink to this heading">#</a></h3>
@@ -515,42 +529,52 @@ document.write(`
 <h3>Required calculations to incorporate<a class="headerlink" href="#required-calculations-to-incorporate" title="Permalink to this heading">#</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Things that are on this list will not be removed, but additional items will be added as we cover them in class.  You will be notified when the list is fully finalized.</p>
+<p>This list is now <strong>final</strong>.</p>
 </div>
 <p>The following calculations <strong>must</strong> be executed, presented, and described:</p>
-<p>From Intro and numeracy:</p>
+<p><strong>From Intro and numeracy</strong>:</p>
 <ul class="simple">
-<li><p>thorough explanation of the dataset: time span, location, physical quantities being observed, instruments used to measure them</p></li>
+<li><p>thorough explanation of the dataset: source, time span, location, physical quantities being observed, instruments used to measure them</p></li>
 <li><p>any other salient metadata: e.g. changes in instrumentation, change in location, calibration issues, spatial coverage</p></li>
 </ul>
-<p>From Descriptive statistics:</p>
+<p><strong>From Descriptive statistics</strong>:</p>
 <ul class="simple">
 <li><p>mean and median of at least one key quantity</p></li>
 <li><p>range, IQR, sample variance, sample standard deviation of at least one key quantity</p></li>
 <li><p>skewness and kurtosis of at least one key quantity</p></li>
 </ul>
-<p>From Data visualization:</p>
+<p><strong>From Data visualization</strong>:</p>
 <ul class="simple">
 <li><p>at least one each of: histogram, boxplot, scatterplot, and timeseries (unless the data are not defined in time)</p></li>
 </ul>
-<p>From Probability theory:</p>
+<p><strong>From Probability theory</strong>:</p>
 <ul class="simple">
 <li><p>at least two empirical unconditional probabilities</p></li>
 <li><p>at least two empirical conditional probabilities</p></li>
 </ul>
-<p>From Probability distributions:</p>
+<p><strong>From Probability distributions</strong>:</p>
 <ul class="simple">
 <li><p>empirical PDFs and CDFs</p></li>
 <li><p>a fitted normal distribution</p></li>
 </ul>
-<p>From Hypothesis testing:</p>
+<p><strong>From Hypothesis testing</strong>:</p>
 <ul class="simple">
 <li><p>at least one <span class="math notranslate nohighlight">\(t\)</span> test of differences in means between two samples</p></li>
 </ul>
-<p>From Linear regression:</p>
+<p><strong>From Linear regression</strong>:</p>
 <ul class="simple">
-<li><p>at least two correlation coefficients computed and discussed</p></li>
+<li><p>at least two correlation coefficients</p></li>
 <li><p>at least one variable modeled by linear regression on another variable</p></li>
+</ul>
+<p><strong>From Time series</strong>:</p>
+<ul class="simple">
+<li><p><em>discussion</em> of how the decomposition into deterministic and random components of a time series would be applied to at least one key variable, <em>even though you don’t have to actually perform that decomposition</em></p></li>
+<li><p>calculation and discussion of the autocorrelation function of at least one key variable</p></li>
+</ul>
+<p><strong>From Spectral analysis</strong>:</p>
+<ul class="simple">
+<li><p>a periodogram computed, plotted, and discussed for at least one key variable</p></li>
+<li><p>a running average applied to your periodogram</p></li>
 </ul>
 </section>
 </section>
@@ -798,7 +822,8 @@ then tell them what you’ve said.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#final-report">Final report</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#due-date-friday-december-15th-by-11-59pm-et">Due date: Friday, December 15th, by 11:59pm ET</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overall-scope">Overall scope</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#format-jupyter-notebook">Format: Jupyter Notebook</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#report-format-a-jupyter-notebook">Report format: a Jupyter Notebook</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-you-will-submit-the-notebook-itself-plus-a-freshly-executed-version-of-your-notebook-exported-to-html">What you will submit: the notebook itself plus a freshly executed version of your notebook exported to HTML</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notebook-contents">Notebook contents</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notebook-structure-same-as-a-normal-written-report-would-be">Notebook structure: same as a normal written report would be</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-blocks-excess-code-style-commenting-etc">Code blocks: excess code, style, commenting, etc.</a></li>
